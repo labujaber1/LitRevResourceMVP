@@ -1,0 +1,258 @@
+﻿using System;
+using System.Windows.Forms;
+
+
+namespace LitRevResourceMVP.Views
+{
+    public partial class ResourceView : Form, IResourceView
+    {
+        //fields
+        private string message;
+        private bool isSuccessful;
+        private bool isEdit;
+
+        //events
+        //used in tab1 main resource view
+        public event EventHandler SearchEvent;
+        public event EventHandler AddNewEvent;
+        public event EventHandler DeleteEvent;
+        public event EventHandler EditEvent;
+        public event EventHandler BackToMainEvent;
+        //used in tab2 add/edit resource
+        public event EventHandler CreateReferenceEvent;
+        public event EventHandler SaveEvent;
+        public event EventHandler CancelEvent;
+        public event LinkLabelLinkClickedEventHandler LinkLabelEvent;
+
+        //used in tab4 main view to select assignment for tab1
+        public event EventHandler ViewResourcesEvent;
+
+
+        //constructor
+        public ResourceView()
+        {
+            InitializeComponent();
+            AssociateAndRaiseViewEvents();
+            Tbcl_ResourceList.TabPages.Remove(tabPage2);    //edit resource
+            Tbcl_ResourceList.TabPages.Remove(tabPage3);    //add reference (may not develope here but add as seperate app)
+            //Tbcl_ResourceList.TabPages.Remove(tabPage1);    //view resources    
+            Tbcl_ResourceList.TabPages.Remove(tabPage4);   //main page select assign to get resources
+
+            
+        }
+
+
+        private void AssociateAndRaiseViewEvents()
+        {
+            //used in tab1 select resource
+            
+            Btn_Search.Click += delegate { SearchEvent?.Invoke(this, EventArgs.Empty); };
+            Tbx_Search.KeyDown += (s, e) =>
+            {
+                if (e.KeyCode == Keys.Enter)
+                    SearchEvent?.Invoke(this, EventArgs.Empty);
+            };
+
+            //tab4 events
+            //open tab1 (list resources)
+            Btn_ViewAssignResources.Click += delegate
+            {
+                ViewResourcesEvent?.Invoke(this, EventArgs.Empty);
+                Tbcl_ResourceList.TabPages.Remove(tabPage4);
+                Tbcl_ResourceList.TabPages.Add(tabPage1);
+
+            };
+
+
+            //tab1 events
+
+            //Close tab1 and open tab4 (main)
+            Btn_BackToMain.Click += delegate
+            {
+                BackToMainEvent?.Invoke(this, EventArgs.Empty);
+                Tbcl_ResourceList.TabPages.Remove(tabPage1);
+                Tbcl_ResourceList.TabPages.Add(tabPage4);
+
+            };
+
+
+            Btn_AddNew.Click += delegate 
+            {
+                AddNewEvent?.Invoke(this, EventArgs.Empty);
+                Tbcl_ResourceList.TabPages.Remove(tabPage1);
+                Tbcl_ResourceList.TabPages.Add(tabPage2);
+                
+            };
+
+            Btn_Delete.Click += delegate 
+            { 
+                var result = MessageBox.Show("Are you sure you want to delete the resource?", "Warning",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if(result == DialogResult.Yes)
+                {
+                    DeleteEvent?.Invoke(this, EventArgs.Empty);
+                    MessageBox.Show(Message);
+                }
+            };
+
+            Btn_Edit.Click += delegate 
+            {
+                EditEvent?.Invoke(this, EventArgs.Empty);
+                Tbcl_ResourceList.TabPages.Remove(tabPage1);
+                Tbcl_ResourceList.TabPages.Add(tabPage2);
+            };
+
+            ////used in tab2 add/edit resource
+            Lklbl_WebLink.Click += delegate
+            {
+                LinkLabelEvent?.DynamicInvoke(this, LinkLabelLinkClickedEventArgs.Empty); //error expecting eventargs
+                //ActiveWebLinkEvent?.Invoke(this, EventArgs.Empty);
+            };
+
+
+            Btn_CreateAddRef.Click += delegate 
+            {
+                CreateReferenceEvent?.Invoke(this, EventArgs.Empty);
+                Tbcl_ResourceList.TabPages.Remove(tabPage2);
+                Tbcl_ResourceList.TabPages.Add(tabPage3);
+            };
+
+            
+            Btn_Save.Click += delegate 
+            {
+                SaveEvent?.Invoke(this, EventArgs.Empty);
+                if (isSuccessful)
+                {
+                    Tbcl_ResourceList.TabPages.Remove(tabPage2);
+                    Tbcl_ResourceList.TabPages.Add(tabPage1);
+                }
+                MessageBox.Show(Message);
+            };
+
+            Btn_Cancel.Click += delegate 
+            {
+                CancelEvent?.Invoke(this, EventArgs.Empty);
+                Tbcl_ResourceList.TabPages.Remove(tabPage2);
+                Tbcl_ResourceList.TabPages.Add(tabPage1);
+            };
+            
+        }
+
+        //properties
+        public string ResIdNum
+        {
+            get { return Tbx_IdNum.Text; }
+            set { Tbx_IdNum.Text = value; }
+        }
+        public string ResWebLink
+        {
+            get { return Tbx_WebLink.Text; }
+            set { Tbx_WebLink.Text = value; }
+        }
+        public LinkLabel ActiveWebLink
+        {
+            get { return Lklbl_WebLink; }
+            set { Lklbl_WebLink = value; }
+        }
+        public string ResType
+        {
+            get { return Tbx_Type.Text; }
+            set { Tbx_Type.Text = value; }
+        }
+        public string ResDoiNum
+        {
+            get { return Tbx_DoiNum.Text; }
+            set { Tbx_DoiNum.Text = value; }
+        }
+        public string ResDateAccessed
+        {
+            get { return dateTimePicker1.Text; }
+            set { dateTimePicker1.Text = value; }
+        }
+        public string ResCategory
+        {
+            get { return Tbx_NewCategory.Text; }
+            set { Tbx_NewCategory.Text = value; }
+        }
+        public string ResReference
+        {
+            get { return Tbx_Reference.Text; }
+            set { Tbx_Reference.Text = value; }
+        }
+        public string ResMainPoint
+        {
+            get { return Rtbx_MainPoint.Text; }
+            set { Rtbx_MainPoint.Text = value; }
+        }
+        public string ResNotes
+        {
+            get { return Rtbx_Notes.Text; }
+            set { Rtbx_Notes.Text = value; }
+        }
+        public string SearchValue
+        {
+            get { return Tbx_Search.Text; }
+            set { Tbx_Search.Text = value; }
+        }
+        public bool IsEdit
+        {
+            get { return isEdit; }
+            set { isEdit = value; }
+        }
+        public bool IsSuccessful
+        {
+            get { return isSuccessful; }
+            set { isSuccessful = value; }
+        }
+        public string Message
+        {
+            get { return message; }
+            set { message = value; }
+        }
+
+        
+        public void SetResourceListBindingSource(BindingSource resourceList)
+        {
+            dataGridView1.DataSource = resourceList;
+        }
+
+        public void SetCategoryListBindingSource(BindingSource categoryList)
+        {
+            Lbx_ListOfCategories.DataSource = categoryList;
+        }
+
+        public void SetAssignmentListBindingSource(BindingSource assignmentList)
+        {
+            
+            Cmbx_SelectAssignmentList.DataSource = assignmentList;
+            
+        }
+
+        //Open a single form using a singleton pattern
+        private static ResourceView instance;
+        public static ResourceView GetInstance(Form parentContainer)
+        {
+            if (instance == null || instance.IsDisposed)
+            {
+                instance = new ResourceView();
+                instance.MdiParent = parentContainer;
+                instance.FormBorderStyle = FormBorderStyle.None;
+                instance.Dock = DockStyle.Fill;
+            }
+            else
+            {
+                if(instance.WindowState == FormWindowState.Minimized)
+                {
+                    instance.WindowState = FormWindowState.Normal;
+                }
+                instance.BringToFront();
+            }
+            return instance;
+        }
+
+        private void Btn_Exit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+    }
+}
