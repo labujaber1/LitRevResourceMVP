@@ -102,9 +102,42 @@ namespace LitRevResourceMVP.Repositories
 
         
         
-       
+        public IEnumerable<AssignmentModel> GetAllAssignmentsList()
+        {
+            var assignmentList = new List<AssignmentModel>();
+            using (var connection = new SqlConnection(connectionString))
+            using (var command = new SqlCommand())
+            {
+                connection.Open();
+                command.Connection = connection;
+                command.CommandText = "SELECT * from Assignment_table  ";
+                
+                using (var reader = command.ExecuteReader())
+                {
+                    try
+                    {
+                        while (reader.Read())
+                        {
+                            var assignmentModel = new AssignmentModel();
+                            assignmentModel.Assign_IdNum = (int)reader[0];
+                            assignmentModel.Assign_Name = reader[1].ToString();
+                            assignmentModel.Due_Date = (DateTime)reader[2];
+                            assignmentModel.Assign_Trimester = (int)reader[3];
+                            assignmentModel.Mod_IdNum = (int)reader[4];
+                            assignmentList.Add(assignmentModel);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        string title = "Reading data from Assignment table";
+                        MessageBox.Show( "Error = " + ex.Message, title);
+                    }
+                }
 
-        
+            }
+            return assignmentList;
+
+        }
         
         /// <summary>
         /// SQL query SELECT: retrieves resource data from the database and return in a resource list.
@@ -241,34 +274,8 @@ namespace LitRevResourceMVP.Repositories
 
         // ######### CHANGED TO DATASET RATHER THAN ILIST AS ABOVE #############
 
-        
-        //save
-        public void UpdateServerFromDataSet()
-        {
-
-
-        }
-        //edit
-        public void EditRowInDataSet()
-        {
-
-
-        }
-        //delete
-        public void DeleteRowInDataSet()
-        {
-
-
-        }
-        //add
-        public void AddRowInDataSet()
-        {
-
-
-        }
-
-        //call at start of presenter to display assignments and resources tables in both datagridviews
-        public DataSet GetAssignResDataSet()
+        //call at start of presenter and use in methods to add,edit,delete,display
+        public DataSet GetAllAssignmentsData()
         {
             DataSet ds;
             using (var connection = new SqlConnection(connectionString))
@@ -280,34 +287,16 @@ namespace LitRevResourceMVP.Repositories
 
                 using (SqlDataAdapter sqlda = new SqlDataAdapter(comm))
                 {
-                    sqlda.TableMappings.Add("Assignment_table", "Assignments");
+                    sqlda.TableMappings.Add("Assign_table", "Assignments");
                     sqlda.TableMappings.Add("Resource_table", "Resources");
 
-                    using (ds = new DataSet("AssignResDataSet"))
+                    using (ds = new DataSet())
                     {
                         sqlda.Fill(ds);
                     }
                 }
             }
-            MessageBox.Show(ds.DataSetName + " created successfully.");
             return ds;
         }
-
-        public void GetCatergoriesFromDataSet()
-        {
-
-
-        }
-        public void GetByValueFromDataSet()
-        {
-
-
-        }
-        public void GetResourcesForAssignFromDataSet()
-        {
-
-
-        }
-
     }
 }

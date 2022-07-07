@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data;
 
 namespace LitRevResourceMVP.Models
 {
@@ -12,9 +10,26 @@ namespace LitRevResourceMVP.Models
         void Delete(int idNum);
         void Edit(ResourceModel resourceModel);
         
+        //used for SQL query to lists
         IEnumerable<string> GetAllCategories();
         IEnumerable<ResourceModel> GetAllResources(int IdNum);
         IEnumerable<ResourceModel> GetByValue(string value);
-        IEnumerable<AssignmentModel> GetAllAssignments();
+        IEnumerable<AssignmentModel> GetAllAssignmentsList();
+
+
+        //save
+        void UpdateServerFromDataSet();
+        //edit
+        void EditRowInDataSet();
+        //delete
+        void DeleteRowInDataSet();
+        //add
+        void AddRowInDataSet();
+      
+        //used to create assignment dataset and CRUD from that
+        DataSet GetAssignResDataSet(); //return dataset of assignment details
+        void GetCatergoriesFromDataSet();
+        void GetByValueFromDataSet();
+        void GetResourcesForAssignFromDataSet();
     }
 }

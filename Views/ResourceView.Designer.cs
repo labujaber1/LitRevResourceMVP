@@ -43,7 +43,6 @@ namespace LitRevResourceMVP.Views
             this.Btn_Save = new System.Windows.Forms.Button();
             this.Tbcl_ResourceList = new System.Windows.Forms.TabControl();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.Lbx_ViewAssignments = new System.Windows.Forms.ListBox();
             this.Lbx_ViewAllModules = new System.Windows.Forms.ListBox();
             this.Btn_Exit = new System.Windows.Forms.Button();
             this.Btn_ViewAssignResources = new System.Windows.Forms.Button();
@@ -52,13 +51,13 @@ namespace LitRevResourceMVP.Views
             this.panel1 = new System.Windows.Forms.Panel();
             this.Lbl_AssignmentTitle = new System.Windows.Forms.Label();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.Cmbx_SelectAssignmentList = new System.Windows.Forms.ComboBox();
+            this.dataGridViewAssign = new System.Windows.Forms.DataGridView();
             this.Lbl_SelectAssignment = new System.Windows.Forms.Label();
             this.Btn_BackToMain = new System.Windows.Forms.Button();
             this.Btn_Edit = new System.Windows.Forms.Button();
             this.Tbx_Search = new System.Windows.Forms.TextBox();
             this.Btn_Search = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewResource = new System.Windows.Forms.DataGridView();
             this.Btn_Delete = new System.Windows.Forms.Button();
             this.Btn_AddNew = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -71,7 +70,8 @@ namespace LitRevResourceMVP.Views
             this.tabPage4.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAssign)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewResource)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.SuspendLayout();
@@ -208,7 +208,6 @@ namespace LitRevResourceMVP.Views
             // tabPage4
             // 
             this.tabPage4.BackColor = System.Drawing.Color.Tan;
-            this.tabPage4.Controls.Add(this.Lbx_ViewAssignments);
             this.tabPage4.Controls.Add(this.Lbx_ViewAllModules);
             this.tabPage4.Controls.Add(this.Btn_Exit);
             this.tabPage4.Controls.Add(this.Btn_ViewAssignResources);
@@ -220,15 +219,6 @@ namespace LitRevResourceMVP.Views
             this.tabPage4.Size = new System.Drawing.Size(817, 618);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Assignment list";
-            // 
-            // Lbx_ViewAssignments
-            // 
-            this.Lbx_ViewAssignments.FormattingEnabled = true;
-            this.Lbx_ViewAssignments.ItemHeight = 25;
-            this.Lbx_ViewAssignments.Location = new System.Drawing.Point(52, 323);
-            this.Lbx_ViewAssignments.Name = "Lbx_ViewAssignments";
-            this.Lbx_ViewAssignments.Size = new System.Drawing.Size(514, 254);
-            this.Lbx_ViewAssignments.TabIndex = 15;
             // 
             // Lbx_ViewAllModules
             // 
@@ -298,13 +288,13 @@ namespace LitRevResourceMVP.Views
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.tabPage1.Controls.Add(this.Cmbx_SelectAssignmentList);
+            this.tabPage1.Controls.Add(this.dataGridViewAssign);
             this.tabPage1.Controls.Add(this.Lbl_SelectAssignment);
             this.tabPage1.Controls.Add(this.Btn_BackToMain);
             this.tabPage1.Controls.Add(this.Btn_Edit);
             this.tabPage1.Controls.Add(this.Tbx_Search);
             this.tabPage1.Controls.Add(this.Btn_Search);
-            this.tabPage1.Controls.Add(this.dataGridView1);
+            this.tabPage1.Controls.Add(this.dataGridViewResource);
             this.tabPage1.Controls.Add(this.Btn_Delete);
             this.tabPage1.Controls.Add(this.Btn_AddNew);
             this.tabPage1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
@@ -315,21 +305,21 @@ namespace LitRevResourceMVP.Views
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Resource list";
             // 
-            // Cmbx_SelectAssignmentList
+            // dataGridViewAssign
             // 
-            this.Cmbx_SelectAssignmentList.AllowDrop = true;
-            this.Cmbx_SelectAssignmentList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.Cmbx_SelectAssignmentList.FormattingEnabled = true;
-            this.Cmbx_SelectAssignmentList.Location = new System.Drawing.Point(225, 66);
-            this.Cmbx_SelectAssignmentList.MaxDropDownItems = 6;
-            this.Cmbx_SelectAssignmentList.Name = "Cmbx_SelectAssignmentList";
-            this.Cmbx_SelectAssignmentList.Size = new System.Drawing.Size(557, 33);
-            this.Cmbx_SelectAssignmentList.TabIndex = 9;
+            this.dataGridViewAssign.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewAssign.Location = new System.Drawing.Point(19, 34);
+            this.dataGridViewAssign.Name = "dataGridViewAssign";
+            this.dataGridViewAssign.ReadOnly = true;
+            this.dataGridViewAssign.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
+            this.dataGridViewAssign.RowTemplate.Height = 33;
+            this.dataGridViewAssign.Size = new System.Drawing.Size(776, 198);
+            this.dataGridViewAssign.TabIndex = 9;
             // 
             // Lbl_SelectAssignment
             // 
             this.Lbl_SelectAssignment.AutoSize = true;
-            this.Lbl_SelectAssignment.Location = new System.Drawing.Point(37, 66);
+            this.Lbl_SelectAssignment.Location = new System.Drawing.Point(19, 6);
             this.Lbl_SelectAssignment.Name = "Lbl_SelectAssignment";
             this.Lbl_SelectAssignment.Size = new System.Drawing.Size(154, 25);
             this.Lbl_SelectAssignment.TabIndex = 8;
@@ -359,35 +349,36 @@ namespace LitRevResourceMVP.Views
             // 
             // Tbx_Search
             // 
-            this.Tbx_Search.Location = new System.Drawing.Point(37, 6);
+            this.Tbx_Search.Location = new System.Drawing.Point(108, 238);
             this.Tbx_Search.Name = "Tbx_Search";
-            this.Tbx_Search.PlaceholderText = "Enter Id or category";
-            this.Tbx_Search.Size = new System.Drawing.Size(529, 31);
+            this.Tbx_Search.PlaceholderText = "Enter resource Id or category";
+            this.Tbx_Search.Size = new System.Drawing.Size(256, 31);
             this.Tbx_Search.TabIndex = 0;
             // 
             // Btn_Search
             // 
             this.Btn_Search.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Btn_Search.Location = new System.Drawing.Point(625, 6);
+            this.Btn_Search.Location = new System.Drawing.Point(383, 238);
             this.Btn_Search.Name = "Btn_Search";
-            this.Btn_Search.Size = new System.Drawing.Size(157, 31);
+            this.Btn_Search.Size = new System.Drawing.Size(141, 31);
             this.Btn_Search.TabIndex = 1;
             this.Btn_Search.Text = "Search";
             this.Btn_Search.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // dataGridViewResource
             // 
-            this.dataGridView1.AllowUserToOrderColumns = true;
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dataGridViewResource.AllowUserToOrderColumns = true;
+            this.dataGridViewResource.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(19, 126);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 62;
-            this.dataGridView1.RowTemplate.Height = 33;
-            this.dataGridView1.Size = new System.Drawing.Size(776, 421);
-            this.dataGridView1.TabIndex = 2;
+            this.dataGridViewResource.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewResource.Location = new System.Drawing.Point(19, 275);
+            this.dataGridViewResource.Name = "dataGridViewResource";
+            this.dataGridViewResource.ReadOnly = true;
+            this.dataGridViewResource.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.dataGridViewResource.RowTemplate.Height = 33;
+            this.dataGridViewResource.Size = new System.Drawing.Size(776, 272);
+            this.dataGridViewResource.TabIndex = 2;
             // 
             // Btn_Delete
             // 
@@ -504,7 +495,8 @@ namespace LitRevResourceMVP.Views
             this.panel1.PerformLayout();
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAssign)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewResource)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
@@ -531,7 +523,7 @@ namespace LitRevResourceMVP.Views
         private System.Windows.Forms.Button Btn_Delete;
         private System.Windows.Forms.Button Btn_Edit;
         private System.Windows.Forms.Button Btn_AddNew;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridViewResource;
         private System.Windows.Forms.Button Btn_Search;
         private System.Windows.Forms.TextBox Tbx_Search;
         private System.Windows.Forms.TabPage tabPage2;
@@ -549,8 +541,7 @@ namespace LitRevResourceMVP.Views
         private System.Windows.Forms.Button Btn_Exit;
         private System.Windows.Forms.ListBox Lbx_ViewAllModules;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ListBox Lbx_ViewAssignments;
-        private System.Windows.Forms.ComboBox Cmbx_SelectAssignmentList;
         private System.Windows.Forms.Label Lbl_SelectAssignment;
+        private System.Windows.Forms.DataGridView dataGridViewAssign;
     }
 }

@@ -210,10 +210,19 @@ namespace LitRevResourceMVP.Views
             set { message = value; }
         }
 
-        
-        public void SetResourceListBindingSource(BindingSource resourceList)
+        //public void SetAssignmentListBindingSource(BindingSource assignmentList)
+        public void SetAssignmentListBindingSource(BindingSource assignResData)
         {
-            dataGridView1.DataSource = resourceList;
+
+            //dataGridViewAssign.DataSource = assignmentList;
+            dataGridViewAssign.DataSource = assignResData;
+
+        }
+
+        public void SetResourceListBindingSource(BindingSource assignResData)
+        {
+            //dataGridViewResource.DataSource = resourceList;
+            dataGridViewResource.DataSource = assignResData;
         }
 
         public void SetCategoryListBindingSource(BindingSource categoryList)
@@ -221,12 +230,7 @@ namespace LitRevResourceMVP.Views
             Lbx_ListOfCategories.DataSource = categoryList;
         }
 
-        public void SetAssignmentListBindingSource(BindingSource assignmentList)
-        {
-            
-            Cmbx_SelectAssignmentList.DataSource = assignmentList;
-            
-        }
+        
 
         //Open a single form using a singleton pattern
         private static ResourceView instance;

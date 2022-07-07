@@ -50,7 +50,7 @@ namespace LitRevResourceMVP.Presenters
             {
                 //takes validation requirements in ie resource models to validate input fields
                 //throws exception with set message if incorrect input
-                new Common.ModelDataValidation().Validate(model);
+                //new Common.ModelDataValidation().Validate(model); //##################
                 if (view.IsEdit)
                 {
                     repository.Edit(model);
@@ -78,10 +78,14 @@ namespace LitRevResourceMVP.Presenters
             try
             {
                 var res = (ModuleModel)moduleBindingSource.Current;
-                repository.Delete(res.Mod_IdNum);
-                view.IsSuccessful = true;
-                view.Message = "Module and associated resources deleted successfully";
-                LoadAllModuleList();
+                if (res != null)
+                {
+                    repository.Delete(res.Mod_IdNum);
+                    view.IsSuccessful = true;
+                    view.Message = "Module and associated resources deleted successfully";
+                    LoadAllModuleList();
+                }
+
             }
             catch (Exception)
             {
@@ -93,10 +97,13 @@ namespace LitRevResourceMVP.Presenters
         private void EditModule(object sender, EventArgs e)
         {
             var res = (ModuleModel)moduleBindingSource.Current;
-            view.ModIdNum = res.Mod_IdNum.ToString();
-            view.ModName = res.Mod_Name;
-            view.ModDateYear = res.Mod_DateYear.ToString();
-            view.IsEdit = true;
+            if (res != null)
+            {
+                view.ModIdNum = res.Mod_IdNum.ToString();
+                view.ModName = res.Mod_Name;
+                view.ModDateYear = res.Mod_DateYear.ToString();
+                view.IsEdit = true;
+            }
         }
 
         

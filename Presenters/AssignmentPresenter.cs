@@ -74,12 +74,15 @@ namespace LitRevResourceMVP.Presenters
         private void EditAssign(object sender, EventArgs e)
         {
             var res = (AssignmentModel)assignmentBindingSource.Current;
-            view.AssignIdNum = res.Assign_IdNum.ToString();
-            view.AssignName = res.Assign_Name;
-            view.DueDate = res.Due_Date;
-            view.Trimester = res.Assign_Trimester.ToString();
-            view.ModIdNum = res.Mod_IdNum.ToString();
-            view.IsEdit = true;
+            if (res != null)
+            {
+                view.AssignIdNum = res.Assign_IdNum.ToString();
+                view.AssignName = res.Assign_Name;
+                view.DueDate = res.Due_Date;
+                view.Trimester = res.Assign_Trimester.ToString();
+                view.ModIdNum = res.Mod_IdNum.ToString();
+                view.IsEdit = true;
+            }
         }
 
         private void DeleteAssign(object sender, EventArgs e)
@@ -87,10 +90,19 @@ namespace LitRevResourceMVP.Presenters
             try
             {
                 var res = (AssignmentModel)assignmentBindingSource.Current;
-                repository.Delete(res.Assign_IdNum);
-                view.IsSuccessful = true;
-                view.Message = "Assignment and resources deleted successfully";
-                LoadAllAssignList();
+                if (res != null)
+                {
+                   
+                    repository.Delete(res.Assign_IdNum);
+                    view.IsSuccessful = true;
+                    view.Message = "Assignment and resources deleted successfully";
+                    LoadAllAssignList();
+                }
+                else
+                {
+                    view.Message = "Please select an assignment that exists";
+                    return;
+                }
             }
             catch (Exception)
             {
@@ -117,7 +129,8 @@ namespace LitRevResourceMVP.Presenters
             {
                 //takes validation requirements in ie resource models to validate input fields
                 //throws exception with set message if incorrect input
-                new Common.ModelDataValidation().Validate(model); //causes error, cannot cast int32 to string...bugger!
+                //new Common.ModelDataValidation().Validate(model); //###################
+                //causes error, cannot cast int32 to string...bugger!
                 //maybe date issue model--> datetime but input--> date only, changed model datatype still error
                 //runs ok without it
                 if (view.IsEdit)

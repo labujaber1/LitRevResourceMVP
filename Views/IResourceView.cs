@@ -41,11 +41,13 @@ namespace LitRevResourceMVP.Views
         event EventHandler SaveEvent;
         event EventHandler CancelEvent;
         event LinkLabelLinkClickedEventHandler LinkLabelEvent;
-        
 
-        void SetResourceListBindingSource(BindingSource resourceList);
+        //void SetAssignmentListBindingSource(BindingSource assignmentList);
+        void SetAssignmentListBindingSource(BindingSource assignResData);
+        //void SetResourceListBindingSource(BindingSource resourceList);
+        void SetResourceListBindingSource(BindingSource assignResData);
         void SetCategoryListBindingSource(BindingSource categoryList);
-        void SetAssignmentListBindingSource(BindingSource assignmentList);
+        
         void Show();
         
     }

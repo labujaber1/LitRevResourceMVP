@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="LitRevResourceMVP.Models.AssignmentModel" Collapsed="true">
+    <Position X="0.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAgEAAgACIBAAIAAAAAAAAAAAAAAAACAAACAAAIAA=</HashCode>
+      <FileName>Models\AssignmentModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LitRevResourceMVP.Models.ModuleModel" Collapsed="true">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAACIAAAAAAAAAQIAAABAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Models\ModuleModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LitRevResourceMVP.Models.ResourceModel" Collapsed="true">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAIAAoCAgAAAgAAAAAAgAAAAAAAAAggACAQIaEAAKAA=</HashCode>
+      <FileName>Models\ResourceModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LitRevResourceMVP.Views.MainView" Collapsed="true">
+    <Position X="2.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CACAAAAAACAAAAABAADAAQACAgAAABAgAAAAIQAAAAA=</HashCode>
+      <FileName>Views\MainView.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="LitRevResourceMVP.Views.ModuleView" Collapsed="true">
+    <Position X="2.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAQAAA1BACAAQAAEAgCAABACBCBIAAQAWgUAYYIAACg=</HashCode>
+      <FileName>Views\ModuleView.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="LitRevResourceMVP.Views.AssignmentView" Collapsed="true">
+    <Position X="2.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAFEghRDAAACEAAAiEChASxIjIBQYAGAAAe4AACCg=</HashCode>
+      <FileName>Views\AssignmentView.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="LitRevResourceMVP.Views.ResourceView" Collapsed="true">
+    <Position X="2.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>woSAAAAoEiAKapiiRACYoDsSNADYBQCLGJAEIYQBJSE=</HashCode>
+      <FileName>Views\ResourceView.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="LitRevResourceMVP.Repositories.BaseRepository" Collapsed="true">
+    <Position X="7" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Repositories\BaseRepository.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LitRevResourceMVP.Repositories.ModuleRepository" Collapsed="true">
+    <Position X="7" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAACAAAAAAAAEAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Repositories\ModuleRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="LitRevResourceMVP.Repositories.AssignmentRepository" Collapsed="true">
+    <Position X="7" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAACAAAAAAAAEAAAICAAAAAAAAAAE=</HashCode>
+      <FileName>Repositories\AssignmentRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="LitRevResourceMVP.Repositories.ResourceRepository" Collapsed="true">
+    <Position X="7" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACIAAAAAAAAAAAgAAAAAAQAAEAEAAAACQAgAAAAAAAA=</HashCode>
+      <FileName>Repositories\CopyResourceRepository - Copy.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="LitRevResourceMVP.Presenters.MainPresenter" Collapsed="true">
+    <Position X="4.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAAAABAAAgAAAAAQAAAAAAAAAACAAAAAA=</HashCode>
+      <FileName>Presenters\MainPresenter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LitRevResourceMVP.Presenters.ModulePresenter" Collapsed="true">
+    <Position X="4.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAACAAAAAABGAAAAAUAAAAAAAUAAAAAAAAA=</HashCode>
+      <FileName>Presenters\ModulePresenter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LitRevResourceMVP.Presenters.AssignmentPresenter" Collapsed="true">
+    <Position X="4.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AYCAAACAAAACAEAgAABEAAAAEAAAAQAAAQAAAAAAAAA=</HashCode>
+      <FileName>Presenters\AssignmentPresenter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LitRevResourceMVP.Presenters.ResourcePresenter" Collapsed="true">
+    <Position X="4.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAgAAAAgACgEAgAAAEEAARUIEAAgACAQAAAABAkAg=</HashCode>
+      <FileName>Presenters\ResourcePresenter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Diagnostics;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -18,17 +19,19 @@ namespace LitRevResourceMVP.Presenters
         private IResourceRepository repository;
         private BindingSource resourcedBindingSource;
         private BindingSource categoryBindingSource;
-        private BindingSource assignmentBindingSource;
+        private BindingSource assignResBindingSource;
         private IEnumerable<ResourceModel> resourceList;
         private IEnumerable<string> categoryList;
         private IEnumerable<AssignmentModel> assignmentList;
+        private DataSet assignResDataSet;
+        
 
         public ResourcePresenter(IResourceView view, IResourceRepository repository)
         {
             this.resourcedBindingSource = new BindingSource();
             this.categoryBindingSource = new BindingSource();
-            this.assignmentBindingSource = new BindingSource();
-
+            this.assignResBindingSource = new BindingSource();
+            
             this.view = view;
             this.repository = repository;
 
@@ -47,11 +50,12 @@ namespace LitRevResourceMVP.Presenters
 
             this.view.SetResourceListBindingSource(resourcedBindingSource);
             this.view.SetCategoryListBindingSource(categoryBindingSource);
-            this.view.SetAssignmentListBindingSource(assignmentBindingSource);
+            this.view.SetAssignmentListBindingSource(assignResBindingSource);
 
+            LoadAllAssignmentList();
             LoadAllResourceList();
             LoadAllCategoriesList(); // ###### 
-            LoadAllAssignmentList();
+            
             this.view.Show();
         }
 
@@ -59,17 +63,24 @@ namespace LitRevResourceMVP.Presenters
         //used in second tab (tab1), display resource list and search request
         private void LoadAllAssignmentList()
         {
-            assignmentList = repository.GetAllAssignments();
-            assignmentBindingSource.DataSource = assignmentList;
+
+            //assignmentList = repository.GetAllAssignmentsList();
+            //assignmentBindingSource.DataSource = assignmentList;
+
+            assignResDataSet = repository.GetAssignResDataSet();
+            //assignmentBindingSource.DataSource = assignmentData.Tables["Assignments"]; //doesn't work
+            assignResBindingSource.DataSource = assignResDataSet.Tables[0];
 
         }
 
         //used in SaveResource(), SearchForResource()
         private void LoadAllResourceList()
         {
-            int IdNum = 0;
-            resourceList = repository.GetAllResources(IdNum);
-            resourcedBindingSource.DataSource = resourceList;
+            //int IdNum = 0;
+            //resourceList = repository.GetAllResources(IdNum);
+            //resourcedBindingSource.DataSource = resourceList;
+            //resourcedBindingSource.DataSource = assignmentData.Tables["Resources"]; //doesn't work
+            resourcedBindingSource.DataSource = assignResDataSet.Tables[1];
         }
 
         private void LoadAllCategoriesList()
@@ -99,10 +110,17 @@ namespace LitRevResourceMVP.Presenters
             try
             {
                 var res = (ResourceModel)resourcedBindingSource.Current;
-                repository.Delete(res.ID_Num);
-                view.IsSuccessful = true;
-                view.Message = "Resource deleted successfully";
-                LoadAllResourceList();
+                if (res != null)
+                {
+                    repository.Delete(res.ID_Num);
+                    view.IsSuccessful = true;
+                    view.Message = "Resource deleted successfully";
+                    LoadAllResourceList();
+                }
+                else
+                {
+                    view.Message = "Resource does not exist, delete failed";
+                }
             }
             catch(Exception)
             {
@@ -113,18 +131,33 @@ namespace LitRevResourceMVP.Presenters
 
         private void LoadResourceToEdit(object sender, EventArgs e)
         {
-            var res = (ResourceModel)resourcedBindingSource.Current;
-            view.ResIdNum = res.ID_Num.ToString();
-            view.ResWebLink = res.Web_Link;
-            view.ResType = res.Resource_Type;
-            view.ResDoiNum = res.DOI_Num;
-            view.ResDateAccessed = res.Date_Accessed.ToString();
-            view.ResCategory = res.Category;
-            view.ResReference = res.Reference;
-            view.ResMainPoint = res.Main_Point;
-            view.ResNotes = res.Main_Notes;
-            view.IsEdit = true;
-            DisplayWebLink();
+            try
+            {
+                var res = (ResourceModel)resourcedBindingSource.Current;
+                if (res != null)
+                {
+                    view.ResIdNum = res.ID_Num.ToString();
+                    view.ResWebLink = res.Web_Link;
+                    view.ResType = res.Resource_Type;
+                    view.ResDoiNum = res.DOI_Num;
+                    view.ResDateAccessed = res.Date_Accessed.ToString();
+                    view.ResCategory = res.Category;
+                    view.ResReference = res.Reference;
+                    view.ResMainPoint = res.Main_Point;
+                    view.ResNotes = res.Main_Notes;
+                    view.IsEdit = true;
+                    DisplayWebLink();
+                }
+                else
+                {
+                    view.Message = "No resource selected, edit failed...obviously!";
+                }
+            }
+            catch (Exception)
+            {
+                view.IsSuccessful = false;
+                view.Message = "Sorry, could not edit the resource due to an error";
+            }
         }
 
         /// <summary>
@@ -148,7 +181,7 @@ namespace LitRevResourceMVP.Presenters
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error = " + ex.Message, createWebLink);
+                view.Message = "Error = " + ex.Message +"\n"+ createWebLink;
             }
         }
 
@@ -192,7 +225,7 @@ namespace LitRevResourceMVP.Presenters
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error opening link = " + ex.Message + "\nDetails-->\n" + ex, openLink);
+                    view.Message = "Error opening link = " + ex.Message + "\nDetails-->\n" + openLink;
                 }
             }
         }
@@ -221,8 +254,8 @@ namespace LitRevResourceMVP.Presenters
             try
             {
                 //takes validation requirements in ie resource models to validate input fields
-                //throws exception with set message if incorrect input
-                new Common.ModelDataValidation().Validate(model);
+                //throws exception with set message if incorrect input cannot cast int32 to string
+                //new Common.ModelDataValidation().Validate(model); //###########
                 if (view.IsEdit)
                 {
                     repository.Edit(model);
