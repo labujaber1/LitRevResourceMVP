@@ -17,21 +17,22 @@ namespace LitRevResourceMVP.Presenters
     {
         private IResourceView view;
         private IResourceRepository repository;
-        private BindingSource resourcedBindingSource;
+        private BindingSource resourceBindingSource;
         private BindingSource categoryBindingSource;
-        private BindingSource assignResBindingSource;
+        private BindingSource assignBindingSource;
+       
         private IEnumerable<ResourceModel> resourceList;
         private IEnumerable<string> categoryList;
-        private IEnumerable<AssignmentModel> assignmentList;
         private DataSet assignResDataSet;
         
 
         public ResourcePresenter(IResourceView view, IResourceRepository repository)
         {
-            this.resourcedBindingSource = new BindingSource();
+            this.resourceBindingSource = new BindingSource();
             this.categoryBindingSource = new BindingSource();
-            this.assignResBindingSource = new BindingSource();
+            this.assignBindingSource = new BindingSource();
             
+
             this.view = view;
             this.repository = repository;
 
@@ -40,7 +41,7 @@ namespace LitRevResourceMVP.Presenters
             this.view.AddNewEvent += AddNewResource;
             this.view.DeleteEvent += DeleteResource;
             this.view.EditEvent += LoadResourceToEdit;
-            
+            this.view.ViewResourcesEvent += LoadAssignResources;
 
             ////used in tab2 add/edit resource
             this.view.CreateReferenceEvent += CreateReference;
@@ -48,39 +49,37 @@ namespace LitRevResourceMVP.Presenters
             this.view.CancelEvent += CancelAction;
             this.view.LinkLabelEvent += LinkLabelClick;
 
-            this.view.SetResourceListBindingSource(resourcedBindingSource);
+            this.view.SetAssignmentListBindingSource(assignBindingSource);
+            this.view.SetResourceListBindingSource(resourceBindingSource);
             this.view.SetCategoryListBindingSource(categoryBindingSource);
-            this.view.SetAssignmentListBindingSource(assignResBindingSource);
-
+           
             LoadAllAssignmentList();
-            LoadAllResourceList();
+            
             LoadAllCategoriesList(); // ###### 
             
             this.view.Show();
         }
 
         
+
+       
+
+
         //used in second tab (tab1), display resource list and search request
         private void LoadAllAssignmentList()
         {
-
-            //assignmentList = repository.GetAllAssignmentsList();
-            //assignmentBindingSource.DataSource = assignmentList;
-
-            assignResDataSet = repository.GetAssignResDataSet();
-            //assignmentBindingSource.DataSource = assignmentData.Tables["Assignments"]; //doesn't work
-            assignResBindingSource.DataSource = assignResDataSet.Tables[0];
-
+            assignResDataSet = repository.GetDataSet();
+            //assignResBindingSource.ResetBindings(false);
+            assignBindingSource.DataSource = assignResDataSet.Tables[0];
         }
 
         //used in SaveResource(), SearchForResource()
-        private void LoadAllResourceList()
+        private void LoadAssignResources(object sender, EventArgs e)
         {
-            //int IdNum = 0;
-            //resourceList = repository.GetAllResources(IdNum);
-            //resourcedBindingSource.DataSource = resourceList;
-            //resourcedBindingSource.DataSource = assignmentData.Tables["Resources"]; //doesn't work
-            resourcedBindingSource.DataSource = assignResDataSet.Tables[1];
+            int IdNum = int.Parse(view.AssignIdNum);
+            assignResDataSet.Tables[1].DefaultView.RowFilter = "Assign_IdNum = " + IdNum;
+            resourceBindingSource.DataSource = assignResDataSet.Tables[1];
+            
         }
 
         private void LoadAllCategoriesList()
@@ -88,34 +87,81 @@ namespace LitRevResourceMVP.Presenters
             categoryList = repository.GetAllCategories();
             categoryBindingSource.DataSource = categoryList;
         }
+
         private void SearchForResource(object sender, EventArgs e)
         {
             bool emptyValue = string.IsNullOrWhiteSpace(this.view.SearchValue);
             if (emptyValue == false)
             {
                 resourceList = repository.GetByValue(this.view.SearchValue);
-                resourcedBindingSource.DataSource = resourceList;
+                resourceBindingSource.DataSource = resourceList;
             }
             else
-                LoadAllResourceList();
+                LoadAssignResources(sender,e);
         }
 
         private void AddNewResource(object sender, EventArgs e)
         {
             view.IsEdit = false;
         }
+        private void SaveResource(object sender, EventArgs e)
+        {
+            int id = 0; //assignment idnum
+            var model = new ResourceModel();
+            if (view.ResIdNum != "")
+            {
+                model.ID_Num = Convert.ToInt32(view.ResIdNum);
+                //model.ID_Num = int.Parse(view.ResIdNum);
+            }
+            model.Web_Link = view.ResWebLink;
+            model.Resource_Type = view.ResType;
+            model.DOI_Num = view.ResDoiNum;
+            model.Date_Accessed = Convert.ToDateTime(view.ResDateAccessed);
+            model.Category = view.ResCategory;
+            model.Reference = view.ResReference;
+            model.Main_Point = view.ResMainPoint;
+            model.Main_Notes = view.ResNotes;
+            model.Assign_IdNum = int.Parse(view.AssignIdNum);
+            try
+            {
+                //takes validation requirements in ie resource models to validate input fields
+                //throws exception with set message if incorrect input cannot cast int32 to string
+                //new Common.ModelDataValidation().Validate(model); //###########
+                if (view.IsEdit)
+                {
+                    repository.Edit(id, model, assignResDataSet);
+                    view.Message = "Resource edited successfully";
+                }
+                else
+                {
+                    repository.Add(model, assignResDataSet);
+                    view.Message = "Resource added successfully";
+                }
+                view.IsSuccessful = true;
+                repository.UpdateDBFromDataTable(assignResDataSet);
+                //LoadAssignResources(sender, e);
+                ClearAllTextFields();
+            }
+            catch (Exception ex)
+            {
+                view.IsSuccessful = false;
+                view.Message = "Error = "+ ex.Message;
+            }
+
+        }
 
         private void DeleteResource(object sender, EventArgs e)
         {
             try
             {
-                var res = (ResourceModel)resourcedBindingSource.Current;
+                var res = (ResourceModel)resourceBindingSource.Current;
                 if (res != null)
                 {
-                    repository.Delete(res.ID_Num);
+                    repository.Delete(res.ID_Num, assignResDataSet);
                     view.IsSuccessful = true;
                     view.Message = "Resource deleted successfully";
-                    LoadAllResourceList();
+                    //LoadAssignResources(sender, e);
+                    repository.UpdateDBFromDataTable(assignResDataSet);
                 }
                 else
                 {
@@ -133,9 +179,11 @@ namespace LitRevResourceMVP.Presenters
         {
             try
             {
-                var res = (ResourceModel)resourcedBindingSource.Current;
+                    //unable to cast datarowview to resourcemodel         
+                var res = (ResourceModel)resourceBindingSource.Current;
                 if (res != null)
                 {
+                    
                     view.ResIdNum = res.ID_Num.ToString();
                     view.ResWebLink = res.Web_Link;
                     view.ResType = res.Resource_Type;
@@ -153,10 +201,10 @@ namespace LitRevResourceMVP.Presenters
                     view.Message = "No resource selected, edit failed...obviously!";
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 view.IsSuccessful = false;
-                view.Message = "Sorry, could not edit the resource due to an error";
+                view.Message = "Sorry, could not edit the resource due to an error \n"+ex.Message;
             }
         }
 
@@ -236,46 +284,7 @@ namespace LitRevResourceMVP.Presenters
             MessageBox.Show("CreateReference not in operation yet");
         }
 
-        private void SaveResource(object sender, EventArgs e)
-        {
-            var model = new ResourceModel();
-            if (view.ResIdNum != "") 
-            { 
-                model.ID_Num = Convert.ToInt32(view.ResIdNum); 
-            }
-            model.Web_Link = view.ResWebLink;
-            model.Resource_Type = view.ResType;
-            model.DOI_Num = view.ResDoiNum;
-            model.Date_Accessed = Convert.ToDateTime(view.ResDateAccessed);   
-            model.Category = view.ResCategory;
-            model.Reference = view.ResReference;
-            model.Main_Point = view.ResMainPoint;
-            model.Main_Notes = view.ResNotes;
-            try
-            {
-                //takes validation requirements in ie resource models to validate input fields
-                //throws exception with set message if incorrect input cannot cast int32 to string
-                //new Common.ModelDataValidation().Validate(model); //###########
-                if (view.IsEdit)
-                {
-                    repository.Edit(model);
-                    view.Message = "Resource edited successfully";
-                }
-                else
-                {
-                    repository.Add(model);
-                    view.Message = "Resource added successfully";
-                }
-                view.IsSuccessful = true;
-                LoadAllResourceList();
-                ClearAllTextFields();
-            }
-            catch(Exception ex)
-            {
-                view.IsSuccessful = false;
-                view.Message = ex.Message;
-            }
-        }
+       
 
         //used in saveResource(), cancelAction(), 
         private void ClearAllTextFields()

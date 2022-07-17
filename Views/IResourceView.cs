@@ -19,6 +19,7 @@ namespace LitRevResourceMVP.Views
         string ResReference { get; set; }
         string ResMainPoint { get; set; }
         string ResNotes { get; set; }
+        string AssignIdNum { get; set; }
 
         string SearchValue { get; set; }
         bool IsEdit { get; set; }
@@ -33,8 +34,7 @@ namespace LitRevResourceMVP.Views
         event EventHandler AddNewEvent;
         event EventHandler EditEvent;
         event EventHandler DeleteEvent;
-        event EventHandler BackToMainEvent;
-        
+        event EventHandler SelectChangeEvent;
 
         //used in tab2 add/edit resource
         event EventHandler CreateReferenceEvent;
@@ -42,12 +42,11 @@ namespace LitRevResourceMVP.Views
         event EventHandler CancelEvent;
         event LinkLabelLinkClickedEventHandler LinkLabelEvent;
 
-        //void SetAssignmentListBindingSource(BindingSource assignmentList);
-        void SetAssignmentListBindingSource(BindingSource assignResData);
-        //void SetResourceListBindingSource(BindingSource resourceList);
-        void SetResourceListBindingSource(BindingSource assignResData);
+        void SetAssignmentListBindingSource(BindingSource assignData);
+        void SetResourceListBindingSource(BindingSource resourceData);
         void SetCategoryListBindingSource(BindingSource categoryList);
         
+
         void Show();
         
     }

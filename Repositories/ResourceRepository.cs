@@ -25,133 +25,125 @@ namespace LitRevResourceMVP.Repositories
         {
             this.connectionString = connectionString;
         }
-        
-        /// <summary>
-        /// SQL query INSERT: used to add the resource data model to the database
-        /// </summary>
-        /// <param name="resourceModel"></param>
-        public void Add(ResourceModel resourceModel)
+
+        //call at start of presenter to display assignments and resources tables in both datagridviews
+        public DataSet GetDataSet()
         {
+            DataSet ds;
             using (var connection = new SqlConnection(connectionString))
-            using (var command = new SqlCommand())
+            using (SqlCommand comm = new SqlCommand())
             {
                 connection.Open();
-                command.Connection = connection;
-                command.CommandText = "INSERT INTO Resource_table " +
-                    "(Res_Weblink,Res_Type,Res_DateAccessed,Res_Category, Res_Reference,Res_MainPoint,Res_Notes,Assign_IdNum)" +
-                    " VALUES (@weblink,@restype,@doinum,@dateaccessed,@category,@reference,@mainpoint,@notes,@assignIdNum)" +
-                    "WHERE Assign_IdNum=@assignIdNum";
-                command.Parameters.AddWithValue("@weblink", SqlDbType.VarChar).Value = resourceModel.Web_Link;
-                command.Parameters.AddWithValue("@restype", SqlDbType.VarChar).Value = resourceModel.Resource_Type;
-                command.Parameters.AddWithValue("@doinum", SqlDbType.VarChar).Value = resourceModel.DOI_Num;
-                command.Parameters.AddWithValue("@dateaccessed", SqlDbType.VarChar).Value = resourceModel.Date_Accessed;
-                command.Parameters.AddWithValue("@category", SqlDbType.VarChar).Value = resourceModel.Category;
-                command.Parameters.AddWithValue("@reference", SqlDbType.VarChar).Value = resourceModel.Reference;
-                command.Parameters.AddWithValue("@mainpoint", SqlDbType.VarChar).Value = resourceModel.Main_Point;
-                command.Parameters.AddWithValue("@notes", SqlDbType.VarChar).Value = resourceModel.Main_Notes;
-                command.Parameters.AddWithValue("@assignIdNum", SqlDbType.VarChar).Value = resourceModel.Assign_IdNum;
-                command.ExecuteNonQuery();
+                comm.Connection = connection;
+                comm.CommandText = "SELECT * from Assignment_table;SELECT * from Resource_table";
+
+                using (SqlDataAdapter sqlda = new SqlDataAdapter(comm))
+                using (ds = new DataSet("AssignResDataSet"))
+                {
+                    sqlda.Fill(ds);
+                }
             }
+            return ds;
+        }
+
+        /// <summary>
+        /// DataSet("AssignResDataSet")
+        /// </summary>
+        /// <param name="resourceModel"></param>
+        public void Add(ResourceModel resourceModel, DataSet AssignResDataSet)
+        {
+            //DataSet("AssignResDataSet")
+            
+            if (AssignResDataSet.Tables[1] != null)
+            { 
+                DataRow dr = AssignResDataSet.Tables[1].NewRow();
+                //dr["Res_IdNum"] = -1;
+                dr["Res_Weblink"] = resourceModel.Web_Link;
+                dr["Res_Type"] = resourceModel.Resource_Type;
+                dr["Res_DateAccessed"] = resourceModel.Date_Accessed;
+                dr["Res_Category"] = resourceModel.Category;
+                dr["Res_Reference"] = resourceModel.Reference;
+                dr["Res_MainPoint"] = resourceModel.Main_Point;
+                dr["Res_Notes"] = resourceModel.Main_Notes;
+                dr["Assign_IdNum"] = resourceModel.Assign_IdNum;
+                AssignResDataSet.Tables[1].Rows.Add(dr);
+                //AssignResDataSet.AcceptChanges();
+            }
+            //UpdateDBFromDataTable(AssignResDataSet);
         }
         /// <summary>
-        /// SQL query DELETE: used to delete the resource data model based on id number from the database
+        /// 
         /// </summary>
         /// <param name="idNum"></param>
-        public void Delete(int idNum)
+        public void Delete(int idNum, DataSet AssignResDataSet)
         {
-            //will auto close connection when using 'using'.
-            using (var connection = new SqlConnection(connectionString))
-            using (var command = new SqlCommand())
+            
+            DataTable dt = AssignResDataSet.Tables[1];
+            DataRow[] dr = dt.Select("Res_IdNum = '"+idNum+"'");
+            for (int i = 0;i< dr.Length;i++)
             {
-                connection.Open();
-                command.Connection = connection;
-                command.CommandText = "DELETE FROM Resource_table WHERE Res_IdNum=@residnum";
-                command.Parameters.AddWithValue("@residnum", SqlDbType.Int).Value = idNum;
-                command.ExecuteNonQuery();
+                dr[i].Delete(); //mark row as delete, dt.AcceptChanges() 
+                //dt.Rows.Remove(dr[i]);
             }
+            //UpdateDBFromDataTable(AssignResDataSet);
         }
 
         /// <summary>
-        /// SQL query UPDATE: used to edit resource data in the database using the data model 
+        ///
         /// </summary>
         /// <param name="resourceModel"></param>
-        public void Edit(ResourceModel resourceModel)
+        public void Edit(int idNum,ResourceModel resourceModel, DataSet AssignResDataSet)
         {
-            using (var connection = new SqlConnection(connectionString))
-            using (var command = new SqlCommand())
+            
+            DataTable dt = AssignResDataSet.Tables[1];
+            DataRow dr = dt.Select("Res_IdNum = '" + idNum + "'").FirstOrDefault();
+            if (dr != null)
             {
-                connection.Open();
-                command.Connection = connection;
-                command.CommandText = "UPDATE Resource_table SET" +
-                    " Res_WebLink=@weblink, Res_Type=@restype, Res_DoiNum=@doinum, Res_DateAccessed=@dateaccessed," +
-                    "Res_Category=@category, Res_Reference=@reference, Res_MainPoint=@mainpoint, Res_Notes=@notes " +
-                    "WHERE Res_IdNum=@idnum";
-                command.Parameters.AddWithValue("@idnum", SqlDbType.Int).Value = resourceModel.ID_Num;
-                command.Parameters.AddWithValue("@weblink", SqlDbType.VarChar).Value = resourceModel.Web_Link;
-                command.Parameters.AddWithValue("@restype", SqlDbType.VarChar).Value = resourceModel.Resource_Type;
-                command.Parameters.AddWithValue("@doinum", SqlDbType.VarChar).Value = resourceModel.DOI_Num;
-                command.Parameters.AddWithValue("@dateaccessed", SqlDbType.DateTime).Value = resourceModel.Date_Accessed;
-                command.Parameters.AddWithValue("@category", SqlDbType.VarChar).Value = resourceModel.Category;
-                command.Parameters.AddWithValue("@reference", SqlDbType.VarChar).Value = resourceModel.Reference;
-                command.Parameters.AddWithValue("@mainpoint", SqlDbType.VarChar).Value = resourceModel.Main_Point;
-                command.Parameters.AddWithValue("@notes", SqlDbType.VarChar).Value = resourceModel.Main_Notes;
-                command.Parameters.AddWithValue("@assignIdNum", SqlDbType.VarChar).Value = resourceModel.Assign_IdNum;
-                command.ExecuteNonQuery();
+
+                dr["Res_Weblink"] = resourceModel.Web_Link;
+                dr["Res_Type"] = resourceModel.Resource_Type;
+                dr["Res_DateAccessed"] = resourceModel.Date_Accessed;
+                dr["Res_Category"] = resourceModel.Category;
+                dr["Res_Reference"] = resourceModel.Reference;
+                dr["Res_MainPoint"] = resourceModel.Main_Point;
+                dr["Res_Notes"] = resourceModel.Main_Notes;
+                dr["Assign_IdNum"] = resourceModel.Assign_IdNum;
+
+                //resourceModel.Web_Link= (string)dr["Res_Weblink"];
+                //resourceModel.Resource_Type = (string)dr["Res_Type"];
+                //resourceModel.Date_Accessed= (DateTime)dr["Res_DateAccessed"];
+                //resourceModel.Category= (string)dr["Res_Category"];
+                //resourceModel.Reference= (string)dr["Res_Reference"] ;
+                //resourceModel.Main_Point= (string)dr["Res_MainPoint"];
+                //resourceModel.Main_Notes= (string)dr["Res_Notes"];
+                //resourceModel.Assign_IdNum= (int)dr["Assign_IdNum"];
             }
+            
         }
 
-        
-        
-       
 
         
-        
-        /// <summary>
-        /// SQL query SELECT: retrieves resource data from the database and return in a resource list.
-        /// This is called to display in a datagridview
-        /// </summary>
-        /// <returns></returns>
-        public IEnumerable<ResourceModel> GetAllResources(int IdNum)
+
+        //save to server
+        public void UpdateDBFromDataTable(DataSet AssignResDataSet)
         {
-            var resourceList = new List<ResourceModel>();
             using (var connection = new SqlConnection(connectionString))
-            using(var command = new SqlCommand())
+            using (var adapter = new SqlDataAdapter("SELECT * from Resource_table", connection))
+            using (new SqlCommandBuilder(adapter))
             {
+                adapter.Fill(AssignResDataSet.Tables[1]);
                 connection.Open();
-                command.Connection = connection;
-                command.CommandText = "Select * from Resource_table WHERE Assign_IdNum=@idNum";
-                command.Parameters.AddWithValue("@idnum", SqlDbType.Int).Value = IdNum;
-                using (var reader = command.ExecuteReader())
-                {
-                    try
-                    {
-                        while (reader.Read())
-                        {
-                            var resourceModel = new ResourceModel();
-                            resourceModel.ID_Num = (int)reader[0];
-                            resourceModel.Web_Link = reader[1].ToString();
-                            resourceModel.Resource_Type = reader[2].ToString();
-                            resourceModel.DOI_Num = reader[3].ToString();
-                            resourceModel.Date_Accessed = (DateTime)reader[4];
-                            resourceModel.Category = reader[5].ToString();
-                            resourceModel.Reference = reader[6].ToString();
-                            resourceModel.Main_Point = reader[7].ToString();
-                            resourceModel.Main_Notes = reader[8].ToString();
-                            resourceModel.Assign_IdNum = (int)reader[9];
-                            resourceList.Add(resourceModel);
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        string title = "Reading data from Resource table";
-                        MessageBox.Show("Error = " + ex.Message, title);
-                    }
-                }
-                
+                adapter.Update(AssignResDataSet.Tables[1]);
             }
-            return resourceList;
+            
+            //GetDataSet();
+            MessageBox.Show(AssignResDataSet.DataSetName + " updated successfully.");
         }
 
+
+        //############### CHANGE TO DATASET FROM LIST #################
+
+        
         /// <summary>
         /// SQL query SELECT: retrieves data from a search method by using either an id number or category request.
         /// This is called to display in a datagridview
@@ -193,10 +185,11 @@ namespace LitRevResourceMVP.Repositories
                             resourceList.Add(resourceModel);
                         }
                     }
-                }catch (Exception ex)
+                }
+                catch (Exception ex)
                 {
                     string title = "Getting by category";
-                    MessageBox.Show("Error = "+ex.Message,title);
+                    MessageBox.Show("Error = " + ex.Message, title);
                 }
             }
             return resourceList;
@@ -239,75 +232,7 @@ namespace LitRevResourceMVP.Repositories
             return categoryList;
         }
 
-        // ######### CHANGED TO DATASET RATHER THAN ILIST AS ABOVE #############
-
-        
-        //save
-        public void UpdateServerFromDataSet()
-        {
-
-
-        }
-        //edit
-        public void EditRowInDataSet()
-        {
-
-
-        }
-        //delete
-        public void DeleteRowInDataSet()
-        {
-
-
-        }
-        //add
-        public void AddRowInDataSet()
-        {
-
-
-        }
-
-        //call at start of presenter to display assignments and resources tables in both datagridviews
-        public DataSet GetAssignResDataSet()
-        {
-            DataSet ds;
-            using (var connection = new SqlConnection(connectionString))
-            using (SqlCommand comm = new SqlCommand())
-            {
-                connection.Open();
-                comm.Connection = connection;
-                comm.CommandText = "SELECT * from Assignment_table;SELECT * from Resource_table";
-
-                using (SqlDataAdapter sqlda = new SqlDataAdapter(comm))
-                {
-                    sqlda.TableMappings.Add("Assignment_table", "Assignments");
-                    sqlda.TableMappings.Add("Resource_table", "Resources");
-
-                    using (ds = new DataSet("AssignResDataSet"))
-                    {
-                        sqlda.Fill(ds);
-                    }
-                }
-            }
-            MessageBox.Show(ds.DataSetName + " created successfully.");
-            return ds;
-        }
-
-        public void GetCatergoriesFromDataSet()
-        {
-
-
-        }
-        public void GetByValueFromDataSet()
-        {
-
-
-        }
-        public void GetResourcesForAssignFromDataSet()
-        {
-
-
-        }
+       
 
     }
 }

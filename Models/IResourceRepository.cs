@@ -6,30 +6,15 @@ namespace LitRevResourceMVP.Models
 {
     public interface IResourceRepository
     {
-        void Add(ResourceModel resourceModel);
-        void Delete(int idNum);
-        void Edit(ResourceModel resourceModel);
-        
-        //used for SQL query to lists
-        IEnumerable<string> GetAllCategories();
-        IEnumerable<ResourceModel> GetAllResources(int IdNum);
+        void Add(ResourceModel resourceModel, DataSet AssignResDataSet);
+        void Delete(int idNum, DataSet AssignResDataSet);
+        void Edit(int idNum,ResourceModel resourceModel, DataSet AssignResDataSet);
         IEnumerable<ResourceModel> GetByValue(string value);
-        IEnumerable<AssignmentModel> GetAllAssignmentsList();
-
-
-        //save
-        void UpdateServerFromDataSet();
-        //edit
-        void EditRowInDataSet();
-        //delete
-        void DeleteRowInDataSet();
-        //add
-        void AddRowInDataSet();
-      
+        IEnumerable<string> GetAllCategories();
+        void UpdateDBFromDataTable(DataSet AssignResDataSet);
+        
         //used to create assignment dataset and CRUD from that
-        DataSet GetAssignResDataSet(); //return dataset of assignment details
-        void GetCatergoriesFromDataSet();
-        void GetByValueFromDataSet();
-        void GetResourcesForAssignFromDataSet();
+        DataSet GetDataSet(); //return dataset of assignment[0] and resources[1] details
+        
     }
 }

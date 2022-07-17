@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Windows.Forms;
 
 
@@ -17,7 +18,7 @@ namespace LitRevResourceMVP.Views
         public event EventHandler AddNewEvent;
         public event EventHandler DeleteEvent;
         public event EventHandler EditEvent;
-        public event EventHandler BackToMainEvent;
+        public event EventHandler SelectChangeEvent;
         //used in tab2 add/edit resource
         public event EventHandler CreateReferenceEvent;
         public event EventHandler SaveEvent;
@@ -35,17 +36,18 @@ namespace LitRevResourceMVP.Views
             AssociateAndRaiseViewEvents();
             Tbcl_ResourceList.TabPages.Remove(tabPage2);    //edit resource
             Tbcl_ResourceList.TabPages.Remove(tabPage3);    //add reference (may not develope here but add as seperate app)
-            //Tbcl_ResourceList.TabPages.Remove(tabPage1);    //view resources    
-            Tbcl_ResourceList.TabPages.Remove(tabPage4);   //main page select assign to get resources
 
-            
         }
 
 
         private void AssociateAndRaiseViewEvents()
         {
             //used in tab1 select resource
-            
+            dataGridViewAssign.SelectionChanged += delegate
+            {
+                SelectChangeEvent?.Invoke(this, EventArgs.Empty);
+            };
+
             Btn_Search.Click += delegate { SearchEvent?.Invoke(this, EventArgs.Empty); };
             Tbx_Search.KeyDown += (s, e) =>
             {
@@ -53,49 +55,26 @@ namespace LitRevResourceMVP.Views
                     SearchEvent?.Invoke(this, EventArgs.Empty);
             };
 
-            //tab4 events
-            //open tab1 (list resources)
-            Btn_ViewAssignResources.Click += delegate
-            {
-                ViewResourcesEvent?.Invoke(this, EventArgs.Empty);
-                Tbcl_ResourceList.TabPages.Remove(tabPage4);
-                Tbcl_ResourceList.TabPages.Add(tabPage1);
-
-            };
-
-
-            //tab1 events
-
-            //Close tab1 and open tab4 (main)
-            Btn_BackToMain.Click += delegate
-            {
-                BackToMainEvent?.Invoke(this, EventArgs.Empty);
-                Tbcl_ResourceList.TabPages.Remove(tabPage1);
-                Tbcl_ResourceList.TabPages.Add(tabPage4);
-
-            };
-
-
-            Btn_AddNew.Click += delegate 
+            Btn_AddNew.Click += delegate
             {
                 AddNewEvent?.Invoke(this, EventArgs.Empty);
                 Tbcl_ResourceList.TabPages.Remove(tabPage1);
                 Tbcl_ResourceList.TabPages.Add(tabPage2);
-                
+
             };
 
-            Btn_Delete.Click += delegate 
-            { 
+            Btn_Delete.Click += delegate
+            {
                 var result = MessageBox.Show("Are you sure you want to delete the resource?", "Warning",
                     MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if(result == DialogResult.Yes)
+                if (result == DialogResult.Yes)
                 {
                     DeleteEvent?.Invoke(this, EventArgs.Empty);
                     MessageBox.Show(Message);
                 }
             };
 
-            Btn_Edit.Click += delegate 
+            Btn_Edit.Click += delegate
             {
                 EditEvent?.Invoke(this, EventArgs.Empty);
                 Tbcl_ResourceList.TabPages.Remove(tabPage1);
@@ -110,15 +89,15 @@ namespace LitRevResourceMVP.Views
             };
 
 
-            Btn_CreateAddRef.Click += delegate 
+            Btn_CreateAddRef.Click += delegate
             {
                 CreateReferenceEvent?.Invoke(this, EventArgs.Empty);
                 Tbcl_ResourceList.TabPages.Remove(tabPage2);
                 Tbcl_ResourceList.TabPages.Add(tabPage3);
             };
 
-            
-            Btn_Save.Click += delegate 
+
+            Btn_Save.Click += delegate
             {
                 SaveEvent?.Invoke(this, EventArgs.Empty);
                 if (isSuccessful)
@@ -129,13 +108,13 @@ namespace LitRevResourceMVP.Views
                 MessageBox.Show(Message);
             };
 
-            Btn_Cancel.Click += delegate 
+            Btn_Cancel.Click += delegate
             {
                 CancelEvent?.Invoke(this, EventArgs.Empty);
                 Tbcl_ResourceList.TabPages.Remove(tabPage2);
                 Tbcl_ResourceList.TabPages.Add(tabPage1);
             };
-            
+
         }
 
         //properties
@@ -189,6 +168,13 @@ namespace LitRevResourceMVP.Views
             get { return Rtbx_Notes.Text; }
             set { Rtbx_Notes.Text = value; }
         }
+
+        public string AssignIdNum
+        {
+            get { return Tbx_AssignIdNum.Text; }
+            set { Tbx_AssignIdNum.Text = value; }
+        }
+
         public string SearchValue
         {
             get { return Tbx_Search.Text; }
@@ -210,19 +196,26 @@ namespace LitRevResourceMVP.Views
             set { message = value; }
         }
 
-        //public void SetAssignmentListBindingSource(BindingSource assignmentList)
-        public void SetAssignmentListBindingSource(BindingSource assignResData)
+
+        private void dataGridViewAssign_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
-            //dataGridViewAssign.DataSource = assignmentList;
-            dataGridViewAssign.DataSource = assignResData;
-
+            DataRowView drv = this.dataGridViewAssign.CurrentRow.DataBoundItem as DataRowView;
+            if (drv != null)
+            {
+                AssignIdNum = drv[0].ToString();
+                ViewResourcesEvent?.Invoke(this, EventArgs.Empty);
+            }
         }
 
-        public void SetResourceListBindingSource(BindingSource assignResData)
+        //public void SetAssignmentListBindingSource(BindingSource assignmentList)
+        public void SetAssignmentListBindingSource(BindingSource assignData)
         {
-            //dataGridViewResource.DataSource = resourceList;
-            dataGridViewResource.DataSource = assignResData;
+            dataGridViewAssign.DataSource = assignData;
+        }
+
+        public void SetResourceListBindingSource(BindingSource resourceData)
+        {
+            dataGridViewResource.DataSource = resourceData;
         }
 
         public void SetCategoryListBindingSource(BindingSource categoryList)
@@ -230,7 +223,11 @@ namespace LitRevResourceMVP.Views
             Lbx_ListOfCategories.DataSource = categoryList;
         }
 
-        
+        private void Btn_Close_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
 
         //Open a single form using a singleton pattern
         private static ResourceView instance;
@@ -245,7 +242,7 @@ namespace LitRevResourceMVP.Views
             }
             else
             {
-                if(instance.WindowState == FormWindowState.Minimized)
+                if (instance.WindowState == FormWindowState.Minimized)
                 {
                     instance.WindowState = FormWindowState.Normal;
                 }
@@ -254,9 +251,7 @@ namespace LitRevResourceMVP.Views
             return instance;
         }
 
-        private void Btn_Exit_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
+        
     }
+        
 }

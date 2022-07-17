@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace LitRevResourceMVP.Repositories
 {
-    public class ResourceRepository : BaseRepository, IResourceRepository
+    public class CopyResourceRepository : BaseRepository, IResourceRepository
     {
         //create instance of dataset: represents complete set of data including tables,relationships and is independant
         //of datasource. Can also include data local to app and from multiple sources.
@@ -21,7 +21,7 @@ namespace LitRevResourceMVP.Repositories
         //Also InsertCommand,UpdateCommand,DeleteCommand 
 
         //constructor
-        public ResourceRepository(string connectionString)
+        public CopyResourceRepository(string connectionString)
         {
             this.connectionString = connectionString;
         }
