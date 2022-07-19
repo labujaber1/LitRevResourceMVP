@@ -12,20 +12,13 @@ namespace LitRevResourceMVP.Repositories
 {
     public class ResourceRepository : BaseRepository, IResourceRepository
     {
-        //create instance of dataset: represents complete set of data including tables,relationships and is independant
-        //of datasource. Can also include data local to app and from multiple sources.
-        //Dataset [name ie resources] = new Dataset("name ie Resources");
-        //interaction to existing data source controlled via DataAdapter
-        //SelectCommand gets data from datasource, fill method populates dataset using selectcommand, uses datareader
-        //
-        //Also InsertCommand,UpdateCommand,DeleteCommand 
-
+        
         //constructor
         public ResourceRepository(string connectionString)
         {
             this.connectionString = connectionString;
         }
-
+        //############### CHANGE TO DATASET FROM LIST #################
         //call at start of presenter to display assignments and resources tables in both datagridviews
         public DataSet GetDataSet()
         {
@@ -52,12 +45,9 @@ namespace LitRevResourceMVP.Repositories
         /// <param name="resourceModel"></param>
         public void Add(ResourceModel resourceModel, DataSet AssignResDataSet)
         {
-            //DataSet("AssignResDataSet")
-            
             if (AssignResDataSet.Tables[1] != null)
             { 
                 DataRow dr = AssignResDataSet.Tables[1].NewRow();
-                //dr["Res_IdNum"] = -1;
                 dr["Res_Weblink"] = resourceModel.Web_Link;
                 dr["Res_Type"] = resourceModel.Resource_Type;
                 dr["Res_DateAccessed"] = resourceModel.Date_Accessed;
@@ -67,10 +57,9 @@ namespace LitRevResourceMVP.Repositories
                 dr["Res_Notes"] = resourceModel.Main_Notes;
                 dr["Assign_IdNum"] = resourceModel.Assign_IdNum;
                 AssignResDataSet.Tables[1].Rows.Add(dr);
-                //AssignResDataSet.AcceptChanges();
             }
-            //UpdateDBFromDataTable(AssignResDataSet);
         }
+
         /// <summary>
         /// 
         /// </summary>
@@ -79,13 +68,13 @@ namespace LitRevResourceMVP.Repositories
         {
             
             DataTable dt = AssignResDataSet.Tables[1];
-            DataRow[] dr = dt.Select("Res_IdNum = '"+idNum+"'");
+            DataRow[] dr = dt.Select("Res_IdNum = '"+ idNum +"'");
             for (int i = 0;i< dr.Length;i++)
             {
                 dr[i].Delete(); //mark row as delete, dt.AcceptChanges() 
                 //dt.Rows.Remove(dr[i]);
             }
-            //UpdateDBFromDataTable(AssignResDataSet);
+            
         }
 
         /// <summary>
@@ -99,30 +88,35 @@ namespace LitRevResourceMVP.Repositories
             DataRow dr = dt.Select("Res_IdNum = '" + idNum + "'").FirstOrDefault();
             if (dr != null)
             {
-
                 dr["Res_Weblink"] = resourceModel.Web_Link;
                 dr["Res_Type"] = resourceModel.Resource_Type;
+                dr["Res_DoiNum"] = resourceModel.DOI_Num;
                 dr["Res_DateAccessed"] = resourceModel.Date_Accessed;
                 dr["Res_Category"] = resourceModel.Category;
                 dr["Res_Reference"] = resourceModel.Reference;
                 dr["Res_MainPoint"] = resourceModel.Main_Point;
                 dr["Res_Notes"] = resourceModel.Main_Notes;
                 dr["Assign_IdNum"] = resourceModel.Assign_IdNum;
-
-                //resourceModel.Web_Link= (string)dr["Res_Weblink"];
-                //resourceModel.Resource_Type = (string)dr["Res_Type"];
-                //resourceModel.Date_Accessed= (DateTime)dr["Res_DateAccessed"];
-                //resourceModel.Category= (string)dr["Res_Category"];
-                //resourceModel.Reference= (string)dr["Res_Reference"] ;
-                //resourceModel.Main_Point= (string)dr["Res_MainPoint"];
-                //resourceModel.Main_Notes= (string)dr["Res_Notes"];
-                //resourceModel.Assign_IdNum= (int)dr["Assign_IdNum"];
             }
-            
         }
 
+        //not used had to do in view.class
+        public void LoadEditData(ResourceModel resourceModel, DataRow dr)
+        {
+           
+            if (dr != null)
+            {
+                resourceModel.Web_Link = (string)dr["Res_Weblink"];
+                resourceModel.Resource_Type = (string)dr["Res_Type"];
+                resourceModel.Date_Accessed = (DateTime)dr["Res_DateAccessed"];
+                resourceModel.Category = (string)dr["Res_Category"];
+                resourceModel.Reference = (string)dr["Res_Reference"];
+                resourceModel.Main_Point = (string)dr["Res_MainPoint"];
+                resourceModel.Main_Notes = (string)dr["Res_Notes"];
+                resourceModel.Assign_IdNum = (int)dr["Assign_IdNum"];
+            }
+        }
 
-        
 
         //save to server
         public void UpdateDBFromDataTable(DataSet AssignResDataSet)
@@ -131,17 +125,15 @@ namespace LitRevResourceMVP.Repositories
             using (var adapter = new SqlDataAdapter("SELECT * from Resource_table", connection))
             using (new SqlCommandBuilder(adapter))
             {
-                adapter.Fill(AssignResDataSet.Tables[1]);
+                //adapter.Fill(AssignResDataSet.Tables[1]);
                 connection.Open();
                 adapter.Update(AssignResDataSet.Tables[1]);
             }
-            
-            //GetDataSet();
-            MessageBox.Show(AssignResDataSet.DataSetName + " updated successfully.");
+            MessageBox.Show(AssignResDataSet.DataSetName + " updated database successfully.");
         }
 
 
-        //############### CHANGE TO DATASET FROM LIST #################
+        //############### CHANGE TO DATASET FROM LIST END #################
 
         
         /// <summary>
@@ -150,10 +142,11 @@ namespace LitRevResourceMVP.Repositories
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
-        public IEnumerable<ResourceModel> GetByValue(string value)
+        public IEnumerable<ResourceModel> GetByValue(string value,int assignId)
         {
             var resourceList = new List<ResourceModel>();
             int resIdNum = int.TryParse(value, out _) ? Convert.ToInt32(value) : 0;
+            
             string resCategory = value;
             using (var connection = new SqlConnection(connectionString))
             using (var command = new SqlCommand())
@@ -163,8 +156,9 @@ namespace LitRevResourceMVP.Repositories
                     connection.Open();
                     command.Connection = connection;
                     command.CommandText = "Select * from Resource_table " +
-                        "Where Res_IdNum = @idnum or Res_Category like @category+'%'" +
-                        "order by Res_Category desc";
+                        "Where Res_IdNum = @idnum or Res_Category like @category+'%' and Assign_IdNum = @assignId " +
+                        "order by Res_IdNum ";
+                    command.Parameters.AddWithValue("@assignId", SqlDbType.Int).Value = assignId;
                     command.Parameters.AddWithValue("@idnum", SqlDbType.Int).Value = resIdNum;
                     command.Parameters.AddWithValue("@category", SqlDbType.VarChar).Value = resCategory;
                     using (var reader = command.ExecuteReader())

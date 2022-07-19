@@ -34,9 +34,7 @@ namespace LitRevResourceMVP.Views
         event EventHandler AddNewEvent;
         event EventHandler EditEvent;
         event EventHandler DeleteEvent;
-        event EventHandler SelectChangeEvent;
-
-        //used in tab2 add/edit resource
+         //used in tab2 add/edit resource
         event EventHandler CreateReferenceEvent;
         event EventHandler SaveEvent;
         event EventHandler CancelEvent;

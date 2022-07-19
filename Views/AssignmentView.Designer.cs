@@ -62,10 +62,10 @@ namespace LitRevResourceMVP.Views
             // Lbl_AssignmentTitle
             // 
             this.Lbl_AssignmentTitle.AutoSize = true;
-            this.Lbl_AssignmentTitle.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Lbl_AssignmentTitle.Location = new System.Drawing.Point(291, 9);
+            this.Lbl_AssignmentTitle.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Lbl_AssignmentTitle.Location = new System.Drawing.Point(282, 21);
             this.Lbl_AssignmentTitle.Name = "Lbl_AssignmentTitle";
-            this.Lbl_AssignmentTitle.Size = new System.Drawing.Size(304, 38);
+            this.Lbl_AssignmentTitle.Size = new System.Drawing.Size(351, 45);
             this.Lbl_AssignmentTitle.TabIndex = 0;
             this.Lbl_AssignmentTitle.Text = "Assignment Dashboard";
             // 
@@ -76,13 +76,13 @@ namespace LitRevResourceMVP.Views
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(849, 56);
+            this.panel1.Size = new System.Drawing.Size(849, 82);
             this.panel1.TabIndex = 1;
             // 
             // Lbl_ModuleList
             // 
             this.Lbl_ModuleList.AutoSize = true;
-            this.Lbl_ModuleList.Location = new System.Drawing.Point(37, 28);
+            this.Lbl_ModuleList.Location = new System.Drawing.Point(7, 13);
             this.Lbl_ModuleList.Name = "Lbl_ModuleList";
             this.Lbl_ModuleList.Size = new System.Drawing.Size(104, 25);
             this.Lbl_ModuleList.TabIndex = 5;
@@ -101,15 +101,15 @@ namespace LitRevResourceMVP.Views
             this.panel3.Controls.Add(this.Btn_DeleteAssign);
             this.panel3.Controls.Add(this.dataGridView1);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel3.Location = new System.Drawing.Point(0, 56);
+            this.panel3.Location = new System.Drawing.Point(0, 82);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(554, 625);
+            this.panel3.Size = new System.Drawing.Size(570, 599);
             this.panel3.TabIndex = 3;
             // 
             // Lbl_Info1
             // 
             this.Lbl_Info1.AutoSize = true;
-            this.Lbl_Info1.Location = new System.Drawing.Point(382, 59);
+            this.Lbl_Info1.Location = new System.Drawing.Point(410, 64);
             this.Lbl_Info1.Name = "Lbl_Info1";
             this.Lbl_Info1.Size = new System.Drawing.Size(128, 100);
             this.Lbl_Info1.TabIndex = 24;
@@ -118,7 +118,7 @@ namespace LitRevResourceMVP.Views
             // Lbl_DisplayIdNum
             // 
             this.Lbl_DisplayIdNum.AutoSize = true;
-            this.Lbl_DisplayIdNum.Location = new System.Drawing.Point(37, 236);
+            this.Lbl_DisplayIdNum.Location = new System.Drawing.Point(12, 222);
             this.Lbl_DisplayIdNum.Name = "Lbl_DisplayIdNum";
             this.Lbl_DisplayIdNum.Size = new System.Drawing.Size(161, 25);
             this.Lbl_DisplayIdNum.TabIndex = 23;
@@ -128,15 +128,15 @@ namespace LitRevResourceMVP.Views
             // 
             this.Lbx_ModuleList.FormattingEnabled = true;
             this.Lbx_ModuleList.ItemHeight = 25;
-            this.Lbx_ModuleList.Location = new System.Drawing.Point(37, 59);
+            this.Lbx_ModuleList.Location = new System.Drawing.Point(7, 41);
             this.Lbx_ModuleList.Name = "Lbx_ModuleList";
-            this.Lbx_ModuleList.Size = new System.Drawing.Size(307, 154);
+            this.Lbx_ModuleList.Size = new System.Drawing.Size(364, 154);
             this.Lbx_ModuleList.TabIndex = 1;
             // 
             // Tbx_ModuleIdNum
             // 
             this.Tbx_ModuleIdNum.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.Tbx_ModuleIdNum.Location = new System.Drawing.Point(245, 233);
+            this.Tbx_ModuleIdNum.Location = new System.Drawing.Point(207, 219);
             this.Tbx_ModuleIdNum.Name = "Tbx_ModuleIdNum";
             this.Tbx_ModuleIdNum.ReadOnly = true;
             this.Tbx_ModuleIdNum.Size = new System.Drawing.Size(99, 31);
@@ -144,8 +144,8 @@ namespace LitRevResourceMVP.Views
             // 
             // Btn_ExitAssignView
             // 
-            this.Btn_ExitAssignView.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.Btn_ExitAssignView.Location = new System.Drawing.Point(431, 545);
+            this.Btn_ExitAssignView.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.Btn_ExitAssignView.Location = new System.Drawing.Point(426, 519);
             this.Btn_ExitAssignView.Name = "Btn_ExitAssignView";
             this.Btn_ExitAssignView.Size = new System.Drawing.Size(112, 63);
             this.Btn_ExitAssignView.TabIndex = 5;
@@ -156,7 +156,7 @@ namespace LitRevResourceMVP.Views
             // Lbl_AssignMainTitle
             // 
             this.Lbl_AssignMainTitle.AutoSize = true;
-            this.Lbl_AssignMainTitle.Location = new System.Drawing.Point(12, 301);
+            this.Lbl_AssignMainTitle.Location = new System.Drawing.Point(7, 261);
             this.Lbl_AssignMainTitle.Name = "Lbl_AssignMainTitle";
             this.Lbl_AssignMainTitle.Size = new System.Drawing.Size(118, 25);
             this.Lbl_AssignMainTitle.TabIndex = 15;
@@ -164,7 +164,7 @@ namespace LitRevResourceMVP.Views
             // 
             // Btn_EditAssign
             // 
-            this.Btn_EditAssign.Location = new System.Drawing.Point(68, 545);
+            this.Btn_EditAssign.Location = new System.Drawing.Point(36, 519);
             this.Btn_EditAssign.Name = "Btn_EditAssign";
             this.Btn_EditAssign.Size = new System.Drawing.Size(112, 63);
             this.Btn_EditAssign.TabIndex = 4;
@@ -173,9 +173,9 @@ namespace LitRevResourceMVP.Views
             // 
             // Btn_DeleteAssign
             // 
-            this.Btn_DeleteAssign.Location = new System.Drawing.Point(232, 545);
+            this.Btn_DeleteAssign.Location = new System.Drawing.Point(239, 519);
             this.Btn_DeleteAssign.Name = "Btn_DeleteAssign";
-            this.Btn_DeleteAssign.Size = new System.Drawing.Size(112, 38);
+            this.Btn_DeleteAssign.Size = new System.Drawing.Size(112, 63);
             this.Btn_DeleteAssign.TabIndex = 3;
             this.Btn_DeleteAssign.Text = "Delete";
             this.Btn_DeleteAssign.UseVisualStyleBackColor = true;
@@ -188,12 +188,12 @@ namespace LitRevResourceMVP.Views
             this.dataGridView1.AllowUserToResizeColumns = false;
             this.dataGridView1.AllowUserToResizeRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 339);
+            this.dataGridView1.Location = new System.Drawing.Point(7, 295);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 33;
-            this.dataGridView1.Size = new System.Drawing.Size(531, 190);
+            this.dataGridView1.Size = new System.Drawing.Size(555, 218);
             this.dataGridView1.TabIndex = 2;
             // 
             // panel2
@@ -210,14 +210,14 @@ namespace LitRevResourceMVP.Views
             this.panel2.Controls.Add(this.Tbx_AssignIdNum);
             this.panel2.Controls.Add(this.Lbl_AddNewAssign);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(549, 56);
+            this.panel2.Location = new System.Drawing.Point(576, 82);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(300, 625);
+            this.panel2.Size = new System.Drawing.Size(273, 599);
             this.panel2.TabIndex = 11;
             // 
             // Tbx_AssignTrimester
             // 
-            this.Tbx_AssignTrimester.Location = new System.Drawing.Point(28, 311);
+            this.Tbx_AssignTrimester.Location = new System.Drawing.Point(15, 323);
             this.Tbx_AssignTrimester.Name = "Tbx_AssignTrimester";
             this.Tbx_AssignTrimester.PlaceholderText = "Trimester";
             this.Tbx_AssignTrimester.Size = new System.Drawing.Size(81, 31);
@@ -226,7 +226,7 @@ namespace LitRevResourceMVP.Views
             // Lbl_AssignTrimester
             // 
             this.Lbl_AssignTrimester.AutoSize = true;
-            this.Lbl_AssignTrimester.Location = new System.Drawing.Point(26, 277);
+            this.Lbl_AssignTrimester.Location = new System.Drawing.Point(14, 295);
             this.Lbl_AssignTrimester.Name = "Lbl_AssignTrimester";
             this.Lbl_AssignTrimester.Size = new System.Drawing.Size(83, 25);
             this.Lbl_AssignTrimester.TabIndex = 11;
@@ -235,9 +235,9 @@ namespace LitRevResourceMVP.Views
             // Btn_AddAssign
             // 
             this.Btn_AddAssign.BackColor = System.Drawing.Color.Chocolate;
-            this.Btn_AddAssign.Location = new System.Drawing.Point(86, 482);
+            this.Btn_AddAssign.Location = new System.Drawing.Point(64, 491);
             this.Btn_AddAssign.Name = "Btn_AddAssign";
-            this.Btn_AddAssign.Size = new System.Drawing.Size(112, 61);
+            this.Btn_AddAssign.Size = new System.Drawing.Size(144, 73);
             this.Btn_AddAssign.TabIndex = 9;
             this.Btn_AddAssign.Text = "Add";
             this.Btn_AddAssign.UseVisualStyleBackColor = false;
@@ -245,7 +245,7 @@ namespace LitRevResourceMVP.Views
             // Lbl_AssignDueDate
             // 
             this.Lbl_AssignDueDate.AutoSize = true;
-            this.Lbl_AssignDueDate.Location = new System.Drawing.Point(27, 365);
+            this.Lbl_AssignDueDate.Location = new System.Drawing.Point(14, 380);
             this.Lbl_AssignDueDate.Name = "Lbl_AssignDueDate";
             this.Lbl_AssignDueDate.Size = new System.Drawing.Size(181, 25);
             this.Lbl_AssignDueDate.TabIndex = 9;
@@ -254,7 +254,7 @@ namespace LitRevResourceMVP.Views
             // DateTimePicker2
             // 
             this.DateTimePicker2.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.DateTimePicker2.Location = new System.Drawing.Point(28, 396);
+            this.DateTimePicker2.Location = new System.Drawing.Point(15, 408);
             this.DateTimePicker2.Name = "DateTimePicker2";
             this.DateTimePicker2.Size = new System.Drawing.Size(245, 31);
             this.DateTimePicker2.TabIndex = 8;
@@ -263,7 +263,7 @@ namespace LitRevResourceMVP.Views
             // Lbl_AssignName
             // 
             this.Lbl_AssignName.AutoSize = true;
-            this.Lbl_AssignName.Location = new System.Drawing.Point(27, 179);
+            this.Lbl_AssignName.Location = new System.Drawing.Point(15, 194);
             this.Lbl_AssignName.Name = "Lbl_AssignName";
             this.Lbl_AssignName.Size = new System.Drawing.Size(155, 25);
             this.Lbl_AssignName.TabIndex = 7;
@@ -272,7 +272,7 @@ namespace LitRevResourceMVP.Views
             // Tbx_AssignName
             // 
             this.Tbx_AssignName.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.Tbx_AssignName.Location = new System.Drawing.Point(28, 210);
+            this.Tbx_AssignName.Location = new System.Drawing.Point(15, 222);
             this.Tbx_AssignName.Multiline = true;
             this.Tbx_AssignName.Name = "Tbx_AssignName";
             this.Tbx_AssignName.PlaceholderText = "Name ";
@@ -282,7 +282,7 @@ namespace LitRevResourceMVP.Views
             // Lbl_AssignIdNum
             // 
             this.Lbl_AssignIdNum.AutoSize = true;
-            this.Lbl_AssignIdNum.Location = new System.Drawing.Point(27, 78);
+            this.Lbl_AssignIdNum.Location = new System.Drawing.Point(15, 90);
             this.Lbl_AssignIdNum.Name = "Lbl_AssignIdNum";
             this.Lbl_AssignIdNum.Size = new System.Drawing.Size(161, 50);
             this.Lbl_AssignIdNum.TabIndex = 5;
@@ -291,7 +291,7 @@ namespace LitRevResourceMVP.Views
             // Tbx_AssignIdNum
             // 
             this.Tbx_AssignIdNum.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.Tbx_AssignIdNum.Location = new System.Drawing.Point(27, 131);
+            this.Tbx_AssignIdNum.Location = new System.Drawing.Point(14, 143);
             this.Tbx_AssignIdNum.Name = "Tbx_AssignIdNum";
             this.Tbx_AssignIdNum.PlaceholderText = "Id number";
             this.Tbx_AssignIdNum.ReadOnly = true;
@@ -301,9 +301,10 @@ namespace LitRevResourceMVP.Views
             // Lbl_AddNewAssign
             // 
             this.Lbl_AddNewAssign.AutoSize = true;
-            this.Lbl_AddNewAssign.Location = new System.Drawing.Point(48, 29);
+            this.Lbl_AddNewAssign.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Lbl_AddNewAssign.Location = new System.Drawing.Point(17, 23);
             this.Lbl_AddNewAssign.Name = "Lbl_AddNewAssign";
-            this.Lbl_AddNewAssign.Size = new System.Drawing.Size(193, 25);
+            this.Lbl_AddNewAssign.Size = new System.Drawing.Size(231, 30);
             this.Lbl_AddNewAssign.TabIndex = 0;
             this.Lbl_AddNewAssign.Text = "Add a new assignment";
             // 

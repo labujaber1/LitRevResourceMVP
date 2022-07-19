@@ -60,16 +60,11 @@ namespace LitRevResourceMVP.Presenters
             this.view.Show();
         }
 
-        
-
-       
-
-
+     
         //used in second tab (tab1), display resource list and search request
         private void LoadAllAssignmentList()
         {
             assignResDataSet = repository.GetDataSet();
-            //assignResBindingSource.ResetBindings(false);
             assignBindingSource.DataSource = assignResDataSet.Tables[0];
         }
 
@@ -79,7 +74,6 @@ namespace LitRevResourceMVP.Presenters
             int IdNum = int.Parse(view.AssignIdNum);
             assignResDataSet.Tables[1].DefaultView.RowFilter = "Assign_IdNum = " + IdNum;
             resourceBindingSource.DataSource = assignResDataSet.Tables[1];
-            
         }
 
         private void LoadAllCategoriesList()
@@ -91,9 +85,10 @@ namespace LitRevResourceMVP.Presenters
         private void SearchForResource(object sender, EventArgs e)
         {
             bool emptyValue = string.IsNullOrWhiteSpace(this.view.SearchValue);
+            int assignId = int.Parse(view.AssignIdNum);
             if (emptyValue == false)
             {
-                resourceList = repository.GetByValue(this.view.SearchValue);
+                resourceList = repository.GetByValue(this.view.SearchValue, assignId);
                 resourceBindingSource.DataSource = resourceList;
             }
             else
@@ -106,7 +101,7 @@ namespace LitRevResourceMVP.Presenters
         }
         private void SaveResource(object sender, EventArgs e)
         {
-            int id = 0; //assignment idnum
+            
             var model = new ResourceModel();
             if (view.ResIdNum != "")
             {
@@ -129,13 +124,16 @@ namespace LitRevResourceMVP.Presenters
                 //new Common.ModelDataValidation().Validate(model); //###########
                 if (view.IsEdit)
                 {
+                    int id = int.Parse(view.ResIdNum);
                     repository.Edit(id, model, assignResDataSet);
                     view.Message = "Resource edited successfully";
+                    //resourceBindingSource.ResetBindings(false);
                 }
                 else
                 {
                     repository.Add(model, assignResDataSet);
                     view.Message = "Resource added successfully";
+                    //resourceBindingSource.ResetBindings(false);
                 }
                 view.IsSuccessful = true;
                 repository.UpdateDBFromDataTable(assignResDataSet);
@@ -154,13 +152,13 @@ namespace LitRevResourceMVP.Presenters
         {
             try
             {
-                var res = (ResourceModel)resourceBindingSource.Current;
-                if (res != null)
+                int id = int.Parse(view.ResIdNum);
+                //var res = (ResourceModel)resourceBindingSource.Current; //irrelevant
+                if (view.ResIdNum != "")
                 {
-                    repository.Delete(res.ID_Num, assignResDataSet);
+                    repository.Delete(id, assignResDataSet);
                     view.IsSuccessful = true;
                     view.Message = "Resource deleted successfully";
-                    //LoadAssignResources(sender, e);
                     repository.UpdateDBFromDataTable(assignResDataSet);
                 }
                 else
@@ -177,35 +175,37 @@ namespace LitRevResourceMVP.Presenters
 
         private void LoadResourceToEdit(object sender, EventArgs e)
         {
-            try
-            {
-                    //unable to cast datarowview to resourcemodel         
-                var res = (ResourceModel)resourceBindingSource.Current;
-                if (res != null)
-                {
-                    
-                    view.ResIdNum = res.ID_Num.ToString();
-                    view.ResWebLink = res.Web_Link;
-                    view.ResType = res.Resource_Type;
-                    view.ResDoiNum = res.DOI_Num;
-                    view.ResDateAccessed = res.Date_Accessed.ToString();
-                    view.ResCategory = res.Category;
-                    view.ResReference = res.Reference;
-                    view.ResMainPoint = res.Main_Point;
-                    view.ResNotes = res.Main_Notes;
-                    view.IsEdit = true;
-                    DisplayWebLink();
-                }
-                else
-                {
-                    view.Message = "No resource selected, edit failed...obviously!";
-                }
-            }
-            catch (Exception ex)
-            {
-                view.IsSuccessful = false;
-                view.Message = "Sorry, could not edit the resource due to an error \n"+ex.Message;
-            }
+            view.IsEdit = true;
+            DisplayWebLink();
+            //try
+            //{
+            //    var res = (ResourceModel)resourceBindingSource.Current;
+            //    //var res = repository.LoadEditData(resourceList, dr);
+            //    if (res != null)
+            //    {
+
+            //        view.ResIdNum = res.ID_Num.ToString();
+            //        view.ResWebLink = res.Web_Link;
+            //        view.ResType = res.Resource_Type;
+            //        view.ResDoiNum = res.DOI_Num;
+            //        view.ResDateAccessed = res.Date_Accessed.ToString();
+            //        view.ResCategory = res.Category;
+            //        view.ResReference = res.Reference;
+            //        view.ResMainPoint = res.Main_Point;
+            //        view.ResNotes = res.Main_Notes;
+            //        view.IsEdit = true;
+            //        DisplayWebLink();
+            //    }
+            //    else
+            //    {
+            //        view.Message = "No resource selected, edit failed...obviously!";
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    view.IsSuccessful = false;
+            //    view.Message = "Sorry, could not edit the resource due to an error \n"+ex.Message;
+            //}
         }
 
         /// <summary>
@@ -256,7 +256,7 @@ namespace LitRevResourceMVP.Presenters
         }
 
         /// <summary>
-        /// Web link click event to open a web page loaded from db
+        /// Web link click event to open a web page loaded from datatable when viewing a resource
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
