@@ -15,8 +15,16 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="App_Data\Assignment_table_alter1.sql" />
+    <None Remove="App_Data\Assign_table.sql" />
+    <None Remove="App_Data\DB design table.xlsx" />
     <None Remove="App_Data\litrevresourceTables.mwb" />
     <None Remove="App_Data\litrevresourceTables.mwb.bak" />
+    <None Remove="App_Data\Module_table.sql" />
+    <None Remove="App_Data\Module_table_alter1.sql" />
+    <None Remove="App_Data\Resource_table.sql" />
+    <None Remove="App_Data\Resource_table_alter1.sql" />
+    <None Remove="App_Data\SQLQueryResTable.sql" />
   </ItemGroup>
 
   <ItemGroup>
@@ -57,6 +65,10 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="App_Data\" />
   </ItemGroup>
 
 </Project>
