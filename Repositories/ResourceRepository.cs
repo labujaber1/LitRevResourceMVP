@@ -20,6 +20,10 @@ namespace LitRevResourceMVP.Repositories
         }
         //############### CHANGE TO DATASET FROM LIST #################
         //call at start of presenter to display assignments and resources tables in both datagridviews
+        /// <summary>
+        /// Adds assignment and resources tables to dataset using sqlDataAdapter 
+        /// </summary>
+        /// <returns>Dataset AssignResDataSet</returns>
         public DataSet GetDataSet()
         {
             DataSet ds;
@@ -40,9 +44,10 @@ namespace LitRevResourceMVP.Repositories
         }
 
         /// <summary>
-        /// DataSet("AssignResDataSet")
+        /// Adds a new row of resources data to table1 in dataset ("AssignResDataSet").
         /// </summary>
         /// <param name="resourceModel"></param>
+        /// <param name="AssignResDataSet"></param>
         public void Add(ResourceModel resourceModel, DataSet AssignResDataSet)
         {
             if (AssignResDataSet.Tables[1] != null)
@@ -62,9 +67,10 @@ namespace LitRevResourceMVP.Repositories
         }
 
         /// <summary>
-        /// 
+        /// Deletes a row of resources data from table1 in dataset ("AssignResDataSet"). Passes idnum for selection. 
         /// </summary>
         /// <param name="idNum"></param>
+        /// <param name="AssignResDataSet"></param>
         public void Delete(int idNum, DataSet AssignResDataSet)
         {
             
@@ -79,9 +85,11 @@ namespace LitRevResourceMVP.Repositories
         }
 
         /// <summary>
-        ///
+        /// Edits a row of resources data from table1 in dataset ("AssignResDataSet"). Passes idnum for selection.
         /// </summary>
+        /// <param name="idNum"></param>
         /// <param name="resourceModel"></param>
+        /// <param name="AssignResDataSet"></param>
         public void Edit(int idNum,ResourceModel resourceModel, DataSet AssignResDataSet)
         {
             
@@ -119,7 +127,10 @@ namespace LitRevResourceMVP.Repositories
         }
 
 
-        //save to server
+        /// <summary>
+        /// Updates sql database with ammended/new rows of resources data in table1.
+        /// </summary>
+        /// <param name="AssignResDataSet"></param>
         public void UpdateDBFromDataTable(DataSet AssignResDataSet)
         {
             using (var connection = new SqlConnection(connectionString))
@@ -130,7 +141,7 @@ namespace LitRevResourceMVP.Repositories
                 connection.Open();
                 adapter.Update(AssignResDataSet.Tables[1]);
             }
-            MessageBox.Show(AssignResDataSet.DataSetName + " updated database successfully.");
+            //MessageBox.Show(AssignResDataSet.DataSetName + " updated database successfully.");
         }
 
 
@@ -139,10 +150,10 @@ namespace LitRevResourceMVP.Repositories
         
         /// <summary>
         /// SQL query SELECT: retrieves data from a search method by using either an id number or category request.
-        /// This is called to display in a datagridview
+        /// This is called to display results in a datagridview.
         /// </summary>
         /// <param name="value"></param>
-        /// <returns></returns>
+        /// <returns>Resource list</returns>
         public IEnumerable<ResourceModel> GetByValue(string value,int assignId)
         {
             var resourceList = new List<ResourceModel>();
@@ -195,7 +206,7 @@ namespace LitRevResourceMVP.Repositories
         /// Each resource includes this field which may be used to group resources together in a search event.
         /// The categories are not preset but taken from resource creation.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Category list</returns>
         public IEnumerable<string> GetAllCategories()
         {
             var categoryList = new List<string>();

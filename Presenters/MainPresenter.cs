@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using LitRevResourceMVP.Views;
 using LitRevResourceMVP.Models;
 using LitRevResourceMVP.Repositories;
-using System.Windows.Forms;
+
 
 namespace LitRevResourceMVP.Presenters
 {

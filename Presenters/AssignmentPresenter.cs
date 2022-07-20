@@ -19,8 +19,12 @@ namespace LitRevResourceMVP.Presenters
         
         private IEnumerable<AssignmentModel> assignmentList;
         private IEnumerable<string> moduleNameList;
-        
 
+        /// <summary>
+        /// Setup events args to event handlers and assignment bindings source.
+        /// </summary>
+        /// <param name="view"></param>
+        /// <param name="repository"></param>
         public AssignmentPresenter(IAssignmentView view, IAssignmentRepository repository)
         {
             this.assignmentBindingSource = new BindingSource();
@@ -44,7 +48,9 @@ namespace LitRevResourceMVP.Presenters
             this.view.Show();
         }
 
-        
+        /// <summary>
+        /// Binds module list and repository method to display in richtextbox for user selection.
+        /// </summary>
         private void LoadAllModulesList()
         {
             moduleNameList = repository.GetAllModules();
@@ -52,7 +58,11 @@ namespace LitRevResourceMVP.Presenters
 
         }
 
-        //click event
+        /// <summary>
+        /// Retrieves module id number and displays in textbox for viewing and retrieval.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void DisplayModIdNum(object sender, EventArgs e)
         {
             string name = view.SelectedModName;                
@@ -62,7 +72,9 @@ namespace LitRevResourceMVP.Presenters
             LoadAllAssignList();                               
         }
 
- 
+        /// <summary>
+        /// Retrieves module id number from textbox and passes to repository method to display module specific assignments. 
+        /// </summary>
         private void LoadAllAssignList()
         {
             int id = Convert.ToInt32(view.ModIdNum);
@@ -70,7 +82,11 @@ namespace LitRevResourceMVP.Presenters
             assignmentBindingSource.DataSource = assignmentList;
         }
         
-
+        /// <summary>
+        /// Stores edited data from view to be called in the save method. IsEdit bool changed to true.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void EditAssign(object sender, EventArgs e)
         {
             var res = (AssignmentModel)assignmentBindingSource.Current;
@@ -85,6 +101,11 @@ namespace LitRevResourceMVP.Presenters
             }
         }
 
+        /// <summary>
+        /// Deletes row in assignment list and updates sql database using sql method in repository.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void DeleteAssign(object sender, EventArgs e)
         {
             try
@@ -110,7 +131,11 @@ namespace LitRevResourceMVP.Presenters
                 view.Message = "Sorry, could not delete the assignment due to an error";
             }
         }
-
+        /// <summary>
+        /// Combines edit and save function using bool isEdit status. Calls sql methods from repository to amend list and update database.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SaveAssign(object sender, EventArgs e)
         {
             var model = new AssignmentModel();
@@ -156,7 +181,9 @@ namespace LitRevResourceMVP.Presenters
                 MessageBox.Show("Error saving/editing-> " + ex.Message, "Saving/Editing");
             }
         }
-        //used in saveResource(), cancelAction(), 
+        /// <summary>
+        /// Used in saveResource(), cancelAction(), to clear all textboxes of data.
+        /// </summary>
         private void ClearAllTextFields()
         {
             view.AssignIdNum = "";

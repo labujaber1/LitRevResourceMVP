@@ -29,7 +29,9 @@ namespace LitRevResourceMVP.Views
         public event EventHandler ViewResourcesEvent;
 
 
-        //constructor
+        /// <summary>
+        /// Initialises components, events, and removes tab2 & 3 so main tab is viewed.
+        /// </summary>
         public ResourceView()
         {
             InitializeComponent();
@@ -39,7 +41,9 @@ namespace LitRevResourceMVP.Views
 
         }
 
-
+        /// <summary>
+        /// Invokes CRUD events on resources.
+        /// </summary>
         private void AssociateAndRaiseViewEvents()
         {
             //used in tab1 select resource
@@ -184,12 +188,22 @@ namespace LitRevResourceMVP.Views
             get { return message; }
             set { message = value; }
         }
-        
+        /// <summary>
+        /// Invokes LinkLabelEvent in presenter class
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Lklbl_WebLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
                 LinkLabelEvent?.Invoke(sender,e);
         }
 
+        /// <summary>
+        /// Invokes viewResources event when cell clicked in the assign datagridview. 
+        /// Adds the assignment number in the selected row to textbox for viewing and retrieval.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dataGridViewAssign_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             DataRowView drv = this.dataGridViewAssign.CurrentRow.DataBoundItem as DataRowView;
@@ -200,6 +214,11 @@ namespace LitRevResourceMVP.Views
             }
         }
 
+        /// <summary>
+        /// Gets the resource data for the current selected row in the resource datagridview
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dataGridViewResource_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             DataGridView dgv = new();
@@ -216,16 +235,21 @@ namespace LitRevResourceMVP.Views
                 ResReference = dgv.CurrentRow.Cells[6].Value.ToString();
                 ResMainPoint = dgv.CurrentRow.Cells[7].Value.ToString();
                 ResNotes = dgv.CurrentRow.Cells[8].Value.ToString();
-                
             }
         }
         
-        //public void SetAssignmentListBindingSource(BindingSource assignmentList)
+        /// <summary>
+        /// Binds assignment datagridview to assignData source
+        /// </summary>
+        /// <param name="assignData"></param>
         public void SetAssignmentListBindingSource(BindingSource assignData)
         {
             dataGridViewAssign.DataSource = assignData;
         }
-
+        /// <summary>
+        /// Binds resource datagridview to resourceData source
+        /// </summary>
+        /// <param name="resourceData"></param>
         public void SetResourceListBindingSource(BindingSource resourceData)
         {
             dataGridViewResource.DataSource = null;
@@ -233,23 +257,43 @@ namespace LitRevResourceMVP.Views
             
         }
 
+        /// <summary>
+        /// Binds category list box to categoryList source
+        /// </summary>
+        /// <param name="categoryList"></param>
         public void SetCategoryListBindingSource(BindingSource categoryList)
         {
             Lbx_ListOfCategories.DataSource = categoryList;
         }
 
+        /// <summary>
+        /// Closes instance of resource view
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Btn_Close_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+
+        /// <summary>
+        /// Closes reference tab and opens resource details tab
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Btn_RefBack_Click(object sender, EventArgs e)
         {
             Tbcl_ResourceList.TabPages.Remove(tabPage3);
             Tbcl_ResourceList.TabPages.Add(tabPage2);
         }
 
-        //Open a single form using a singleton pattern
+        
         private static ResourceView instance;
+        /// <summary>
+        /// Open a single resource form using a singleton pattern
+        /// </summary>
+        /// <param name="parentContainer"></param>
+        /// <returns>ResourceView instance</returns>
         public static ResourceView GetInstance(Form parentContainer)
         {
             if (instance == null || instance.IsDisposed)

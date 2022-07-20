@@ -1,17 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace LitRevResourceMVP.Views
 {
     public partial class AssignmentView : Form, IAssignmentView
     {
+        /// <summary>
+        /// Initialises components and events.
+        /// </summary>
         public AssignmentView()
         {
             InitializeComponent();
@@ -28,7 +24,9 @@ namespace LitRevResourceMVP.Views
         public event EventHandler EditAssignEvent;
         public event EventHandler DisplayModIdNumEvent;
        
-
+        /// <summary>
+        /// Invokes CRUD events on assignments.
+        /// </summary>
         private void AssociateAndRaiseViewEvents()
         {
             //buttons click events
@@ -110,24 +108,41 @@ namespace LitRevResourceMVP.Views
             set { Tbx_ModuleIdNum.Text = value; }
         }
 
+        /// <summary>
+        /// Closes instance of assignment view.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Btn_ExitAssignView_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
+        /// <summary>
+        /// Binds listbox to module name list.
+        /// </summary>
+        /// <param name="moduleNameList"></param>
         public void SetModuleNameListBindingSource(BindingSource moduleNameList)
         {
             Lbx_ModuleList.DataSource = moduleNameList;
 
         }
+        /// <summary>
+        /// Binds datagridview1 to assignment list.
+        /// </summary>
+        /// <param name="assignmentList"></param>
         public void SetAssignmentListBindingSource(BindingSource assignmentList)
         {
             dataGridView1.DataSource = assignmentList;
         }
 
-      
-        //Open a single form using a singleton pattern
+
+        
         private static AssignmentView instance;
+        /// <summary>
+        /// Open a single assignment form using a singleton pattern
+        /// </summary>
+        /// <param name="parentContainer"></param>
+        /// <returns>AssignmentView instance</returns>
         public static AssignmentView GetInstance(Form parentContainer)
         {
             if (instance == null || instance.IsDisposed)
