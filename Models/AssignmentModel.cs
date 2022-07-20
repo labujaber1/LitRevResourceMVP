@@ -25,10 +25,8 @@ namespace LitRevResourceMVP.Models
         public string Assign_Name { get => assignName; set => assignName = value; }
 
         [DisplayName("Due date")]
-        //[DisplayFormat(ApplyFormatInEditMode = true,DataFormatString = "{0:dd/MM/yyyy}")]
         [DataType(DataType.Date)]
         [Required(ErrorMessage = "Assignment date is required so please enter in the required format yyyy")]
-        //[StringLength(4, ErrorMessage = "Only 4 characters can be used")]
         public DateTime Due_Date { get => dueDate; set => dueDate = value.Date; }
 
         [DisplayName("Trimester")]

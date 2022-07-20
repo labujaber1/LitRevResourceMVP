@@ -79,7 +79,7 @@ namespace LitRevResourceMVP.Presenters
                 view.AssignIdNum = res.Assign_IdNum.ToString();
                 view.AssignName = res.Assign_Name;
                 view.DueDate = res.Due_Date;
-                view.Trimester = res.Assign_Trimester.ToString();
+                view.Trimester = res.Assign_Trimester;
                 view.ModIdNum = res.Mod_IdNum.ToString();
                 view.IsEdit = true;
             }
@@ -122,8 +122,10 @@ namespace LitRevResourceMVP.Presenters
             }
             model.Assign_Name = view.AssignName;
             model.Due_Date = view.DueDate;
-            model.Assign_Trimester = int.Parse(view.Trimester);
-            model.Mod_IdNum = int.Parse(view.ModIdNum); 
+            int trimester = Convert.ToInt32(view.Trimester);
+            model.Assign_Trimester = trimester;
+            int modId = int.Parse(view.ModIdNum);
+            model.Mod_IdNum = modId;
 
             try
             {
@@ -160,7 +162,7 @@ namespace LitRevResourceMVP.Presenters
             view.AssignIdNum = "";
             view.AssignName = "";
             //view.DueDate = "";
-            view.Trimester = "";
+            //view.Trimester = 1;
         }
 
         

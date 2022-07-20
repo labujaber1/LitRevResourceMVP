@@ -10,7 +10,7 @@
 
 #pragma warning disable 1591
 
-namespace LitRevResourceMVP.Models {
+namespace LitRevResourceMVP.App_Data {
     
     
     /// <summary>

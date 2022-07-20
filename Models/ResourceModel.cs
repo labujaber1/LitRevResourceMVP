@@ -69,6 +69,6 @@ namespace LitRevResourceMVP.Models
         public int Assign_IdNum { get => assignIdNum; set => assignIdNum = value; }
 
         [ForeignKey("Assign_IdNum")]
-        public virtual AssignmentModel Assignments { get; set; }
+        public virtual ICollection< AssignmentModel> Assignments { get; set; }
     }
 }

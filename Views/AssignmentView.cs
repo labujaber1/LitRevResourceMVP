@@ -77,8 +77,7 @@ namespace LitRevResourceMVP.Views
             get { return message; }
             set { message = value; }
         }
-
-        
+                
         public string AssignIdNum 
         {
             get { return Tbx_AssignIdNum.Text; } 
@@ -94,10 +93,10 @@ namespace LitRevResourceMVP.Views
             get { return DateTimePicker2.Value.Date; }
             set { DateTimePicker2.Value = value.Date; } 
         }
-        public string Trimester
+        public Decimal Trimester
         {
-            get { return Tbx_AssignTrimester.Text; }
-            set { Tbx_AssignTrimester.Text = value; }
+            get { return numericUpDown1.Value; }
+            set { numericUpDown1.Value = value; }
         }
         
         public string SelectedModName
@@ -126,11 +125,7 @@ namespace LitRevResourceMVP.Views
             dataGridView1.DataSource = assignmentList;
         }
 
-        
-
-
-
-
+      
         //Open a single form using a singleton pattern
         private static AssignmentView instance;
         public static AssignmentView GetInstance(Form parentContainer)
