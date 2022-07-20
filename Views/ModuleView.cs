@@ -1,17 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace LitRevResourceMVP.Views
 {
     public partial class ModuleView : Form, IModuleView
     {
+        /// <summary>
+        /// Initialises components and events.
+        /// </summary>
         public ModuleView()
         {
             InitializeComponent();
@@ -27,6 +23,9 @@ namespace LitRevResourceMVP.Views
         public event EventHandler DeleteModEvent;
         public event EventHandler EditModEvent;
 
+        /// <summary>
+        /// Invokes CRUD events on modules.
+        /// </summary>
         private void AssociateAndRaiseViewEvents()
         {
             //buttons events
@@ -53,6 +52,10 @@ namespace LitRevResourceMVP.Views
 
         }
 
+        /// <summary>
+        /// Binds module datagridview to module list.
+        /// </summary>
+        /// <param name="moduleList"></param>
         public void SetModuleListBindingSource(BindingSource moduleList)
         {
             dataGridView3.DataSource = moduleList;
@@ -91,8 +94,13 @@ namespace LitRevResourceMVP.Views
             set { message = value; } 
         }
 
-        //Open a single form using a singleton pattern
+        
         private static ModuleView instance;
+        /// <summary>
+        /// Open a single module form using a singleton pattern
+        /// </summary>
+        /// <param name="parentContainer"></param>
+        /// <returns>ModuleView instance</returns>
         public static ModuleView GetInstance(Form parentContainer)
         {
             if (instance == null || instance.IsDisposed)
@@ -113,6 +121,11 @@ namespace LitRevResourceMVP.Views
             return instance;
         }
 
+        /// <summary>
+        /// Closes module instance.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Btn_CloseMod_Click(object sender, EventArgs e)
         {
             this.Close();

@@ -24,8 +24,12 @@ namespace LitRevResourceMVP.Presenters
         private IEnumerable<ResourceModel> resourceList;
         private IEnumerable<string> categoryList;
         private DataSet assignResDataSet;
-        
 
+        /// <summary>
+        /// Setup events args to event handlers and assignment bindings source.
+        /// </summary>
+        /// <param name="view"></param>
+        /// <param name="repository"></param>
         public ResourcePresenter(IResourceView view, IResourceRepository repository)
         {
             this.resourceBindingSource = new BindingSource();
@@ -54,14 +58,15 @@ namespace LitRevResourceMVP.Presenters
             this.view.SetCategoryListBindingSource(categoryBindingSource);
            
             LoadAllAssignmentList();
-            
             LoadAllCategoriesList(); // ###### 
-            
             this.view.Show();
         }
 
-     
+
         //used in second tab (tab1), display resource list and search request
+        /// <summary>
+        /// Binds assignment data table and repository method to display in datagridview for user selection. 
+        /// </summary>
         private void LoadAllAssignmentList()
         {
             assignResDataSet = repository.GetDataSet();
@@ -69,19 +74,32 @@ namespace LitRevResourceMVP.Presenters
         }
 
         //used in SaveResource(), SearchForResource()
+        /// <summary>
+        /// Retrieves assignment id number from selected row to filter specific resources in the dataset. 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void LoadAssignResources(object sender, EventArgs e)
         {
             int IdNum = int.Parse(view.AssignIdNum);
             assignResDataSet.Tables[1].DefaultView.RowFilter = "Assign_IdNum = " + IdNum;
             resourceBindingSource.DataSource = assignResDataSet.Tables[1];
         }
-
+        /// <summary>
+        /// Binds list and repository method to retrieve distinct categories from database. 
+        /// Displayed as readonly and for user information. 
+        /// </summary>
         private void LoadAllCategoriesList()
         {
             categoryList = repository.GetAllCategories();
             categoryBindingSource.DataSource = categoryList;
         }
 
+        /// <summary>
+        /// Binds resource list and repository method to search for a specific resource or grouped using category input.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SearchForResource(object sender, EventArgs e)
         {
             bool emptyValue = string.IsNullOrWhiteSpace(this.view.SearchValue);
@@ -95,10 +113,21 @@ namespace LitRevResourceMVP.Presenters
                 LoadAssignResources(sender,e);
         }
 
+        /// <summary>
+        /// Changes isEdit bool flag to false and thus call add method in saveResource().
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AddNewResource(object sender, EventArgs e)
         {
             view.IsEdit = false;
         }
+
+        /// <summary>
+        /// Combines edit and save function using bool isEdit status. Calls sql methods from repository to amend dataset and update database.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SaveResource(object sender, EventArgs e)
         {
             
@@ -148,6 +177,11 @@ namespace LitRevResourceMVP.Presenters
 
         }
 
+        /// <summary>
+        /// Deletes row in assignment data table and updates sql database using sql method in repository.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void DeleteResource(object sender, EventArgs e)
         {
             try
@@ -173,6 +207,11 @@ namespace LitRevResourceMVP.Presenters
             }
         }
 
+        /// <summary>
+        /// Sets isEdit bool flag to true to call edit method in saveResource(). Also calls method to display link label.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void LoadResourceToEdit(object sender, EventArgs e)
         {
             view.IsEdit = true;
@@ -236,7 +275,7 @@ namespace LitRevResourceMVP.Presenters
         /// <summary>
         /// Open webpage when weblink LklblWebLink_LinkClicked called
         /// Process.start doesn't work, github get around used, known issue in .netcore
-        /// h ttps://github.com/dotnet/runtime/issues/21798 
+        /// h ttps://github.com/dotnet/runtime/issues/21798.
         /// </summary>
         /// <param name="url"></param>
         /// <returns></returns>
@@ -279,14 +318,20 @@ namespace LitRevResourceMVP.Presenters
         }
 
         //used in second tab display/add/edit single resource
+        /// <summary>
+        /// Currently not used but intended to allow a user to manage references (CRUD) according to style.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CreateReference(object sender, EventArgs e)
         {
             MessageBox.Show("CreateReference not in operation yet");
         }
 
-       
 
-        //used in saveResource(), cancelAction(), 
+        /// <summary>
+        /// Clear all textboxes of data. Used in saveResource(), cancelAction()
+        /// </summary>
         private void ClearAllTextFields()
         {
             view.ResIdNum = "0";
@@ -309,6 +354,11 @@ namespace LitRevResourceMVP.Presenters
             
         }
 
+        /// <summary>
+        /// Clear textboxes if user changes their mind about editing/adding resource.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CancelAction(object sender, EventArgs e)
         {
             ClearAllTextFields();

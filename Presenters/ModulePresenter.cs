@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using LitRevResourceMVP.Models;
 using LitRevResourceMVP.Views;
@@ -16,6 +13,11 @@ namespace LitRevResourceMVP.Presenters
         private BindingSource moduleBindingSource;
         private IEnumerable<ModuleModel> moduleList;
 
+        /// <summary>
+        /// Setup events args to event handlers and module bindings source. 
+        /// </summary>
+        /// <param name="view"></param>
+        /// <param name="repository"></param>
         public ModulePresenter(IModuleView view, IModuleRepository repository)
         {
             this.moduleBindingSource = new BindingSource();
@@ -34,6 +36,11 @@ namespace LitRevResourceMVP.Presenters
             this.view.Show();
         }
 
+        /// <summary>
+        /// Combines edit and save function using bool isEdit status. Calls sql methods from repository to amend list and update database.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SaveModule(object sender, EventArgs e)
         {
             var model = new ModuleModel();
@@ -72,7 +79,11 @@ namespace LitRevResourceMVP.Presenters
                 MessageBox.Show(ex.Message);
             }
         }
-
+        /// <summary>
+        /// Deletes row in module list and updates sql database using sql method in repository
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void DeleteModule(object sender, EventArgs e)
         {
             try
@@ -93,7 +104,11 @@ namespace LitRevResourceMVP.Presenters
                 view.Message = "Sorry, could not delete the module due to an error";
             }
         }
-
+        /// <summary>
+        /// Stores edited data to be called in savemodule for datbase and list update.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void EditModule(object sender, EventArgs e)
         {
             var res = (ModuleModel)moduleBindingSource.Current;
@@ -107,14 +122,18 @@ namespace LitRevResourceMVP.Presenters
         }
 
         
-
+        /// <summary>
+        /// Binds module list to repository method for display in richtextbox.
+        /// </summary>
         private void LoadAllModuleList()
         {
             moduleList = repository.GetAllModules();
             moduleBindingSource.DataSource = moduleList;
         }
 
-        //used in saveResource(), cancelAction(), 
+        /// <summary>
+        /// Used in saveResource(), cancelAction(), to clear all textboxes of data.
+        /// </summary>
         private void ClearAllTextFields()
         {
             view.ModIdNum = "0";

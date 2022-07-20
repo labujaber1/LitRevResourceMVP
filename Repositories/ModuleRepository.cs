@@ -15,13 +15,11 @@ namespace LitRevResourceMVP.Repositories
         public ModuleRepository(string connectionString)
         {
             this.connectionString = connectionString;
+            //MessageBox.Show("Connection string = " + connectionString);
         }
 
-        //int modIdNum;
-        //string modName;
-
         /// <summary>
-        ///  SQL query INSERT: used to add the module data model to the database
+        ///  SQL query INSERT: used to add the module data model to the database directly, opens and closes connection.
         /// </summary>
         /// <param name="moduleModel"></param>
         public void Add(ModuleModel moduleModel)
@@ -39,7 +37,7 @@ namespace LitRevResourceMVP.Repositories
         }
 
         /// <summary>
-        /// SQL query DELETE: used to delete the module data model based on id number from the database
+        /// SQL query DELETE: used to delete the module data model based on id number from the database directly, opens and closes connection.
         /// </summary>
         /// <param name="modIdNum"></param>
         public void Delete(int modIdNum)
@@ -57,7 +55,7 @@ namespace LitRevResourceMVP.Repositories
         }
 
         /// <summary>
-        /// SQL query UPDATE: used to edit module data in the database using the data model 
+        /// SQL query UPDATE: used to edit module data in the database using the data model, opens and closes connection. 
         /// </summary>
         /// <param name="moduleModel"></param>
         public void Edit(ModuleModel moduleModel)
@@ -79,10 +77,10 @@ namespace LitRevResourceMVP.Repositories
         }
 
         /// <summary>
-        /// SQL query SELECT: retrieves module data from the database and return in a module list.
-        /// This is called to display in a datagridview
+        /// SQL query SELECT: retrieves module data from the database and return in a module list, opens and closes connection. 
+        /// This is called to display in a datagridview.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Module list</returns>
         public IEnumerable<ModuleModel> GetAllModules()
         {
             var moduleList = new List<ModuleModel>();

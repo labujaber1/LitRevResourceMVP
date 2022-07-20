@@ -5,6 +5,9 @@ namespace LitRevResourceMVP.Views
 {
     public partial class MainView : Form, IMainView
     {
+        /// <summary>
+        /// Events to get an instance of each view of module, assignment, and resource when required.
+        /// </summary>
         public MainView()
         {
             InitializeComponent();
