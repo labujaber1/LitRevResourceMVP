@@ -125,10 +125,10 @@ namespace LitRevResourceMVP.Presenters
                     return;
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 view.IsSuccessful = false;
-                view.Message = "Sorry, could not delete the assignment due to an error";
+                view.Message = "Sorry, could not delete the assignment due to an error.\nCheck if any resources need deleting and try again.\n"+ex.Message;
             }
         }
         /// <summary>

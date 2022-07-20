@@ -98,10 +98,10 @@ namespace LitRevResourceMVP.Presenters
                 }
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 view.IsSuccessful = false;
-                view.Message = "Sorry, could not delete the module due to an error";
+                view.Message = "Sorry, could not delete the module due to an error.\n Check if any assignments need deleting and try again.\n"+ex.Message;
             }
         }
         /// <summary>

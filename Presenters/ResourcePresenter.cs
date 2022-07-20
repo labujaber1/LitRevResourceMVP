@@ -200,10 +200,10 @@ namespace LitRevResourceMVP.Presenters
                     view.Message = "Resource does not exist, delete failed";
                 }
             }
-            catch(Exception)
+            catch(Exception ex)
             {
                 view.IsSuccessful = false;
-                view.Message = "Sorry, could not delete the resource due to an error"; 
+                view.Message = "Sorry, could not delete the resource due to an error"+ex.Message; 
             }
         }
 
