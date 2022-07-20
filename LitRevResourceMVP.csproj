@@ -15,8 +15,16 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="App_Data\Assignment_table_alter1.sql" />
+    <None Remove="App_Data\Assign_table.sql" />
+    <None Remove="App_Data\DB design table.xlsx" />
     <None Remove="App_Data\litrevresourceTables.mwb" />
     <None Remove="App_Data\litrevresourceTables.mwb.bak" />
+    <None Remove="App_Data\Module_table.sql" />
+    <None Remove="App_Data\Module_table_alter1.sql" />
+    <None Remove="App_Data\Resource_table.sql" />
+    <None Remove="App_Data\Resource_table_alter1.sql" />
+    <None Remove="App_Data\SQLQueryResTable.sql" />
   </ItemGroup>
 
   <ItemGroup>
@@ -24,7 +32,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Models\DataSet1.Designer.cs">
+    <Compile Update="App_Data\DataSet1.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>DataSet1.xsd</DependentUpon>
@@ -49,7 +57,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Models\DataSet1.xsd">
+    <None Update="App_Data\DataSet1.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
     </None>

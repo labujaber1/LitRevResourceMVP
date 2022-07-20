@@ -12,7 +12,7 @@ namespace LitRevResourceMVP.Views
         string AssignIdNum { get; set; }
         string AssignName { get; set; }
         DateTime DueDate { get; set; }
-        string Trimester { get; set; }
+        Decimal Trimester { get; set; }
         string ModIdNum { get; set; }
         string SelectedModName { get; set; }
 

@@ -50,6 +50,7 @@ namespace LitRevResourceMVP.Repositories
                 DataRow dr = AssignResDataSet.Tables[1].NewRow();
                 dr["Res_Weblink"] = resourceModel.Web_Link;
                 dr["Res_Type"] = resourceModel.Resource_Type;
+                dr["Res_DoiNum"] = resourceModel.DOI_Num;
                 dr["Res_DateAccessed"] = resourceModel.Date_Accessed;
                 dr["Res_Category"] = resourceModel.Category;
                 dr["Res_Reference"] = resourceModel.Reference;

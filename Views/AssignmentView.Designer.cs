@@ -43,7 +43,7 @@ namespace LitRevResourceMVP.Views
             this.Btn_DeleteAssign = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.Tbx_AssignTrimester = new System.Windows.Forms.TextBox();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.Lbl_AssignTrimester = new System.Windows.Forms.Label();
             this.Btn_AddAssign = new System.Windows.Forms.Button();
             this.Lbl_AssignDueDate = new System.Windows.Forms.Label();
@@ -57,6 +57,7 @@ namespace LitRevResourceMVP.Views
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // Lbl_AssignmentTitle
@@ -199,7 +200,7 @@ namespace LitRevResourceMVP.Views
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.AntiqueWhite;
-            this.panel2.Controls.Add(this.Tbx_AssignTrimester);
+            this.panel2.Controls.Add(this.numericUpDown1);
             this.panel2.Controls.Add(this.Lbl_AssignTrimester);
             this.panel2.Controls.Add(this.Btn_AddAssign);
             this.panel2.Controls.Add(this.Lbl_AssignDueDate);
@@ -215,13 +216,22 @@ namespace LitRevResourceMVP.Views
             this.panel2.Size = new System.Drawing.Size(273, 599);
             this.panel2.TabIndex = 11;
             // 
-            // Tbx_AssignTrimester
+            // numericUpDown1
             // 
-            this.Tbx_AssignTrimester.Location = new System.Drawing.Point(15, 323);
-            this.Tbx_AssignTrimester.Name = "Tbx_AssignTrimester";
-            this.Tbx_AssignTrimester.PlaceholderText = "Trimester";
-            this.Tbx_AssignTrimester.Size = new System.Drawing.Size(81, 31);
-            this.Tbx_AssignTrimester.TabIndex = 7;
+            this.numericUpDown1.Location = new System.Drawing.Point(17, 329);
+            this.numericUpDown1.Maximum = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(66, 31);
+            this.numericUpDown1.TabIndex = 15;
+            this.numericUpDown1.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // Lbl_AssignTrimester
             // 
@@ -254,7 +264,7 @@ namespace LitRevResourceMVP.Views
             // DateTimePicker2
             // 
             this.DateTimePicker2.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.DateTimePicker2.Location = new System.Drawing.Point(15, 408);
+            this.DateTimePicker2.Location = new System.Drawing.Point(14, 419);
             this.DateTimePicker2.Name = "DateTimePicker2";
             this.DateTimePicker2.Size = new System.Drawing.Size(245, 31);
             this.DateTimePicker2.TabIndex = 8;
@@ -263,7 +273,7 @@ namespace LitRevResourceMVP.Views
             // Lbl_AssignName
             // 
             this.Lbl_AssignName.AutoSize = true;
-            this.Lbl_AssignName.Location = new System.Drawing.Point(15, 194);
+            this.Lbl_AssignName.Location = new System.Drawing.Point(13, 182);
             this.Lbl_AssignName.Name = "Lbl_AssignName";
             this.Lbl_AssignName.Size = new System.Drawing.Size(155, 25);
             this.Lbl_AssignName.TabIndex = 7;
@@ -272,7 +282,7 @@ namespace LitRevResourceMVP.Views
             // Tbx_AssignName
             // 
             this.Tbx_AssignName.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.Tbx_AssignName.Location = new System.Drawing.Point(15, 222);
+            this.Tbx_AssignName.Location = new System.Drawing.Point(14, 219);
             this.Tbx_AssignName.Multiline = true;
             this.Tbx_AssignName.Name = "Tbx_AssignName";
             this.Tbx_AssignName.PlaceholderText = "Name ";
@@ -282,7 +292,7 @@ namespace LitRevResourceMVP.Views
             // Lbl_AssignIdNum
             // 
             this.Lbl_AssignIdNum.AutoSize = true;
-            this.Lbl_AssignIdNum.Location = new System.Drawing.Point(15, 90);
+            this.Lbl_AssignIdNum.Location = new System.Drawing.Point(14, 76);
             this.Lbl_AssignIdNum.Name = "Lbl_AssignIdNum";
             this.Lbl_AssignIdNum.Size = new System.Drawing.Size(161, 50);
             this.Lbl_AssignIdNum.TabIndex = 5;
@@ -291,7 +301,7 @@ namespace LitRevResourceMVP.Views
             // Tbx_AssignIdNum
             // 
             this.Tbx_AssignIdNum.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.Tbx_AssignIdNum.Location = new System.Drawing.Point(14, 143);
+            this.Tbx_AssignIdNum.Location = new System.Drawing.Point(13, 133);
             this.Tbx_AssignIdNum.Name = "Tbx_AssignIdNum";
             this.Tbx_AssignIdNum.PlaceholderText = "Id number";
             this.Tbx_AssignIdNum.ReadOnly = true;
@@ -325,6 +335,7 @@ namespace LitRevResourceMVP.Views
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -350,10 +361,10 @@ namespace LitRevResourceMVP.Views
         private System.Windows.Forms.Button Btn_DeleteAssign;
         private System.Windows.Forms.Button Btn_ExitAssignView;
         private System.Windows.Forms.TextBox Tbx_ModuleIdNum;
-        private System.Windows.Forms.TextBox Tbx_AssignTrimester;
         private System.Windows.Forms.Label Lbl_AssignTrimester;
         private System.Windows.Forms.ListBox Lbx_ModuleList;
         private System.Windows.Forms.Label Lbl_Info1;
         private System.Windows.Forms.Label Lbl_DisplayIdNum;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
     }
 }
