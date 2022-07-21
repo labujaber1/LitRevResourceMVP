@@ -26,7 +26,7 @@ namespace LitRevResourceMVP.Presenters
             this.repository = repository;
 
             //used in tab1 main
-            this.view.AddModEvent += SaveModule;
+            this.view.AddModEvent += AddModule;
             this.view.DeleteModEvent += DeleteModule;
             this.view.EditModEvent += EditModule;
 
@@ -36,12 +36,18 @@ namespace LitRevResourceMVP.Presenters
             this.view.Show();
         }
 
+        private void AddModule(object sender, EventArgs e)
+        {
+            if(view.IsEdit != true) { view.IsEdit = false; }
+            SaveModule();
+        }
+
         /// <summary>
         /// Combines edit and save function using bool isEdit status. Calls sql methods from repository to amend list and update database.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void SaveModule(object sender, EventArgs e)
+        private void SaveModule()
         {
             var model = new ModuleModel();
             if (view.ModIdNum != "") 
@@ -57,11 +63,12 @@ namespace LitRevResourceMVP.Presenters
             {
                 //takes validation requirements in ie resource models to validate input fields
                 //throws exception with set message if incorrect input
-                //new Common.ModelDataValidation().Validate(model); //##################
-                if (view.IsEdit)
+                new Common.ModelDataValidation().Validate(model); 
+                if (view.IsEdit == true)
                 {
                     repository.Edit(model);
                     view.Message = "Module edited successfully";
+                    view.IsEdit = false;
                 }
                 else
                 {

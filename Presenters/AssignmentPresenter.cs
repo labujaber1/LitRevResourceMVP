@@ -33,7 +33,7 @@ namespace LitRevResourceMVP.Presenters
             this.repository = repository;
 
             //used in tab1 main
-            this.view.SaveAssignEvent += SaveAssign;
+            this.view.SaveAssignEvent += AddAssign;
             this.view.DeleteAssignEvent += DeleteAssign;
             this.view.EditAssignEvent += EditAssign;
             this.view.DisplayModIdNumEvent += DisplayModIdNum;
@@ -46,6 +46,12 @@ namespace LitRevResourceMVP.Presenters
             
             // ###### 
             this.view.Show();
+        }
+
+        private void AddAssign(object sender, EventArgs e)
+        {
+            if (view.IsEdit != true) { view.IsEdit = false; }
+            SaveAssign();
         }
 
         /// <summary>
@@ -83,7 +89,7 @@ namespace LitRevResourceMVP.Presenters
         }
         
         /// <summary>
-        /// Stores edited data from view to be called in the save method. IsEdit bool changed to true.
+        /// Displays data in textboxes for editing to then be called in the save method. IsEdit bool changed to true.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -95,7 +101,7 @@ namespace LitRevResourceMVP.Presenters
                 view.AssignIdNum = res.Assign_IdNum.ToString();
                 view.AssignName = res.Assign_Name;
                 view.DueDate = res.Due_Date;
-                view.Trimester = res.Assign_Trimester;
+                view.Trimester = Convert.ToDecimal(res.Assign_Trimester);
                 view.ModIdNum = res.Mod_IdNum.ToString();
                 view.IsEdit = true;
             }
@@ -136,19 +142,18 @@ namespace LitRevResourceMVP.Presenters
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void SaveAssign(object sender, EventArgs e)
+        private void SaveAssign()
         {
             var model = new AssignmentModel();
             
             if (view.AssignIdNum != "") 
             { 
-                //view.IsEdit = false; 
+                //for editing not new 
                 model.Assign_IdNum = int.Parse(view.AssignIdNum); 
             }
             model.Assign_Name = view.AssignName;
             model.Due_Date = view.DueDate;
-            int trimester = Convert.ToInt32(view.Trimester);
-            model.Assign_Trimester = trimester;
+            model.Assign_Trimester = (int)view.Trimester;
             int modId = int.Parse(view.ModIdNum);
             model.Mod_IdNum = modId;
 
@@ -156,14 +161,13 @@ namespace LitRevResourceMVP.Presenters
             {
                 //takes validation requirements in ie resource models to validate input fields
                 //throws exception with set message if incorrect input
-                //new Common.ModelDataValidation().Validate(model); //###################
-                //causes error, cannot cast int32 to string...bugger!
-                //maybe date issue model--> datetime but input--> date only, changed model datatype still error
-                //runs ok without it
+                new Common.ModelDataValidation().Validate(model); //################### used for mvc (web based) not mvp 
+                //runs ok without it but no model validation
                 if (view.IsEdit)
                 {
                     repository.Edit(model);
                     view.Message = "Assignment edited successfully";
+                    view.IsEdit = false;
                 }
                 else
                 {

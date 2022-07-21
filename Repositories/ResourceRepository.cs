@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
 using LitRevResourceMVP.Models;
@@ -18,7 +16,6 @@ namespace LitRevResourceMVP.Repositories
         {
             this.connectionString = connectionString;
         }
-        //############### CHANGE TO DATASET FROM LIST #################
         //call at start of presenter to display assignments and resources tables in both datagridviews
         /// <summary>
         /// Adds assignment and resources tables to dataset using sqlDataAdapter 
@@ -73,15 +70,12 @@ namespace LitRevResourceMVP.Repositories
         /// <param name="AssignResDataSet"></param>
         public void Delete(int idNum, DataSet AssignResDataSet)
         {
-            
             DataTable dt = AssignResDataSet.Tables[1];
             DataRow[] dr = dt.Select("Res_IdNum = '"+ idNum +"'");
             for (int i = 0;i< dr.Length;i++)
             {
                 dr[i].Delete(); //mark row as delete, dt.AcceptChanges() 
-                //dt.Rows.Remove(dr[i]);
             }
-            
         }
 
         /// <summary>
@@ -92,7 +86,6 @@ namespace LitRevResourceMVP.Repositories
         /// <param name="AssignResDataSet"></param>
         public void Edit(int idNum,ResourceModel resourceModel, DataSet AssignResDataSet)
         {
-            
             DataTable dt = AssignResDataSet.Tables[1];
             DataRow dr = dt.Select("Res_IdNum = '" + idNum + "'").FirstOrDefault();
             if (dr != null)
@@ -109,24 +102,6 @@ namespace LitRevResourceMVP.Repositories
             }
         }
 
-        //not used had to do in view.class
-        public void LoadEditData(ResourceModel resourceModel, DataRow dr)
-        {
-           
-            if (dr != null)
-            {
-                resourceModel.Web_Link = (string)dr["Res_Weblink"];
-                resourceModel.Resource_Type = (string)dr["Res_Type"];
-                resourceModel.Date_Accessed = (DateTime)dr["Res_DateAccessed"];
-                resourceModel.Category = (string)dr["Res_Category"];
-                resourceModel.Reference = (string)dr["Res_Reference"];
-                resourceModel.Main_Point = (string)dr["Res_MainPoint"];
-                resourceModel.Main_Notes = (string)dr["Res_Notes"];
-                resourceModel.Assign_IdNum = (int)dr["Assign_IdNum"];
-            }
-        }
-
-
         /// <summary>
         /// Updates sql database with ammended/new rows of resources data in table1.
         /// </summary>
@@ -141,13 +116,9 @@ namespace LitRevResourceMVP.Repositories
                 connection.Open();
                 adapter.Update(AssignResDataSet.Tables[1]);
             }
-            //MessageBox.Show(AssignResDataSet.DataSetName + " updated database successfully.");
+            MessageBox.Show(AssignResDataSet.DataSetName + " updated database successfully.");
         }
-
-
-        //############### CHANGE TO DATASET FROM LIST END #################
-
-        
+ 
         /// <summary>
         /// SQL query SELECT: retrieves data from a search method by using either an id number or category request.
         /// This is called to display results in a datagridview.
@@ -207,7 +178,7 @@ namespace LitRevResourceMVP.Repositories
         /// The categories are not preset but taken from resource creation.
         /// </summary>
         /// <returns>Category list</returns>
-        public IEnumerable<string> GetAllCategories()
+        public IEnumerable<string> GetAllCategories(int idNum)
         {
             var categoryList = new List<string>();
             string resCategory = "";
@@ -218,9 +189,10 @@ namespace LitRevResourceMVP.Repositories
                 {
                     connection.Open();
                     command.Connection = connection;
-                    command.CommandText = "SELECT DISTINCT Res_Category FROM Resource_table " +
-                        "order by Res_Category desc";
+                    command.CommandText = "SELECT DISTINCT Res_Category FROM Resource_table WHERE Assign_IdNum = @idNum " +
+                        "order by Res_Category";
                     command.Parameters.AddWithValue("@category", SqlDbType.VarChar).Value = resCategory;
+                    command.Parameters.AddWithValue("@idNum", SqlDbType.Int).Value = idNum;
                     using (var reader = command.ExecuteReader())
                     {
                         while (reader.Read())
@@ -237,8 +209,5 @@ namespace LitRevResourceMVP.Repositories
             }
             return categoryList;
         }
-
-       
-
     }
 }

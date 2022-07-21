@@ -27,8 +27,10 @@ review. The categories are displayed in a list for referal when adding/editing, 
 a distinct sql query. They will therefore always be different for each assignment and can be changed by editing 
 resources.
 
-In the assignment main page a search function is included to search for a specific id number or a selection of resources
+In the assignment main page a search function is included to search for a specific id number or group selection of resources
 by category. 
+
+A SQL script has also been included in the app.data folder with some other bits that may be of use. 
 
 Further developemnt:
 Add function to change/add connectionstring for each user. Or dbconn setup.

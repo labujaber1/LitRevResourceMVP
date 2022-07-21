@@ -17,10 +17,6 @@ namespace LitRevResourceMVP.Repositories
             this.connectionString = connectionString;
         }
 
-        // int assignIdNum;Assign_IdNum
-        // string assignName;Assign_Name
-        // DateTime dueDate;Due_Date
-
         /// <summary>
         ///  SQL query INSERT: used to add the assignment data model to the database
         /// </summary>

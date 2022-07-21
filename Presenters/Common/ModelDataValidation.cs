@@ -22,9 +22,12 @@ namespace LitRevResourceMVP.Presenters.Common
             if (isValid == false)
             {
                 foreach (var item in vResults)
+                {
                     errorMessage += "- " + item.ErrorMessage + "\n";
-                
+                    
+                }
                 throw new Exception(errorMessage);
+                
             }
             
 

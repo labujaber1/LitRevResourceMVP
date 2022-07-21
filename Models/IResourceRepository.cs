@@ -9,13 +9,13 @@ namespace LitRevResourceMVP.Models
         void Add(ResourceModel resourceModel, DataSet AssignResDataSet);
         void Delete(int idNum, DataSet AssignResDataSet);
         void Edit(int idNum,ResourceModel resourceModel, DataSet AssignResDataSet);
-        void LoadEditData(ResourceModel resourceModel, DataRow dr);
         IEnumerable<ResourceModel> GetByValue(string value,int assignId);
-        IEnumerable<string> GetAllCategories();
+        IEnumerable<string> GetAllCategories(int idNum);
         void UpdateDBFromDataTable(DataSet AssignResDataSet);
-        
+
         //used to create assignment dataset and CRUD from that
-        DataSet GetDataSet(); //return dataset of assignment[0] and resources[1] details
+        //return dataset of assignment[0] and resources[1] details
+        DataSet GetDataSet(); 
         
     }
 }

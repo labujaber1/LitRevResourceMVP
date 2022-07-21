@@ -14,7 +14,7 @@ namespace LitRevResourceMVP.Views
         LinkLabel ActiveWebLink { get; set; }
         string ResType { get; set; }
         string ResDoiNum { get; set; }
-        string ResDateAccessed { get; set; }
+        DateTime ResDateAccessed { get; set; }
         string ResCategory { get; set; }
         string ResReference { get; set; }
         string ResMainPoint { get; set; }
@@ -39,7 +39,7 @@ namespace LitRevResourceMVP.Views
         event EventHandler SaveEvent;
         event EventHandler CancelEvent;
         event LinkLabelLinkClickedEventHandler LinkLabelEvent;
-
+        
         void SetAssignmentListBindingSource(BindingSource assignData);
         void SetResourceListBindingSource(BindingSource resourceData);
         void SetCategoryListBindingSource(BindingSource categoryList);

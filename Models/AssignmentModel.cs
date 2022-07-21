@@ -26,11 +26,9 @@ namespace LitRevResourceMVP.Models
 
         [DisplayName("Due date")]
         [DataType(DataType.Date)]
-        [Required(ErrorMessage = "Assignment date is required so please enter in the required format yyyy")]
         public DateTime Due_Date { get => dueDate; set => dueDate = value.Date; }
 
         [DisplayName("Trimester")]
-        [StringLength(1, ErrorMessage = "Only 1 character can be used")]
         public int Assign_Trimester { get => trimester; set => trimester = value; }
 
         // ######

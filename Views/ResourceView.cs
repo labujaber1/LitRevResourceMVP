@@ -11,21 +11,17 @@ namespace LitRevResourceMVP.Views
         private string message;
         private bool isSuccessful;
         private bool isEdit;
-
         //events
         //used in tab1 main resource view
         public event EventHandler SearchEvent;
         public event EventHandler AddNewEvent;
         public event EventHandler DeleteEvent;
         public event EventHandler EditEvent;
-        
         //used in tab2 add/edit resource
         public event EventHandler CreateReferenceEvent;
         public event EventHandler SaveEvent;
         public event EventHandler CancelEvent;
         public event LinkLabelLinkClickedEventHandler LinkLabelEvent;
-
-        //used in tab4 main view to select assignment for tab1
         public event EventHandler ViewResourcesEvent;
 
 
@@ -36,9 +32,10 @@ namespace LitRevResourceMVP.Views
         {
             InitializeComponent();
             AssociateAndRaiseViewEvents();
-            Tbcl_ResourceList.TabPages.Remove(tabPage2);    //edit resource
-            Tbcl_ResourceList.TabPages.Remove(tabPage3);    //add reference (may not develope here but add as seperate app)
-
+            //Edit resource
+            Tbcl_ResourceList.TabPages.Remove(tabPage2);
+            //Create reference #not in use
+            Tbcl_ResourceList.TabPages.Remove(tabPage3);    
         }
 
         /// <summary>
@@ -88,7 +85,6 @@ namespace LitRevResourceMVP.Views
                 Tbcl_ResourceList.TabPages.Add(tabPage3);
             };
 
-
             Btn_Save.Click += delegate
             {
                 SaveEvent?.Invoke(this, EventArgs.Empty);
@@ -106,8 +102,6 @@ namespace LitRevResourceMVP.Views
                 Tbcl_ResourceList.TabPages.Remove(tabPage2);
                 Tbcl_ResourceList.TabPages.Add(tabPage1);
             };
-
-            
         }
 
         //properties
@@ -136,10 +130,10 @@ namespace LitRevResourceMVP.Views
             get { return Tbx_DoiNum.Text; }
             set { Tbx_DoiNum.Text = value; }
         }
-        public string ResDateAccessed
+        public DateTime ResDateAccessed
         {
-            get { return dateTimePicker1.Text; }
-            set { dateTimePicker1.Text = value; }
+            get { return dateTimePicker1.Value.Date; }
+            set { dateTimePicker1.Value = value; }
         }
         public string ResCategory
         {
@@ -161,13 +155,11 @@ namespace LitRevResourceMVP.Views
             get { return Rtbx_Notes.Text; }
             set { Rtbx_Notes.Text = value; }
         }
-
         public string AssignIdNum
         {
             get { return Tbx_AssignIdNum.Text; }
             set { Tbx_AssignIdNum.Text = value; }
         }
-
         public string SearchValue
         {
             get { return Tbx_Search.Text; }
@@ -188,6 +180,7 @@ namespace LitRevResourceMVP.Views
             get { return message; }
             set { message = value; }
         }
+
         /// <summary>
         /// Invokes LinkLabelEvent in presenter class
         /// </summary>
@@ -223,21 +216,20 @@ namespace LitRevResourceMVP.Views
         {
             DataGridView dgv = new();
             dgv = dataGridViewResource;
-            //DataRowView drv = this.dataGridViewResource.CurrentRow.DataBoundItem as DataRowView;
             if (dgv != null)
             {
                 ResIdNum = dgv.CurrentRow.Cells[0].Value.ToString();
                 ResWebLink = dgv.CurrentRow.Cells[1].Value.ToString();
                 ResType = dgv.CurrentRow.Cells[2].Value.ToString();
                 ResDoiNum = dgv.CurrentRow.Cells[3].Value.ToString();
-                ResDateAccessed = dgv.CurrentRow.Cells[4].Value.ToString();
+                ResDateAccessed = (DateTime)dgv.CurrentRow.Cells[4].Value;
                 ResCategory = dgv.CurrentRow.Cells[5].Value.ToString();
                 ResReference = dgv.CurrentRow.Cells[6].Value.ToString();
                 ResMainPoint = dgv.CurrentRow.Cells[7].Value.ToString();
                 ResNotes = dgv.CurrentRow.Cells[8].Value.ToString();
             }
         }
-        
+
         /// <summary>
         /// Binds assignment datagridview to assignData source
         /// </summary>
@@ -246,6 +238,7 @@ namespace LitRevResourceMVP.Views
         {
             dataGridViewAssign.DataSource = assignData;
         }
+
         /// <summary>
         /// Binds resource datagridview to resourceData source
         /// </summary>
@@ -254,7 +247,6 @@ namespace LitRevResourceMVP.Views
         {
             dataGridViewResource.DataSource = null;
             dataGridViewResource.DataSource = resourceData;
-            
         }
 
         /// <summary>
@@ -286,7 +278,6 @@ namespace LitRevResourceMVP.Views
             Tbcl_ResourceList.TabPages.Remove(tabPage3);
             Tbcl_ResourceList.TabPages.Add(tabPage2);
         }
-
         
         private static ResourceView instance;
         /// <summary>
@@ -313,8 +304,5 @@ namespace LitRevResourceMVP.Views
             }
             return instance;
         }
-
-        
     }
-        
 }

@@ -53,13 +53,14 @@ namespace LitRevResourceMVP.Views
             this.Btn_Delete = new System.Windows.Forms.Button();
             this.Btn_AddNew = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.Rtbx_Notes = new System.Windows.Forms.RichTextBox();
             this.Lbl_ViewCategories = new System.Windows.Forms.Label();
             this.Lklbl_WebLink = new System.Windows.Forms.LinkLabel();
             this.Lbx_ListOfCategories = new System.Windows.Forms.ListBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.Btn_RefBack = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.Rtbx_Notes = new System.Windows.Forms.RichTextBox();
+            this.Lbl_SelectResource = new System.Windows.Forms.Label();
             this.Tbcl_ResourceList.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAssign)).BeginInit();
@@ -188,6 +189,7 @@ namespace LitRevResourceMVP.Views
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.tabPage1.Controls.Add(this.Lbl_SelectResource);
             this.tabPage1.Controls.Add(this.Tbx_AssignIdNum);
             this.tabPage1.Controls.Add(this.dataGridViewAssign);
             this.tabPage1.Controls.Add(this.Lbl_SelectAssignment);
@@ -220,11 +222,12 @@ namespace LitRevResourceMVP.Views
             this.dataGridViewAssign.AllowUserToAddRows = false;
             this.dataGridViewAssign.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewAssign.Location = new System.Drawing.Point(19, 34);
+            this.dataGridViewAssign.MultiSelect = false;
             this.dataGridViewAssign.Name = "dataGridViewAssign";
             this.dataGridViewAssign.ReadOnly = true;
             this.dataGridViewAssign.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
             this.dataGridViewAssign.RowTemplate.Height = 33;
-            this.dataGridViewAssign.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewAssign.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dataGridViewAssign.Size = new System.Drawing.Size(776, 198);
             this.dataGridViewAssign.TabIndex = 9;
             this.dataGridViewAssign.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewAssign_CellContentClick);
@@ -288,13 +291,14 @@ namespace LitRevResourceMVP.Views
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewResource.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewResource.Location = new System.Drawing.Point(19, 275);
+            this.dataGridViewResource.Location = new System.Drawing.Point(19, 316);
+            this.dataGridViewResource.MultiSelect = false;
             this.dataGridViewResource.Name = "dataGridViewResource";
             this.dataGridViewResource.ReadOnly = true;
             this.dataGridViewResource.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dataGridViewResource.RowTemplate.Height = 33;
-            this.dataGridViewResource.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewResource.Size = new System.Drawing.Size(776, 261);
+            this.dataGridViewResource.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.dataGridViewResource.Size = new System.Drawing.Size(776, 240);
             this.dataGridViewResource.TabIndex = 2;
             this.dataGridViewResource.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewResource_CellContentClick);
             // 
@@ -342,6 +346,17 @@ namespace LitRevResourceMVP.Views
             this.tabPage2.Size = new System.Drawing.Size(817, 626);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Resource edit";
+            // 
+            // Rtbx_Notes
+            // 
+            this.Rtbx_Notes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Rtbx_Notes.Location = new System.Drawing.Point(7, 468);
+            this.Rtbx_Notes.Name = "Rtbx_Notes";
+            this.Rtbx_Notes.Size = new System.Drawing.Size(659, 152);
+            this.Rtbx_Notes.TabIndex = 9;
+            this.Rtbx_Notes.Text = "Enter notes - ";
             // 
             // Lbl_ViewCategories
             // 
@@ -408,16 +423,14 @@ namespace LitRevResourceMVP.Views
             this.label1.TabIndex = 0;
             this.label1.Text = "MAY NOT DEVELOPE HERE\r\nIts alot bigger than first thourght";
             // 
-            // Rtbx_Notes
+            // Lbl_SelectResource
             // 
-            this.Rtbx_Notes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.Rtbx_Notes.Location = new System.Drawing.Point(7, 468);
-            this.Rtbx_Notes.Name = "Rtbx_Notes";
-            this.Rtbx_Notes.Size = new System.Drawing.Size(659, 152);
-            this.Rtbx_Notes.TabIndex = 9;
-            this.Rtbx_Notes.Text = "Enter notes - ";
+            this.Lbl_SelectResource.AutoSize = true;
+            this.Lbl_SelectResource.Location = new System.Drawing.Point(19, 288);
+            this.Lbl_SelectResource.Name = "Lbl_SelectResource";
+            this.Lbl_SelectResource.Size = new System.Drawing.Size(379, 25);
+            this.Lbl_SelectResource.TabIndex = 11;
+            this.Lbl_SelectResource.Text = "Select Resource name to add, delete, edit/view";
             // 
             // ResourceView
             // 
@@ -475,5 +488,6 @@ namespace LitRevResourceMVP.Views
         private System.Windows.Forms.TextBox Tbx_AssignIdNum;
         private System.Windows.Forms.Button Btn_RefBack;
         private System.Windows.Forms.RichTextBox Rtbx_Notes;
+        private System.Windows.Forms.Label Lbl_SelectResource;
     }
 }

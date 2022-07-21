@@ -20,7 +20,6 @@ namespace LitRevResourceMVP.Presenters
         private BindingSource resourceBindingSource;
         private BindingSource categoryBindingSource;
         private BindingSource assignBindingSource;
-       
         private IEnumerable<ResourceModel> resourceList;
         private IEnumerable<string> categoryList;
         private DataSet assignResDataSet;
@@ -35,34 +34,26 @@ namespace LitRevResourceMVP.Presenters
             this.resourceBindingSource = new BindingSource();
             this.categoryBindingSource = new BindingSource();
             this.assignBindingSource = new BindingSource();
-            
-
             this.view = view;
             this.repository = repository;
-
             //used in tab1 main
             this.view.SearchEvent += SearchForResource;
             this.view.AddNewEvent += AddNewResource;
             this.view.DeleteEvent += DeleteResource;
             this.view.EditEvent += LoadResourceToEdit;
             this.view.ViewResourcesEvent += LoadAssignResources;
-
             ////used in tab2 add/edit resource
             this.view.CreateReferenceEvent += CreateReference;
             this.view.SaveEvent += SaveResource;
             this.view.CancelEvent += CancelAction;
             this.view.LinkLabelEvent += LinkLabelClick;
-
             this.view.SetAssignmentListBindingSource(assignBindingSource);
             this.view.SetResourceListBindingSource(resourceBindingSource);
             this.view.SetCategoryListBindingSource(categoryBindingSource);
-           
             LoadAllAssignmentList();
-            LoadAllCategoriesList(); // ###### 
             this.view.Show();
         }
-
-
+        
         //used in second tab (tab1), display resource list and search request
         /// <summary>
         /// Binds assignment data table and repository method to display in datagridview for user selection. 
@@ -81,17 +72,19 @@ namespace LitRevResourceMVP.Presenters
         /// <param name="e"></param>
         private void LoadAssignResources(object sender, EventArgs e)
         {
-            int IdNum = int.Parse(view.AssignIdNum);
-            assignResDataSet.Tables[1].DefaultView.RowFilter = "Assign_IdNum = " + IdNum;
+            int idNum = int.Parse(view.AssignIdNum);
+            assignResDataSet.Tables[1].DefaultView.RowFilter = "Assign_IdNum = " + idNum;
             resourceBindingSource.DataSource = assignResDataSet.Tables[1];
+            LoadAllCategoriesList(idNum);
         }
+
         /// <summary>
         /// Binds list and repository method to retrieve distinct categories from database. 
         /// Displayed as readonly and for user information. 
         /// </summary>
-        private void LoadAllCategoriesList()
+        private void LoadAllCategoriesList(int idNum)
         {
-            categoryList = repository.GetAllCategories();
+            categoryList = repository.GetAllCategories(idNum);
             categoryBindingSource.DataSource = categoryList;
         }
 
@@ -135,12 +128,11 @@ namespace LitRevResourceMVP.Presenters
             if (view.ResIdNum != "")
             {
                 model.ID_Num = Convert.ToInt32(view.ResIdNum);
-                //model.ID_Num = int.Parse(view.ResIdNum);
             }
             model.Web_Link = view.ResWebLink;
             model.Resource_Type = view.ResType;
             model.DOI_Num = view.ResDoiNum;
-            model.Date_Accessed = Convert.ToDateTime(view.ResDateAccessed);
+            model.Date_Accessed = view.ResDateAccessed;
             model.Category = view.ResCategory;
             model.Reference = view.ResReference;
             model.Main_Point = view.ResMainPoint;
@@ -149,24 +141,21 @@ namespace LitRevResourceMVP.Presenters
             try
             {
                 //takes validation requirements in ie resource models to validate input fields
-                //throws exception with set message if incorrect input cannot cast int32 to string
-                //new Common.ModelDataValidation().Validate(model); //###########
+                //throws exception with set message if incorrect input (cannot cast int32 to string)
+                new Common.ModelDataValidation().Validate(model); //########### used for mvc not usually for mvp
                 if (view.IsEdit)
                 {
                     int id = int.Parse(view.ResIdNum);
                     repository.Edit(id, model, assignResDataSet);
                     view.Message = "Resource edited successfully";
-                    //resourceBindingSource.ResetBindings(false);
                 }
                 else
                 {
                     repository.Add(model, assignResDataSet);
                     view.Message = "Resource added successfully";
-                    //resourceBindingSource.ResetBindings(false);
                 }
                 view.IsSuccessful = true;
                 repository.UpdateDBFromDataTable(assignResDataSet);
-                //LoadAssignResources(sender, e);
                 ClearAllTextFields();
             }
             catch (Exception ex)
@@ -187,7 +176,6 @@ namespace LitRevResourceMVP.Presenters
             try
             {
                 int id = int.Parse(view.ResIdNum);
-                //var res = (ResourceModel)resourceBindingSource.Current; //irrelevant
                 if (view.ResIdNum != "")
                 {
                     repository.Delete(id, assignResDataSet);
@@ -216,35 +204,6 @@ namespace LitRevResourceMVP.Presenters
         {
             view.IsEdit = true;
             DisplayWebLink();
-            //try
-            //{
-            //    var res = (ResourceModel)resourceBindingSource.Current;
-            //    //var res = repository.LoadEditData(resourceList, dr);
-            //    if (res != null)
-            //    {
-
-            //        view.ResIdNum = res.ID_Num.ToString();
-            //        view.ResWebLink = res.Web_Link;
-            //        view.ResType = res.Resource_Type;
-            //        view.ResDoiNum = res.DOI_Num;
-            //        view.ResDateAccessed = res.Date_Accessed.ToString();
-            //        view.ResCategory = res.Category;
-            //        view.ResReference = res.Reference;
-            //        view.ResMainPoint = res.Main_Point;
-            //        view.ResNotes = res.Main_Notes;
-            //        view.IsEdit = true;
-            //        DisplayWebLink();
-            //    }
-            //    else
-            //    {
-            //        view.Message = "No resource selected, edit failed...obviously!";
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    view.IsSuccessful = false;
-            //    view.Message = "Sorry, could not edit the resource due to an error \n"+ex.Message;
-            //}
         }
 
         /// <summary>
@@ -263,7 +222,6 @@ namespace LitRevResourceMVP.Presenters
                     LinkLabel.Link wblk = new LinkLabel.Link();
                     wblk.LinkData = view.ResWebLink;
                     view.ActiveWebLink.Links.Add(wblk);
-                    
                 }
             }
             catch (Exception ex)
@@ -338,24 +296,14 @@ namespace LitRevResourceMVP.Presenters
             view.ResWebLink = "";
             view.ResType = "";
             view.ResDoiNum = "";
-            view.ResDateAccessed = "";
             view.ResCategory = "";
             view.ResReference = "";
             view.ResMainPoint = "";
             view.ResNotes = "";
-
-            //foreach (var c in view)
-            //{
-            //    if (c is TextBoxBase)
-            //    {
-            //        ((TextBoxBase)c).Text = String.Empty;
-            //    }
-            //}
-            
         }
 
         /// <summary>
-        /// Clear textboxes if user changes their mind about editing/adding resource.
+        /// Clear all textboxes if user changes their mind about editing/adding resource.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
