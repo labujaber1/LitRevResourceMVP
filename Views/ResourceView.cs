@@ -21,6 +21,8 @@ namespace LitRevResourceMVP.Views
         public event EventHandler CreateReferenceEvent;
         public event EventHandler SaveEvent;
         public event EventHandler CancelEvent;
+        public event EventHandler MainCharLenEvent;
+        public event EventHandler NotesCharLenEvent;
         public event LinkLabelLinkClickedEventHandler LinkLabelEvent;
         public event EventHandler ViewResourcesEvent;
 
@@ -101,6 +103,18 @@ namespace LitRevResourceMVP.Views
                 CancelEvent?.Invoke(this, EventArgs.Empty);
                 Tbcl_ResourceList.TabPages.Remove(tabPage2);
                 Tbcl_ResourceList.TabPages.Add(tabPage1);
+            };
+
+            Btn_MainCharLength.Click += delegate
+            {
+                MainCharLenEvent?.Invoke(this, EventArgs.Empty);
+
+            };
+
+            Btn_NoteCharLength.Click += delegate
+            {
+                NotesCharLenEvent?.Invoke(this, EventArgs.Empty);
+
             };
         }
 
@@ -245,7 +259,7 @@ namespace LitRevResourceMVP.Views
         /// <param name="resourceData"></param>
         public void SetResourceListBindingSource(BindingSource resourceData)
         {
-            dataGridViewResource.DataSource = null;
+            //dataGridViewResource.DataSource = null;
             dataGridViewResource.DataSource = resourceData;
         }
 

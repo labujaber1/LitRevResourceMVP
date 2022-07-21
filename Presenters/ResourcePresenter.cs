@@ -47,13 +47,27 @@ namespace LitRevResourceMVP.Presenters
             this.view.SaveEvent += SaveResource;
             this.view.CancelEvent += CancelAction;
             this.view.LinkLabelEvent += LinkLabelClick;
+            this.view.MainCharLenEvent += MainCharLenView;
+            this.view.NotesCharLenEvent += NotesCharLenView;
             this.view.SetAssignmentListBindingSource(assignBindingSource);
             this.view.SetResourceListBindingSource(resourceBindingSource);
             this.view.SetCategoryListBindingSource(categoryBindingSource);
             LoadAllAssignmentList();
             this.view.Show();
         }
-        
+
+        private void NotesCharLenView(object sender, EventArgs e)
+        {
+            int mlen = view.ResMainPoint.Length;
+            MessageBox.Show("Char used so far = " + mlen, "Main point");
+        }
+
+        private void MainCharLenView(object sender, EventArgs e)
+        {
+            int nlen = view.ResNotes.Length;
+            MessageBox.Show("Char used so far = " + nlen, "Notes");
+        }
+
         //used in second tab (tab1), display resource list and search request
         /// <summary>
         /// Binds assignment data table and repository method to display in datagridview for user selection. 

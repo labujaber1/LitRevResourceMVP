@@ -39,7 +39,8 @@ namespace LitRevResourceMVP.Views
         event EventHandler SaveEvent;
         event EventHandler CancelEvent;
         event LinkLabelLinkClickedEventHandler LinkLabelEvent;
-        
+        event EventHandler MainCharLenEvent;
+        event EventHandler NotesCharLenEvent;
         void SetAssignmentListBindingSource(BindingSource assignData);
         void SetResourceListBindingSource(BindingSource resourceData);
         void SetCategoryListBindingSource(BindingSource categoryList);
