@@ -18,6 +18,19 @@ namespace LitRevResourceMVP.Presenters
             this.imainView.ShowResourceView += ShowResourcesView;
             this.imainView.ShowAssignmentView += ShowAssignmentView;
             this.imainView.ShowModuleView += ShowModuleView;
+            this.imainView.ShowDBConnSetupView += ShowDBConnSetupView;
+        }
+
+        /// <summary>
+        /// Passes in a singleton instance of the DbConnSetup view and the sql connection string to the presenter  
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ShowDBConnSetupView(object sender, EventArgs e)
+        {
+            IDBConnSetupView view = DBConnSetupView.GetInstance((MainView)imainView);
+            IDBConnSetupRepository repository = new DBConnSetupRepository(sqlConnectionString);
+            new DBConnSetupPresenter(view, repository);
         }
 
         /// <summary>

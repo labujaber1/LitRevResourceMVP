@@ -145,20 +145,20 @@ namespace LitRevResourceMVP.Presenters
         private void SaveAssign()
         {
             var model = new AssignmentModel();
-            
-            if (view.AssignIdNum != "") 
-            { 
-                //for editing not new 
-                model.Assign_IdNum = int.Parse(view.AssignIdNum); 
-            }
-            model.Assign_Name = view.AssignName;
-            model.Due_Date = view.DueDate;
-            model.Assign_Trimester = (int)view.Trimester;
-            int modId = int.Parse(view.ModIdNum);
-            model.Mod_IdNum = modId;
-
             try
             {
+                if (view.AssignIdNum != "") 
+                { 
+                    //for editing not new 
+                    model.Assign_IdNum = int.Parse(view.AssignIdNum); 
+                }
+                model.Assign_Name = view.AssignName;
+                model.Due_Date = view.DueDate;
+                model.Assign_Trimester = (int)view.Trimester;
+                int modId = int.Parse(view.ModIdNum);
+                model.Mod_IdNum = modId;
+            
+
                 //takes validation requirements in ie resource models to validate input fields
                 //throws exception with set message if incorrect input
                 new Common.ModelDataValidation().Validate(model); //################### used for mvc (web based) not mvp 
@@ -178,12 +178,19 @@ namespace LitRevResourceMVP.Presenters
                 LoadAllAssignList();
                 ClearAllTextFields();
             }
+            catch (FormatException ex)
+            {
+                view.IsSuccessful = false;
+                view.Message = ex.Message + " No details entered please try again";
+                MessageBox.Show("No details entered, please try again");
+            }
             catch (Exception ex)
             {
                 view.IsSuccessful = false;
                 view.Message = ex.Message;
                 MessageBox.Show("Error saving/editing-> " + ex.Message, "Saving/Editing");
             }
+            
         }
         /// <summary>
         /// Used in saveResource(), cancelAction(), to clear all textboxes of data.
@@ -192,8 +199,6 @@ namespace LitRevResourceMVP.Presenters
         {
             view.AssignIdNum = "";
             view.AssignName = "";
-            //view.DueDate = "";
-            //view.Trimester = 1;
         }
 
         

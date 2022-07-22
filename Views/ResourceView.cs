@@ -270,6 +270,7 @@ namespace LitRevResourceMVP.Views
         public void SetCategoryListBindingSource(BindingSource categoryList)
         {
             Lbx_ListOfCategories.DataSource = categoryList;
+            Lbx_ViewResCategories.DataSource = categoryList;
         }
 
         /// <summary>

@@ -33,7 +33,6 @@ namespace LitRevResourceMVP.Views
             this.panel1 = new System.Windows.Forms.Panel();
             this.Btn_AddModule = new System.Windows.Forms.Button();
             this.Tbx_AddModule = new System.Windows.Forms.TextBox();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.Btn_EditMod = new System.Windows.Forms.Button();
             this.Btn_DeleteMod = new System.Windows.Forms.Button();
             this.Tbx_ModIdNum = new System.Windows.Forms.TextBox();
@@ -44,9 +43,11 @@ namespace LitRevResourceMVP.Views
             this.Tbx_DateYear = new System.Windows.Forms.TextBox();
             this.Lbl_DateYear = new System.Windows.Forms.Label();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // Lbl_ModuleTitle
@@ -86,20 +87,6 @@ namespace LitRevResourceMVP.Views
             this.Tbx_AddModule.PlaceholderText = "Add new module";
             this.Tbx_AddModule.Size = new System.Drawing.Size(250, 46);
             this.Tbx_AddModule.TabIndex = 4;
-            // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 399);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(568, 282);
-            this.tableLayoutPanel1.TabIndex = 6;
             // 
             // Btn_EditMod
             // 
@@ -207,15 +194,27 @@ namespace LitRevResourceMVP.Views
             this.dataGridView3.Size = new System.Drawing.Size(568, 283);
             this.dataGridView3.TabIndex = 13;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox1.Image = global::LitRevResourceMVP.Properties.Resources.HomeScreen;
+            this.pictureBox1.Location = new System.Drawing.Point(71, 410);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(442, 242);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 14;
+            this.pictureBox1.TabStop = false;
+            // 
             // ModuleView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.ClientSize = new System.Drawing.Size(849, 681);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.dataGridView3);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.panel1);
             this.Name = "ModuleView";
             this.Text = "ModuleView";
@@ -224,6 +223,7 @@ namespace LitRevResourceMVP.Views
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -234,7 +234,6 @@ namespace LitRevResourceMVP.Views
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button Btn_AddModule;
         private System.Windows.Forms.TextBox Tbx_AddModule;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Button Btn_EditMod;
         private System.Windows.Forms.Button Btn_DeleteMod;
         private System.Windows.Forms.TextBox Tbx_ModIdNum;
@@ -245,5 +244,6 @@ namespace LitRevResourceMVP.Views
         private System.Windows.Forms.TextBox Tbx_DateYear;
         private System.Windows.Forms.Label Lbl_DateYear;
         private System.Windows.Forms.Button Btn_CloseMod;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

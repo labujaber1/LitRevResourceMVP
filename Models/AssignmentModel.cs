@@ -20,7 +20,7 @@ namespace LitRevResourceMVP.Models
         public int Assign_IdNum { get => assignIdNum; set => assignIdNum = value; }
 
         [DisplayName("Assignment name")]
-        [Required(ErrorMessage = "Assignment name is required so please enter one")]
+        [Required(ErrorMessage = "Assignment name is required, please enter one")]
         [StringLength(100, ErrorMessage = "Only 100 characters can be used")]
         public string Assign_Name { get => assignName; set => assignName = value; }
 

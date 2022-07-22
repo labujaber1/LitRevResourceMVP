@@ -36,7 +36,7 @@ namespace LitRevResourceMVP.Views
 
             Btn_DeleteMod.Click += delegate
             {
-                var result = MessageBox.Show("Are you sure you want to delete the module? This will also delete the associated assignments and resources.", "Warning",
+                var result = MessageBox.Show("Are you sure you want to delete the module? \nCheck if assignments and resources are deleted first.", "Warning",
                    MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (result == DialogResult.Yes)
                 {

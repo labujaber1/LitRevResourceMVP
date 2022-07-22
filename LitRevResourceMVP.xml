@@ -1,0 +1,614 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>LitRevResourceMVP</name>
+    </assembly>
+    <members>
+        <member name="T:LitRevResourceMVP.App_Data.DataSet1">
+             <summary>
+            Represents a strongly typed in-memory cache of data.
+            </summary>
+        </member>
+        <member name="T:LitRevResourceMVP.App_Data.DataSet1.Module_tableDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:LitRevResourceMVP.App_Data.DataSet1.Assignment_tableDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:LitRevResourceMVP.App_Data.DataSet1.Resource_tableDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:LitRevResourceMVP.App_Data.DataSet1.Module_tableRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:LitRevResourceMVP.App_Data.DataSet1.Assignment_tableRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:LitRevResourceMVP.App_Data.DataSet1.Resource_tableRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:LitRevResourceMVP.App_Data.DataSet1.Module_tableRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:LitRevResourceMVP.App_Data.DataSet1.Assignment_tableRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:LitRevResourceMVP.App_Data.DataSet1.Resource_tableRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="M:LitRevResourceMVP.Presenters.AssignmentPresenter.#ctor(LitRevResourceMVP.Views.IAssignmentView,LitRevResourceMVP.Models.IAssignmentRepository)">
+            <summary>
+            Setup events args to event handlers and assignment bindings source.
+            </summary>
+            <param name="view"></param>
+            <param name="repository"></param>
+        </member>
+        <member name="M:LitRevResourceMVP.Presenters.AssignmentPresenter.LoadAllModulesList">
+            <summary>
+            Binds module list and repository method to display in richtextbox for user selection.
+            </summary>
+        </member>
+        <member name="M:LitRevResourceMVP.Presenters.AssignmentPresenter.DisplayModIdNum(System.Object,System.EventArgs)">
+            <summary>
+            Retrieves module id number and displays in textbox for viewing and retrieval.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:LitRevResourceMVP.Presenters.AssignmentPresenter.LoadAllAssignList">
+            <summary>
+            Retrieves module id number from textbox and passes to repository method to display module specific assignments. 
+            </summary>
+        </member>
+        <member name="M:LitRevResourceMVP.Presenters.AssignmentPresenter.EditAssign(System.Object,System.EventArgs)">
+            <summary>
+            Displays data in textboxes for editing to then be called in the save method. IsEdit bool changed to true.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:LitRevResourceMVP.Presenters.AssignmentPresenter.DeleteAssign(System.Object,System.EventArgs)">
+            <summary>
+            Deletes row in assignment list and updates sql database using sql method in repository.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:LitRevResourceMVP.Presenters.AssignmentPresenter.SaveAssign">
+            <summary>
+            Combines edit and save function using bool isEdit status. Calls sql methods from repository to amend list and update database.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:LitRevResourceMVP.Presenters.AssignmentPresenter.ClearAllTextFields">
+            <summary>
+            Used in saveResource(), cancelAction(), to clear all textboxes of data.
+            </summary>
+        </member>
+        <member name="M:LitRevResourceMVP.Presenters.Common.ModelDataValidation.Validate(System.Object)">
+            <summary>
+            Used to print error messages assigned in resourcemodel for each [required] message type
+            </summary>
+        </member>
+        <member name="M:LitRevResourceMVP.Presenters.MainPresenter.ShowResourcesView(System.Object,System.EventArgs)">
+            <summary>
+            Passes in a singleton instance of the resource view and the sql connection string to the presenter 
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:LitRevResourceMVP.Presenters.MainPresenter.ShowAssignmentView(System.Object,System.EventArgs)">
+            <summary>
+            Passes in a singleton instance of the assignment view and the sql connection string to the presenter
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:LitRevResourceMVP.Presenters.MainPresenter.ShowModuleView(System.Object,System.EventArgs)">
+            <summary>
+            Passes in a singleton instance of the module view and the sql connection string to the presenter
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:LitRevResourceMVP.Presenters.ModulePresenter.#ctor(LitRevResourceMVP.Views.IModuleView,LitRevResourceMVP.Models.IModuleRepository)">
+            <summary>
+            Setup events args to event handlers and module bindings source. 
+            </summary>
+            <param name="view"></param>
+            <param name="repository"></param>
+        </member>
+        <member name="M:LitRevResourceMVP.Presenters.ModulePresenter.SaveModule">
+            <summary>
+            Combines edit and save function using bool isEdit status. Calls sql methods from repository to amend list and update database.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:LitRevResourceMVP.Presenters.ModulePresenter.DeleteModule(System.Object,System.EventArgs)">
+            <summary>
+            Deletes row in module list and updates sql database using sql method in repository
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:LitRevResourceMVP.Presenters.ModulePresenter.EditModule(System.Object,System.EventArgs)">
+            <summary>
+            Stores edited data to be called in savemodule for datbase and list update.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:LitRevResourceMVP.Presenters.ModulePresenter.LoadAllModuleList">
+            <summary>
+            Binds module list to repository method for display in richtextbox.
+            </summary>
+        </member>
+        <member name="M:LitRevResourceMVP.Presenters.ModulePresenter.ClearAllTextFields">
+            <summary>
+            Used in saveResource(), cancelAction(), to clear all textboxes of data.
+            </summary>
+        </member>
+        <member name="M:LitRevResourceMVP.Presenters.ResourcePresenter.#ctor(LitRevResourceMVP.Views.IResourceView,LitRevResourceMVP.Models.IResourceRepository)">
+            <summary>
+            Setup events args to event handlers and assignment bindings source.
+            </summary>
+            <param name="view"></param>
+            <param name="repository"></param>
+        </member>
+        <member name="M:LitRevResourceMVP.Presenters.ResourcePresenter.LoadAllAssignmentList">
+            <summary>
+            Binds assignment data table and repository method to display in datagridview for user selection. 
+            </summary>
+        </member>
+        <member name="M:LitRevResourceMVP.Presenters.ResourcePresenter.LoadAssignResources(System.Object,System.EventArgs)">
+            <summary>
+            Retrieves assignment id number from selected row to filter specific resources in the dataset. 
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:LitRevResourceMVP.Presenters.ResourcePresenter.LoadAllCategoriesList(System.Int32)">
+            <summary>
+            Binds list and repository method to retrieve distinct categories from database. 
+            Displayed as readonly and for user information. 
+            </summary>
+        </member>
+        <member name="M:LitRevResourceMVP.Presenters.ResourcePresenter.SearchForResource(System.Object,System.EventArgs)">
+            <summary>
+            Binds resource list and repository method to search for a specific resource or grouped using category input.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:LitRevResourceMVP.Presenters.ResourcePresenter.AddNewResource(System.Object,System.EventArgs)">
+            <summary>
+            Changes isEdit bool flag to false and thus call add method in saveResource().
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:LitRevResourceMVP.Presenters.ResourcePresenter.SaveResource(System.Object,System.EventArgs)">
+            <summary>
+            Combines edit and save function using bool isEdit status. Calls sql methods from repository to amend dataset and update database.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:LitRevResourceMVP.Presenters.ResourcePresenter.DeleteResource(System.Object,System.EventArgs)">
+            <summary>
+            Deletes row in assignment data table and updates sql database using sql method in repository.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:LitRevResourceMVP.Presenters.ResourcePresenter.LoadResourceToEdit(System.Object,System.EventArgs)">
+            <summary>
+            Sets isEdit bool flag to true to call edit method in saveResource(). Also calls method to display link label.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:LitRevResourceMVP.Presenters.ResourcePresenter.DisplayWebLink">
+            <summary>
+            Display url string in web link textbox as an active web link when edit resource loads data 'LoadResourceToEdit'
+            </summary>
+        </member>
+        <member name="M:LitRevResourceMVP.Presenters.ResourcePresenter.OpenBrowser(System.String)">
+            <summary>
+            Open webpage when weblink LklblWebLink_LinkClicked called
+            Process.start doesn't work, github get around used, known issue in .netcore
+            h ttps://github.com/dotnet/runtime/issues/21798.
+            </summary>
+            <param name="url"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LitRevResourceMVP.Presenters.ResourcePresenter.LinkLabelClick(System.Object,System.Windows.Forms.LinkLabelLinkClickedEventArgs)">
+            <summary>
+            Web link click event to open a web page loaded from datatable when viewing a resource
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:LitRevResourceMVP.Presenters.ResourcePresenter.CreateReference(System.Object,System.EventArgs)">
+            <summary>
+            Currently not used but intended to allow a user to manage references (CRUD) according to style.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:LitRevResourceMVP.Presenters.ResourcePresenter.ClearAllTextFields">
+            <summary>
+            Clear all textboxes of data. Used in saveResource(), cancelAction()
+            </summary>
+        </member>
+        <member name="M:LitRevResourceMVP.Presenters.ResourcePresenter.CancelAction(System.Object,System.EventArgs)">
+            <summary>
+            Clear all textboxes if user changes their mind about editing/adding resource.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:LitRevResourceMVP.Program.Main">
+            <summary>
+             The main entry point for the application.
+            </summary>
+        </member>
+        <member name="T:LitRevResourceMVP.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:LitRevResourceMVP.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:LitRevResourceMVP.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="M:LitRevResourceMVP.Repositories.AssignmentRepository.Add(LitRevResourceMVP.Models.AssignmentModel)">
+            <summary>
+             SQL query INSERT: used to add the assignment data model to the database
+            </summary>
+            <param name="assignmentModel"></param>
+        </member>
+        <member name="M:LitRevResourceMVP.Repositories.AssignmentRepository.Delete(System.Int32)">
+            <summary>
+            SQL query DELETE: used to delete the assignment data model based on id number from the database
+            </summary>
+            <param name="assignIdNum"></param>
+        </member>
+        <member name="M:LitRevResourceMVP.Repositories.AssignmentRepository.Edit(LitRevResourceMVP.Models.AssignmentModel)">
+            <summary>
+            SQL query UPDATE: used to edit assignment data in the database using the data model 
+            </summary>
+            <param name="assignmentModel"></param>
+        </member>
+        <member name="M:LitRevResourceMVP.Repositories.AssignmentRepository.GetAllAssignments(System.Int32)">
+            <summary>
+            SQL query SELECT: retrieves assignment data from the database and return in an assignment list.
+            This is called to display in a datagridview
+            </summary>
+            <param name="IdNum"></param>
+            <returns>Assignment list</returns>
+        </member>
+        <member name="M:LitRevResourceMVP.Repositories.AssignmentRepository.GetAllModules">
+            <summary>
+            SQL query SELECT: to retrieve distinct module names and display in a combobox for a user to select.
+            Used to display assignments in a datagridview for the module selected.
+            </summary>
+            <returns>ModuleNameList</returns>
+        </member>
+        <member name="M:LitRevResourceMVP.Repositories.AssignmentRepository.GetModIdNum(System.String)">
+            <summary>
+            Retrieves id number of module from database where sql matches module name.
+            </summary>
+            <param name="name"></param>
+            <returns>int idNum</returns>
+        </member>
+        <member name="M:LitRevResourceMVP.Repositories.ModuleRepository.Add(LitRevResourceMVP.Models.ModuleModel)">
+            <summary>
+             SQL query INSERT: used to add the module data model to the database directly, opens and closes connection.
+            </summary>
+            <param name="moduleModel"></param>
+        </member>
+        <member name="M:LitRevResourceMVP.Repositories.ModuleRepository.Delete(System.Int32)">
+            <summary>
+            SQL query DELETE: used to delete the module data model based on id number from the database directly, opens and closes connection.
+            </summary>
+            <param name="modIdNum"></param>
+        </member>
+        <member name="M:LitRevResourceMVP.Repositories.ModuleRepository.Edit(LitRevResourceMVP.Models.ModuleModel)">
+            <summary>
+            SQL query UPDATE: used to edit module data in the database using the data model, opens and closes connection. 
+            </summary>
+            <param name="moduleModel"></param>
+        </member>
+        <member name="M:LitRevResourceMVP.Repositories.ModuleRepository.GetAllModules">
+            <summary>
+            SQL query SELECT: retrieves module data from the database and return in a module list, opens and closes connection. 
+            This is called to display in a datagridview.
+            </summary>
+            <returns>Module list</returns>
+        </member>
+        <member name="M:LitRevResourceMVP.Repositories.ResourceRepository.GetDataSet">
+            <summary>
+            Adds assignment and resources tables to dataset using sqlDataAdapter 
+            </summary>
+            <returns>Dataset AssignResDataSet</returns>
+        </member>
+        <member name="M:LitRevResourceMVP.Repositories.ResourceRepository.Add(LitRevResourceMVP.Models.ResourceModel,System.Data.DataSet)">
+            <summary>
+            Adds a new row of resources data to table1 in dataset ("AssignResDataSet").
+            </summary>
+            <param name="resourceModel"></param>
+            <param name="AssignResDataSet"></param>
+        </member>
+        <member name="M:LitRevResourceMVP.Repositories.ResourceRepository.Delete(System.Int32,System.Data.DataSet)">
+            <summary>
+            Deletes a row of resources data from table1 in dataset ("AssignResDataSet"). Passes idnum for selection. 
+            </summary>
+            <param name="idNum"></param>
+            <param name="AssignResDataSet"></param>
+        </member>
+        <member name="M:LitRevResourceMVP.Repositories.ResourceRepository.Edit(System.Int32,LitRevResourceMVP.Models.ResourceModel,System.Data.DataSet)">
+            <summary>
+            Edits a row of resources data from table1 in dataset ("AssignResDataSet"). Passes idnum for selection.
+            </summary>
+            <param name="idNum"></param>
+            <param name="resourceModel"></param>
+            <param name="AssignResDataSet"></param>
+        </member>
+        <member name="M:LitRevResourceMVP.Repositories.ResourceRepository.UpdateDBFromDataTable(System.Data.DataSet)">
+            <summary>
+            Updates sql database with ammended/new rows of resources data in table1.
+            </summary>
+            <param name="AssignResDataSet"></param>
+        </member>
+        <member name="M:LitRevResourceMVP.Repositories.ResourceRepository.GetByValue(System.String,System.Int32)">
+            <summary>
+            SQL query SELECT: retrieves data from a search method by using either an id number or category request.
+            This is called to display results in a datagridview.
+            </summary>
+            <param name="value"></param>
+            <returns>Resource list</returns>
+        </member>
+        <member name="M:LitRevResourceMVP.Repositories.ResourceRepository.GetAllCategories(System.Int32)">
+            <summary>
+            SQL query DISTINCT: retrieves distinct category names and returns in a list to display in a textbox for user reference. 
+            Each resource includes this field which may be used to group resources together in a search event.
+            The categories are not preset but taken from resource creation.
+            </summary>
+            <returns>Category list</returns>
+        </member>
+        <member name="M:LitRevResourceMVP.Views.AssignmentView.#ctor">
+            <summary>
+            Initialises components and events.
+            </summary>
+        </member>
+        <member name="M:LitRevResourceMVP.Views.AssignmentView.AssociateAndRaiseViewEvents">
+            <summary>
+            Invokes CRUD events on assignments.
+            </summary>
+        </member>
+        <member name="M:LitRevResourceMVP.Views.AssignmentView.Btn_ExitAssignView_Click(System.Object,System.EventArgs)">
+            <summary>
+            Closes instance of assignment view.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:LitRevResourceMVP.Views.AssignmentView.SetModuleNameListBindingSource(System.Windows.Forms.BindingSource)">
+            <summary>
+            Binds listbox to module name list.
+            </summary>
+            <param name="moduleNameList"></param>
+        </member>
+        <member name="M:LitRevResourceMVP.Views.AssignmentView.SetAssignmentListBindingSource(System.Windows.Forms.BindingSource)">
+            <summary>
+            Binds datagridview1 to assignment list.
+            </summary>
+            <param name="assignmentList"></param>
+        </member>
+        <member name="M:LitRevResourceMVP.Views.AssignmentView.GetInstance(System.Windows.Forms.Form)">
+            <summary>
+            Open a single assignment form using a singleton pattern
+            </summary>
+            <param name="parentContainer"></param>
+            <returns>AssignmentView instance</returns>
+        </member>
+        <member name="F:LitRevResourceMVP.Views.AssignmentView.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:LitRevResourceMVP.Views.AssignmentView.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:LitRevResourceMVP.Views.AssignmentView.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:LitRevResourceMVP.Views.MainView.#ctor">
+            <summary>
+            Events to get an instance of each view of module, assignment, and resource when required.
+            </summary>
+        </member>
+        <member name="F:LitRevResourceMVP.Views.MainView.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:LitRevResourceMVP.Views.MainView.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:LitRevResourceMVP.Views.MainView.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:LitRevResourceMVP.Views.ModuleView.#ctor">
+            <summary>
+            Initialises components and events.
+            </summary>
+        </member>
+        <member name="M:LitRevResourceMVP.Views.ModuleView.AssociateAndRaiseViewEvents">
+            <summary>
+            Invokes CRUD events on modules.
+            </summary>
+        </member>
+        <member name="M:LitRevResourceMVP.Views.ModuleView.SetModuleListBindingSource(System.Windows.Forms.BindingSource)">
+            <summary>
+            Binds module datagridview to module list.
+            </summary>
+            <param name="moduleList"></param>
+        </member>
+        <member name="M:LitRevResourceMVP.Views.ModuleView.GetInstance(System.Windows.Forms.Form)">
+            <summary>
+            Open a single module form using a singleton pattern
+            </summary>
+            <param name="parentContainer"></param>
+            <returns>ModuleView instance</returns>
+        </member>
+        <member name="M:LitRevResourceMVP.Views.ModuleView.Btn_CloseMod_Click(System.Object,System.EventArgs)">
+            <summary>
+            Closes module instance.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="F:LitRevResourceMVP.Views.ModuleView.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:LitRevResourceMVP.Views.ModuleView.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:LitRevResourceMVP.Views.ModuleView.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:LitRevResourceMVP.Views.ResourceView.#ctor" -->
+        <member name="M:LitRevResourceMVP.Views.ResourceView.AssociateAndRaiseViewEvents">
+            <summary>
+            Invokes CRUD events on resources.
+            </summary>
+        </member>
+        <member name="M:LitRevResourceMVP.Views.ResourceView.Lklbl_WebLink_LinkClicked(System.Object,System.Windows.Forms.LinkLabelLinkClickedEventArgs)">
+            <summary>
+            Invokes LinkLabelEvent in presenter class
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:LitRevResourceMVP.Views.ResourceView.dataGridViewAssign_CellContentClick(System.Object,System.Windows.Forms.DataGridViewCellEventArgs)">
+            <summary>
+            Invokes viewResources event when cell clicked in the assign datagridview. 
+            Adds the assignment number in the selected row to textbox for viewing and retrieval.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:LitRevResourceMVP.Views.ResourceView.dataGridViewResource_CellContentClick(System.Object,System.Windows.Forms.DataGridViewCellEventArgs)">
+            <summary>
+            Gets the resource data for the current selected row in the resource datagridview
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:LitRevResourceMVP.Views.ResourceView.SetAssignmentListBindingSource(System.Windows.Forms.BindingSource)">
+            <summary>
+            Binds assignment datagridview to assignData source
+            </summary>
+            <param name="assignData"></param>
+        </member>
+        <member name="M:LitRevResourceMVP.Views.ResourceView.SetResourceListBindingSource(System.Windows.Forms.BindingSource)">
+            <summary>
+            Binds resource datagridview to resourceData source
+            </summary>
+            <param name="resourceData"></param>
+        </member>
+        <member name="M:LitRevResourceMVP.Views.ResourceView.SetCategoryListBindingSource(System.Windows.Forms.BindingSource)">
+            <summary>
+            Binds category list box to categoryList source
+            </summary>
+            <param name="categoryList"></param>
+        </member>
+        <member name="M:LitRevResourceMVP.Views.ResourceView.Btn_Close_Click(System.Object,System.EventArgs)">
+            <summary>
+            Closes instance of resource view
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:LitRevResourceMVP.Views.ResourceView.Btn_RefBack_Click(System.Object,System.EventArgs)">
+            <summary>
+            Closes reference tab and opens resource details tab
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:LitRevResourceMVP.Views.ResourceView.GetInstance(System.Windows.Forms.Form)">
+            <summary>
+            Open a single resource form using a singleton pattern
+            </summary>
+            <param name="parentContainer"></param>
+            <returns>ResourceView instance</returns>
+        </member>
+        <member name="F:LitRevResourceMVP.Views.ResourceView.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:LitRevResourceMVP.Views.ResourceView.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:LitRevResourceMVP.Views.ResourceView.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+    </members>
+</doc>

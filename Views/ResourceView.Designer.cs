@@ -42,6 +42,7 @@ namespace LitRevResourceMVP.Views
             this.Btn_Save = new System.Windows.Forms.Button();
             this.Tbcl_ResourceList = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.Lbx_ViewResCategories = new System.Windows.Forms.ListBox();
             this.Lbl_SelectResource = new System.Windows.Forms.Label();
             this.Tbx_AssignIdNum = new System.Windows.Forms.TextBox();
             this.dataGridViewAssign = new System.Windows.Forms.DataGridView();
@@ -63,6 +64,8 @@ namespace LitRevResourceMVP.Views
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.Btn_RefBack = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.Lbl_CatList = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.Tbcl_ResourceList.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAssign)).BeginInit();
@@ -77,7 +80,7 @@ namespace LitRevResourceMVP.Views
             this.Tbx_IdNum.Name = "Tbx_IdNum";
             this.Tbx_IdNum.PlaceholderText = "Id number";
             this.Tbx_IdNum.ReadOnly = true;
-            this.Tbx_IdNum.Size = new System.Drawing.Size(180, 31);
+            this.Tbx_IdNum.Size = new System.Drawing.Size(120, 31);
             this.Tbx_IdNum.TabIndex = 1;
             // 
             // Tbx_WebLink
@@ -85,6 +88,7 @@ namespace LitRevResourceMVP.Views
             this.Tbx_WebLink.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Tbx_WebLink.Location = new System.Drawing.Point(7, 43);
+            this.Tbx_WebLink.Multiline = true;
             this.Tbx_WebLink.Name = "Tbx_WebLink";
             this.Tbx_WebLink.PlaceholderText = "Paste web link";
             this.Tbx_WebLink.Size = new System.Drawing.Size(788, 31);
@@ -138,12 +142,13 @@ namespace LitRevResourceMVP.Views
             // Btn_CreateAddRef
             // 
             this.Btn_CreateAddRef.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Btn_CreateAddRef.BackColor = System.Drawing.Color.Bisque;
             this.Btn_CreateAddRef.Location = new System.Drawing.Point(613, 230);
             this.Btn_CreateAddRef.Name = "Btn_CreateAddRef";
             this.Btn_CreateAddRef.Size = new System.Drawing.Size(182, 36);
             this.Btn_CreateAddRef.TabIndex = 12;
             this.Btn_CreateAddRef.Text = "Create reference";
-            this.Btn_CreateAddRef.UseVisualStyleBackColor = true;
+            this.Btn_CreateAddRef.UseVisualStyleBackColor = false;
             // 
             // Tbx_NewCategory
             // 
@@ -168,7 +173,7 @@ namespace LitRevResourceMVP.Views
             // Btn_Save
             // 
             this.Btn_Save.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.Btn_Save.BackColor = System.Drawing.Color.Silver;
+            this.Btn_Save.BackColor = System.Drawing.Color.Bisque;
             this.Btn_Save.Location = new System.Drawing.Point(684, 352);
             this.Btn_Save.Name = "Btn_Save";
             this.Btn_Save.Size = new System.Drawing.Size(111, 73);
@@ -193,6 +198,8 @@ namespace LitRevResourceMVP.Views
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.tabPage1.Controls.Add(this.Lbl_CatList);
+            this.tabPage1.Controls.Add(this.Lbx_ViewResCategories);
             this.tabPage1.Controls.Add(this.Lbl_SelectResource);
             this.tabPage1.Controls.Add(this.Tbx_AssignIdNum);
             this.tabPage1.Controls.Add(this.dataGridViewAssign);
@@ -212,6 +219,17 @@ namespace LitRevResourceMVP.Views
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Resource list";
             // 
+            // Lbx_ViewResCategories
+            // 
+            this.Lbx_ViewResCategories.BackColor = System.Drawing.SystemColors.Control;
+            this.Lbx_ViewResCategories.FormattingEnabled = true;
+            this.Lbx_ViewResCategories.ItemHeight = 25;
+            this.Lbx_ViewResCategories.Location = new System.Drawing.Point(428, 256);
+            this.Lbx_ViewResCategories.Name = "Lbx_ViewResCategories";
+            this.Lbx_ViewResCategories.SelectionMode = System.Windows.Forms.SelectionMode.None;
+            this.Lbx_ViewResCategories.Size = new System.Drawing.Size(367, 54);
+            this.Lbx_ViewResCategories.TabIndex = 12;
+            // 
             // Lbl_SelectResource
             // 
             this.Lbl_SelectResource.AutoSize = true;
@@ -223,11 +241,11 @@ namespace LitRevResourceMVP.Views
             // 
             // Tbx_AssignIdNum
             // 
-            this.Tbx_AssignIdNum.Location = new System.Drawing.Point(632, 238);
+            this.Tbx_AssignIdNum.Location = new System.Drawing.Point(670, 3);
             this.Tbx_AssignIdNum.Name = "Tbx_AssignIdNum";
             this.Tbx_AssignIdNum.PlaceholderText = "Assign Id num";
             this.Tbx_AssignIdNum.ReadOnly = true;
-            this.Tbx_AssignIdNum.Size = new System.Drawing.Size(150, 31);
+            this.Tbx_AssignIdNum.Size = new System.Drawing.Size(125, 31);
             this.Tbx_AssignIdNum.TabIndex = 10;
             // 
             // dataGridViewAssign
@@ -241,7 +259,7 @@ namespace LitRevResourceMVP.Views
             this.dataGridViewAssign.ReadOnly = true;
             this.dataGridViewAssign.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
             this.dataGridViewAssign.RowTemplate.Height = 33;
-            this.dataGridViewAssign.Size = new System.Drawing.Size(776, 198);
+            this.dataGridViewAssign.Size = new System.Drawing.Size(776, 191);
             this.dataGridViewAssign.TabIndex = 9;
             this.dataGridViewAssign.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewAssign_CellContentClick);
             // 
@@ -271,12 +289,13 @@ namespace LitRevResourceMVP.Views
             // Btn_Edit
             // 
             this.Btn_Edit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.Btn_Edit.BackColor = System.Drawing.Color.Lavender;
             this.Btn_Edit.Location = new System.Drawing.Point(357, 562);
             this.Btn_Edit.Name = "Btn_Edit";
             this.Btn_Edit.Size = new System.Drawing.Size(142, 46);
             this.Btn_Edit.TabIndex = 4;
             this.Btn_Edit.Text = "Edit/View";
-            this.Btn_Edit.UseVisualStyleBackColor = true;
+            this.Btn_Edit.UseVisualStyleBackColor = false;
             // 
             // Tbx_Search
             // 
@@ -289,12 +308,13 @@ namespace LitRevResourceMVP.Views
             // Btn_Search
             // 
             this.Btn_Search.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Btn_Search.BackColor = System.Drawing.Color.Lavender;
             this.Btn_Search.Location = new System.Drawing.Point(281, 238);
             this.Btn_Search.Name = "Btn_Search";
             this.Btn_Search.Size = new System.Drawing.Size(141, 31);
             this.Btn_Search.TabIndex = 1;
             this.Btn_Search.Text = "Search";
-            this.Btn_Search.UseVisualStyleBackColor = true;
+            this.Btn_Search.UseVisualStyleBackColor = false;
             // 
             // dataGridViewResource
             // 
@@ -318,26 +338,29 @@ namespace LitRevResourceMVP.Views
             // Btn_Delete
             // 
             this.Btn_Delete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.Btn_Delete.BackColor = System.Drawing.Color.Lavender;
             this.Btn_Delete.Location = new System.Drawing.Point(194, 561);
             this.Btn_Delete.Name = "Btn_Delete";
             this.Btn_Delete.Size = new System.Drawing.Size(142, 47);
             this.Btn_Delete.TabIndex = 5;
             this.Btn_Delete.Text = "Delete";
-            this.Btn_Delete.UseVisualStyleBackColor = true;
+            this.Btn_Delete.UseVisualStyleBackColor = false;
             // 
             // Btn_AddNew
             // 
             this.Btn_AddNew.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.Btn_AddNew.BackColor = System.Drawing.Color.Lavender;
             this.Btn_AddNew.Location = new System.Drawing.Point(37, 561);
             this.Btn_AddNew.Name = "Btn_AddNew";
             this.Btn_AddNew.Size = new System.Drawing.Size(142, 47);
             this.Btn_AddNew.TabIndex = 3;
             this.Btn_AddNew.Text = "Add new";
-            this.Btn_AddNew.UseVisualStyleBackColor = true;
+            this.Btn_AddNew.UseVisualStyleBackColor = false;
             // 
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.LightCoral;
+            this.tabPage2.Controls.Add(this.label2);
             this.tabPage2.Controls.Add(this.Btn_NoteCharLength);
             this.tabPage2.Controls.Add(this.Btn_MainCharLength);
             this.tabPage2.Controls.Add(this.Rtbx_Notes);
@@ -398,17 +421,19 @@ namespace LitRevResourceMVP.Views
             // Lbl_ViewCategories
             // 
             this.Lbl_ViewCategories.AutoSize = true;
-            this.Lbl_ViewCategories.BackColor = System.Drawing.Color.Silver;
+            this.Lbl_ViewCategories.BackColor = System.Drawing.Color.Transparent;
+            this.Lbl_ViewCategories.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
+            this.Lbl_ViewCategories.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.Lbl_ViewCategories.Location = new System.Drawing.Point(484, 90);
             this.Lbl_ViewCategories.Name = "Lbl_ViewCategories";
-            this.Lbl_ViewCategories.Size = new System.Drawing.Size(267, 25);
+            this.Lbl_ViewCategories.Size = new System.Drawing.Size(268, 25);
             this.Lbl_ViewCategories.TabIndex = 20;
-            this.Lbl_ViewCategories.Text = "List of categories used, readonly";
+            this.Lbl_ViewCategories.Text = "List of categories used (readonly)";
             // 
             // Lklbl_WebLink
             // 
             this.Lklbl_WebLink.AutoSize = true;
-            this.Lklbl_WebLink.Location = new System.Drawing.Point(236, 6);
+            this.Lklbl_WebLink.Location = new System.Drawing.Point(133, 9);
             this.Lklbl_WebLink.Name = "Lklbl_WebLink";
             this.Lklbl_WebLink.Size = new System.Drawing.Size(90, 25);
             this.Lklbl_WebLink.TabIndex = 19;
@@ -459,6 +484,28 @@ namespace LitRevResourceMVP.Views
             this.label1.Size = new System.Drawing.Size(273, 50);
             this.label1.TabIndex = 0;
             this.label1.Text = "MAY NOT DEVELOPE HERE\r\nIts alot bigger than first thourght";
+            // 
+            // Lbl_CatList
+            // 
+            this.Lbl_CatList.AutoSize = true;
+            this.Lbl_CatList.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
+            this.Lbl_CatList.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.Lbl_CatList.Location = new System.Drawing.Point(440, 228);
+            this.Lbl_CatList.Name = "Lbl_CatList";
+            this.Lbl_CatList.Size = new System.Drawing.Size(329, 25);
+            this.Lbl_CatList.TabIndex = 13;
+            this.Lbl_CatList.Text = "List of categories to search for (readonly)";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
+            this.label2.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.label2.Location = new System.Drawing.Point(379, 154);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(80, 25);
+            this.label2.TabIndex = 23;
+            this.label2.Text = "accessed";
             // 
             // ResourceView
             // 
@@ -519,5 +566,8 @@ namespace LitRevResourceMVP.Views
         private System.Windows.Forms.Label Lbl_SelectResource;
         private System.Windows.Forms.Button Btn_NoteCharLength;
         private System.Windows.Forms.Button Btn_MainCharLength;
+        private System.Windows.Forms.ListBox Lbx_ViewResCategories;
+        private System.Windows.Forms.Label Lbl_CatList;
+        private System.Windows.Forms.Label label2;
     }
 }

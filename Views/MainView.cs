@@ -14,11 +14,13 @@ namespace LitRevResourceMVP.Views
             Btn_MainResource.Click += delegate { ShowResourceView?.Invoke(this, EventArgs.Empty); };
             Btn_MainAssignments.Click += delegate { ShowAssignmentView?.Invoke(this, EventArgs.Empty); };
             Btn_MainModule.Click += delegate { ShowModuleView?.Invoke(this, EventArgs.Empty); };
+            Btn_DBConnSetup.Click += delegate { ShowDBConnSetupView?.Invoke(this, EventArgs.Empty); };
         }
 
         public event EventHandler ShowResourceView;
         public event EventHandler ShowAssignmentView;
         public event EventHandler ShowModuleView;
+        public event EventHandler ShowDBConnSetupView;
 
         private void Btn_ExitSystem_Click(object sender, EventArgs e)
         {
