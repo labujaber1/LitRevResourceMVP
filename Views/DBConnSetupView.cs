@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace LitRevResourceMVP.Views
@@ -19,6 +12,7 @@ namespace LitRevResourceMVP.Views
         {
             InitializeComponent();
             AssociateAndRaiseViewEvents();
+            
         }
 
         //fields
@@ -30,21 +24,31 @@ namespace LitRevResourceMVP.Views
         public event EventHandler EditEvent;
         public event EventHandler DeleteEvent;
         public event EventHandler TestConnEvent;
-
+        
         /// <summary>
         /// Invokes events on DBConn setup.
         /// </summary>
         private void AssociateAndRaiseViewEvents()
         {
-            
             Btn_AddToList.Click += delegate
             {
-                SaveEvent?.Invoke(this, EventArgs.Empty);
+                var result = MessageBox.Show("Please check the name entered as this is an uneditable field, do you want to continue?", "Warning",
+                            MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (result == DialogResult.Yes)
+                {
+                    SaveEvent?.Invoke(this, EventArgs.Empty);
+                }
             };
 
             Btn_DeleteList.Click += delegate
             {
-                DeleteEvent?.Invoke(this, EventArgs.Empty);
+                var result = MessageBox.Show("Are you sure you want to delete this?", "Warning",
+                      MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (result == DialogResult.Yes)
+                {
+                    DeleteEvent?.Invoke(this, EventArgs.Empty);
+                    MessageBox.Show(Message);
+                }
             };
 
             Btn_EditList.Click += delegate
@@ -56,10 +60,9 @@ namespace LitRevResourceMVP.Views
             {
                 TestConnEvent?.Invoke(this, EventArgs.Empty);
             };
-
-
         }
 
+        
         private void Btn_CloseDBConnSetup_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -83,22 +86,28 @@ namespace LitRevResourceMVP.Views
             set { Tbx_SqlName.Text = value; }
         }
 
+        public string ProviderName
+        {
+            get { return Tbx_Provider.Text; }
+            set { Tbx_Provider.Text = value; }
+        }
+        
         public string DataSource
         {
             get { return Tbx_DataSource.Text; }
             set { Tbx_DataSource.Text = value; }
         }
 
-        public string DBName
+        public string InitCat
         {
             get { return Tbx_InitCat.Text; }
             set { Tbx_InitCat.Text = value; }
         }
 
-        public string IntSec
+        public bool IntegSec
         {
-            get { return Tbx_IntegSec.Text; }
-            set { Tbx_IntegSec.Text = value; }
+            get { return Convert.ToBoolean(Tbx_IntegSec.Text); }
+            set { Tbx_IntegSec.Text = value.ToString(); }
         }
 
         public string UserName
@@ -113,12 +122,47 @@ namespace LitRevResourceMVP.Views
             set { Tbx_Password.Text = value; }
         }
 
-        public void SetConnectionFileBindingSource(BindingSource connectionFile)
+        //returns connection string used to test connection
+        public string ConnectionString
         {
-            Lbx_ConnStringFromFile.DataSource = connectionFile;
+            get { return dataGridView1.CurrentCell.Value.ToString(); }
+            set { value = dataGridView1.CurrentCell.Value.ToString(); }
         }
 
+        //returns index of selected item
+        public int IndexRow 
+        {
+            get { return dataGridView1.CurrentCell.RowIndex;  }
+            set { value=dataGridView1.CurrentCell.RowIndex; }
+        }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="connectionFile"></param>
+        public void SetConnectionFileBindingSource(BindingSource connectionFile)
+        {
+            dataGridView1.DataSource = connectionFile;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="saveToConnFile"></param>
+        public void SetSaveConnToFileBindingSource(BindingSource saveToConnFile)
+        {
+            saveToConnFile.DataSource = dataGridView1;
+        }
+
+        /// <summary>
+        /// Deletes row in datagridview by index of selected cell
+        /// </summary>
+        public void deleteDataGridRow()
+        {
+            //dataGridView1.Rows.Remove(dataGridView1.CurrentCell.OwningRow);
+            int index = IndexRow;
+            dataGridView1.Rows.RemoveAt(index) ;
+        }
 
 
         private static DBConnSetupView instance;

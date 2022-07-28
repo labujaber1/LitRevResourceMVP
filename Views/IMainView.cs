@@ -8,6 +8,7 @@ namespace LitRevResourceMVP.Views
         event EventHandler ShowAssignmentView;
         event EventHandler ShowModuleView;
         event EventHandler ShowDBConnSetupView;
+        event EventHandler ShowConnWizard;
         //others
     }
 }

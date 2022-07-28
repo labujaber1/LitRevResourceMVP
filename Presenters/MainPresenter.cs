@@ -8,6 +8,7 @@ namespace LitRevResourceMVP.Presenters
 {
     public class MainPresenter
     {
+        
         private IMainView imainView;
         private readonly string sqlConnectionString;
 
@@ -19,6 +20,19 @@ namespace LitRevResourceMVP.Presenters
             this.imainView.ShowAssignmentView += ShowAssignmentView;
             this.imainView.ShowModuleView += ShowModuleView;
             this.imainView.ShowDBConnSetupView += ShowDBConnSetupView;
+            this.imainView.ShowConnWizard += ShowConnWizard;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void ShowConnWizard(object sender, EventArgs e)
+        {
+            ConnectionWizard.Form1 f1 = new ConnectionWizard.Form1();
+            f1.Show();
+
         }
 
         /// <summary>

@@ -36,6 +36,7 @@ namespace LitRevResourceMVP.Views
             this.Btn_ExitSystem = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.Btn_DBConnSetup = new System.Windows.Forms.Button();
+            this.Btn_ConnWizard = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -94,6 +95,7 @@ namespace LitRevResourceMVP.Views
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.panel1.Controls.Add(this.Btn_ConnWizard);
             this.panel1.Controls.Add(this.Btn_DBConnSetup);
             this.panel1.Controls.Add(this.Btn_ExitSystem);
             this.panel1.Controls.Add(this.Lbl_MainMenu);
@@ -115,6 +117,16 @@ namespace LitRevResourceMVP.Views
             this.Btn_DBConnSetup.TabIndex = 3;
             this.Btn_DBConnSetup.Text = "DB connection setup";
             this.Btn_DBConnSetup.UseVisualStyleBackColor = false;
+            // 
+            // Btn_ConnWizard
+            // 
+            this.Btn_ConnWizard.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.Btn_ConnWizard.Location = new System.Drawing.Point(24, 365);
+            this.Btn_ConnWizard.Name = "Btn_ConnWizard";
+            this.Btn_ConnWizard.Size = new System.Drawing.Size(201, 55);
+            this.Btn_ConnWizard.TabIndex = 4;
+            this.Btn_ConnWizard.Text = "Connection wizard";
+            this.Btn_ConnWizard.UseVisualStyleBackColor = false;
             // 
             // MainView
             // 
@@ -141,5 +153,6 @@ namespace LitRevResourceMVP.Views
         private System.Windows.Forms.Button Btn_ExitSystem;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button Btn_DBConnSetup;
+        private System.Windows.Forms.Button Btn_ConnWizard;
     }
 }

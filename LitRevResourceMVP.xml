@@ -54,6 +54,39 @@
             Row event argument class
             </summary>
         </member>
+        <member name="M:LitRevResourceMVP.ConnectionWizard.Form1.GetSQLServerList">
+            <summary>
+            Returns a list of SQL servers
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:LitRevResourceMVP.ConnectionWizard.Form1.GetSQLDatabaseList(System.String,System.Boolean,System.String,System.String)">
+            <summary>
+            Returns a list of user databases on the specified server instance 
+            </summary>
+            <param name="serverInstanceName">Name of server and if applicable the instance name: DEV10\SQLEXPRESS or MYSQLSERVER</param>
+            <param name="useWindowsAuthentication">true if SSPI should be used; otherwise the username and password must be specified.</param>
+            <param name="username">username of an SQL server user account</param>
+            <param name="password">password for the SQL account specified by the username above fixed string array containing the list of user databases </param>
+            <returns></returns>
+        </member>
+        <member name="F:LitRevResourceMVP.ConnectionWizard.Form1.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:LitRevResourceMVP.ConnectionWizard.Form1.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:LitRevResourceMVP.ConnectionWizard.Form1.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
         <member name="M:LitRevResourceMVP.Presenters.AssignmentPresenter.#ctor(LitRevResourceMVP.Views.IAssignmentView,LitRevResourceMVP.Models.IAssignmentRepository)">
             <summary>
             Setup events args to event handlers and assignment bindings source.
@@ -108,6 +141,59 @@
             <summary>
             Used to print error messages assigned in resourcemodel for each [required] message type
             </summary>
+        </member>
+        <member name="M:LitRevResourceMVP.Presenters.DBConnSetupPresenter.LoadConnectionFile">
+            <summary>
+            Binding source to load connection strings from app.config to datagridview
+            </summary>
+        </member>
+        <member name="M:LitRevResourceMVP.Presenters.DBConnSetupPresenter.DeleteConn(System.Object,System.EventArgs)">
+            <summary>
+            Delete selected connection row in datagridview and app.config
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:LitRevResourceMVP.Presenters.DBConnSetupPresenter.EditConn(System.Object,System.EventArgs)">
+            <summary>
+            Save edited data in datagridview to app.config using model list 
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:LitRevResourceMVP.Presenters.DBConnSetupPresenter.SaveConn(System.Object,System.EventArgs)">
+            <summary>
+            Constructs a connection string in correct format and passes it to SaveConnString method to 
+            save to app.config file at runtime. Reloads listbox with app.config data and clears all textbox controls.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:LitRevResourceMVP.Presenters.DBConnSetupPresenter.TestConn(System.Object,System.EventArgs)">
+            <summary>
+            Test connection string event to open database connection 
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:LitRevResourceMVP.Presenters.DBConnSetupPresenter.ClearTextFields">
+            <summary>
+            Reset textbox fields to empty
+            </summary>
+        </member>
+        <member name="M:LitRevResourceMVP.Presenters.MainPresenter.ShowConnWizard(System.Object,System.EventArgs)">
+            <summary>
+            
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:LitRevResourceMVP.Presenters.MainPresenter.ShowDBConnSetupView(System.Object,System.EventArgs)">
+            <summary>
+            Passes in a singleton instance of the DbConnSetup view and the sql connection string to the presenter  
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
         </member>
         <member name="M:LitRevResourceMVP.Presenters.MainPresenter.ShowResourcesView(System.Object,System.EventArgs)">
             <summary>
@@ -289,6 +375,11 @@
               resource lookups using this strongly typed resource class.
             </summary>
         </member>
+        <member name="P:LitRevResourceMVP.Properties.Resources.HomeScreen">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
         <member name="M:LitRevResourceMVP.Repositories.AssignmentRepository.Add(LitRevResourceMVP.Models.AssignmentModel)">
             <summary>
              SQL query INSERT: used to add the assignment data model to the database
@@ -328,6 +419,50 @@
             </summary>
             <param name="name"></param>
             <returns>int idNum</returns>
+        </member>
+        <member name="M:LitRevResourceMVP.Repositories.DBConnSetupRepository.TestConnString(System.String)">
+            <summary>
+            Attempt tp open a database connection using passed in connection string.
+            </summary>
+            <param name="connectionString"></param>
+            <returns>Bool true if opens connection else false</returns>
+        </member>
+        <member name="M:LitRevResourceMVP.Repositories.DBConnSetupRepository.GetConnString">
+            <summary>
+            Retieves configuration connection strings from a set to a model list to be viewed in datagridview.
+            </summary>
+            <returns>DBConnSetupModel connString</returns>
+        </member>
+        <member name="M:LitRevResourceMVP.Repositories.DBConnSetupRepository.AddConnString(System.String,System.String,System.String)">
+            <summary>
+            Saves constructed connection string and name to the app.config file at runtime.
+            Code courtesy of h ttps://makolyte.com/how-to-modify-app-config-at-runtime/
+            Used in presenter saveconn event to add new connstring
+            </summary>
+            <param name="name"></param>
+            <param name="connectionString"></param>
+        </member>
+        <member name="M:LitRevResourceMVP.Repositories.DBConnSetupRepository.EditConnString(System.String,System.String,System.String)">
+            <summary>
+            Edits constructed connection string and providername to the app.config file at runtime.
+            Code courtesy of h ttps://makolyte.com/how-to-modify-app-config-at-runtime/.
+            </summary>
+            <param name="name"></param>
+            <param name="connectionString"></param>
+        </member>
+        <member name="M:LitRevResourceMVP.Repositories.DBConnSetupRepository.SaveRefreshConfig">
+            <summary>
+            Refresh connection string section called at end of presenter.EditConn method
+            </summary>
+        </member>
+        <member name="M:LitRevResourceMVP.Repositories.DBConnSetupRepository.DeleteConnString(System.Int32)">
+            <summary>
+            Delete connectionstring row from app.config
+            </summary>
+            <param name="name"></param>
+            <param name="connectionString"></param>
+            <param name="providerName"></param>
+            <param name="num"></param>
         </member>
         <member name="M:LitRevResourceMVP.Repositories.ModuleRepository.Add(LitRevResourceMVP.Models.ModuleModel)">
             <summary>
@@ -452,6 +587,57 @@
             <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         </member>
         <member name="M:LitRevResourceMVP.Views.AssignmentView.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:LitRevResourceMVP.Views.DBConnSetupView.#ctor">
+            <summary>
+            Initialises components and events.
+            </summary>
+        </member>
+        <member name="M:LitRevResourceMVP.Views.DBConnSetupView.AssociateAndRaiseViewEvents">
+            <summary>
+            Invokes events on DBConn setup.
+            </summary>
+        </member>
+        <member name="M:LitRevResourceMVP.Views.DBConnSetupView.SetConnectionFileBindingSource(System.Windows.Forms.BindingSource)">
+            <summary>
+            
+            </summary>
+            <param name="connectionFile"></param>
+        </member>
+        <member name="M:LitRevResourceMVP.Views.DBConnSetupView.SetSaveConnToFileBindingSource(System.Windows.Forms.BindingSource)">
+            <summary>
+            
+            </summary>
+            <param name="saveToConnFile"></param>
+        </member>
+        <member name="M:LitRevResourceMVP.Views.DBConnSetupView.deleteDataGridRow">
+            <summary>
+            Deletes row in datagridview by index of selected cell
+            </summary>
+        </member>
+        <member name="M:LitRevResourceMVP.Views.DBConnSetupView.GetInstance(System.Windows.Forms.Form)">
+            <summary>
+            Open a single DBConn setup form using a singleton pattern
+            </summary>
+            <param name="parentContainer"></param>
+            <returns>DBConnSetupView instance</returns>
+        </member>
+        <member name="F:LitRevResourceMVP.Views.DBConnSetupView.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:LitRevResourceMVP.Views.DBConnSetupView.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:LitRevResourceMVP.Views.DBConnSetupView.InitializeComponent">
             <summary>
             Required method for Designer support - do not modify
             the contents of this method with the code editor.

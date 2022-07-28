@@ -228,7 +228,7 @@ namespace LitRevResourceMVP.Views
         /// <param name="e"></param>
         private void dataGridViewResource_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            DataGridView dgv = new();
+            DataGridView dgv = new DataGridView();
             dgv = dataGridViewResource;
             if (dgv != null)
             {
