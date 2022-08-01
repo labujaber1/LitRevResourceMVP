@@ -53,6 +53,7 @@ namespace LitRevResourceMVP.Views
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -62,6 +63,7 @@ namespace LitRevResourceMVP.Views
             // 
             // Btn_CloseDBConnSetup
             // 
+            this.Btn_CloseDBConnSetup.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.Btn_CloseDBConnSetup.BackColor = System.Drawing.Color.OrangeRed;
             this.Btn_CloseDBConnSetup.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Btn_CloseDBConnSetup.Location = new System.Drawing.Point(645, 24);
@@ -141,6 +143,7 @@ namespace LitRevResourceMVP.Views
             // 
             // Btn_DeleteList
             // 
+            this.Btn_DeleteList.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.Btn_DeleteList.BackColor = System.Drawing.Color.Red;
             this.Btn_DeleteList.Location = new System.Drawing.Point(58, 24);
             this.Btn_DeleteList.Name = "Btn_DeleteList";
@@ -151,6 +154,7 @@ namespace LitRevResourceMVP.Views
             // 
             // Btn_EditList
             // 
+            this.Btn_EditList.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.Btn_EditList.BackColor = System.Drawing.Color.Chartreuse;
             this.Btn_EditList.Location = new System.Drawing.Point(398, 24);
             this.Btn_EditList.Name = "Btn_EditList";
@@ -174,6 +178,7 @@ namespace LitRevResourceMVP.Views
             // 
             // Btn_ConnTest
             // 
+            this.Btn_ConnTest.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.Btn_ConnTest.BackColor = System.Drawing.Color.Orange;
             this.Btn_ConnTest.Location = new System.Drawing.Point(200, 24);
             this.Btn_ConnTest.Name = "Btn_ConnTest";
@@ -200,6 +205,7 @@ namespace LitRevResourceMVP.Views
             // 
             // Lbl_ConnectionString
             // 
+            this.Lbl_ConnectionString.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Lbl_ConnectionString.AutoSize = true;
             this.Lbl_ConnectionString.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
             this.Lbl_ConnectionString.Location = new System.Drawing.Point(550, 19);
@@ -260,6 +266,9 @@ namespace LitRevResourceMVP.Views
             // 
             // dataGridView1
             // 
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ControlLight;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -275,6 +284,9 @@ namespace LitRevResourceMVP.Views
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.BackColor = System.Drawing.Color.LightSteelBlue;
             this.groupBox1.Controls.Add(this.Tbx_Provider);
             this.groupBox1.Controls.Add(this.Tbx_SqlName);
@@ -298,15 +310,30 @@ namespace LitRevResourceMVP.Views
             // 
             // groupBox2
             // 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.dataGridView1);
             this.groupBox2.Controls.Add(this.Lbl_ConnectionString);
             this.groupBox2.Location = new System.Drawing.Point(12, 292);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(825, 272);
+            this.groupBox2.Size = new System.Drawing.Size(825, 283);
             this.groupBox2.TabIndex = 14;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Connection string(s) in app.config ";
+            this.groupBox2.Text = "Connection string(s) in debug/app.config or .dll.config when live ";
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 7F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(17, 255);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(616, 19);
+            this.label2.TabIndex = 17;
+            this.label2.Text = "* Connection name is readonly, to edit a new connection must be added and the old" +
+    " one deleted.";
             // 
             // DBConnSetupView
             // 
@@ -358,5 +385,6 @@ namespace LitRevResourceMVP.Views
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label label2;
     }
 }

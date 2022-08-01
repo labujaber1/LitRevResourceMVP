@@ -91,6 +91,9 @@ namespace LitRevResourceMVP.Views
             // 
             // panel3
             // 
+            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel3.Controls.Add(this.Lbl_Info1);
             this.panel3.Controls.Add(this.Lbl_DisplayIdNum);
             this.panel3.Controls.Add(this.Lbx_ModuleList);
@@ -101,7 +104,6 @@ namespace LitRevResourceMVP.Views
             this.panel3.Controls.Add(this.Btn_EditAssign);
             this.panel3.Controls.Add(this.Btn_DeleteAssign);
             this.panel3.Controls.Add(this.dataGridView1);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel3.Location = new System.Drawing.Point(0, 82);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(570, 599);
@@ -109,6 +111,7 @@ namespace LitRevResourceMVP.Views
             // 
             // Lbl_Info1
             // 
+            this.Lbl_Info1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Lbl_Info1.AutoSize = true;
             this.Lbl_Info1.Location = new System.Drawing.Point(410, 64);
             this.Lbl_Info1.Name = "Lbl_Info1";
@@ -127,6 +130,8 @@ namespace LitRevResourceMVP.Views
             // 
             // Lbx_ModuleList
             // 
+            this.Lbx_ModuleList.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.Lbx_ModuleList.FormattingEnabled = true;
             this.Lbx_ModuleList.ItemHeight = 25;
             this.Lbx_ModuleList.Location = new System.Drawing.Point(7, 41);
@@ -145,6 +150,7 @@ namespace LitRevResourceMVP.Views
             // 
             // Btn_ExitAssignView
             // 
+            this.Btn_ExitAssignView.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.Btn_ExitAssignView.BackColor = System.Drawing.Color.LightSteelBlue;
             this.Btn_ExitAssignView.Location = new System.Drawing.Point(426, 519);
             this.Btn_ExitAssignView.Name = "Btn_ExitAssignView";
@@ -165,6 +171,7 @@ namespace LitRevResourceMVP.Views
             // 
             // Btn_EditAssign
             // 
+            this.Btn_EditAssign.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.Btn_EditAssign.Location = new System.Drawing.Point(36, 519);
             this.Btn_EditAssign.Name = "Btn_EditAssign";
             this.Btn_EditAssign.Size = new System.Drawing.Size(112, 63);
@@ -174,6 +181,7 @@ namespace LitRevResourceMVP.Views
             // 
             // Btn_DeleteAssign
             // 
+            this.Btn_DeleteAssign.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.Btn_DeleteAssign.Location = new System.Drawing.Point(239, 519);
             this.Btn_DeleteAssign.Name = "Btn_DeleteAssign";
             this.Btn_DeleteAssign.Size = new System.Drawing.Size(112, 63);
@@ -188,6 +196,9 @@ namespace LitRevResourceMVP.Views
             this.dataGridView1.AllowUserToOrderColumns = true;
             this.dataGridView1.AllowUserToResizeColumns = false;
             this.dataGridView1.AllowUserToResizeRows = false;
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(7, 295);
             this.dataGridView1.Name = "dataGridView1";
@@ -199,6 +210,8 @@ namespace LitRevResourceMVP.Views
             // 
             // panel2
             // 
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.Color.AntiqueWhite;
             this.panel2.Controls.Add(this.numericUpDown1);
             this.panel2.Controls.Add(this.Lbl_AssignTrimester);
@@ -210,7 +223,6 @@ namespace LitRevResourceMVP.Views
             this.panel2.Controls.Add(this.Lbl_AssignIdNum);
             this.panel2.Controls.Add(this.Tbx_AssignIdNum);
             this.panel2.Controls.Add(this.Lbl_AddNewAssign);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel2.Location = new System.Drawing.Point(576, 82);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(273, 599);
@@ -263,7 +275,6 @@ namespace LitRevResourceMVP.Views
             // 
             // DateTimePicker2
             // 
-            this.DateTimePicker2.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.DateTimePicker2.Location = new System.Drawing.Point(14, 419);
             this.DateTimePicker2.Name = "DateTimePicker2";
             this.DateTimePicker2.Size = new System.Drawing.Size(245, 31);
@@ -281,7 +292,6 @@ namespace LitRevResourceMVP.Views
             // 
             // Tbx_AssignName
             // 
-            this.Tbx_AssignName.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.Tbx_AssignName.Location = new System.Drawing.Point(14, 219);
             this.Tbx_AssignName.Multiline = true;
             this.Tbx_AssignName.Name = "Tbx_AssignName";
@@ -300,7 +310,6 @@ namespace LitRevResourceMVP.Views
             // 
             // Tbx_AssignIdNum
             // 
-            this.Tbx_AssignIdNum.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.Tbx_AssignIdNum.Location = new System.Drawing.Point(13, 133);
             this.Tbx_AssignIdNum.Name = "Tbx_AssignIdNum";
             this.Tbx_AssignIdNum.PlaceholderText = "Id number";

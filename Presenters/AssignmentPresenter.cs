@@ -1,15 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using LitRevResourceMVP.Models;
 using LitRevResourceMVP.Views;
 
 namespace LitRevResourceMVP.Presenters
 {
+    /// <summary>
+    /// Assignment presenter to invoke view events and action repository business logic
+    /// </summary>
     public class AssignmentPresenter
     {
         private IAssignmentView view;
@@ -140,8 +139,6 @@ namespace LitRevResourceMVP.Presenters
         /// <summary>
         /// Combines edit and save function using bool isEdit status. Calls sql methods from repository to amend list and update database.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void SaveAssign()
         {
             var model = new AssignmentModel();

@@ -54,6 +54,222 @@
             Row event argument class
             </summary>
         </member>
+        <member name="T:LitRevResourceMVP.Models.AssignmentModel">
+            <summary>
+            Assigment model containing fields inline with database tables
+            </summary>
+        </member>
+        <member name="T:LitRevResourceMVP.Models.DBConnSetupModel">
+            <summary>
+            DB connection setup model conataining fields inline with database table
+            </summary>
+        </member>
+        <member name="T:LitRevResourceMVP.Models.IAssignmentRepository">
+            <summary>
+            Assignment repository interface: SQL queries used in presenter for CRUD functionality.
+            </summary>
+        </member>
+        <member name="M:LitRevResourceMVP.Models.IAssignmentRepository.Add(LitRevResourceMVP.Models.AssignmentModel)">
+            <summary>
+             SQL query INSERT: used to add the assignment data model to the database
+            </summary>
+            <param name="assignmentModel"></param>
+        </member>
+        <member name="M:LitRevResourceMVP.Models.IAssignmentRepository.Delete(System.Int32)">
+            <summary>
+            SQL query DELETE: used to delete the assignment data model based on id number from the database
+            </summary>
+            <param name="assignIdNum"></param>
+        </member>
+        <member name="M:LitRevResourceMVP.Models.IAssignmentRepository.Edit(LitRevResourceMVP.Models.AssignmentModel)">
+            <summary>
+            SQL query UPDATE: used to edit assignment data in the database using the data model 
+            </summary>
+            <param name="assignmentModel"></param>
+        </member>
+        <member name="M:LitRevResourceMVP.Models.IAssignmentRepository.GetModIdNum(System.String)">
+            <summary>
+            Retrieves id number of module from database where sql matches module name.
+            </summary>
+            <param name="name"></param>
+            <returns>int idNum</returns>
+        </member>
+        <member name="M:LitRevResourceMVP.Models.IAssignmentRepository.GetAllModules">
+            <summary>
+            SQL query SELECT: to retrieve distinct module names and display in a combobox for a user to select.
+            Used to display assignments in a datagridview for the module selected.
+            </summary>
+            <returns>ModuleNameList</returns>
+        </member>
+        <member name="M:LitRevResourceMVP.Models.IAssignmentRepository.GetAllAssignments(System.Int32)">
+            <summary>
+            SQL query SELECT: retrieves assignment data from the database and return in an assignment list.
+            This is called to display in a datagridview
+            </summary>
+            <param name="IdNum"></param>
+            <returns>Assignment list</returns>
+        </member>
+        <member name="T:LitRevResourceMVP.Models.IDBConnSetupRepository">
+            <summary>
+            DB connection setup repository interface: CRUD functionality to config.app file
+            </summary>
+        </member>
+        <member name="M:LitRevResourceMVP.Models.IDBConnSetupRepository.GetConnString">
+            <summary>
+            Retieves configuration connection strings from a set to a model list to be viewed in datagridview.
+            </summary>
+            <returns>DBConnSetupModel connString</returns>
+        </member>
+        <member name="M:LitRevResourceMVP.Models.IDBConnSetupRepository.AddConnString(System.String,System.String,System.String)">
+            <summary>
+            Saves constructed connection string and name to the app.config file at runtime.
+            Code courtesy of h ttps://makolyte.com/how-to-modify-app-config-at-runtime/
+            Used in presenter saveconn event to add new connstring
+            </summary>
+            <param name="name"></param>
+            <param name="providerName"></param>
+            <param name="connectionString"></param>
+        </member>
+        <member name="M:LitRevResourceMVP.Models.IDBConnSetupRepository.EditConnString(System.String,System.String,System.String)">
+            <summary>
+            Edits constructed connection string and providername to the app.config file at runtime.
+            Code courtesy of h ttps://makolyte.com/how-to-modify-app-config-at-runtime/.
+            </summary>
+            <param name="name"></param>
+            <param name="connectionString"></param>
+            <param name="providerName"></param>
+        </member>
+        <member name="M:LitRevResourceMVP.Models.IDBConnSetupRepository.TestConnString(System.String)">
+            <summary>
+            Attempt tp open a database connection using passed in connection string.
+            </summary>
+            <param name="connectionString"></param>
+            <returns>Bool true if opens connection else false</returns>
+        </member>
+        <member name="M:LitRevResourceMVP.Models.IDBConnSetupRepository.DeleteConnString(System.Int32)">
+            <summary>
+            Delete connectionstring row from app.config
+            </summary>
+            <param name="num"></param>
+        </member>
+        <member name="M:LitRevResourceMVP.Models.IDBConnSetupRepository.SaveRefreshConfig">
+            <summary>
+            Refresh connection string section called at end of presenter.EditConn method
+            </summary>
+        </member>
+        <member name="T:LitRevResourceMVP.Models.IModuleRepository">
+            <summary>
+            Module repository interface: SQL queries called by presenter for CRUD functionality.
+            </summary>
+        </member>
+        <member name="M:LitRevResourceMVP.Models.IModuleRepository.Add(LitRevResourceMVP.Models.ModuleModel)">
+            <summary>
+             SQL query INSERT: used to add the module data model to the database directly, opens and closes connection.
+            </summary>
+            <param name="moduleModel"></param>
+        </member>
+        <member name="M:LitRevResourceMVP.Models.IModuleRepository.Delete(System.Int32)">
+            <summary>
+            SQL query DELETE: used to delete the module data model based on id number from the database directly, opens and closes connection.
+            </summary>
+            <param name="modIdNum"></param>
+        </member>
+        <member name="M:LitRevResourceMVP.Models.IModuleRepository.Edit(LitRevResourceMVP.Models.ModuleModel)">
+            <summary>
+            SQL query UPDATE: used to edit module data in the database using the data model, opens and closes connection. 
+            </summary>
+            <param name="moduleModel"></param>
+        </member>
+        <member name="M:LitRevResourceMVP.Models.IModuleRepository.GetAllModules">
+            <summary>
+            SQL query SELECT: retrieves module data from the database and return in a module list, opens and closes connection. 
+            This is called to display in a datagridview.
+            </summary>
+            <returns>Module list</returns>
+        </member>
+        <member name="T:LitRevResourceMVP.Models.IResourceRepository">
+            <summary>
+            Resource repository interface: SQL queries called from presenter for CRUD functionality.
+            </summary>
+        </member>
+        <member name="M:LitRevResourceMVP.Models.IResourceRepository.Add(LitRevResourceMVP.Models.ResourceModel,System.Data.DataSet)">
+            <summary>
+            Adds a new row of resources data to table1 in dataset ("AssignResDataSet").
+            </summary>
+            <param name="resourceModel"></param>
+            <param name="AssignResDataSet"></param>
+        </member>
+        <member name="M:LitRevResourceMVP.Models.IResourceRepository.Delete(System.Int32,System.Data.DataSet)">
+            <summary>
+            Deletes a row of resources data from table1 in dataset ("AssignResDataSet"). Passes idnum for selection. 
+            </summary>
+            <param name="idNum"></param>
+            <param name="AssignResDataSet"></param>
+        </member>
+        <member name="M:LitRevResourceMVP.Models.IResourceRepository.Edit(System.Int32,LitRevResourceMVP.Models.ResourceModel,System.Data.DataSet)">
+            <summary>
+            Edits a row of resources data from table1 in dataset ("AssignResDataSet"). Passes idnum for selection.
+            </summary>
+            <param name="idNum"></param>
+            <param name="resourceModel"></param>
+            <param name="AssignResDataSet"></param>
+        </member>
+        <member name="M:LitRevResourceMVP.Models.IResourceRepository.GetByValue(System.String,System.Int32)">
+            <summary>
+            SQL query SELECT: retrieves data from a search method by using either an id number or category request.
+            This is called to display results in a datagridview.
+            </summary>
+            <param name="value"></param>
+            <param name="assignId"></param>
+            <returns>Resource list</returns>
+        </member>
+        <member name="M:LitRevResourceMVP.Models.IResourceRepository.GetAllCategories(System.Int32)">
+            <summary>
+            SQL query DISTINCT: retrieves distinct category names and returns in a list to display in a textbox for user reference. 
+            Each resource includes this field which may be used to group resources together in a search event.
+            The categories are not preset but taken from resource creation.
+            </summary>
+            <returns>Category list</returns>
+        </member>
+        <member name="M:LitRevResourceMVP.Models.IResourceRepository.UpdateDBFromDataTable(System.Data.DataSet)">
+            <summary>
+            Updates sql database with ammended/new rows of resources data in table1.
+            </summary>
+            <param name="AssignResDataSet"></param>
+        </member>
+        <member name="M:LitRevResourceMVP.Models.IResourceRepository.GetDataSet">
+            <summary>
+            Adds assignment and resources tables to dataset using sqlDataAdapter 
+            </summary>
+            <returns>Dataset AssignResDataSet</returns>
+        </member>
+        <member name="T:LitRevResourceMVP.Models.ModuleModel">
+            <summary>
+            Module model conataining fields inline with database table
+            </summary>
+        </member>
+        <member name="T:LitRevResourceMVP.Models.ResourceModel">
+            <summary>
+            Resource model conataining fields inline with database table
+            </summary>
+        </member>
+        <member name="T:LitRevResourceMVP.ConnectionWizard.Form1">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:LitRevResourceMVP.ConnectionWizard.Form1.#ctor">
+            <summary>
+            Initialises form1 components
+            </summary>
+        </member>
+        <member name="M:LitRevResourceMVP.ConnectionWizard.Form1.ListServers(System.Data.Common.DbProviderFactory)">
+            <summary>
+            
+            </summary>
+            <param name="factory"></param>
+            <returns></returns>
+        </member>
         <member name="M:LitRevResourceMVP.ConnectionWizard.Form1.GetSQLServerList">
             <summary>
             Returns a list of SQL servers
@@ -70,6 +286,88 @@
             <param name="password">password for the SQL account specified by the username above fixed string array containing the list of user databases </param>
             <returns></returns>
         </member>
+        <member name="M:LitRevResourceMVP.ConnectionWizard.Form1.BuildConnection">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:LitRevResourceMVP.ConnectionWizard.Form1.Form1_Load(System.Object,System.EventArgs)">
+            <summary>
+            
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:LitRevResourceMVP.ConnectionWizard.Form1.CmbServers_SelectedValueChanged(System.Object,System.EventArgs)">
+            <summary>
+            
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:LitRevResourceMVP.ConnectionWizard.Form1.BtnFindServers_Click(System.Object,System.EventArgs)">
+            <summary>
+            
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:LitRevResourceMVP.ConnectionWizard.Form1.ChkUseWindowsSecurity_CheckedChanged(System.Object,System.EventArgs)">
+            <summary>
+            
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:LitRevResourceMVP.ConnectionWizard.Form1.ChkUseWindowsSecurity_CheckStateChanged(System.Object,System.EventArgs)">
+            <summary>
+            
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:LitRevResourceMVP.ConnectionWizard.Form1.CmbDatabases_Click(System.Object,System.EventArgs)">
+            <summary>
+            
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:LitRevResourceMVP.ConnectionWizard.Form1.CmbDatabases_TextChanged(System.Object,System.EventArgs)">
+            <summary>
+            
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:LitRevResourceMVP.ConnectionWizard.Form1.BtnFindDatabases_Click(System.Object,System.EventArgs)">
+            <summary>
+            
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:LitRevResourceMVP.ConnectionWizard.Form1.BtnTestConnection_Click(System.Object,System.EventArgs)">
+            <summary>
+            
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:LitRevResourceMVP.ConnectionWizard.Form1.BtnFinish_Click(System.Object,System.EventArgs)">
+            <summary>
+            
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:LitRevResourceMVP.ConnectionWizard.Form1.WriteConnectionStrings(System.Xml.XmlWriter,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="writer"></param>
+            <param name="sqlcon"></param>
+        </member>
         <member name="F:LitRevResourceMVP.ConnectionWizard.Form1.components">
             <summary>
             Required designer variable.
@@ -85,6 +383,11 @@
             <summary>
             Required method for Designer support - do not modify
             the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:LitRevResourceMVP.Presenters.AssignmentPresenter">
+            <summary>
+            Assignment presenter to invoke view events and action repository business logic
             </summary>
         </member>
         <member name="M:LitRevResourceMVP.Presenters.AssignmentPresenter.#ctor(LitRevResourceMVP.Views.IAssignmentView,LitRevResourceMVP.Models.IAssignmentRepository)">
@@ -129,18 +432,33 @@
             <summary>
             Combines edit and save function using bool isEdit status. Calls sql methods from repository to amend list and update database.
             </summary>
-            <param name="sender"></param>
-            <param name="e"></param>
         </member>
         <member name="M:LitRevResourceMVP.Presenters.AssignmentPresenter.ClearAllTextFields">
             <summary>
             Used in saveResource(), cancelAction(), to clear all textboxes of data.
             </summary>
         </member>
+        <member name="T:LitRevResourceMVP.Presenters.Common.ModelDataValidation">
+            <summary>
+            Include low level user input validation in each model class. 
+            </summary>
+        </member>
         <member name="M:LitRevResourceMVP.Presenters.Common.ModelDataValidation.Validate(System.Object)">
             <summary>
             Used to print error messages assigned in resourcemodel for each [required] message type
             </summary>
+        </member>
+        <member name="T:LitRevResourceMVP.Presenters.DBConnSetupPresenter">
+            <summary>
+            Database setup presenter to invoke view events and action repository business logic
+            </summary>
+        </member>
+        <member name="M:LitRevResourceMVP.Presenters.DBConnSetupPresenter.#ctor(LitRevResourceMVP.Views.IDBConnSetupView,LitRevResourceMVP.Models.IDBConnSetupRepository)">
+            <summary>
+            
+            </summary>
+            <param name="view"></param>
+            <param name="repository"></param>
         </member>
         <member name="M:LitRevResourceMVP.Presenters.DBConnSetupPresenter.LoadConnectionFile">
             <summary>
@@ -181,6 +499,18 @@
             Reset textbox fields to empty
             </summary>
         </member>
+        <member name="T:LitRevResourceMVP.Presenters.MainPresenter">
+            <summary>
+            Module presenter to invoke view events of each form identified by buttons in the side bar.
+            </summary>
+        </member>
+        <member name="M:LitRevResourceMVP.Presenters.MainPresenter.#ctor(LitRevResourceMVP.Views.IMainView,System.String)">
+            <summary>
+            Setup events args to event handlers and module bindings source.
+            </summary>
+            <param name="mainView"></param>
+            <param name="sqlConnectionString"></param>
+        </member>
         <member name="M:LitRevResourceMVP.Presenters.MainPresenter.ShowConnWizard(System.Object,System.EventArgs)">
             <summary>
             
@@ -216,6 +546,11 @@
             <param name="sender"></param>
             <param name="e"></param>
         </member>
+        <member name="T:LitRevResourceMVP.Presenters.ModulePresenter">
+            <summary>
+            Module presenter to invoke view events and action repository business logic
+            </summary>
+        </member>
         <member name="M:LitRevResourceMVP.Presenters.ModulePresenter.#ctor(LitRevResourceMVP.Views.IModuleView,LitRevResourceMVP.Models.IModuleRepository)">
             <summary>
             Setup events args to event handlers and module bindings source. 
@@ -227,8 +562,6 @@
             <summary>
             Combines edit and save function using bool isEdit status. Calls sql methods from repository to amend list and update database.
             </summary>
-            <param name="sender"></param>
-            <param name="e"></param>
         </member>
         <member name="M:LitRevResourceMVP.Presenters.ModulePresenter.DeleteModule(System.Object,System.EventArgs)">
             <summary>
@@ -254,12 +587,31 @@
             Used in saveResource(), cancelAction(), to clear all textboxes of data.
             </summary>
         </member>
+        <member name="T:LitRevResourceMVP.Presenters.ResourcePresenter">
+            <summary>
+            Resource presenter to invoke view events and action repository business logic
+            </summary>
+        </member>
         <member name="M:LitRevResourceMVP.Presenters.ResourcePresenter.#ctor(LitRevResourceMVP.Views.IResourceView,LitRevResourceMVP.Models.IResourceRepository)">
             <summary>
             Setup events args to event handlers and assignment bindings source.
             </summary>
             <param name="view"></param>
             <param name="repository"></param>
+        </member>
+        <member name="M:LitRevResourceMVP.Presenters.ResourcePresenter.MainCharLenView(System.Object,System.EventArgs)">
+            <summary>
+            View chars total to use and what has been used. 
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:LitRevResourceMVP.Presenters.ResourcePresenter.NotesCharLenView(System.Object,System.EventArgs)">
+            <summary>
+            View chars total to use and what has been used.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
         </member>
         <member name="M:LitRevResourceMVP.Presenters.ResourcePresenter.LoadAllAssignmentList">
             <summary>
@@ -380,6 +732,17 @@
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
         </member>
+        <member name="T:LitRevResourceMVP.Repositories.AssignmentRepository">
+            <summary>
+            SQL queries called by presenter for CRUD functionality.
+            </summary>
+        </member>
+        <member name="M:LitRevResourceMVP.Repositories.AssignmentRepository.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="connectionString"></param>
+        </member>
         <member name="M:LitRevResourceMVP.Repositories.AssignmentRepository.Add(LitRevResourceMVP.Models.AssignmentModel)">
             <summary>
              SQL query INSERT: used to add the assignment data model to the database
@@ -420,6 +783,27 @@
             <param name="name"></param>
             <returns>int idNum</returns>
         </member>
+        <member name="T:LitRevResourceMVP.Repositories.BaseRepository">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:LitRevResourceMVP.Repositories.BaseRepository.connectionString">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:LitRevResourceMVP.Repositories.DBConnSetupRepository">
+            <summary>
+            CRUD functionality to config.app file
+            </summary>
+        </member>
+        <member name="M:LitRevResourceMVP.Repositories.DBConnSetupRepository.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="connectionString"></param>
+        </member>
         <member name="M:LitRevResourceMVP.Repositories.DBConnSetupRepository.TestConnString(System.String)">
             <summary>
             Attempt tp open a database connection using passed in connection string.
@@ -441,6 +825,7 @@
             </summary>
             <param name="name"></param>
             <param name="connectionString"></param>
+            <param name="providerName"></param>
         </member>
         <member name="M:LitRevResourceMVP.Repositories.DBConnSetupRepository.EditConnString(System.String,System.String,System.String)">
             <summary>
@@ -449,6 +834,7 @@
             </summary>
             <param name="name"></param>
             <param name="connectionString"></param>
+            <param name="providerName"></param>
         </member>
         <member name="M:LitRevResourceMVP.Repositories.DBConnSetupRepository.SaveRefreshConfig">
             <summary>
@@ -459,10 +845,18 @@
             <summary>
             Delete connectionstring row from app.config
             </summary>
-            <param name="name"></param>
-            <param name="connectionString"></param>
-            <param name="providerName"></param>
             <param name="num"></param>
+        </member>
+        <member name="T:LitRevResourceMVP.Repositories.ModuleRepository">
+            <summary>
+            SQL queries called by presenter for CRUD functionality. 
+            </summary>
+        </member>
+        <member name="M:LitRevResourceMVP.Repositories.ModuleRepository.#ctor(System.String)">
+            <summary>
+             
+            </summary>
+            <param name="connectionString"></param>
         </member>
         <member name="M:LitRevResourceMVP.Repositories.ModuleRepository.Add(LitRevResourceMVP.Models.ModuleModel)">
             <summary>
@@ -488,6 +882,16 @@
             This is called to display in a datagridview.
             </summary>
             <returns>Module list</returns>
+        </member>
+        <member name="T:LitRevResourceMVP.Repositories.ResourceRepository">
+            <summary>
+            SQL queries called from presenter for CRUD functionality.
+            </summary>
+        </member>
+        <member name="M:LitRevResourceMVP.Repositories.ResourceRepository.#ctor(System.String)">
+            <summary>
+            constructor
+            </summary>
         </member>
         <member name="M:LitRevResourceMVP.Repositories.ResourceRepository.GetDataSet">
             <summary>
@@ -529,6 +933,7 @@
             This is called to display results in a datagridview.
             </summary>
             <param name="value"></param>
+            /// <param name="assignId"></param>
             <returns>Resource list</returns>
         </member>
         <member name="M:LitRevResourceMVP.Repositories.ResourceRepository.GetAllCategories(System.Int32)">
@@ -539,14 +944,89 @@
             </summary>
             <returns>Category list</returns>
         </member>
+        <member name="T:LitRevResourceMVP.Views.AssignmentView">
+            <summary>
+            Assignment view class
+            </summary>
+        </member>
         <member name="M:LitRevResourceMVP.Views.AssignmentView.#ctor">
             <summary>
             Initialises components and events.
             </summary>
         </member>
+        <member name="F:LitRevResourceMVP.Views.AssignmentView.message">
+            <summary>
+            fields
+            </summary>
+        </member>
+        <member name="E:LitRevResourceMVP.Views.AssignmentView.SaveAssignEvent">
+            <summary>
+            Save assignment event handler
+            </summary>
+        </member>
+        <member name="E:LitRevResourceMVP.Views.AssignmentView.DeleteAssignEvent">
+            <summary>
+            Delete assignment event handler
+            </summary>
+        </member>
+        <member name="E:LitRevResourceMVP.Views.AssignmentView.EditAssignEvent">
+            <summary>
+            Edit assignment event handler
+            </summary>
+        </member>
+        <member name="E:LitRevResourceMVP.Views.AssignmentView.DisplayModIdNumEvent">
+            <summary>
+            Display module ID event handler
+            </summary>
+        </member>
         <member name="M:LitRevResourceMVP.Views.AssignmentView.AssociateAndRaiseViewEvents">
             <summary>
             Invokes CRUD events on assignments.
+            </summary>
+        </member>
+        <member name="P:LitRevResourceMVP.Views.AssignmentView.IsEdit">
+            <summary>
+            Bool edit flag
+            </summary>
+        </member>
+        <member name="P:LitRevResourceMVP.Views.AssignmentView.IsSuccessful">
+            <summary>
+            Bool successful flag
+            </summary>
+        </member>
+        <member name="P:LitRevResourceMVP.Views.AssignmentView.Message">
+            <summary>
+            Returns stated message
+            </summary>
+        </member>
+        <member name="P:LitRevResourceMVP.Views.AssignmentView.AssignIdNum">
+            <summary>
+            Assignment ID: Tbx_AssignIdNum.Text
+            </summary>        
+        </member>
+        <member name="P:LitRevResourceMVP.Views.AssignmentView.AssignName">
+            <summary>
+            Assignment name:Tbx_AssignName.Text
+            </summary>
+        </member>
+        <member name="P:LitRevResourceMVP.Views.AssignmentView.DueDate">
+            <summary>
+            Assignment due date: DateTimePicker2.Value.Date
+            </summary>
+        </member>
+        <member name="P:LitRevResourceMVP.Views.AssignmentView.Trimester">
+            <summary>
+            Assignment trimester fixed range 0-2: numericUpDown1.Value
+            </summary>
+        </member>
+        <member name="P:LitRevResourceMVP.Views.AssignmentView.SelectedModName">
+            <summary>
+            Selected module name: Lbx_ModuleList.SelectedItem.ToString()
+            </summary>
+        </member>
+        <member name="P:LitRevResourceMVP.Views.AssignmentView.ModIdNum">
+            <summary>
+            Module ID: Tbx_ModuleIdNum.Text
             </summary>
         </member>
         <member name="M:LitRevResourceMVP.Views.AssignmentView.Btn_ExitAssignView_Click(System.Object,System.EventArgs)">
@@ -592,9 +1072,34 @@
             the contents of this method with the code editor.
             </summary>
         </member>
+        <member name="T:LitRevResourceMVP.Views.DBConnSetupView">
+            <summary>
+            Database view setup class
+            </summary>
+        </member>
         <member name="M:LitRevResourceMVP.Views.DBConnSetupView.#ctor">
             <summary>
             Initialises components and events.
+            </summary>
+        </member>
+        <member name="E:LitRevResourceMVP.Views.DBConnSetupView.SaveEvent">
+            <summary>
+            Save connection string event handler
+            </summary>
+        </member>
+        <member name="E:LitRevResourceMVP.Views.DBConnSetupView.EditEvent">
+            <summary>
+            Edit connection string event handler
+            </summary>
+        </member>
+        <member name="E:LitRevResourceMVP.Views.DBConnSetupView.DeleteEvent">
+            <summary>
+            Delete connection string event handler
+            </summary>
+        </member>
+        <member name="E:LitRevResourceMVP.Views.DBConnSetupView.TestConnEvent">
+            <summary>
+            Test connection string event handler
             </summary>
         </member>
         <member name="M:LitRevResourceMVP.Views.DBConnSetupView.AssociateAndRaiseViewEvents">
@@ -602,9 +1107,73 @@
             Invokes events on DBConn setup.
             </summary>
         </member>
+        <member name="M:LitRevResourceMVP.Views.DBConnSetupView.Btn_CloseDBConnSetup_Click(System.Object,System.EventArgs)">
+            <summary>
+            Close current instance of form
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="P:LitRevResourceMVP.Views.DBConnSetupView.Message">
+            <summary>
+            Returns stated message
+            </summary>
+        </member>
+        <member name="P:LitRevResourceMVP.Views.DBConnSetupView.IsSuccessful">
+            <summary>
+            Bool successful flag
+            </summary>
+        </member>
+        <member name="P:LitRevResourceMVP.Views.DBConnSetupView.SqlName">
+            <summary>
+            Connection name: Tbx_SqlName.Text
+            </summary>
+        </member>
+        <member name="P:LitRevResourceMVP.Views.DBConnSetupView.ProviderName">
+            <summary>
+            Connection provider name: Tbx_Provider.Text
+            </summary>
+        </member>
+        <member name="P:LitRevResourceMVP.Views.DBConnSetupView.DataSource">
+            <summary>
+            Connection data source: Tbx_DataSource.Text
+            </summary>
+        </member>
+        <member name="P:LitRevResourceMVP.Views.DBConnSetupView.InitCat">
+            <summary>
+            Connection initial category: Tbx_InitCat.Text
+            </summary>
+        </member>
+        <member name="P:LitRevResourceMVP.Views.DBConnSetupView.IntegSec">
+            <summary>
+            Connection integrated security: Convert.ToBoolean(Tbx_IntegSec.Text)
+            </summary>
+        </member>
+        <member name="P:LitRevResourceMVP.Views.DBConnSetupView.UserName">
+            <summary>
+            Connection security user name: Tbx_UserName.Text
+            </summary>
+        </member>
+        <member name="P:LitRevResourceMVP.Views.DBConnSetupView.Password">
+            <summary>
+            Connection security password: Tbx_Password.Text
+            </summary>
+        </member>
+        <member name="P:LitRevResourceMVP.Views.DBConnSetupView.ConnectionString">
+            <summary>
+            Returns connection string used to test connection:
+            dataGridView1.CurrentCell.Value.ToString()
+            </summary>
+        </member>
+        <member name="P:LitRevResourceMVP.Views.DBConnSetupView.IndexRow">
+            <summary>
+            Returns index of selected item: 
+            dataGridView1.CurrentCell.RowIndex
+            </summary>
+        </member>
         <member name="M:LitRevResourceMVP.Views.DBConnSetupView.SetConnectionFileBindingSource(System.Windows.Forms.BindingSource)">
             <summary>
-            
+            Used to bind db model list to datagridview
             </summary>
             <param name="connectionFile"></param>
         </member>
@@ -614,7 +1183,7 @@
             </summary>
             <param name="saveToConnFile"></param>
         </member>
-        <member name="M:LitRevResourceMVP.Views.DBConnSetupView.deleteDataGridRow">
+        <member name="M:LitRevResourceMVP.Views.DBConnSetupView.DeleteDataGridRow">
             <summary>
             Deletes row in datagridview by index of selected cell
             </summary>
@@ -643,10 +1212,490 @@
             the contents of this method with the code editor.
             </summary>
         </member>
+        <member name="T:LitRevResourceMVP.Views.IAssignmentView">
+            <summary>
+            Assignment view interface 
+            </summary>
+        </member>
+        <member name="P:LitRevResourceMVP.Views.IAssignmentView.AssignIdNum">
+            <summary>
+            Assignment ID: Tbx_AssignIdNum.Text
+            </summary>
+        </member>
+        <member name="P:LitRevResourceMVP.Views.IAssignmentView.AssignName">
+            <summary>
+            Assignment name: Tbx_AssignName.Text
+            </summary>
+        </member>
+        <member name="P:LitRevResourceMVP.Views.IAssignmentView.DueDate">
+            <summary>
+            Assignment due date: DateTimePicker2.Value.Date
+            </summary>
+        </member>
+        <member name="P:LitRevResourceMVP.Views.IAssignmentView.Trimester">
+            <summary>
+            Assignment trimester fixed range 0-2: numericUpDown1.Value
+            </summary>
+        </member>
+        <member name="P:LitRevResourceMVP.Views.IAssignmentView.ModIdNum">
+            <summary>
+            Module ID: Tbx_ModuleIdNum.Text
+            </summary>
+        </member>
+        <member name="P:LitRevResourceMVP.Views.IAssignmentView.SelectedModName">
+            <summary>
+            Selected module name: Lbx_ModuleList.SelectedItem.ToString()
+            </summary>
+        </member>
+        <member name="E:LitRevResourceMVP.Views.IAssignmentView.SaveAssignEvent">
+            <summary>
+            Save assignment event handler
+            </summary>
+        </member>
+        <member name="E:LitRevResourceMVP.Views.IAssignmentView.DeleteAssignEvent">
+            <summary>
+            Delete assignment event handler
+            </summary>
+        </member>
+        <member name="E:LitRevResourceMVP.Views.IAssignmentView.EditAssignEvent">
+            <summary>
+            Edit assignment event handler
+            </summary>
+        </member>
+        <member name="E:LitRevResourceMVP.Views.IAssignmentView.DisplayModIdNumEvent">
+            <summary>
+            Display module ID event handler
+            </summary>
+        </member>
+        <member name="P:LitRevResourceMVP.Views.IAssignmentView.IsEdit">
+            <summary>
+            Bool edit flag
+            </summary>
+        </member>
+        <member name="P:LitRevResourceMVP.Views.IAssignmentView.IsSuccessful">
+            <summary>
+            Bool successful flag
+            </summary>
+        </member>
+        <member name="P:LitRevResourceMVP.Views.IAssignmentView.Message">
+            <summary>
+            Returns stated message
+            </summary>
+        </member>
+        <member name="M:LitRevResourceMVP.Views.IAssignmentView.SetAssignmentListBindingSource(System.Windows.Forms.BindingSource)">
+            <summary>
+            Binds datagridview1 to assignment list.
+            </summary>
+            <param name="assignmentList"></param>
+        </member>
+        <member name="M:LitRevResourceMVP.Views.IAssignmentView.SetModuleNameListBindingSource(System.Windows.Forms.BindingSource)">
+            <summary>
+            Binds listbox to module name list.
+            </summary>
+            <param name="moduleNameList"></param>
+        </member>
+        <member name="M:LitRevResourceMVP.Views.IAssignmentView.Show">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:LitRevResourceMVP.Views.IDBConnSetupView">
+            <summary>
+            Database view setup interface 
+            </summary>
+        </member>
+        <member name="P:LitRevResourceMVP.Views.IDBConnSetupView.IsSuccessful">
+            <summary>
+            Bool successful flag
+            </summary>
+        </member>
+        <member name="P:LitRevResourceMVP.Views.IDBConnSetupView.Message">
+            <summary>
+            Returns stated message
+            </summary>
+        </member>
+        <member name="P:LitRevResourceMVP.Views.IDBConnSetupView.SqlName">
+            <summary>
+            Connection name: Tbx_SqlName.Text
+            </summary>
+        </member>
+        <member name="P:LitRevResourceMVP.Views.IDBConnSetupView.ProviderName">
+            <summary>
+            Connection provider name: Tbx_Provider.Text
+            </summary>
+        </member>
+        <member name="P:LitRevResourceMVP.Views.IDBConnSetupView.ConnectionString">
+            <summary>
+            Returns connection string used to test connection:
+            dataGridView1.CurrentCell.Value.ToString()
+            </summary>
+        </member>
+        <member name="P:LitRevResourceMVP.Views.IDBConnSetupView.DataSource">
+            <summary>
+            Connection data source: Tbx_DataSource.Text
+            </summary>
+        </member>
+        <member name="P:LitRevResourceMVP.Views.IDBConnSetupView.InitCat">
+            <summary>
+            Connection initial category: Tbx_InitCat.Text
+            </summary>
+        </member>
+        <member name="P:LitRevResourceMVP.Views.IDBConnSetupView.IntegSec">
+            <summary>
+            Connection integrated security: Convert.ToBoolean(Tbx_IntegSec.Text)
+            </summary>
+        </member>
+        <member name="P:LitRevResourceMVP.Views.IDBConnSetupView.UserName">
+            <summary>
+            Connection security user name: Tbx_UserName.Text
+            </summary>
+        </member>
+        <member name="P:LitRevResourceMVP.Views.IDBConnSetupView.Password">
+            <summary>
+            Connection security password: Tbx_Password.Text
+            </summary>
+        </member>
+        <member name="P:LitRevResourceMVP.Views.IDBConnSetupView.IndexRow">
+            <summary>
+            Returns index of selected item: 
+            dataGridView1.CurrentCell.RowIndex
+            </summary>
+        </member>
+        <member name="M:LitRevResourceMVP.Views.IDBConnSetupView.DeleteDataGridRow">
+            <summary>
+            Deletes row in datagridview by index of selected cell
+            </summary>
+        </member>
+        <member name="M:LitRevResourceMVP.Views.IDBConnSetupView.Show">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="E:LitRevResourceMVP.Views.IDBConnSetupView.SaveEvent">
+            <summary>
+            Save connection string event handler
+            </summary>
+        </member>
+        <member name="E:LitRevResourceMVP.Views.IDBConnSetupView.EditEvent">
+            <summary>
+            Edit connection string event handler
+            </summary>
+        </member>
+        <member name="E:LitRevResourceMVP.Views.IDBConnSetupView.DeleteEvent">
+            <summary>
+            Delete connection string event handler
+            </summary>
+        </member>
+        <member name="E:LitRevResourceMVP.Views.IDBConnSetupView.TestConnEvent">
+            <summary>
+            Test connection string event handler
+            </summary>
+        </member>
+        <member name="M:LitRevResourceMVP.Views.IDBConnSetupView.SetConnectionFileBindingSource(System.Windows.Forms.BindingSource)">
+            <summary>
+            Used to bind db model list to datagridview
+            </summary>
+            <param name="connectionFile"></param>
+        </member>
+        <member name="M:LitRevResourceMVP.Views.IDBConnSetupView.SetSaveConnToFileBindingSource(System.Windows.Forms.BindingSource)">
+            <summary>
+            
+            </summary>
+            <param name="saveToConnFile"></param>
+        </member>
+        <member name="T:LitRevResourceMVP.Views.IMainView">
+            <summary>
+            Main view/menu interface 
+            </summary>
+        </member>
+        <member name="E:LitRevResourceMVP.Views.IMainView.ShowResourceView">
+            <summary>
+            Display resource view event handler
+            </summary>
+        </member>
+        <member name="E:LitRevResourceMVP.Views.IMainView.ShowAssignmentView">
+            <summary>
+            Display assignment view event handler
+            </summary>
+        </member>
+        <member name="E:LitRevResourceMVP.Views.IMainView.ShowModuleView">
+            <summary>
+            Display module view event handler
+            </summary>
+        </member>
+        <member name="E:LitRevResourceMVP.Views.IMainView.ShowDBConnSetupView">
+            <summary>
+            Display DB connection view event handler
+            </summary>
+        </member>
+        <member name="E:LitRevResourceMVP.Views.IMainView.ShowConnWizard">
+            <summary>
+            Display connection wizard view event handler
+            </summary>
+        </member>
+        <member name="T:LitRevResourceMVP.Views.IModuleView">
+            <summary>
+            Module view interface 
+            </summary>
+        </member>
+        <member name="P:LitRevResourceMVP.Views.IModuleView.ModIdNum">
+            <summary>
+            Module ID: Tbx_ModIdNum.Text
+            </summary>
+        </member>
+        <member name="P:LitRevResourceMVP.Views.IModuleView.ModName">
+            <summary>
+            Module name: Tbx_AddModule.Text
+            </summary>
+        </member>
+        <member name="P:LitRevResourceMVP.Views.IModuleView.ModDateYear">
+            <summary>
+            Module year fixed range 2020-2050: Tbx_DateYear.Text
+            </summary>
+        </member>
+        <member name="E:LitRevResourceMVP.Views.IModuleView.AddModEvent">
+            <summary>
+            Add module event handler
+            </summary>
+        </member>
+        <member name="E:LitRevResourceMVP.Views.IModuleView.DeleteModEvent">
+            <summary>
+            Delete module event handler
+            </summary>
+        </member>
+        <member name="E:LitRevResourceMVP.Views.IModuleView.EditModEvent">
+            <summary>
+            Edit module event handler
+            </summary>
+        </member>
+        <member name="P:LitRevResourceMVP.Views.IModuleView.IsEdit">
+            <summary>
+            Bool edit flag
+            </summary>
+        </member>
+        <member name="P:LitRevResourceMVP.Views.IModuleView.IsSuccessful">
+            <summary>
+            Bool successful flag
+            </summary>
+        </member>
+        <member name="P:LitRevResourceMVP.Views.IModuleView.Message">
+            <summary>
+            Returns stated message
+            </summary>
+        </member>
+        <member name="M:LitRevResourceMVP.Views.IModuleView.SetModuleListBindingSource(System.Windows.Forms.BindingSource)">
+            <summary>
+            Binds module datagridview to module list.
+            </summary>
+            <param name="moduleList"></param>
+        </member>
+        <member name="M:LitRevResourceMVP.Views.IModuleView.Show">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:LitRevResourceMVP.Views.IResourceView">
+            <summary>
+            Resource view interface 
+            </summary>
+        </member>
+        <member name="P:LitRevResourceMVP.Views.IResourceView.ResIdNum">
+            <summary>
+            Resource ID: Tbx_IdNum.Text
+            </summary>
+        </member>
+        <member name="P:LitRevResourceMVP.Views.IResourceView.ResWebLink">
+            <summary>
+            Resource web address: Tbx_WebLink.Text
+            </summary>
+        </member>
+        <member name="P:LitRevResourceMVP.Views.IResourceView.ActiveWebLink">
+            <summary>
+            Resource website link label: Lklbl_WebLink
+            </summary>
+        </member>
+        <member name="P:LitRevResourceMVP.Views.IResourceView.ResType">
+            <summary>
+            Resource type:Tbx_Type.Text
+            </summary>
+        </member>
+        <member name="P:LitRevResourceMVP.Views.IResourceView.ResDoiNum">
+            <summary>
+            Resource DOI number: Tbx_DoiNum.Text
+            </summary>
+        </member>
+        <member name="P:LitRevResourceMVP.Views.IResourceView.ResDateAccessed">
+            <summary>
+            Resource accessed date: dateTimePicker1.Value.Date
+            </summary>
+        </member>
+        <member name="P:LitRevResourceMVP.Views.IResourceView.ResCategory">
+            <summary>
+            Resource category: Tbx_NewCategory.Text
+            </summary>
+        </member>
+        <member name="P:LitRevResourceMVP.Views.IResourceView.ResReference">
+            <summary>
+            Resource pasted/self written reference: Tbx_Reference.Text
+            </summary>
+        </member>
+        <member name="P:LitRevResourceMVP.Views.IResourceView.ResMainPoint">
+            <summary>
+            Resource main point text max 2000 chars:
+            Rtbx_MainPoint.Text
+            </summary>
+        </member>
+        <member name="P:LitRevResourceMVP.Views.IResourceView.ResNotes">
+            <summary>
+            Resource additional notes max 3000 chars:
+            Rtbx_Notes.Text
+            </summary>
+        </member>
+        <member name="P:LitRevResourceMVP.Views.IResourceView.AssignIdNum">
+            <summary>
+            Assignment ID (FK): Tbx_AssignIdNum.Text
+            </summary>
+        </member>
+        <member name="P:LitRevResourceMVP.Views.IResourceView.SearchValue">
+            <summary>
+            Resource ID or category search value:
+            Tbx_Search.Text
+            </summary>
+        </member>
+        <member name="P:LitRevResourceMVP.Views.IResourceView.IsEdit">
+            <summary>
+            Bool edit flag
+            </summary>
+        </member>
+        <member name="P:LitRevResourceMVP.Views.IResourceView.IsSuccessful">
+            <summary>
+            Bool successful flag
+            </summary>
+        </member>
+        <member name="P:LitRevResourceMVP.Views.IResourceView.Message">
+            <summary>
+            Returns stated message
+            </summary>
+        </member>
+        <member name="E:LitRevResourceMVP.Views.IResourceView.ViewResourcesEvent">
+            <summary>
+            View resources event handler
+            </summary>
+        </member>
+        <member name="E:LitRevResourceMVP.Views.IResourceView.SearchEvent">
+            <summary>
+            Search resource event handler
+            </summary>
+        </member>
+        <member name="E:LitRevResourceMVP.Views.IResourceView.AddNewEvent">
+            <summary>
+            Add new resource event handler
+            </summary>
+        </member>
+        <member name="E:LitRevResourceMVP.Views.IResourceView.EditEvent">
+            <summary>
+            Edit resource event handler
+            </summary>
+        </member>
+        <member name="E:LitRevResourceMVP.Views.IResourceView.DeleteEvent">
+            <summary>
+            Delete resource event handler
+            </summary>
+        </member>
+        <member name="E:LitRevResourceMVP.Views.IResourceView.CreateReferenceEvent">
+            <summary>
+            Create reference event handler
+            </summary>
+        </member>
+        <member name="E:LitRevResourceMVP.Views.IResourceView.SaveEvent">
+            <summary>
+            Save resource event handler
+            </summary>
+        </member>
+        <member name="E:LitRevResourceMVP.Views.IResourceView.CancelEvent">
+            <summary>
+            Cancel new resource event handler
+            </summary>
+        </member>
+        <member name="E:LitRevResourceMVP.Views.IResourceView.LinkLabelEvent">
+            <summary>
+            Display website as a link event
+            </summary>
+        </member>
+        <member name="E:LitRevResourceMVP.Views.IResourceView.MainCharLenEvent">
+            <summary>
+            View total characters used
+            </summary>
+        </member>
+        <member name="E:LitRevResourceMVP.Views.IResourceView.NotesCharLenEvent">
+            <summary>
+            View total characters used
+            </summary>
+        </member>
+        <member name="M:LitRevResourceMVP.Views.IResourceView.SetAssignmentListBindingSource(System.Windows.Forms.BindingSource)">
+            <summary>
+            Binds assignment datagridview to assignData source
+            </summary>
+            <param name="assignData"></param>
+        </member>
+        <member name="M:LitRevResourceMVP.Views.IResourceView.SetResourceListBindingSource(System.Windows.Forms.BindingSource)">
+            <summary>
+            Binds resource datagridview to resourceData source
+            </summary>
+            <param name="resourceData"></param>
+        </member>
+        <member name="M:LitRevResourceMVP.Views.IResourceView.SetCategoryListBindingSource(System.Windows.Forms.BindingSource)">
+            <summary>
+            Binds category list box to categoryList source
+            </summary>
+            <param name="categoryList"></param>
+        </member>
+        <member name="M:LitRevResourceMVP.Views.IResourceView.Show">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:LitRevResourceMVP.Views.MainView">
+            <summary>
+            Main view/menu class to display other form views
+            </summary>
+        </member>
         <member name="M:LitRevResourceMVP.Views.MainView.#ctor">
             <summary>
             Events to get an instance of each view of module, assignment, and resource when required.
             </summary>
+        </member>
+        <member name="E:LitRevResourceMVP.Views.MainView.ShowResourceView">
+            <summary>
+            Display resource view event handler
+            </summary>
+        </member>
+        <member name="E:LitRevResourceMVP.Views.MainView.ShowAssignmentView">
+            <summary>
+            Display assignment view event handler
+            </summary>
+        </member>
+        <member name="E:LitRevResourceMVP.Views.MainView.ShowModuleView">
+            <summary>
+            Display module view event handler
+            </summary>
+        </member>
+        <member name="E:LitRevResourceMVP.Views.MainView.ShowDBConnSetupView">
+            <summary>
+            Display DB connection view event handler
+            </summary>
+        </member>
+        <member name="E:LitRevResourceMVP.Views.MainView.ShowConnWizard">
+            <summary>
+            Display connection wizard view event handler
+            </summary>
+        </member>
+        <member name="M:LitRevResourceMVP.Views.MainView.Btn_ExitSystem_Click(System.Object,System.EventArgs)">
+            <summary>
+            Exit from system
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
         </member>
         <member name="F:LitRevResourceMVP.Views.MainView.components">
             <summary>
@@ -665,9 +1714,29 @@
             the contents of this method with the code editor.
             </summary>
         </member>
+        <member name="T:LitRevResourceMVP.Views.ModuleView">
+            <summary>
+            Module view class
+            </summary>
+        </member>
         <member name="M:LitRevResourceMVP.Views.ModuleView.#ctor">
             <summary>
             Initialises components and events.
+            </summary>
+        </member>
+        <member name="E:LitRevResourceMVP.Views.ModuleView.AddModEvent">
+            <summary>
+            Add module event handler
+            </summary>
+        </member>
+        <member name="E:LitRevResourceMVP.Views.ModuleView.DeleteModEvent">
+            <summary>
+            Delete module event handler
+            </summary>
+        </member>
+        <member name="E:LitRevResourceMVP.Views.ModuleView.EditModEvent">
+            <summary>
+            Edit module event handler
             </summary>
         </member>
         <member name="M:LitRevResourceMVP.Views.ModuleView.AssociateAndRaiseViewEvents">
@@ -680,6 +1749,36 @@
             Binds module datagridview to module list.
             </summary>
             <param name="moduleList"></param>
+        </member>
+        <member name="P:LitRevResourceMVP.Views.ModuleView.ModIdNum">
+            <summary>
+            Module ID: Tbx_ModIdNum.Text
+            </summary>
+        </member>
+        <member name="P:LitRevResourceMVP.Views.ModuleView.ModName">
+            <summary>
+            Module name: Tbx_AddModule.Text
+            </summary>
+        </member>
+        <member name="P:LitRevResourceMVP.Views.ModuleView.ModDateYear">
+            <summary>
+            Module year fixed range 2020-2050: Tbx_DateYear.Text
+            </summary>
+        </member>
+        <member name="P:LitRevResourceMVP.Views.ModuleView.IsEdit">
+            <summary>
+            Bool edit flag
+            </summary>
+        </member>
+        <member name="P:LitRevResourceMVP.Views.ModuleView.IsSuccessful">
+            <summary>
+            Bool successful flag
+            </summary>
+        </member>
+        <member name="P:LitRevResourceMVP.Views.ModuleView.Message">
+            <summary>
+            Returns stated message
+            </summary>
         </member>
         <member name="M:LitRevResourceMVP.Views.ModuleView.GetInstance(System.Windows.Forms.Form)">
             <summary>
@@ -712,10 +1811,152 @@
             the contents of this method with the code editor.
             </summary>
         </member>
-        <!-- Badly formed XML comment ignored for member "M:LitRevResourceMVP.Views.ResourceView.#ctor" -->
+        <member name="T:LitRevResourceMVP.Views.ResourceView">
+            <summary>
+            Resource view class
+            </summary>
+        </member>
+        <member name="E:LitRevResourceMVP.Views.ResourceView.SearchEvent">
+            <summary>
+            Search resource event handler
+            </summary>
+        </member>
+        <member name="E:LitRevResourceMVP.Views.ResourceView.AddNewEvent">
+            <summary>
+            Add new resource event handler
+            </summary>
+        </member>
+        <member name="E:LitRevResourceMVP.Views.ResourceView.DeleteEvent">
+            <summary>
+            Delete resource event handler
+            </summary>
+        </member>
+        <member name="E:LitRevResourceMVP.Views.ResourceView.EditEvent">
+            <summary>
+            Edit resource event handler
+            </summary>
+        </member>
+        <member name="E:LitRevResourceMVP.Views.ResourceView.CreateReferenceEvent">
+            <summary>
+            Create reference event handler
+            </summary>
+        </member>
+        <member name="E:LitRevResourceMVP.Views.ResourceView.SaveEvent">
+            <summary>
+            Save resource event handler
+            </summary>
+        </member>
+        <member name="E:LitRevResourceMVP.Views.ResourceView.CancelEvent">
+            <summary>
+            Cancel new resource event handler
+            </summary>
+        </member>
+        <member name="E:LitRevResourceMVP.Views.ResourceView.MainCharLenEvent">
+            <summary>
+            View total characters used
+            </summary>
+        </member>
+        <member name="E:LitRevResourceMVP.Views.ResourceView.NotesCharLenEvent">
+            <summary>
+            View total characters used
+            </summary>
+        </member>
+        <member name="E:LitRevResourceMVP.Views.ResourceView.LinkLabelEvent">
+            <summary>
+            Display website as a link event
+            </summary>
+        </member>
+        <member name="E:LitRevResourceMVP.Views.ResourceView.ViewResourcesEvent">
+            <summary>
+            View resources event handler
+            </summary>
+        </member>
+        <member name="M:LitRevResourceMVP.Views.ResourceView.#ctor">
+            <summary>
+            Initialises components, events, and removes tab2 and 3 so main tab is viewed.
+            </summary>
+        </member>
         <member name="M:LitRevResourceMVP.Views.ResourceView.AssociateAndRaiseViewEvents">
             <summary>
             Invokes CRUD events on resources.
+            </summary>
+        </member>
+        <member name="P:LitRevResourceMVP.Views.ResourceView.ResIdNum">
+            <summary>
+            Resource ID: Tbx_IdNum.Text
+            </summary>
+        </member>
+        <member name="P:LitRevResourceMVP.Views.ResourceView.ResWebLink">
+            <summary>
+            Resource web address: Tbx_WebLink.Text
+            </summary>
+        </member>
+        <member name="P:LitRevResourceMVP.Views.ResourceView.ActiveWebLink">
+            <summary>
+            Resource website link label: Lklbl_WebLink
+            </summary>
+        </member>
+        <member name="P:LitRevResourceMVP.Views.ResourceView.ResType">
+            <summary>
+            Resource type:Tbx_Type.Text
+            </summary>
+        </member>
+        <member name="P:LitRevResourceMVP.Views.ResourceView.ResDoiNum">
+            <summary>
+            Resource DOI number: Tbx_DoiNum.Text
+            </summary>
+        </member>
+        <member name="P:LitRevResourceMVP.Views.ResourceView.ResDateAccessed">
+            <summary>
+            Resource accessed date: dateTimePicker1.Value.Date
+            </summary>
+        </member>
+        <member name="P:LitRevResourceMVP.Views.ResourceView.ResCategory">
+            <summary>
+            Resource category: Tbx_NewCategory.Text
+            </summary>
+        </member>
+        <member name="P:LitRevResourceMVP.Views.ResourceView.ResReference">
+            <summary>
+            Resource pasted/self written reference: Tbx_Reference.Text
+            </summary>
+        </member>
+        <member name="P:LitRevResourceMVP.Views.ResourceView.ResMainPoint">
+            <summary>
+            Resource main point text max 2000 chars:
+            Rtbx_MainPoint.Text
+            </summary>
+        </member>
+        <member name="P:LitRevResourceMVP.Views.ResourceView.ResNotes">
+            <summary>
+            Resource additional notes max 3000 chars:
+            Rtbx_Notes.Text
+            </summary>
+        </member>
+        <member name="P:LitRevResourceMVP.Views.ResourceView.AssignIdNum">
+            <summary>
+            Assignment ID (FK): Tbx_AssignIdNum.Text
+            </summary>
+        </member>
+        <member name="P:LitRevResourceMVP.Views.ResourceView.SearchValue">
+            <summary>
+            Resource ID or category search value:
+            Tbx_Search.Text
+            </summary>
+        </member>
+        <member name="P:LitRevResourceMVP.Views.ResourceView.IsEdit">
+            <summary>
+            Bool edit flag
+            </summary>
+        </member>
+        <member name="P:LitRevResourceMVP.Views.ResourceView.IsSuccessful">
+            <summary>
+            Bool successful flag
+            </summary>
+        </member>
+        <member name="P:LitRevResourceMVP.Views.ResourceView.Message">
+            <summary>
+            Returns stated message
             </summary>
         </member>
         <member name="M:LitRevResourceMVP.Views.ResourceView.Lklbl_WebLink_LinkClicked(System.Object,System.Windows.Forms.LinkLabelLinkClickedEventArgs)">
@@ -725,7 +1966,7 @@
             <param name="sender"></param>
             <param name="e"></param>
         </member>
-        <member name="M:LitRevResourceMVP.Views.ResourceView.dataGridViewAssign_CellContentClick(System.Object,System.Windows.Forms.DataGridViewCellEventArgs)">
+        <member name="M:LitRevResourceMVP.Views.ResourceView.DataGridViewAssign_CellContentClick(System.Object,System.Windows.Forms.DataGridViewCellEventArgs)">
             <summary>
             Invokes viewResources event when cell clicked in the assign datagridview. 
             Adds the assignment number in the selected row to textbox for viewing and retrieval.
@@ -733,7 +1974,7 @@
             <param name="sender"></param>
             <param name="e"></param>
         </member>
-        <member name="M:LitRevResourceMVP.Views.ResourceView.dataGridViewResource_CellContentClick(System.Object,System.Windows.Forms.DataGridViewCellEventArgs)">
+        <member name="M:LitRevResourceMVP.Views.ResourceView.DataGridViewResource_CellContentClick(System.Object,System.Windows.Forms.DataGridViewCellEventArgs)">
             <summary>
             Gets the resource data for the current selected row in the resource datagridview
             </summary>

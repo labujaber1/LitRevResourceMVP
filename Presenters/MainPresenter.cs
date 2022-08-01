@@ -6,21 +6,28 @@ using LitRevResourceMVP.Repositories;
 
 namespace LitRevResourceMVP.Presenters
 {
+    /// <summary>
+    /// Module presenter to invoke view events of each form identified by buttons in the side bar.
+    /// </summary>
     public class MainPresenter
     {
         
-        private IMainView imainView;
+        private readonly IMainView imainView;
         private readonly string sqlConnectionString;
-
+        /// <summary>
+        /// Setup events args to event handlers and module bindings source.
+        /// </summary>
+        /// <param name="mainView"></param>
+        /// <param name="sqlConnectionString"></param>
         public MainPresenter(IMainView mainView, string sqlConnectionString)
         {
-            this.imainView = mainView;
+            imainView = mainView;
             this.sqlConnectionString = sqlConnectionString;
-            this.imainView.ShowResourceView += ShowResourcesView;
-            this.imainView.ShowAssignmentView += ShowAssignmentView;
-            this.imainView.ShowModuleView += ShowModuleView;
-            this.imainView.ShowDBConnSetupView += ShowDBConnSetupView;
-            this.imainView.ShowConnWizard += ShowConnWizard;
+            imainView.ShowResourceView += ShowResourcesView;
+            imainView.ShowAssignmentView += ShowAssignmentView;
+            imainView.ShowModuleView += ShowModuleView;
+            imainView.ShowDBConnSetupView += ShowDBConnSetupView;
+            imainView.ShowConnWizard += ShowConnWizard;
         }
 
         /// <summary>
@@ -30,7 +37,7 @@ namespace LitRevResourceMVP.Presenters
         /// <param name="e"></param>
         public void ShowConnWizard(object sender, EventArgs e)
         {
-            ConnectionWizard.Form1 f1 = new ConnectionWizard.Form1();
+            ConnectionWizard.Form1 f1 = new();
             f1.Show();
 
         }
@@ -44,7 +51,7 @@ namespace LitRevResourceMVP.Presenters
         {
             IDBConnSetupView view = DBConnSetupView.GetInstance((MainView)imainView);
             IDBConnSetupRepository repository = new DBConnSetupRepository(sqlConnectionString);
-            new DBConnSetupPresenter(view, repository);
+            _ = new DBConnSetupPresenter(view, repository);
         }
 
         /// <summary>
@@ -56,7 +63,7 @@ namespace LitRevResourceMVP.Presenters
         {
             IResourceView view = ResourceView.GetInstance((MainView)imainView);
             IResourceRepository repository = new ResourceRepository(sqlConnectionString);
-            new ResourcePresenter(view, repository);
+            _ = new ResourcePresenter(view, repository);
             
         }
         /// <summary>
@@ -68,7 +75,7 @@ namespace LitRevResourceMVP.Presenters
         {
             IAssignmentView view = AssignmentView.GetInstance((MainView)imainView);
             IAssignmentRepository repository = new AssignmentRepository(sqlConnectionString);
-            new AssignmentPresenter(view, repository);
+            _ = new AssignmentPresenter(view, repository);
 
         }
         /// <summary>
@@ -80,7 +87,7 @@ namespace LitRevResourceMVP.Presenters
         {
             IModuleView view = ModuleView.GetInstance((MainView)imainView);
             IModuleRepository repository = new ModuleRepository(sqlConnectionString);
-            new ModulePresenter(view, repository);
+            _ = new ModulePresenter(view, repository);
 
         }
     }

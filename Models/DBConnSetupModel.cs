@@ -7,6 +7,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace LitRevResourceMVP.Models
 {
+    /// <summary>
+    /// DB connection setup model conataining fields inline with database table
+    /// </summary>
     public class DBConnSetupModel
     {
         private string name;

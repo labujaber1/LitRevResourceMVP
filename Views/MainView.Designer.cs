@@ -35,13 +35,14 @@ namespace LitRevResourceMVP.Views
             this.Lbl_MainMenu = new System.Windows.Forms.Label();
             this.Btn_ExitSystem = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.Btn_DBConnSetup = new System.Windows.Forms.Button();
             this.Btn_ConnWizard = new System.Windows.Forms.Button();
+            this.Btn_DBConnSetup = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // Btn_MainModule
             // 
+            this.Btn_MainModule.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Btn_MainModule.BackColor = System.Drawing.SystemColors.Menu;
             this.Btn_MainModule.Location = new System.Drawing.Point(25, 277);
             this.Btn_MainModule.Name = "Btn_MainModule";
@@ -52,6 +53,7 @@ namespace LitRevResourceMVP.Views
             // 
             // Btn_MainAssignments
             // 
+            this.Btn_MainAssignments.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Btn_MainAssignments.BackColor = System.Drawing.SystemColors.Menu;
             this.Btn_MainAssignments.Location = new System.Drawing.Point(25, 189);
             this.Btn_MainAssignments.Name = "Btn_MainAssignments";
@@ -62,6 +64,7 @@ namespace LitRevResourceMVP.Views
             // 
             // Btn_MainResource
             // 
+            this.Btn_MainResource.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Btn_MainResource.BackColor = System.Drawing.SystemColors.Menu;
             this.Btn_MainResource.Location = new System.Drawing.Point(25, 107);
             this.Btn_MainResource.Name = "Btn_MainResource";
@@ -82,7 +85,7 @@ namespace LitRevResourceMVP.Views
             // 
             // Btn_ExitSystem
             // 
-            this.Btn_ExitSystem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.Btn_ExitSystem.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Btn_ExitSystem.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.Btn_ExitSystem.Location = new System.Drawing.Point(59, 558);
             this.Btn_ExitSystem.Name = "Btn_ExitSystem";
@@ -108,18 +111,9 @@ namespace LitRevResourceMVP.Views
             this.panel1.Size = new System.Drawing.Size(246, 673);
             this.panel1.TabIndex = 3;
             // 
-            // Btn_DBConnSetup
-            // 
-            this.Btn_DBConnSetup.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.Btn_DBConnSetup.Location = new System.Drawing.Point(25, 426);
-            this.Btn_DBConnSetup.Name = "Btn_DBConnSetup";
-            this.Btn_DBConnSetup.Size = new System.Drawing.Size(200, 66);
-            this.Btn_DBConnSetup.TabIndex = 3;
-            this.Btn_DBConnSetup.Text = "DB connection setup";
-            this.Btn_DBConnSetup.UseVisualStyleBackColor = false;
-            // 
             // Btn_ConnWizard
             // 
+            this.Btn_ConnWizard.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Btn_ConnWizard.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.Btn_ConnWizard.Location = new System.Drawing.Point(24, 365);
             this.Btn_ConnWizard.Name = "Btn_ConnWizard";
@@ -127,6 +121,17 @@ namespace LitRevResourceMVP.Views
             this.Btn_ConnWizard.TabIndex = 4;
             this.Btn_ConnWizard.Text = "Connection wizard";
             this.Btn_ConnWizard.UseVisualStyleBackColor = false;
+            // 
+            // Btn_DBConnSetup
+            // 
+            this.Btn_DBConnSetup.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Btn_DBConnSetup.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.Btn_DBConnSetup.Location = new System.Drawing.Point(25, 426);
+            this.Btn_DBConnSetup.Name = "Btn_DBConnSetup";
+            this.Btn_DBConnSetup.Size = new System.Drawing.Size(200, 66);
+            this.Btn_DBConnSetup.TabIndex = 3;
+            this.Btn_DBConnSetup.Text = "DB connection setup";
+            this.Btn_DBConnSetup.UseVisualStyleBackColor = false;
             // 
             // MainView
             // 

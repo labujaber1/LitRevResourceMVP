@@ -8,6 +8,9 @@ using LitRevResourceMVP.Views;
 
 namespace LitRevResourceMVP.Presenters
 {
+    /// <summary>
+    /// Database setup presenter to invoke view events and action repository business logic
+    /// </summary>
     public class DBConnSetupPresenter
     {
         private IDBConnSetupView view;
@@ -16,7 +19,11 @@ namespace LitRevResourceMVP.Presenters
         private BindingSource saveToConnFileBindingSource;
         private IEnumerable<DBConnSetupModel> connStringFromModelFile;
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="view"></param>
+        /// <param name="repository"></param>
         public DBConnSetupPresenter(IDBConnSetupView view, IDBConnSetupRepository repository)
         {
             this.connectionFileBindingSource = new BindingSource();
@@ -55,7 +62,7 @@ namespace LitRevResourceMVP.Presenters
                 int num = view.IndexRow;
                 Debug.WriteLine("Row index = "+num);
                 repository.DeleteConnString(num);   //app.config
-                view.deleteDataGridRow();         //datagridview
+                view.DeleteDataGridRow();         //datagridview
                 view.IsSuccessful = true;
                 view.Message = "Deleted successfully";
             }

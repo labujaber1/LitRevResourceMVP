@@ -5,13 +5,19 @@ using System.Data.SqlClient;
 using System.Data;
 using LitRevResourceMVP.Models;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace LitRevResourceMVP.Repositories
 {
+    /// <summary>
+    /// SQL queries called from presenter for CRUD functionality.
+    /// </summary>
     public class ResourceRepository : BaseRepository, IResourceRepository
     {
-        
-        //constructor
+
+        /// <summary>
+        /// constructor
+        /// </summary>
         public ResourceRepository(string connectionString)
         {
             this.connectionString = connectionString;
@@ -25,13 +31,13 @@ namespace LitRevResourceMVP.Repositories
         {
             DataSet ds;
             using (var connection = new SqlConnection(connectionString))
-            using (SqlCommand comm = new SqlCommand())
+            using (SqlCommand comm = new())
             {
                 connection.Open();
                 comm.Connection = connection;
                 comm.CommandText = "SELECT * from Assignment_table;SELECT * from Resource_table";
 
-                using (SqlDataAdapter sqlda = new SqlDataAdapter(comm))
+                using (SqlDataAdapter sqlda = new(comm))
                 using (ds = new DataSet("AssignResDataSet"))
                 {
                     sqlda.Fill(ds);
@@ -50,6 +56,7 @@ namespace LitRevResourceMVP.Repositories
             if (AssignResDataSet.Tables[1] != null)
             { 
                 DataRow dr = AssignResDataSet.Tables[1].NewRow();
+                dr["Res_IdNum"] = resourceModel.ID_Num;
                 dr["Res_Weblink"] = resourceModel.Web_Link;
                 dr["Res_Type"] = resourceModel.Resource_Type;
                 dr["Res_DoiNum"] = resourceModel.DOI_Num;
@@ -112,18 +119,21 @@ namespace LitRevResourceMVP.Repositories
             using (var adapter = new SqlDataAdapter("SELECT * from Resource_table", connection))
             using (new SqlCommandBuilder(adapter))
             {
-                //adapter.Fill(AssignResDataSet.Tables[1]);
                 connection.Open();
                 adapter.Update(AssignResDataSet.Tables[1]);
+                AssignResDataSet.Tables[1].Clear();
+                adapter.Fill(AssignResDataSet.Tables[1]);
+                Debug.WriteLine(AssignResDataSet.DataSetName + " updated database successfully.");
             }
-            MessageBox.Show(AssignResDataSet.DataSetName + " updated database successfully.");
+            
         }
- 
+
         /// <summary>
         /// SQL query SELECT: retrieves data from a search method by using either an id number or category request.
         /// This is called to display results in a datagridview.
         /// </summary>
         /// <param name="value"></param>
+        /// /// <param name="assignId"></param>
         /// <returns>Resource list</returns>
         public IEnumerable<ResourceModel> GetByValue(string value,int assignId)
         {

@@ -3,6 +3,9 @@ using System.Windows.Forms;
 
 namespace LitRevResourceMVP.Views
 {
+    /// <summary>
+    /// Module view class
+    /// </summary>
     public partial class ModuleView : Form, IModuleView
     {
         /// <summary>
@@ -18,9 +21,17 @@ namespace LitRevResourceMVP.Views
         private string message;
         private bool isSuccessful;
         private bool isEdit;
-
+        /// <summary>
+        /// Add module event handler
+        /// </summary>
         public event EventHandler AddModEvent;
+        /// <summary>
+        /// Delete module event handler
+        /// </summary>
         public event EventHandler DeleteModEvent;
+        /// <summary>
+        /// Edit module event handler
+        /// </summary>
         public event EventHandler EditModEvent;
 
         /// <summary>
@@ -61,33 +72,49 @@ namespace LitRevResourceMVP.Views
             dataGridView3.DataSource = moduleList;
         }
 
-        
+        /// <summary>
+        /// Module ID: Tbx_ModIdNum.Text
+        /// </summary>
         public string ModIdNum 
         {
             get { return Tbx_ModIdNum.Text; }
             set { Tbx_ModIdNum.Text = value; } 
         }
-
+        /// <summary>
+        /// Module name: Tbx_AddModule.Text
+        /// </summary>
         public string ModName 
         {
             get { return Tbx_AddModule.Text; }
             set { Tbx_AddModule.Text = value; } 
         }
+        /// <summary>
+        /// Module year fixed range 2020-2050: Tbx_DateYear.Text
+        /// </summary>
         public string ModDateYear
         {
             get { return Tbx_DateYear.Text; }
             set { Tbx_DateYear.Text = value; }
         }
+        /// <summary>
+        /// Bool edit flag
+        /// </summary>
         public bool IsEdit 
         {
             get { return isEdit; }
             set { isEdit = value; } 
         }
+        /// <summary>
+        /// Bool successful flag
+        /// </summary>
         public bool IsSuccessful 
         {
             get { return isSuccessful; }
             set { isSuccessful = value; }
         }
+        /// <summary>
+        /// Returns stated message
+        /// </summary>
         public string Message 
         {
             get { return message; }
@@ -105,10 +132,12 @@ namespace LitRevResourceMVP.Views
         {
             if (instance == null || instance.IsDisposed)
             {
-                instance = new ModuleView();
-                instance.MdiParent = parentContainer;
-                instance.FormBorderStyle = FormBorderStyle.None;
-                instance.Dock = DockStyle.Fill;
+                instance = new ModuleView
+                {
+                    MdiParent = parentContainer,
+                    FormBorderStyle = FormBorderStyle.None,
+                    Dock = DockStyle.Fill
+                };
             }
             else
             {

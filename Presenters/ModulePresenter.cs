@@ -6,6 +6,9 @@ using LitRevResourceMVP.Views;
 
 namespace LitRevResourceMVP.Presenters
 {
+    /// <summary>
+    /// Module presenter to invoke view events and action repository business logic
+    /// </summary>
     public class ModulePresenter
     {
         private IModuleView view;
@@ -21,18 +24,14 @@ namespace LitRevResourceMVP.Presenters
         public ModulePresenter(IModuleView view, IModuleRepository repository)
         {
             this.moduleBindingSource = new BindingSource();
-
             this.view = view;
             this.repository = repository;
-
             //used in tab1 main
             this.view.AddModEvent += AddModule;
             this.view.DeleteModEvent += DeleteModule;
             this.view.EditModEvent += EditModule;
-
             this.view.SetModuleListBindingSource(moduleBindingSource);
             LoadAllModuleList();
-            // ###### 
             this.view.Show();
         }
 
@@ -45,8 +44,6 @@ namespace LitRevResourceMVP.Presenters
         /// <summary>
         /// Combines edit and save function using bool isEdit status. Calls sql methods from repository to amend list and update database.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void SaveModule()
         {
             var model = new ModuleModel();
@@ -54,11 +51,9 @@ namespace LitRevResourceMVP.Presenters
             { 
                 //view.IsEdit = false; 
                 model.Mod_IdNum = Convert.ToInt32(view.ModIdNum);
-               
             }
             model.Mod_Name = view.ModName;
             model.Mod_DateYear = view.ModDateYear;
-
             try
             {
                 //takes validation requirements in ie resource models to validate input fields
@@ -103,7 +98,6 @@ namespace LitRevResourceMVP.Presenters
                     view.Message = "Module and associated resources deleted successfully";
                     LoadAllModuleList();
                 }
-
             }
             catch (Exception ex)
             {
@@ -146,10 +140,6 @@ namespace LitRevResourceMVP.Presenters
             view.ModIdNum = "0";
             view.ModName = "";
             view.ModDateYear = "";
-            
         }
-
-
-
     }
 }

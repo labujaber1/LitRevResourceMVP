@@ -6,6 +6,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace LitRevResourceMVP.Models
 {
+    /// <summary>
+    /// Resource model conataining fields inline with database table
+    /// </summary>
     public class ResourceModel
     {
         private int idNum;
@@ -21,6 +24,7 @@ namespace LitRevResourceMVP.Models
 
         [Key]
         [DisplayName("Resource ID")]
+        [ReadOnly(true)]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID_Num { get { return idNum; } set { idNum = value; } }
         
@@ -50,7 +54,7 @@ namespace LitRevResourceMVP.Models
         [StringLength(100, ErrorMessage = "Only 100 characters can be used")]
         [Required(ErrorMessage = "Please enter a valid formatted reference")]
         public string Reference { get { return reference; } set { reference = value; } }
-
+        
         [DisplayName("Main point")]
         [StringLength(2000, ErrorMessage = "Only 2000 characters can be used")]
         [Required(ErrorMessage = "Please enter what the main point is")]
@@ -63,6 +67,7 @@ namespace LitRevResourceMVP.Models
 
         // ######
         [Display(Name = "Assignment ID")]
+        [ReadOnly(true)]
         public int Assign_IdNum { get => assignIdNum; set => assignIdNum = value; }
 
         [ForeignKey("Assign_IdNum")]

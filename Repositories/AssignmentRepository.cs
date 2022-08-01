@@ -10,8 +10,15 @@ using System.Windows.Forms;
 
 namespace LitRevResourceMVP.Repositories
 {
+    /// <summary>
+    /// SQL queries called by presenter for CRUD functionality.
+    /// </summary>
     public class AssignmentRepository : BaseRepository,IAssignmentRepository
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="connectionString"></param>
         public AssignmentRepository(string connectionString)
         {
             this.connectionString = connectionString;
@@ -33,7 +40,6 @@ namespace LitRevResourceMVP.Repositories
                 command.Parameters.AddWithValue("@duedate", SqlDbType.VarChar).Value = assignmentModel.Due_Date;
                 command.Parameters.AddWithValue("@trimester", SqlDbType.Int).Value = assignmentModel.Assign_Trimester;
                 command.Parameters.AddWithValue("@modIdNum", SqlDbType.Int).Value = assignmentModel.Mod_IdNum;
-
                 command.ExecuteNonQuery();
             }
         }

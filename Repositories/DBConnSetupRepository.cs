@@ -9,9 +9,16 @@ using System.Diagnostics;
 
 namespace LitRevResourceMVP.Repositories
 {
+    /// <summary>
+    /// CRUD functionality to config.app file
+    /// </summary>
     public class DBConnSetupRepository : BaseRepository,IDBConnSetupRepository
     {
-        public DBConnSetupRepository(string connectionString) 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="connectionString"></param>
+        public DBConnSetupRepository(string connectionString)
         {
             this.connectionString = connectionString;
         }
@@ -77,6 +84,7 @@ namespace LitRevResourceMVP.Repositories
         /// </summary>
         /// <param name="name"></param>
         /// <param name="connectionString"></param>
+        /// <param name="providerName"></param>
         public void AddConnString(string name, string connectionString, string providerName)
         {
             var conStringSetting = new ConnectionStringSettings(name, connectionString, providerName);
@@ -92,6 +100,7 @@ namespace LitRevResourceMVP.Repositories
         /// </summary>
         /// <param name="name"></param>
         /// <param name="connectionString"></param>
+        /// <param name="providerName"></param>
         public void EditConnString(string name, string connectionString, string providerName)
         {
             //tried using index num passed in to substitute [name],[connectionString],[providerName] to no effect
@@ -117,9 +126,6 @@ namespace LitRevResourceMVP.Repositories
         /// <summary>
         /// Delete connectionstring row from app.config
         /// </summary>
-        /// <param name="name"></param>
-        /// <param name="connectionString"></param>
-        /// <param name="providerName"></param>
         /// <param name="num"></param>
         public void DeleteConnString(int num)
         {

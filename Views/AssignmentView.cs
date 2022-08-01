@@ -3,6 +3,9 @@ using System.Windows.Forms;
 
 namespace LitRevResourceMVP.Views
 {
+    /// <summary>
+    /// Assignment view class
+    /// </summary>
     public partial class AssignmentView : Form, IAssignmentView
     {
         /// <summary>
@@ -14,14 +17,27 @@ namespace LitRevResourceMVP.Views
             AssociateAndRaiseViewEvents();
         }
 
-        //fields
+        /// <summary>
+        /// fields
+        /// </summary>
         private string message;
         private bool isSuccessful;
         private bool isEdit;
-       
+        /// <summary>
+        /// Save assignment event handler
+        /// </summary>
         public event EventHandler SaveAssignEvent;
+        /// <summary>
+        /// Delete assignment event handler
+        /// </summary>
         public event EventHandler DeleteAssignEvent;
+        /// <summary>
+        /// Edit assignment event handler
+        /// </summary>
         public event EventHandler EditAssignEvent;
+        /// <summary>
+        /// Display module ID event handler
+        /// </summary>
         public event EventHandler DisplayModIdNumEvent;
        
         /// <summary>
@@ -59,49 +75,73 @@ namespace LitRevResourceMVP.Views
                         
         }
         
-
+        /// <summary>
+        /// Bool edit flag
+        /// </summary>
         public bool IsEdit
         {
             get { return isEdit; }
             set { isEdit = value; }
         }
+        /// <summary>
+        /// Bool successful flag
+        /// </summary>
         public bool IsSuccessful
         {
             get { return isSuccessful; }
             set { isSuccessful = value; }
         }
+        /// <summary>
+        /// Returns stated message
+        /// </summary>
         public string Message
         {
             get { return message; }
             set { message = value; }
         }
-                
+        /// <summary>
+        /// Assignment ID: Tbx_AssignIdNum.Text
+        /// </summary>        
         public string AssignIdNum 
         {
             get { return Tbx_AssignIdNum.Text; } 
             set { Tbx_AssignIdNum.Text = value; } 
         }
+        /// <summary>
+        /// Assignment name:Tbx_AssignName.Text
+        /// </summary>
         public string AssignName
         {
             get { return Tbx_AssignName.Text; }
             set { Tbx_AssignName.Text = value; }
         }
+        /// <summary>
+        /// Assignment due date: DateTimePicker2.Value.Date
+        /// </summary>
         public DateTime DueDate 
         {
             get { return DateTimePicker2.Value.Date; }
             set { DateTimePicker2.Value = value.Date; } 
         }
+        /// <summary>
+        /// Assignment trimester fixed range 0-2: numericUpDown1.Value
+        /// </summary>
         public Decimal Trimester
         {
             get { return numericUpDown1.Value; }
             set { numericUpDown1.Value = value; }
         }
-        
+        /// <summary>
+        /// Selected module name: Lbx_ModuleList.SelectedItem.ToString()
+        /// </summary>
         public string SelectedModName
         {
             get { return Lbx_ModuleList.SelectedItem.ToString(); }
             set { Lbx_ModuleList.SelectedItem = value; }
         }
+        /// <summary>
+        /// Module ID: Tbx_ModuleIdNum.Text
+        /// </summary>
         public string ModIdNum
         {
             get { return Tbx_ModuleIdNum.Text; }

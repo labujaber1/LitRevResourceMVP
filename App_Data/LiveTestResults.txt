@@ -1,0 +1,51 @@
+﻿During the reading for the final project proposal the app was live tested.
+Observations and ammendments are recorded here.
+
+1. Extra successful message after new and edited resource saved
+1.1. Changed to debug.writeline "updated database successfully" from messagebox. 
+	Still two messages to confirm save/edit successful and database updated. 
+	29/07/2022
+
+2. No total for characters used in resource main point and notes
+2.2. Added max in message of total chars used. Presenter class.
+	29/07/2022
+
+3. Can select id first columns. Make readonly in models.
+3.1. Changed in each model.
+	29/07/2022
+
+4. Missing xml data (comments) in all model classes.
+4.1. Added configure severity = none for models.
+	30/07/2022
+
+5. Main and notes char used show message wrong way round. Resources.
+5.1. Swapped round messages. Added xml comments as was also missing.
+	29/07/2022
+6. Pasted image to notes/mainpoint which correctly produced error when 
+	trying to save but even when image deleted it still appears when
+	trying to save. "Error input not properly formatted."
+	I think it happens on new created, saved, and then re-edit as no
+	id num is present. Cancel, close, and reopen seems to work. Not 
+	restricted to image but happens on text so format is not issue.
+	Maybe on new created must re-display with idnum from database.
+6.1. Added 'assignResDataSet.Tables[1].Clear()' in repository 
+	updateDBFromDataTable method between adapter.update and fill.
+	line 124 resource repositiry class.
+	01/08/2022
+
+7. Expanding and minimising mucks up page format as not all coponents
+	docked properly.
+7.1. Played with docking in all views. Works for expand but cannot 
+	work correctly with manual minimise as too much on screen. 
+	It has been designed at minimal screen size.
+	30/07/2022
+
+8. Datagridview titles need rearranging in models in order of relevence
+	on initial, limited first viewing.
+8.1. Requires all db tables, get methods and update methods etc to change.
+	Too much could go wrong put up with it. Abort change.
+	01/08/2022
+
+9. 
+9.1. 
+

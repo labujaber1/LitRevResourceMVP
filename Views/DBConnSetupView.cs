@@ -3,6 +3,9 @@ using System.Windows.Forms;
 
 namespace LitRevResourceMVP.Views
 {
+    /// <summary>
+    /// Database view setup class
+    /// </summary>
     public partial class DBConnSetupView : Form, IDBConnSetupView
     {
         /// <summary>
@@ -20,9 +23,21 @@ namespace LitRevResourceMVP.Views
         private bool isSuccessful;
 
         //public event EventHandler
+        /// <summary>
+        /// Save connection string event handler
+        /// </summary>
         public event EventHandler SaveEvent;
+        /// <summary>
+        /// Edit connection string event handler
+        /// </summary>
         public event EventHandler EditEvent;
+        /// <summary>
+        /// Delete connection string event handler
+        /// </summary>
         public event EventHandler DeleteEvent;
+        /// <summary>
+        /// Test connection string event handler
+        /// </summary>
         public event EventHandler TestConnEvent;
         
         /// <summary>
@@ -62,82 +77,110 @@ namespace LitRevResourceMVP.Views
             };
         }
 
-        
+        /// <summary>
+        /// Close current instance of form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Btn_CloseDBConnSetup_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
+        /// <summary>
+        /// Returns stated message
+        /// </summary>
         public string Message
         {
             get { return message; }
             set { message = value; }
         }
-
+        /// <summary>
+        /// Bool successful flag
+        /// </summary>
         public bool IsSuccessful
         {
             get { return isSuccessful; }
             set { isSuccessful = value; }
         }
-        
+        /// <summary>
+        /// Connection name: Tbx_SqlName.Text
+        /// </summary>
         public string SqlName
         {
             get { return Tbx_SqlName.Text; }
             set { Tbx_SqlName.Text = value; }
         }
-
+        /// <summary>
+        /// Connection provider name: Tbx_Provider.Text
+        /// </summary>
         public string ProviderName
         {
             get { return Tbx_Provider.Text; }
             set { Tbx_Provider.Text = value; }
         }
-        
+        /// <summary>
+        /// Connection data source: Tbx_DataSource.Text
+        /// </summary>
         public string DataSource
         {
             get { return Tbx_DataSource.Text; }
             set { Tbx_DataSource.Text = value; }
         }
-
+        /// <summary>
+        /// Connection initial category: Tbx_InitCat.Text
+        /// </summary>
         public string InitCat
         {
             get { return Tbx_InitCat.Text; }
             set { Tbx_InitCat.Text = value; }
         }
-
+        /// <summary>
+        /// Connection integrated security: Convert.ToBoolean(Tbx_IntegSec.Text)
+        /// </summary>
         public bool IntegSec
         {
             get { return Convert.ToBoolean(Tbx_IntegSec.Text); }
             set { Tbx_IntegSec.Text = value.ToString(); }
         }
-
+        /// <summary>
+        /// Connection security user name: Tbx_UserName.Text
+        /// </summary>
         public string UserName
         {
             get { return Tbx_UserName.Text; }
             set { Tbx_UserName.Text = value; }
         }
-
+        /// <summary>
+        /// Connection security password: Tbx_Password.Text
+        /// </summary>
         public string Password
         {
             get { return Tbx_Password.Text; }
             set { Tbx_Password.Text = value; }
         }
 
-        //returns connection string used to test connection
+        /// <summary>
+        /// Returns connection string used to test connection:
+        /// dataGridView1.CurrentCell.Value.ToString()
+        /// </summary>
         public string ConnectionString
         {
             get { return dataGridView1.CurrentCell.Value.ToString(); }
-            set { value = dataGridView1.CurrentCell.Value.ToString(); }
-        }
-
-        //returns index of selected item
-        public int IndexRow 
-        {
-            get { return dataGridView1.CurrentCell.RowIndex;  }
-            set { value=dataGridView1.CurrentCell.RowIndex; }
+            set { _ = dataGridView1.CurrentCell.Value.ToString(); }
         }
 
         /// <summary>
-        /// 
+        /// Returns index of selected item: 
+        /// dataGridView1.CurrentCell.RowIndex
+        /// </summary>
+        public int IndexRow 
+        {
+            get { return dataGridView1.CurrentCell.RowIndex;  }
+            set { _ = dataGridView1.CurrentCell.RowIndex; }
+        }
+
+        /// <summary>
+        /// Used to bind db model list to datagridview
         /// </summary>
         /// <param name="connectionFile"></param>
         public void SetConnectionFileBindingSource(BindingSource connectionFile)
@@ -157,7 +200,7 @@ namespace LitRevResourceMVP.Views
         /// <summary>
         /// Deletes row in datagridview by index of selected cell
         /// </summary>
-        public void deleteDataGridRow()
+        public void DeleteDataGridRow()
         {
             //dataGridView1.Rows.Remove(dataGridView1.CurrentCell.OwningRow);
             int index = IndexRow;
@@ -175,10 +218,12 @@ namespace LitRevResourceMVP.Views
         {
             if (instance == null || instance.IsDisposed)
             {
-                instance = new DBConnSetupView();
-                instance.MdiParent = parentContainer;
-                instance.FormBorderStyle = FormBorderStyle.None;
-                instance.Dock = DockStyle.Fill;
+                instance = new DBConnSetupView
+                {
+                    MdiParent = parentContainer,
+                    FormBorderStyle = FormBorderStyle.None,
+                    Dock = DockStyle.Fill
+                };
             }
             else
             {

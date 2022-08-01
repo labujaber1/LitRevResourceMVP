@@ -6,6 +6,9 @@ using System.Collections.Generic;
 
 namespace LitRevResourceMVP.Models
 {
+    /// <summary>
+    /// Module model conataining fields inline with database table
+    /// </summary>
     public class ModuleModel
     {
         private int modIdNum;
@@ -15,6 +18,7 @@ namespace LitRevResourceMVP.Models
         [Key]
         [DisplayName("Module ID")]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [ReadOnly(true)]
         public int Mod_IdNum { get => modIdNum; set => modIdNum = value; }
 
         [DisplayName("Module Name")]

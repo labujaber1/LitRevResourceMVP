@@ -54,5 +54,9 @@ Adjust code in view that should be in presenter to keep to MPV design.
 Add ability to use different databases such as ode, mysql, etc.
 Add ability to choose between embedded or external database.
 Add copy of current database as embedded.
-Change comments from code file to interface.
+
 Either complete or delete connection wizard that searches for servers and databases. 
+Include a class to create embedded script?
+
+Completed:
+Change comments from code file to interface.

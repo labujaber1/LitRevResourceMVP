@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace LitRevResourceMVP.Presenters.Common
 {
+    /// <summary>
+    /// Include low level user input validation in each model class. 
+    /// </summary>
     public class ModelDataValidation
     {
         /// <summary>
@@ -27,10 +30,7 @@ namespace LitRevResourceMVP.Presenters.Common
                     
                 }
                 throw new Exception(errorMessage);
-                
             }
-            
-
         }
 
     }

@@ -2,10 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using LitRevResourceMVP.Models;
 using LitRevResourceMVP.Views;
@@ -13,13 +10,16 @@ using LitRevResourceMVP.Views;
 
 namespace LitRevResourceMVP.Presenters
 {
+    /// <summary>
+    /// Resource presenter to invoke view events and action repository business logic
+    /// </summary>
     public class ResourcePresenter
     {
-        private IResourceView view;
-        private IResourceRepository repository;
-        private BindingSource resourceBindingSource;
-        private BindingSource categoryBindingSource;
-        private BindingSource assignBindingSource;
+        private readonly IResourceView view;
+        private readonly IResourceRepository repository;
+        private readonly BindingSource resourceBindingSource;
+        private readonly BindingSource categoryBindingSource;
+        private readonly BindingSource assignBindingSource;
         private IEnumerable<ResourceModel> resourceList;
         private IEnumerable<string> categoryList;
         private DataSet assignResDataSet;
@@ -56,16 +56,26 @@ namespace LitRevResourceMVP.Presenters
             this.view.Show();
         }
 
-        private void NotesCharLenView(object sender, EventArgs e)
-        {
-            int mlen = view.ResMainPoint.Length;
-            MessageBox.Show("Char used so far = " + mlen, "Main point");
-        }
-
+        /// <summary>
+        /// View chars total to use and what has been used. 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MainCharLenView(object sender, EventArgs e)
         {
+            int mlen = view.ResMainPoint.Length;
+            MessageBox.Show("Max to use 2000. \nChar used so far = " + mlen, "Main point");
+        }
+
+        /// <summary>
+        /// View chars total to use and what has been used.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void NotesCharLenView(object sender, EventArgs e)
+        {
             int nlen = view.ResNotes.Length;
-            MessageBox.Show("Char used so far = " + nlen, "Notes");
+            MessageBox.Show("Max to use 4000. \nChar used so far = " + nlen, "Notes");
         }
 
         //used in second tab (tab1), display resource list and search request
@@ -169,7 +179,7 @@ namespace LitRevResourceMVP.Presenters
                     view.Message = "Resource added successfully";
                 }
                 view.IsSuccessful = true;
-                repository.UpdateDBFromDataTable(assignResDataSet);
+                repository.UpdateDBFromDataTable(assignResDataSet); //adapter update and fill
                 ClearAllTextFields();
             }
             catch (Exception ex)
@@ -205,7 +215,7 @@ namespace LitRevResourceMVP.Presenters
             catch(Exception ex)
             {
                 view.IsSuccessful = false;
-                view.Message = "Sorry, could not delete the resource due to an error"+ex.Message; 
+                view.Message = "Sorry, could not delete the resource due to an error -> \n"+ex.Message; 
             }
         }
 

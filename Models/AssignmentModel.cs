@@ -6,6 +6,9 @@ using System.Collections.Generic;
 
 namespace LitRevResourceMVP.Models
 {
+    /// <summary>
+    /// Assigment model containing fields inline with database tables
+    /// </summary>
     public class AssignmentModel
     {
         private int assignIdNum;
@@ -17,6 +20,7 @@ namespace LitRevResourceMVP.Models
         [Key]
         [DisplayName("Assignment ID")]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [ReadOnly(true)]
         public int Assign_IdNum { get => assignIdNum; set => assignIdNum = value; }
 
         [DisplayName("Assignment name")]
@@ -33,6 +37,7 @@ namespace LitRevResourceMVP.Models
 
         // ######
         [DisplayName("Module ID")]
+        [ReadOnly(true)]
         public int Mod_IdNum { get => modIdNum; set => modIdNum = value; }
 
         [ForeignKey("Mod_IdNum")]

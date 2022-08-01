@@ -68,7 +68,7 @@ namespace LitRevResourceMVP.ConnectionWizard
             this.btnFindServers.TabIndex = 1;
             this.btnFindServers.Text = "...";
             this.btnFindServers.UseVisualStyleBackColor = true;
-            this.btnFindServers.Click += new System.EventHandler(this.btnFindServers_Click);
+            this.btnFindServers.Click += new System.EventHandler(this.BtnFindServers_Click);
             // 
             // cmbServers
             // 
@@ -77,7 +77,7 @@ namespace LitRevResourceMVP.ConnectionWizard
             this.cmbServers.Name = "cmbServers";
             this.cmbServers.Size = new System.Drawing.Size(207, 21);
             this.cmbServers.TabIndex = 0;
-            this.cmbServers.SelectedValueChanged += new System.EventHandler(this.cmbServers_SelectedValueChanged);
+            this.cmbServers.SelectedValueChanged += new System.EventHandler(this.CmbServers_SelectedValueChanged);
             // 
             // groupBox2
             // 
@@ -149,8 +149,8 @@ namespace LitRevResourceMVP.ConnectionWizard
             this.chkUseWindowsSecurity.TabIndex = 6;
             this.chkUseWindowsSecurity.Text = "Use Windows Security";
             this.chkUseWindowsSecurity.UseVisualStyleBackColor = true;
-            this.chkUseWindowsSecurity.CheckStateChanged += new System.EventHandler(this.chkUseWindowsSecurity_CheckStateChanged);
-            this.chkUseWindowsSecurity.CheckedChanged += new System.EventHandler(this.chkUseWindowsSecurity_CheckedChanged);
+            this.chkUseWindowsSecurity.CheckStateChanged += new System.EventHandler(this.ChkUseWindowsSecurity_CheckStateChanged);
+            this.chkUseWindowsSecurity.CheckedChanged += new System.EventHandler(this.ChkUseWindowsSecurity_CheckedChanged);
             // 
             // groupBox3
             // 
@@ -171,7 +171,7 @@ namespace LitRevResourceMVP.ConnectionWizard
             this.btnFindDatabases.TabIndex = 1;
             this.btnFindDatabases.Text = "...";
             this.btnFindDatabases.UseVisualStyleBackColor = true;
-            this.btnFindDatabases.Click += new System.EventHandler(this.btnFindDatabases_Click);
+            this.btnFindDatabases.Click += new System.EventHandler(this.BtnFindDatabases_Click);
             // 
             // cmbDatabases
             // 
@@ -180,8 +180,8 @@ namespace LitRevResourceMVP.ConnectionWizard
             this.cmbDatabases.Name = "cmbDatabases";
             this.cmbDatabases.Size = new System.Drawing.Size(207, 21);
             this.cmbDatabases.TabIndex = 0;
-            this.cmbDatabases.TextChanged += new System.EventHandler(this.cmbDatabases_TextChanged);
-            this.cmbDatabases.Click += new System.EventHandler(this.cmbDatabases_Click);
+            this.cmbDatabases.TextChanged += new System.EventHandler(this.CmbDatabases_TextChanged);
+            this.cmbDatabases.Click += new System.EventHandler(this.CmbDatabases_Click);
             // 
             // btnTestConnection
             // 
@@ -191,7 +191,7 @@ namespace LitRevResourceMVP.ConnectionWizard
             this.btnTestConnection.TabIndex = 3;
             this.btnTestConnection.Text = "Test Connection";
             this.btnTestConnection.UseVisualStyleBackColor = true;
-            this.btnTestConnection.Click += new System.EventHandler(this.btnTestConnection_Click);
+            this.btnTestConnection.Click += new System.EventHandler(this.BtnTestConnection_Click);
             // 
             // btnFinish
             // 
@@ -201,7 +201,7 @@ namespace LitRevResourceMVP.ConnectionWizard
             this.btnFinish.TabIndex = 4;
             this.btnFinish.Text = "Finish";
             this.btnFinish.UseVisualStyleBackColor = true;
-            this.btnFinish.Click += new System.EventHandler(this.btnFinish_Click);
+            this.btnFinish.Click += new System.EventHandler(this.BtnFinish_Click);
             // 
             // Form1
             // 

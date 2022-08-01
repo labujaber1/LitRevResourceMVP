@@ -43,11 +43,9 @@ namespace LitRevResourceMVP.Views
             this.Tbx_DateYear = new System.Windows.Forms.TextBox();
             this.Lbl_DateYear = new System.Windows.Forms.Label();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // Lbl_ModuleTitle
@@ -185,6 +183,9 @@ namespace LitRevResourceMVP.Views
             this.dataGridView3.AllowUserToAddRows = false;
             this.dataGridView3.AllowUserToDeleteRows = false;
             this.dataGridView3.AllowUserToOrderColumns = true;
+            this.dataGridView3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView3.Location = new System.Drawing.Point(0, 98);
             this.dataGridView3.Name = "dataGridView3";
@@ -194,25 +195,12 @@ namespace LitRevResourceMVP.Views
             this.dataGridView3.Size = new System.Drawing.Size(568, 283);
             this.dataGridView3.TabIndex = 13;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox1.Image = global::LitRevResourceMVP.Properties.Resources.HomeScreen;
-            this.pictureBox1.Location = new System.Drawing.Point(71, 410);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(442, 242);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 14;
-            this.pictureBox1.TabStop = false;
-            // 
             // ModuleView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.ClientSize = new System.Drawing.Size(849, 681);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.dataGridView3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -223,7 +211,6 @@ namespace LitRevResourceMVP.Views
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -244,6 +231,5 @@ namespace LitRevResourceMVP.Views
         private System.Windows.Forms.TextBox Tbx_DateYear;
         private System.Windows.Forms.Label Lbl_DateYear;
         private System.Windows.Forms.Button Btn_CloseMod;
-        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

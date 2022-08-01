@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
 using LitRevResourceMVP.Models;
@@ -10,12 +7,19 @@ using System.Windows.Forms;
 
 namespace LitRevResourceMVP.Repositories
 {
+    /// <summary>
+    /// SQL queries called by presenter for CRUD functionality. 
+    /// </summary>
     public class ModuleRepository : BaseRepository, IModuleRepository
     { 
+        /// <summary>
+        ///  
+        /// </summary>
+        /// <param name="connectionString"></param>
         public ModuleRepository(string connectionString)
         {
             this.connectionString = connectionString;
-            //MessageBox.Show("Connection string = " + connectionString);
+            //Debug.WriteLine("Connection string = " + connectionString);
         }
 
         /// <summary>
