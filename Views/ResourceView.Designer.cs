@@ -66,12 +66,39 @@ namespace LitRevResourceMVP.Views
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.Btn_RefBack = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.textBox14 = new System.Windows.Forms.TextBox();
+            this.textBox15 = new System.Windows.Forms.TextBox();
+            this.textBox16 = new System.Windows.Forms.TextBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.textBox17 = new System.Windows.Forms.TextBox();
+            this.textBox18 = new System.Windows.Forms.TextBox();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.label3 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.Tbcl_ResourceList.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAssign)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewResource)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // Tbx_IdNum
@@ -149,9 +176,9 @@ namespace LitRevResourceMVP.Views
             // 
             this.Btn_CreateAddRef.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.Btn_CreateAddRef.BackColor = System.Drawing.Color.Bisque;
-            this.Btn_CreateAddRef.Location = new System.Drawing.Point(581, 230);
+            this.Btn_CreateAddRef.Location = new System.Drawing.Point(622, 228);
             this.Btn_CreateAddRef.Name = "Btn_CreateAddRef";
-            this.Btn_CreateAddRef.Size = new System.Drawing.Size(214, 36);
+            this.Btn_CreateAddRef.Size = new System.Drawing.Size(173, 38);
             this.Btn_CreateAddRef.TabIndex = 15;
             this.Btn_CreateAddRef.Text = "Add ref in file";
             this.Btn_CreateAddRef.UseVisualStyleBackColor = false;
@@ -499,6 +526,14 @@ namespace LitRevResourceMVP.Views
             // tabPage3
             // 
             this.tabPage3.BackColor = System.Drawing.Color.SandyBrown;
+            this.tabPage3.Controls.Add(this.button1);
+            this.tabPage3.Controls.Add(this.textBox18);
+            this.tabPage3.Controls.Add(this.textBox17);
+            this.tabPage3.Controls.Add(this.groupBox3);
+            this.tabPage3.Controls.Add(this.groupBox2);
+            this.tabPage3.Controls.Add(this.groupBox1);
+            this.tabPage3.Controls.Add(this.comboBox2);
+            this.tabPage3.Controls.Add(this.comboBox1);
             this.tabPage3.Controls.Add(this.Btn_RefBack);
             this.tabPage3.Controls.Add(this.label1);
             this.tabPage3.Location = new System.Drawing.Point(4, 34);
@@ -510,10 +545,10 @@ namespace LitRevResourceMVP.Views
             // 
             // Btn_RefBack
             // 
-            this.Btn_RefBack.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.Btn_RefBack.Location = new System.Drawing.Point(344, 344);
+            this.Btn_RefBack.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.Btn_RefBack.Location = new System.Drawing.Point(617, 573);
             this.Btn_RefBack.Name = "Btn_RefBack";
-            this.Btn_RefBack.Size = new System.Drawing.Size(112, 34);
+            this.Btn_RefBack.Size = new System.Drawing.Size(112, 47);
             this.Btn_RefBack.TabIndex = 21;
             this.Btn_RefBack.Text = "Back";
             this.Btn_RefBack.UseVisualStyleBackColor = false;
@@ -522,11 +557,249 @@ namespace LitRevResourceMVP.Views
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(299, 281);
+            this.label1.Location = new System.Drawing.Point(297, 570);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(273, 50);
+            this.label1.Size = new System.Drawing.Size(267, 50);
             this.label1.TabIndex = 0;
-            this.label1.Text = "MAY NOT DEVELOPE HERE\r\nIts alot bigger than first thourght";
+            this.label1.Text = "MAY NOT DEVELOPE HERE\r\nIts alot bigger than first thought";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Harvard-Anglia",
+            "APA",
+            "Chicago",
+            "IEEE"});
+            this.comboBox1.Location = new System.Drawing.Point(284, 15);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(238, 33);
+            this.comboBox1.TabIndex = 22;
+            this.comboBox1.Text = "Select ref style";
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Items.AddRange(new object[] {
+            "Website",
+            "Book",
+            "Journal",
+            "E-Source"});
+            this.comboBox2.Location = new System.Drawing.Point(543, 15);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(238, 33);
+            this.comboBox2.TabIndex = 23;
+            this.comboBox2.Text = "Select source type";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.groupBox1.Controls.Add(this.checkBox1);
+            this.groupBox1.Controls.Add(this.textBox4);
+            this.groupBox1.Controls.Add(this.textBox3);
+            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Location = new System.Drawing.Point(24, 69);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(768, 150);
+            this.groupBox1.TabIndex = 24;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "groupBox1";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.groupBox2.Controls.Add(this.textBox8);
+            this.groupBox2.Controls.Add(this.textBox7);
+            this.groupBox2.Controls.Add(this.textBox6);
+            this.groupBox2.Controls.Add(this.textBox5);
+            this.groupBox2.Location = new System.Drawing.Point(24, 247);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(768, 150);
+            this.groupBox2.TabIndex = 25;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "groupBox2";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(20, 40);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.PlaceholderText = "Author";
+            this.textBox1.Size = new System.Drawing.Size(361, 46);
+            this.textBox1.TabIndex = 0;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(22, 94);
+            this.textBox2.Multiline = true;
+            this.textBox2.Name = "textBox2";
+            this.textBox2.PlaceholderText = "Title";
+            this.textBox2.Size = new System.Drawing.Size(359, 46);
+            this.textBox2.TabIndex = 1;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(413, 55);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.PlaceholderText = "Corporate author";
+            this.textBox3.Size = new System.Drawing.Size(324, 31);
+            this.textBox3.TabIndex = 2;
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(413, 94);
+            this.textBox4.Multiline = true;
+            this.textBox4.Name = "textBox4";
+            this.textBox4.PlaceholderText = "Webpage name";
+            this.textBox4.Size = new System.Drawing.Size(324, 46);
+            this.textBox4.TabIndex = 3;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.groupBox3.Controls.Add(this.label3);
+            this.groupBox3.Controls.Add(this.dateTimePicker2);
+            this.groupBox3.Controls.Add(this.textBox16);
+            this.groupBox3.Controls.Add(this.textBox15);
+            this.groupBox3.Controls.Add(this.textBox14);
+            this.groupBox3.Controls.Add(this.textBox10);
+            this.groupBox3.Controls.Add(this.textBox9);
+            this.groupBox3.Location = new System.Drawing.Point(24, 426);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(768, 141);
+            this.groupBox3.TabIndex = 26;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "groupBox3";
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(20, 45);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.PlaceholderText = "Journal name";
+            this.textBox5.Size = new System.Drawing.Size(442, 31);
+            this.textBox5.TabIndex = 0;
+            // 
+            // textBox6
+            // 
+            this.textBox6.Location = new System.Drawing.Point(20, 96);
+            this.textBox6.Multiline = true;
+            this.textBox6.Name = "textBox6";
+            this.textBox6.PlaceholderText = "URL";
+            this.textBox6.Size = new System.Drawing.Size(442, 46);
+            this.textBox6.TabIndex = 1;
+            // 
+            // textBox7
+            // 
+            this.textBox7.Location = new System.Drawing.Point(487, 45);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.PlaceholderText = "City";
+            this.textBox7.Size = new System.Drawing.Size(250, 31);
+            this.textBox7.TabIndex = 2;
+            // 
+            // textBox8
+            // 
+            this.textBox8.Location = new System.Drawing.Point(487, 96);
+            this.textBox8.Name = "textBox8";
+            this.textBox8.PlaceholderText = "Publisher";
+            this.textBox8.Size = new System.Drawing.Size(250, 31);
+            this.textBox8.TabIndex = 3;
+            // 
+            // textBox9
+            // 
+            this.textBox9.Location = new System.Drawing.Point(47, 42);
+            this.textBox9.Name = "textBox9";
+            this.textBox9.PlaceholderText = "Year";
+            this.textBox9.Size = new System.Drawing.Size(150, 31);
+            this.textBox9.TabIndex = 0;
+            // 
+            // textBox10
+            // 
+            this.textBox10.Location = new System.Drawing.Point(47, 104);
+            this.textBox10.Name = "textBox10";
+            this.textBox10.PlaceholderText = "Edition";
+            this.textBox10.Size = new System.Drawing.Size(150, 31);
+            this.textBox10.TabIndex = 1;
+            // 
+            // textBox14
+            // 
+            this.textBox14.Location = new System.Drawing.Point(285, 42);
+            this.textBox14.Name = "textBox14";
+            this.textBox14.PlaceholderText = "Pages";
+            this.textBox14.Size = new System.Drawing.Size(150, 31);
+            this.textBox14.TabIndex = 5;
+            // 
+            // textBox15
+            // 
+            this.textBox15.Location = new System.Drawing.Point(285, 104);
+            this.textBox15.Name = "textBox15";
+            this.textBox15.PlaceholderText = "Volume";
+            this.textBox15.Size = new System.Drawing.Size(150, 31);
+            this.textBox15.TabIndex = 6;
+            // 
+            // textBox16
+            // 
+            this.textBox16.Location = new System.Drawing.Point(482, 42);
+            this.textBox16.Name = "textBox16";
+            this.textBox16.PlaceholderText = "Issue";
+            this.textBox16.Size = new System.Drawing.Size(150, 31);
+            this.textBox16.TabIndex = 7;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(413, 20);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(175, 29);
+            this.checkBox1.TabIndex = 4;
+            this.checkBox1.Text = "Corporate author";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // textBox17
+            // 
+            this.textBox17.BackColor = System.Drawing.SystemColors.Menu;
+            this.textBox17.Location = new System.Drawing.Point(40, 17);
+            this.textBox17.Name = "textBox17";
+            this.textBox17.PlaceholderText = "Resource ID";
+            this.textBox17.Size = new System.Drawing.Size(119, 31);
+            this.textBox17.TabIndex = 27;
+            // 
+            // textBox18
+            // 
+            this.textBox18.BackColor = System.Drawing.SystemColors.Menu;
+            this.textBox18.Location = new System.Drawing.Point(165, 17);
+            this.textBox18.Name = "textBox18";
+            this.textBox18.PlaceholderText = "Ref ID";
+            this.textBox18.Size = new System.Drawing.Size(105, 31);
+            this.textBox18.TabIndex = 28;
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.Location = new System.Drawing.Point(482, 104);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(223, 31);
+            this.dateTimePicker2.TabIndex = 8;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
+            this.label3.Location = new System.Drawing.Point(482, 76);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(107, 21);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "Date accessed";
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button1.Location = new System.Drawing.Point(96, 573);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(125, 47);
+            this.button1.TabIndex = 29;
+            this.button1.Text = "Save";
+            this.button1.UseVisualStyleBackColor = false;
             // 
             // ResourceView
             // 
@@ -548,6 +821,12 @@ namespace LitRevResourceMVP.Views
             this.tabPage2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -590,5 +869,29 @@ namespace LitRevResourceMVP.Views
         private System.Windows.Forms.ListBox Lbx_ViewResCategories;
         private System.Windows.Forms.Label Lbl_CatList;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox textBox18;
+        private System.Windows.Forms.TextBox textBox17;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.TextBox textBox16;
+        private System.Windows.Forms.TextBox textBox15;
+        private System.Windows.Forms.TextBox textBox14;
+        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DateTimePicker dateTimePicker2;
     }
 }

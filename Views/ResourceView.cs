@@ -114,14 +114,13 @@ namespace LitRevResourceMVP.Views
                 EditEvent?.Invoke(this, EventArgs.Empty);
                 Tbcl_ResourceList.TabPages.Remove(tabPage1);
                 Tbcl_ResourceList.TabPages.Add(tabPage2);
-                //dataGridViewResource.Refresh();
             };
 
            Btn_CreateAddRef.Click += delegate
             {
                 CreateReferenceEvent?.Invoke(this, EventArgs.Empty);
-                Tbcl_ResourceList.TabPages.Remove(tabPage2);
-                Tbcl_ResourceList.TabPages.Add(tabPage3);
+                //Tbcl_ResourceList.TabPages.Remove(tabPage2);
+                //Tbcl_ResourceList.TabPages.Add(tabPage3);
             };
 
             Btn_Save.Click += delegate

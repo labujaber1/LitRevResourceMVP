@@ -689,7 +689,9 @@
         </member>
         <member name="M:LitRevResourceMVP.Presenters.ResourcePresenter.CreateReference(System.Object,System.EventArgs)">
             <summary>
-            Currently not used but intended to allow a user to manage references (CRUD) according to style.
+            Opens file dialog to allow a user to open a file in default application to add reference in file
+            manually. Example would a word document with inbuilt referencing tool.
+            Later developeent to redirect to inbuilt referencing tool and pass/copy to a file.
             </summary>
             <param name="sender"></param>
             <param name="e"></param>

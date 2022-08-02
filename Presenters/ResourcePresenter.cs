@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO;
+using System.Net;
 using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
@@ -301,13 +303,32 @@ namespace LitRevResourceMVP.Presenters
 
         //used in second tab display/add/edit single resource
         /// <summary>
-        /// Currently not used but intended to allow a user to manage references (CRUD) according to style.
+        /// Opens file dialog to allow a user to open a file in default application to add reference in file
+        /// manually. Example would a word document with inbuilt referencing tool.
+        /// Later developeent to redirect to inbuilt referencing tool and pass/copy to a file.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void CreateReference(object sender, EventArgs e)
         {
-            MessageBox.Show("CreateReference not in operation yet");
+            using (OpenFileDialog openf = new())
+            {
+                //open file using dialog
+                openf.InitialDirectory = @"C:\Documents\";
+                openf.Title = "Open file";
+                openf.Filter = "All files(*.*)|*.*";
+                openf.RestoreDirectory = true;
+
+                DialogResult res = openf.ShowDialog();
+                if (res == DialogResult.OK)
+                {
+                    var path = openf.FileName;
+                    ProcessStartInfo startInfo = new(path);
+                    startInfo.UseShellExecute = true;
+                    Process.Start( startInfo );
+                }
+            };
+            //MessageBox.Show("CreateReference not in operation yet");
         }
 
 
