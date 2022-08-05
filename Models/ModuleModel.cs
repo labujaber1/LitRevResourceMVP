@@ -7,7 +7,7 @@ using System.Collections.Generic;
 namespace LitRevResourceMVP.Models
 {
     /// <summary>
-    /// Module model conataining fields inline with database table
+    /// Module model containing fields inline with database table
     /// </summary>
     public class ModuleModel
     {
@@ -32,7 +32,6 @@ namespace LitRevResourceMVP.Models
             "and even thats ambitious for this app, try again \n(anyway apparently society will collapse by 2040," +
             " saw it on a youtube video so must be true!).")]
         public string Mod_DateYear { get => modDateYear; set => modDateYear = value; }
-
-        public virtual ICollection<AssignmentModel> Assignment { get; set; }
+        
     }
 }

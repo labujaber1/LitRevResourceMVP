@@ -73,7 +73,7 @@ namespace LitRevResourceMVP.Views
             InitializeComponent();
             AssociateAndRaiseViewEvents();
             Tbcl_ResourceList.TabPages.Remove(tabPage2);
-            //Create reference #not in use
+            //Create reference #currently not in use, to dev.
             Tbcl_ResourceList.TabPages.Remove(tabPage3);    
         }
 

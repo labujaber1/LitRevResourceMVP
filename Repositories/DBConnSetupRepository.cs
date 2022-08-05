@@ -30,7 +30,8 @@ namespace LitRevResourceMVP.Repositories
         /// <returns>Bool true if opens connection else false</returns>
         public bool TestConnString(string connectionString)
         {
-            using (SqlConnection conn = new SqlConnection(connectionString))
+           
+            using (IDbConnection conn = new SqlConnection(connectionString))
             {
                 try
                 {

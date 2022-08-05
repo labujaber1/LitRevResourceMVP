@@ -155,12 +155,12 @@ namespace LitRevResourceMVP.Presenters
             {
                 model.ID_Num = Convert.ToInt32(view.ResIdNum);
             }
+            model.Category = view.ResCategory;
             model.Web_Link = view.ResWebLink;
             model.Resource_Type = view.ResType;
-            model.DOI_Num = view.ResDoiNum;
             model.Date_Accessed = view.ResDateAccessed;
-            model.Category = view.ResCategory;
             model.Reference = view.ResReference;
+            model.DOI_Num = view.ResDoiNum;
             model.Main_Point = view.ResMainPoint;
             model.Main_Notes = view.ResNotes;
             model.Assign_IdNum = int.Parse(view.AssignIdNum);

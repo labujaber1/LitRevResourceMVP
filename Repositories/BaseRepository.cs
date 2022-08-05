@@ -1,5 +1,5 @@
 ﻿using System;
-
+using System.Configuration;
 
 namespace LitRevResourceMVP.Repositories
 {
@@ -13,4 +13,6 @@ namespace LitRevResourceMVP.Repositories
         /// </summary>
         protected string connectionString;
     }
+    
+    
 }

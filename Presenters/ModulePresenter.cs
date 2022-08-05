@@ -15,6 +15,7 @@ namespace LitRevResourceMVP.Presenters
         private IModuleRepository repository;
         private BindingSource moduleBindingSource;
         private IEnumerable<ModuleModel> moduleList;
+        
 
         /// <summary>
         /// Setup events args to event handlers and module bindings source. 

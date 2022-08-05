@@ -33,5 +33,15 @@ namespace LitRevResourceMVP.Properties {
                 return ((string)(this["SqlConnection"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("server=localhost;user id=root;password=yes;database=litrevresourcedb")]
+        public string MySql {
+            get {
+                return ((string)(this["MySql"]));
+            }
+        }
     }
 }

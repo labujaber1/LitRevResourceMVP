@@ -60,7 +60,6 @@ namespace LitRevResourceMVP.Presenters
         {
             moduleNameList = repository.GetAllModules();
             moduleBindingSource.DataSource = moduleNameList;
-
         }
 
         /// <summary>

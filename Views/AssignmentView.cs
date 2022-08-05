@@ -164,7 +164,6 @@ namespace LitRevResourceMVP.Views
         public void SetModuleNameListBindingSource(BindingSource moduleNameList)
         {
             Lbx_ModuleList.DataSource = moduleNameList;
-
         }
         /// <summary>
         /// Binds datagridview1 to assignment list.

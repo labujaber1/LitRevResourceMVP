@@ -39,8 +39,6 @@ namespace LitRevResourceMVP.Models
         [DisplayName("Module ID")]
         [ReadOnly(true)]
         public int Mod_IdNum { get => modIdNum; set => modIdNum = value; }
-
-        [ForeignKey("Mod_IdNum")]
-        public virtual ICollection<ModuleModel> Module { get; set; }
+        
     }
 }

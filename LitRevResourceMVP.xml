@@ -245,7 +245,7 @@
         </member>
         <member name="T:LitRevResourceMVP.Models.ModuleModel">
             <summary>
-            Module model conataining fields inline with database table
+            Module model containing fields inline with database table
             </summary>
         </member>
         <member name="T:LitRevResourceMVP.Models.ResourceModel">

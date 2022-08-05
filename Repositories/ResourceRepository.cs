@@ -57,12 +57,12 @@ namespace LitRevResourceMVP.Repositories
             { 
                 DataRow dr = AssignResDataSet.Tables[1].NewRow();
                 dr["Res_IdNum"] = resourceModel.ID_Num;
+                dr["Res_Category"] = resourceModel.Category;
                 dr["Res_Weblink"] = resourceModel.Web_Link;
                 dr["Res_Type"] = resourceModel.Resource_Type;
-                dr["Res_DoiNum"] = resourceModel.DOI_Num;
                 dr["Res_DateAccessed"] = resourceModel.Date_Accessed;
-                dr["Res_Category"] = resourceModel.Category;
                 dr["Res_Reference"] = resourceModel.Reference;
+                dr["Res_DoiNum"] = resourceModel.DOI_Num;
                 dr["Res_MainPoint"] = resourceModel.Main_Point;
                 dr["Res_Notes"] = resourceModel.Main_Notes;
                 dr["Assign_IdNum"] = resourceModel.Assign_IdNum;
@@ -97,12 +97,12 @@ namespace LitRevResourceMVP.Repositories
             DataRow dr = dt.Select("Res_IdNum = '" + idNum + "'").FirstOrDefault();
             if (dr != null)
             {
+                dr["Res_Category"] = resourceModel.Category;
                 dr["Res_Weblink"] = resourceModel.Web_Link;
                 dr["Res_Type"] = resourceModel.Resource_Type;
-                dr["Res_DoiNum"] = resourceModel.DOI_Num;
                 dr["Res_DateAccessed"] = resourceModel.Date_Accessed;
-                dr["Res_Category"] = resourceModel.Category;
                 dr["Res_Reference"] = resourceModel.Reference;
+                dr["Res_DoiNum"] = resourceModel.DOI_Num;
                 dr["Res_MainPoint"] = resourceModel.Main_Point;
                 dr["Res_Notes"] = resourceModel.Main_Notes;
                 dr["Assign_IdNum"] = resourceModel.Assign_IdNum;
@@ -160,12 +160,12 @@ namespace LitRevResourceMVP.Repositories
                         {
                             var resourceModel = new ResourceModel();
                             resourceModel.ID_Num = (int)reader[0];
-                            resourceModel.Web_Link = reader[1].ToString();
-                            resourceModel.Resource_Type = reader[2].ToString();
-                            resourceModel.DOI_Num = reader[3].ToString();
+                            resourceModel.Category = reader[1].ToString();
+                            resourceModel.Web_Link = reader[2].ToString();
+                            resourceModel.Resource_Type = reader[3].ToString();
                             resourceModel.Date_Accessed = (DateTime)reader[4];
-                            resourceModel.Category = reader[5].ToString();
-                            resourceModel.Reference = reader[6].ToString();
+                            resourceModel.Reference = reader[5].ToString();
+                            resourceModel.DOI_Num = reader[6].ToString();
                             resourceModel.Main_Point = reader[7].ToString();
                             resourceModel.Main_Notes = reader[8].ToString();
                             resourceModel.Assign_IdNum = (int)reader[9];

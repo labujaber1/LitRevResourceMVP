@@ -43,9 +43,32 @@ Observations and ammendments are recorded here.
 8. Datagridview titles need rearranging in models in order of relevence
 	on initial, limited first viewing.
 8.1. Requires all db tables, get methods and update methods etc to change.
-	Too much could go wrong put up with it. Abort change.
-	01/08/2022
+	Changed category to index1 and dio index6 in db, model, and repos.
+	05/08/2022
 
-9. 
-9.1. 
+9. Set column widths to view names and weblinks better 
+9.1. Set to user can change column width in resource tab.
+	Already set to columnheader width. Column names taken from DB.
+	05/08/2022
+
+10. Sort out virtual/foreign key in models and do not show in 
+	datagridviews.
+10.1. Couldn't change column visibility to false in resource.view. 
+	05/08/2022 (F)
+	Took out ienum and fk from models as not needed since app taking from
+	db.
+	05/08/2022.
+
+11. Error message titles in models validation. 
+	Received error only 100 char can be used but dont know what 
+	for. Think its weblink in this case.
+11.1. Added field name to error messages in models classes where 
+	applicable.
+	05/08/2022
+
+12. Extend max char for weblink and set multiple lines in 
+	weblink textbox. Copied big one but only half shown.
+12.1. Increased weblink in model and database to 200.
+	Multiple lines already set so vertical schrollbar added.
+	05/08/2022
 

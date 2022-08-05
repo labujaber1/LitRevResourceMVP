@@ -208,11 +208,11 @@ namespace LitRevResourceMVP.Views
             this.Lbl_ConnectionString.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Lbl_ConnectionString.AutoSize = true;
             this.Lbl_ConnectionString.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
-            this.Lbl_ConnectionString.Location = new System.Drawing.Point(550, 19);
+            this.Lbl_ConnectionString.Location = new System.Drawing.Point(18, 33);
             this.Lbl_ConnectionString.Name = "Lbl_ConnectionString";
-            this.Lbl_ConnectionString.Size = new System.Drawing.Size(265, 25);
+            this.Lbl_ConnectionString.Size = new System.Drawing.Size(631, 25);
             this.Lbl_ConnectionString.TabIndex = 5;
-            this.Lbl_ConnectionString.Text = "Edit table directly and then save";
+            this.Lbl_ConnectionString.Text = "Edit table directly and then save. SqlConnection coded in program.cs as name. ";
             // 
             // Lbl_Provider
             // 
@@ -274,12 +274,12 @@ namespace LitRevResourceMVP.Views
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(17, 47);
+            this.dataGridView1.Location = new System.Drawing.Point(17, 61);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 33;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(796, 201);
+            this.dataGridView1.Size = new System.Drawing.Size(796, 187);
             this.dataGridView1.TabIndex = 16;
             // 
             // groupBox1

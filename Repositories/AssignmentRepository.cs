@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Dapper;
 using System.Data.SqlClient;
 using System.Data;
 using LitRevResourceMVP.Models;
@@ -119,38 +117,43 @@ namespace LitRevResourceMVP.Repositories
         /// <returns>Assignment list</returns>
         public IEnumerable<AssignmentModel> GetAllAssignments(int IdNum)
         {
-            var assignmentList = new List<AssignmentModel>();
-            using (var connection = new SqlConnection(connectionString))
-            using (var command = new SqlCommand())
+            using (IDbConnection conn = new SqlConnection(connectionString))
             {
-                connection.Open();
-                command.Connection = connection;
-                command.CommandText = "SELECT * from Assignment_table WHERE Mod_IdNum=@idNum "; 
-                command.Parameters.AddWithValue("@idnum", SqlDbType.Int).Value = IdNum;
-                using (var reader = command.ExecuteReader())
-                {
-                    try
-                    {
-                        while (reader.Read())
-                        {
-                            var assignmentModel = new AssignmentModel();
-                            assignmentModel.Assign_IdNum = (int)reader[0];
-                            assignmentModel.Assign_Name = reader[1].ToString();
-                            assignmentModel.Due_Date = (DateTime)reader[2];
-                            assignmentModel.Assign_Trimester = (int)reader[3];
-                            assignmentModel.Mod_IdNum = (int)reader[4];
-                            assignmentList.Add(assignmentModel);
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        string title = "Reading data from Assignment table";
-                        MessageBox.Show("Error = " + ex.Message, title);
-                    }
-                }
-
+                var output = conn.Query<AssignmentModel>("dbo.GetModAssignments_idNum @idNum", new { idNum = IdNum }).AsList();
+                return output;
             }
-            return assignmentList;
+            //var assignmentList = new List<AssignmentModel>();
+            //using (var connection = new SqlConnection(connectionString))
+            //using (var command = new SqlCommand())
+            //{
+            //    connection.Open();
+            //    command.Connection = connection;
+            //    command.CommandText = "SELECT * from Assignment_table WHERE Mod_IdNum=@idNum "; 
+            //    command.Parameters.AddWithValue("@idnum", SqlDbType.Int).Value = IdNum;
+            //    using (var reader = command.ExecuteReader())
+            //    {
+            //        try
+            //        {
+            //            while (reader.Read())
+            //            {
+            //                var assignmentModel = new AssignmentModel();
+            //                assignmentModel.Assign_IdNum = (int)reader[0];
+            //                assignmentModel.Assign_Name = reader[1].ToString();
+            //                assignmentModel.Due_Date = (DateTime)reader[2];
+            //                assignmentModel.Assign_Trimester = (int)reader[3];
+            //                assignmentModel.Mod_IdNum = (int)reader[4];
+            //                assignmentList.Add(assignmentModel);
+            //            }
+            //        }
+            //        catch (Exception ex)
+            //        {
+            //            string title = "Reading data from Assignment table";
+            //            MessageBox.Show("Error = " + ex.Message, title);
+            //        }
+            //    }
+
+            //}
+            //return assignmentList;
         }
 
         /// <summary>
@@ -160,33 +163,39 @@ namespace LitRevResourceMVP.Repositories
         /// <returns>ModuleNameList</returns>
         public IEnumerable<string> GetAllModules()
         {
-            var moduleNameList = new List<string>();
-            string modname = "";
-            using (var connection = new SqlConnection(connectionString))
-            using (var command = new SqlCommand())
+            using (IDbConnection conn = new SqlConnection(connectionString))
             {
-                try
-                {
-                    connection.Open();
-                    command.Connection = connection;
-                    command.CommandText = "SELECT Mod_Name from Module_table order by Mod_Name desc";
-                    command.Parameters.AddWithValue("@modname", SqlDbType.VarChar).Value = modname;
-
-                    using (var reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                           moduleNameList.Add(reader[0].ToString());
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    string title = "Reading data from Module table";
-                    MessageBox.Show("Error = " + ex.Message, title);
-                }
+                var output = conn.Query<string>("dbo.GetModuleNames").AsList();
+                return output;
             }
-            return moduleNameList;
+
+            //var moduleNameList = new List<string>();
+            //string modname = "";
+            //using (var connection = new SqlConnection(connectionString))
+            //using (var command = new SqlCommand())
+            //{
+            //    try
+            //    {
+            //        connection.Open();
+            //        command.Connection = connection;
+            //        command.CommandText = "SELECT Mod_Name from Module_table order by Mod_Name desc";
+            //        command.Parameters.AddWithValue("@modname", SqlDbType.VarChar).Value = modname;
+
+            //        using (var reader = command.ExecuteReader())
+            //        {
+            //            while (reader.Read())
+            //            {
+            //                moduleNameList.Add(reader[0].ToString());
+            //            }
+            //        }
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        string title = "Reading data from Module table";
+            //        MessageBox.Show("Error = " + ex.Message, title);
+            //    }
+            //}
+            //return moduleNameList;
         }
 
         /// <summary>
@@ -196,33 +205,40 @@ namespace LitRevResourceMVP.Repositories
         /// <returns>int idNum</returns>
         public int GetModIdNum(string name)
         {
-            int idnum = 0;
-            using (var connection = new SqlConnection(connectionString))
-            using (var command = new SqlCommand())
+            using (IDbConnection conn = new SqlConnection(connectionString))
             {
-                try
-                {
-                    connection.Open();
-                    command.Connection = connection;
-                    command.CommandText = "SELECT Mod_IdNum from Module_table WHERE Mod_Name=@modname";
-                    command.Parameters.AddWithValue("@modname", SqlDbType.VarChar).Value = name;
-
-                    using (var reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            idnum = (int) reader[0];
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    string title = "Reading data from Module table";
-                    MessageBox.Show("Error = " + ex.Message, title);
-                }
+                int idnum = 0;
+                string command = "SELECT Mod_IdNum from Module_table WHERE Mod_Name=@name";
+                idnum = conn.ExecuteScalar<int>(command, param: new { name });
+                return idnum;
             }
 
-            return idnum;
+            //using (var connection = new SqlConnection(connectionString))
+            //using (var command = new SqlCommand())
+            //{
+            //    try
+            //    {
+            //        connection.Open();
+            //        command.Connection = connection;
+            //        command.CommandText = "SELECT Mod_IdNum from Module_table WHERE Mod_Name=@modname";
+            //        command.Parameters.AddWithValue("@modname", SqlDbType.VarChar).Value = name;
+
+            //        using (var reader = command.ExecuteReader())
+            //        {
+            //            while (reader.Read())
+            //            {
+            //                idnum = (int) reader[0];
+            //            }
+            //        }
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        string title = "Reading data from Module table";
+            //        MessageBox.Show("Error = " + ex.Message, title);
+            //    }
+            //}
+
+            //return idnum;
         }
     }
 }
