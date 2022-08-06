@@ -82,8 +82,19 @@ namespace LitRevResourceMVP.Views
         /// </summary>
         private void AssociateAndRaiseViewEvents()
         {
+
             //used in tab1 select resource
-            Btn_Search.Click += delegate { SearchEvent?.Invoke(this, EventArgs.Empty); };
+            Btn_Search.Click += delegate
+            {
+                if (AssignIdNum == string.Empty)
+                {
+                    MessageBox.Show("Please select an assignment first.", "Input error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                else
+                {
+                    SearchEvent?.Invoke(this, EventArgs.Empty);
+                }
+            };
             Tbx_Search.KeyDown += (s, e) =>
             {
                 if (e.KeyCode == Keys.Enter)
@@ -92,28 +103,48 @@ namespace LitRevResourceMVP.Views
 
             Btn_AddNew.Click += delegate
             {
-                AddNewEvent?.Invoke(this, EventArgs.Empty);
-                Tbcl_ResourceList.TabPages.Remove(tabPage1);
-                Tbcl_ResourceList.TabPages.Add(tabPage2);
-
+                if (AssignIdNum == string.Empty)
+                {
+                    MessageBox.Show("Please select an assignment first.", "Input error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                else
+                {
+                    AddNewEvent?.Invoke(this, EventArgs.Empty);
+                    Tbcl_ResourceList.TabPages.Remove(tabPage1);
+                    Tbcl_ResourceList.TabPages.Add(tabPage2);
+                }
             };
 
             Btn_Delete.Click += delegate
             {
-                var result = MessageBox.Show("Are you sure you want to delete the resource?", "Warning",
-                    MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (result == DialogResult.Yes)
+                if (AssignIdNum == string.Empty)
                 {
-                    DeleteEvent?.Invoke(this, EventArgs.Empty);
-                    MessageBox.Show(Message);
+                    MessageBox.Show("Please select an assignment first.", "Input error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                else
+                {
+                    var result = MessageBox.Show("Are you sure you want to delete the resource?", "Warning",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (result == DialogResult.Yes)
+                    {
+                        DeleteEvent?.Invoke(this, EventArgs.Empty);
+                        MessageBox.Show(Message);
+                    }
                 }
             };
 
             Btn_Edit.Click += delegate
             {
-                EditEvent?.Invoke(this, EventArgs.Empty);
-                Tbcl_ResourceList.TabPages.Remove(tabPage1);
-                Tbcl_ResourceList.TabPages.Add(tabPage2);
+                if (AssignIdNum == string.Empty)
+                {
+                    MessageBox.Show("Please select an assignment first.", "Input error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                else
+                {
+                    EditEvent?.Invoke(this, EventArgs.Empty);
+                    Tbcl_ResourceList.TabPages.Remove(tabPage1);
+                    Tbcl_ResourceList.TabPages.Add(tabPage2);
+                }
             };
 
            Btn_CreateAddRef.Click += delegate

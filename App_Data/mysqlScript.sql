@@ -58,12 +58,12 @@ COLLATE = utf8mb4_0900_ai_ci;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `litrevresourcedb`.`resource_table` (
   `Res_IdNum` INT NOT NULL,
-  `Res_Weblink` VARCHAR(100) NULL DEFAULT NULL,
+  `Res_Category` VARCHAR(50) NULL DEFAULT NULL,
+  `Res_Weblink` VARCHAR(200) NULL DEFAULT NULL,
   `Res_Type` VARCHAR(20) NULL DEFAULT NULL,
-  `Res_DoiNum` VARCHAR(30) NULL DEFAULT NULL,
   `Res_DateAccessed` DATE NULL DEFAULT NULL,
-  `Res_Category` VARCHAR(20) NULL DEFAULT NULL,
   `Res_Reference` VARCHAR(100) NULL DEFAULT NULL,
+  `Res_DoiNum` VARCHAR(30) NULL DEFAULT NULL,
   `Res_MainPoint` VARCHAR(2000) NULL DEFAULT NULL,
   `Res_Notes` VARCHAR(4000) NULL DEFAULT NULL,
   `Assign_IdNum` INT NULL DEFAULT NULL,

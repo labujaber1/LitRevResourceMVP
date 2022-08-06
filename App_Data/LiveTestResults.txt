@@ -72,3 +72,28 @@ Observations and ammendments are recorded here.
 	Multiple lines already set so vertical schrollbar added.
 	05/08/2022
 
+13. Change db idnum to more relavent composite keys.
+13.1. 
+
+14. Reference needs multiple lines and schroll bar
+14.1. Added scroll bar vertical, already set multiple lines
+	05/08/2022
+
+15. Saving new resource when assignment not selected produces system 
+	unhandled exception, continue/quit. Need to handle event properly.
+	if assignment not selected...
+15.1. Added if/else and warning message to resourceview class 'add new','delete'
+	'search',and 'edit' click events prior to invoking event handler.
+	06/08/2022
+
+16. Date not changing to current.
+16.1. Changed in design view for resource and assignment to datetime.now.
+	06/08/2022
+
+17. 
+17.1. 
+
+18. 
+18.1. 
+
+

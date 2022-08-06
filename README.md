@@ -50,7 +50,7 @@ Add ability to enter username and password on connection but not stored in conne
 delete from file on close.
 Add unit tests.
 Add graphs/tables when testing complete and used in real world. Not sure what would be useful.
-Adjust code in view that should be in presenter to keep to MPV design.
+Adjust code in view that should be in presenter to keep to MPV design.###no need
 Add ability to use different databases such as ode, mysql, etc.
 Add ability to choose between embedded or external database.
 Add copy of current database as embedded.

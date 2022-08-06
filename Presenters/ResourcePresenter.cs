@@ -149,7 +149,6 @@ namespace LitRevResourceMVP.Presenters
         /// <param name="e"></param>
         private void SaveResource(object sender, EventArgs e)
         {
-            
             var model = new ResourceModel();
             if (view.ResIdNum != "")
             {
@@ -187,9 +186,9 @@ namespace LitRevResourceMVP.Presenters
             catch (Exception ex)
             {
                 view.IsSuccessful = false;
-                view.Message = "Error = "+ ex.Message;
+                view.Message = "Error = " + ex.Message;
             }
-
+            
         }
 
         /// <summary>
