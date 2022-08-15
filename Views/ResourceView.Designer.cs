@@ -173,7 +173,7 @@ namespace LitRevResourceMVP.Views
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(366, 31);
             this.dateTimePicker1.TabIndex = 5;
-            this.dateTimePicker1.Value = new System.DateTime(2022, 8, 6, 17, 4, 30, 327);
+            this.dateTimePicker1.Value = System.DateTime.Now;
             // 
             // Btn_CreateAddRef
             // 
