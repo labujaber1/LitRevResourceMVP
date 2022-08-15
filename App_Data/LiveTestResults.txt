@@ -90,10 +90,10 @@ Observations and ammendments are recorded here.
 16.1. Changed in design view for resource and assignment to datetime.now.
 	06/08/2022
 
-17. 
+17. Categories not updating when adding a new resource.
 17.1. 
 
-18. 
+18. Create db script for internal db
 18.1. 
 
 

@@ -66,7 +66,7 @@ namespace LitRevResourceMVP.Views
             this.Btn_CloseDBConnSetup.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.Btn_CloseDBConnSetup.BackColor = System.Drawing.Color.OrangeRed;
             this.Btn_CloseDBConnSetup.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Btn_CloseDBConnSetup.Location = new System.Drawing.Point(645, 24);
+            this.Btn_CloseDBConnSetup.Location = new System.Drawing.Point(600, 24);
             this.Btn_CloseDBConnSetup.Name = "Btn_CloseDBConnSetup";
             this.Btn_CloseDBConnSetup.Size = new System.Drawing.Size(168, 51);
             this.Btn_CloseDBConnSetup.TabIndex = 0;
@@ -81,7 +81,7 @@ namespace LitRevResourceMVP.Views
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(849, 68);
+            this.panel1.Size = new System.Drawing.Size(804, 68);
             this.panel1.TabIndex = 1;
             // 
             // Lbl_DBConnSetupTitle
@@ -98,7 +98,7 @@ namespace LitRevResourceMVP.Views
             // Btn_AddToList
             // 
             this.Btn_AddToList.BackColor = System.Drawing.Color.Chartreuse;
-            this.Btn_AddToList.Location = new System.Drawing.Point(633, 132);
+            this.Btn_AddToList.Location = new System.Drawing.Point(578, 132);
             this.Btn_AddToList.Name = "Btn_AddToList";
             this.Btn_AddToList.Size = new System.Drawing.Size(185, 51);
             this.Btn_AddToList.TabIndex = 2;
@@ -108,10 +108,10 @@ namespace LitRevResourceMVP.Views
             // Tbx_Password
             // 
             this.Tbx_Password.BackColor = System.Drawing.SystemColors.MenuBar;
-            this.Tbx_Password.Location = new System.Drawing.Point(303, 152);
+            this.Tbx_Password.Location = new System.Drawing.Point(291, 152);
             this.Tbx_Password.Name = "Tbx_Password";
             this.Tbx_Password.PlaceholderText = "Leave blank if not required";
-            this.Tbx_Password.Size = new System.Drawing.Size(322, 31);
+            this.Tbx_Password.Size = new System.Drawing.Size(272, 31);
             this.Tbx_Password.TabIndex = 3;
             // 
             // Lbl_UserName
@@ -129,13 +129,13 @@ namespace LitRevResourceMVP.Views
             this.Tbx_UserName.Location = new System.Drawing.Point(18, 152);
             this.Tbx_UserName.Name = "Tbx_UserName";
             this.Tbx_UserName.PlaceholderText = "Leave blank if not required";
-            this.Tbx_UserName.Size = new System.Drawing.Size(267, 31);
+            this.Tbx_UserName.Size = new System.Drawing.Size(258, 31);
             this.Tbx_UserName.TabIndex = 2;
             // 
             // Lbl_Password
             // 
             this.Lbl_Password.AutoSize = true;
-            this.Lbl_Password.Location = new System.Drawing.Point(303, 124);
+            this.Lbl_Password.Location = new System.Drawing.Point(291, 124);
             this.Lbl_Password.Name = "Lbl_Password";
             this.Lbl_Password.Size = new System.Drawing.Size(87, 25);
             this.Lbl_Password.TabIndex = 1;
@@ -145,7 +145,7 @@ namespace LitRevResourceMVP.Views
             // 
             this.Btn_DeleteList.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.Btn_DeleteList.BackColor = System.Drawing.Color.Red;
-            this.Btn_DeleteList.Location = new System.Drawing.Point(58, 24);
+            this.Btn_DeleteList.Location = new System.Drawing.Point(30, 24);
             this.Btn_DeleteList.Name = "Btn_DeleteList";
             this.Btn_DeleteList.Size = new System.Drawing.Size(112, 51);
             this.Btn_DeleteList.TabIndex = 4;
@@ -156,7 +156,7 @@ namespace LitRevResourceMVP.Views
             // 
             this.Btn_EditList.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.Btn_EditList.BackColor = System.Drawing.Color.Chartreuse;
-            this.Btn_EditList.Location = new System.Drawing.Point(398, 24);
+            this.Btn_EditList.Location = new System.Drawing.Point(332, 24);
             this.Btn_EditList.Name = "Btn_EditList";
             this.Btn_EditList.Size = new System.Drawing.Size(231, 51);
             this.Btn_EditList.TabIndex = 3;
@@ -173,14 +173,14 @@ namespace LitRevResourceMVP.Views
             this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel4.Location = new System.Drawing.Point(0, 581);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(849, 100);
+            this.panel4.Size = new System.Drawing.Size(804, 100);
             this.panel4.TabIndex = 4;
             // 
             // Btn_ConnTest
             // 
             this.Btn_ConnTest.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.Btn_ConnTest.BackColor = System.Drawing.Color.Orange;
-            this.Btn_ConnTest.Location = new System.Drawing.Point(200, 24);
+            this.Btn_ConnTest.Location = new System.Drawing.Point(148, 24);
             this.Btn_ConnTest.Name = "Btn_ConnTest";
             this.Btn_ConnTest.Size = new System.Drawing.Size(178, 51);
             this.Btn_ConnTest.TabIndex = 1;
@@ -217,7 +217,7 @@ namespace LitRevResourceMVP.Views
             // Lbl_Provider
             // 
             this.Lbl_Provider.AutoSize = true;
-            this.Lbl_Provider.Location = new System.Drawing.Point(433, 22);
+            this.Lbl_Provider.Location = new System.Drawing.Point(405, 22);
             this.Lbl_Provider.Name = "Lbl_Provider";
             this.Lbl_Provider.Size = new System.Drawing.Size(125, 25);
             this.Lbl_Provider.TabIndex = 8;
@@ -225,9 +225,9 @@ namespace LitRevResourceMVP.Views
             // 
             // Tbx_Provider
             // 
-            this.Tbx_Provider.Location = new System.Drawing.Point(433, 53);
+            this.Tbx_Provider.Location = new System.Drawing.Point(405, 53);
             this.Tbx_Provider.Name = "Tbx_Provider";
-            this.Tbx_Provider.Size = new System.Drawing.Size(363, 31);
+            this.Tbx_Provider.Size = new System.Drawing.Size(358, 31);
             this.Tbx_Provider.TabIndex = 9;
             // 
             // Tbx_DataSource
@@ -235,12 +235,12 @@ namespace LitRevResourceMVP.Views
             this.Tbx_DataSource.Location = new System.Drawing.Point(76, 90);
             this.Tbx_DataSource.Name = "Tbx_DataSource";
             this.Tbx_DataSource.PlaceholderText = "Enter data source";
-            this.Tbx_DataSource.Size = new System.Drawing.Size(271, 31);
+            this.Tbx_DataSource.Size = new System.Drawing.Size(237, 31);
             this.Tbx_DataSource.TabIndex = 10;
             // 
             // Tbx_InitCat
             // 
-            this.Tbx_InitCat.Location = new System.Drawing.Point(353, 90);
+            this.Tbx_InitCat.Location = new System.Drawing.Point(320, 90);
             this.Tbx_InitCat.Name = "Tbx_InitCat";
             this.Tbx_InitCat.PlaceholderText = "Enter initial catalog";
             this.Tbx_InitCat.Size = new System.Drawing.Size(264, 31);
@@ -248,7 +248,7 @@ namespace LitRevResourceMVP.Views
             // 
             // Tbx_IntegSec
             // 
-            this.Tbx_IntegSec.Location = new System.Drawing.Point(623, 91);
+            this.Tbx_IntegSec.Location = new System.Drawing.Point(590, 91);
             this.Tbx_IntegSec.Name = "Tbx_IntegSec";
             this.Tbx_IntegSec.PlaceholderText = "Integrated security";
             this.Tbx_IntegSec.Size = new System.Drawing.Size(173, 31);
@@ -279,7 +279,7 @@ namespace LitRevResourceMVP.Views
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 33;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(796, 187);
+            this.dataGridView1.Size = new System.Drawing.Size(751, 187);
             this.dataGridView1.TabIndex = 16;
             // 
             // groupBox1
@@ -303,7 +303,7 @@ namespace LitRevResourceMVP.Views
             this.groupBox1.Controls.Add(this.Tbx_InitCat);
             this.groupBox1.Location = new System.Drawing.Point(12, 74);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(824, 200);
+            this.groupBox1.Size = new System.Drawing.Size(779, 200);
             this.groupBox1.TabIndex = 17;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Add a new connection";
@@ -318,7 +318,7 @@ namespace LitRevResourceMVP.Views
             this.groupBox2.Controls.Add(this.Lbl_ConnectionString);
             this.groupBox2.Location = new System.Drawing.Point(12, 292);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(825, 283);
+            this.groupBox2.Size = new System.Drawing.Size(780, 283);
             this.groupBox2.TabIndex = 14;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Connection string(s) in debug/app.config or .dll.config when live ";
@@ -340,7 +340,7 @@ namespace LitRevResourceMVP.Views
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightCoral;
-            this.ClientSize = new System.Drawing.Size(849, 681);
+            this.ClientSize = new System.Drawing.Size(804, 681);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel4);

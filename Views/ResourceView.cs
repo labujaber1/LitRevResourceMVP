@@ -345,12 +345,12 @@ namespace LitRevResourceMVP.Views
             if (dgv != null)
             {
                 ResIdNum = dgv.CurrentRow.Cells[0].Value.ToString();
-                ResWebLink = dgv.CurrentRow.Cells[1].Value.ToString();
-                ResType = dgv.CurrentRow.Cells[2].Value.ToString();
-                ResDoiNum = dgv.CurrentRow.Cells[3].Value.ToString();
+                ResCategory = dgv.CurrentRow.Cells[1].Value.ToString();
+                ResWebLink = dgv.CurrentRow.Cells[2].Value.ToString();
+                ResType = dgv.CurrentRow.Cells[3].Value.ToString();
                 ResDateAccessed = (DateTime)dgv.CurrentRow.Cells[4].Value;
-                ResCategory = dgv.CurrentRow.Cells[5].Value.ToString();
-                ResReference = dgv.CurrentRow.Cells[6].Value.ToString();
+                ResReference = dgv.CurrentRow.Cells[5].Value.ToString();
+                ResDoiNum = dgv.CurrentRow.Cells[6].Value.ToString();
                 ResMainPoint = dgv.CurrentRow.Cells[7].Value.ToString();
                 ResNotes = dgv.CurrentRow.Cells[8].Value.ToString();
             }

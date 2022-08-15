@@ -151,7 +151,7 @@ namespace LitRevResourceMVP.Views
             this.Tbx_Reference.Name = "Tbx_Reference";
             this.Tbx_Reference.PlaceholderText = "Paste or add reference";
             this.Tbx_Reference.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.Tbx_Reference.Size = new System.Drawing.Size(610, 36);
+            this.Tbx_Reference.Size = new System.Drawing.Size(788, 36);
             this.Tbx_Reference.TabIndex = 7;
             // 
             // Rtbx_MainPoint
@@ -161,7 +161,7 @@ namespace LitRevResourceMVP.Views
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Rtbx_MainPoint.Location = new System.Drawing.Point(7, 270);
             this.Rtbx_MainPoint.Name = "Rtbx_MainPoint";
-            this.Rtbx_MainPoint.Size = new System.Drawing.Size(659, 157);
+            this.Rtbx_MainPoint.Size = new System.Drawing.Size(659, 147);
             this.Rtbx_MainPoint.TabIndex = 8;
             this.Rtbx_MainPoint.Text = "Main point - \n";
             // 
@@ -173,15 +173,15 @@ namespace LitRevResourceMVP.Views
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(366, 31);
             this.dateTimePicker1.TabIndex = 5;
-            this.dateTimePicker1.Value = System.DateTime.Now;
+            this.dateTimePicker1.Value = new System.DateTime(2022, 8, 6, 17, 4, 30, 327);
             // 
             // Btn_CreateAddRef
             // 
             this.Btn_CreateAddRef.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.Btn_CreateAddRef.BackColor = System.Drawing.Color.Bisque;
-            this.Btn_CreateAddRef.Location = new System.Drawing.Point(623, 191);
+            this.Btn_CreateAddRef.Location = new System.Drawing.Point(672, 230);
             this.Btn_CreateAddRef.Name = "Btn_CreateAddRef";
-            this.Btn_CreateAddRef.Size = new System.Drawing.Size(173, 38);
+            this.Btn_CreateAddRef.Size = new System.Drawing.Size(123, 60);
             this.Btn_CreateAddRef.TabIndex = 15;
             this.Btn_CreateAddRef.Text = "Add ref in file";
             this.Btn_CreateAddRef.UseVisualStyleBackColor = false;
@@ -201,7 +201,7 @@ namespace LitRevResourceMVP.Views
             // 
             this.Btn_Cancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.Btn_Cancel.BackColor = System.Drawing.Color.Silver;
-            this.Btn_Cancel.Location = new System.Drawing.Point(684, 448);
+            this.Btn_Cancel.Location = new System.Drawing.Point(684, 467);
             this.Btn_Cancel.Name = "Btn_Cancel";
             this.Btn_Cancel.Size = new System.Drawing.Size(111, 71);
             this.Btn_Cancel.TabIndex = 13;
@@ -212,7 +212,7 @@ namespace LitRevResourceMVP.Views
             // 
             this.Btn_Save.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.Btn_Save.BackColor = System.Drawing.Color.Bisque;
-            this.Btn_Save.Location = new System.Drawing.Point(684, 352);
+            this.Btn_Save.Location = new System.Drawing.Point(684, 376);
             this.Btn_Save.Name = "Btn_Save";
             this.Btn_Save.Size = new System.Drawing.Size(111, 73);
             this.Btn_Save.TabIndex = 12;
@@ -474,7 +474,7 @@ namespace LitRevResourceMVP.Views
             this.Btn_MainCharLength.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.Btn_MainCharLength.BackColor = System.Drawing.Color.Gainsboro;
             this.Btn_MainCharLength.Font = new System.Drawing.Font("Segoe UI", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Btn_MainCharLength.Location = new System.Drawing.Point(672, 284);
+            this.Btn_MainCharLength.Location = new System.Drawing.Point(672, 314);
             this.Btn_MainCharLength.Name = "Btn_MainCharLength";
             this.Btn_MainCharLength.Size = new System.Drawing.Size(112, 34);
             this.Btn_MainCharLength.TabIndex = 10;
@@ -791,7 +791,7 @@ namespace LitRevResourceMVP.Views
             this.Btn_RefBack.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.Btn_RefBack.Location = new System.Drawing.Point(617, 573);
             this.Btn_RefBack.Name = "Btn_RefBack";
-            this.Btn_RefBack.Size = new System.Drawing.Size(112, 47);
+            this.Btn_RefBack.Size = new System.Drawing.Size(122, 47);
             this.Btn_RefBack.TabIndex = 21;
             this.Btn_RefBack.Text = "Back";
             this.Btn_RefBack.UseVisualStyleBackColor = false;
