@@ -96,4 +96,20 @@ Observations and ammendments are recorded here.
 18. Create db script for internal db
 18.1. 
 
+19. Couldn't save, doi number error exceeded max length in db
+19.1. Increased size of doi(50), reference(300), 
+	resource type(50) in db and model 
+	15/08/2022.
+
+20. When 'Add new' clicked, displays a clicked resource rather than empty
+	and previously displayed link label.
+20.1. check add method for click event.??
+
+21. Previously displayed resource link will display on new 'add new' event.
+21.1. 
+
+
+
+
+
 

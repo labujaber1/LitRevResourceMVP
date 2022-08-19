@@ -34,12 +34,12 @@ namespace LitRevResourceMVP.Models
         public string Category { get { return category; } set { category = value; } }
 
         [DisplayName("Web link")]
-        [StringLength(200, ErrorMessage = "Web link - Only 200 characters can be used")]
+        [StringLength(300, ErrorMessage = "Web link - Only 300 characters can be used")]
         [Required(ErrorMessage = "Web link is useful so please enter one ")]
         public string Web_Link { get { return webLink; } set { webLink = value; } }
 
         [DisplayName("Resource type")]
-        [StringLength(20, ErrorMessage = "Resource type - Only 20 characters can be used")]
+        [StringLength(50, ErrorMessage = "Resource type - Only 50 characters can be used")]
         [Required(ErrorMessage = "Resource name is useful so please enter one ")]
         public string Resource_Type { get { return resType; } set { resType = value; } }
 
@@ -48,11 +48,12 @@ namespace LitRevResourceMVP.Models
         public DateTime Date_Accessed { get { return dateAccessed; } set { dateAccessed = value; } }
 
         [DisplayName("Resource reference")]
-        [StringLength(100, ErrorMessage = "Resource reference - Only 100 characters can be used")]
+        [StringLength(300, ErrorMessage = "Resource reference - Only 300 characters can be used")]
         [Required(ErrorMessage = "Please enter a valid formatted reference")]
         public string Reference { get { return reference; } set { reference = value; } }
 
         [DisplayName("DOI number")]
+        [StringLength(50, ErrorMessage = "DOI number - Only 50 characters can be used")]
         public string DOI_Num { get { return doiNum; } set { doiNum = value; } }
 
         [DisplayName("Main point")]

@@ -173,7 +173,7 @@ namespace LitRevResourceMVP.Views
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(366, 31);
             this.dateTimePicker1.TabIndex = 5;
-            this.dateTimePicker1.Value = System.DateTime.Now;
+            this.dateTimePicker1.Value = new System.DateTime(2022, 8, 15, 18, 10, 51, 450);
             // 
             // Btn_CreateAddRef
             // 
@@ -494,7 +494,7 @@ namespace LitRevResourceMVP.Views
             // 
             // Lbl_ViewCategories
             // 
-            this.Lbl_ViewCategories.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.Lbl_ViewCategories.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Lbl_ViewCategories.AutoSize = true;
             this.Lbl_ViewCategories.BackColor = System.Drawing.Color.Transparent;
             this.Lbl_ViewCategories.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
