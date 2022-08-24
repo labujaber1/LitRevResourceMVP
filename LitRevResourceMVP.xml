@@ -1968,7 +1968,7 @@
             <param name="sender"></param>
             <param name="e"></param>
         </member>
-        <member name="M:LitRevResourceMVP.Views.ResourceView.DataGridViewAssign_CellContentClick(System.Object,System.Windows.Forms.DataGridViewCellEventArgs)">
+        <member name="M:LitRevResourceMVP.Views.ResourceView.DataGridViewAssign_CellClick(System.Object,System.Windows.Forms.DataGridViewCellEventArgs)">
             <summary>
             Invokes viewResources event when cell clicked in the assign datagridview. 
             Adds the assignment number in the selected row to textbox for viewing and retrieval.
@@ -1976,9 +1976,9 @@
             <param name="sender"></param>
             <param name="e"></param>
         </member>
-        <member name="M:LitRevResourceMVP.Views.ResourceView.DataGridViewResource_CellContentClick(System.Object,System.Windows.Forms.DataGridViewCellEventArgs)">
+        <member name="M:LitRevResourceMVP.Views.ResourceView.DataGridViewResource_CellClick(System.Object,System.Windows.Forms.DataGridViewCellEventArgs)">
             <summary>
-            Gets the resource data for the current selected row in the resource datagridview
+            Gets the resource data for the current selected row in the resource datagridview (used for edit function)
             </summary>
             <param name="sender"></param>
             <param name="e"></param>

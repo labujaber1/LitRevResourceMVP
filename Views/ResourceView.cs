@@ -325,7 +325,7 @@ namespace LitRevResourceMVP.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void DataGridViewAssign_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void DataGridViewAssign_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (this.dataGridViewAssign.CurrentRow.DataBoundItem is DataRowView drv)
             {
@@ -335,11 +335,11 @@ namespace LitRevResourceMVP.Views
         }
 
         /// <summary>
-        /// Gets the resource data for the current selected row in the resource datagridview
+        /// Gets the resource data for the current selected row in the resource datagridview (used for edit function)
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void DataGridViewResource_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void DataGridViewResource_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             DataGridView dgv = dataGridViewResource;
             if (dgv != null)
@@ -380,8 +380,8 @@ namespace LitRevResourceMVP.Views
         /// <param name="categoryList"></param>
         public void SetCategoryListBindingSource(BindingSource categoryList)
         {
-            Lbx_ListOfCategories.DataSource = categoryList;
             Lbx_ViewResCategories.DataSource = categoryList;
+            Lbx_ListOfCategories.DataSource = categoryList;
         }
 
         /// <summary>

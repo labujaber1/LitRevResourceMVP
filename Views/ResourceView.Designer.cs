@@ -306,6 +306,7 @@ namespace LitRevResourceMVP.Views
             // 
             this.dataGridViewAssign.AllowUserToAddRows = false;
             this.dataGridViewAssign.AllowUserToDeleteRows = false;
+            this.dataGridViewAssign.AllowUserToOrderColumns = true;
             this.dataGridViewAssign.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewAssign.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -318,7 +319,7 @@ namespace LitRevResourceMVP.Views
             this.dataGridViewAssign.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dataGridViewAssign.Size = new System.Drawing.Size(776, 191);
             this.dataGridViewAssign.TabIndex = 9;
-            this.dataGridViewAssign.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewAssign_CellContentClick);
+            this.dataGridViewAssign.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewAssign_CellClick);
             // 
             // Lbl_SelectAssignment
             // 
@@ -393,7 +394,7 @@ namespace LitRevResourceMVP.Views
             this.dataGridViewResource.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dataGridViewResource.Size = new System.Drawing.Size(776, 240);
             this.dataGridViewResource.TabIndex = 2;
-            this.dataGridViewResource.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewResource_CellContentClick);
+            this.dataGridViewResource.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewResource_CellClick);
             // 
             // Btn_Delete
             // 

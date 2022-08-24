@@ -4,23 +4,24 @@ Observations and ammendments are recorded here.
 1. Extra successful message after new and edited resource saved
 1.1. Changed to debug.writeline "updated database successfully" from messagebox. 
 	Still two messages to confirm save/edit successful and database updated. 
-	29/07/2022
+	29/07/2022. Tested ok.
 
 2. No total for characters used in resource main point and notes
 2.2. Added max in message of total chars used. Presenter class.
-	29/07/2022
+	29/07/2022. Tested ok.
 
 3. Can select id first columns. Make readonly in models.
 3.1. Changed in each model.
-	29/07/2022
+	29/07/2022. Tested ok.
 
 4. Missing xml data (comments) in all model classes.
 4.1. Added configure severity = none for models.
-	30/07/2022
+	30/07/2022. Tested ok.
 
 5. Main and notes char used show message wrong way round. Resources.
 5.1. Swapped round messages. Added xml comments as was also missing.
-	29/07/2022
+	29/07/2022. Tested ok.
+
 6. Pasted image to notes/mainpoint which correctly produced error when 
 	trying to save but even when image deleted it still appears when
 	trying to save. "Error input not properly formatted."
@@ -31,25 +32,25 @@ Observations and ammendments are recorded here.
 6.1. Added 'assignResDataSet.Tables[1].Clear()' in repository 
 	updateDBFromDataTable method between adapter.update and fill.
 	line 124 resource repositiry class.
-	01/08/2022
+	01/08/2022. Tested ok.
 
 7. Expanding and minimising mucks up page format as not all coponents
 	docked properly.
 7.1. Played with docking in all views. Works for expand but cannot 
 	work correctly with manual minimise as too much on screen. 
 	It has been designed at minimal screen size.
-	30/07/2022
+	30/07/2022. Tested ok.
 
 8. Datagridview titles need rearranging in models in order of relevence
 	on initial, limited first viewing.
 8.1. Requires all db tables, get methods and update methods etc to change.
 	Changed category to index1 and dio index6 in db, model, and repos.
-	05/08/2022
+	05/08/2022. Tested ok.
 
 9. Set column widths to view names and weblinks better 
 9.1. Set to user can change column width in resource tab.
 	Already set to columnheader width. Column names taken from DB.
-	05/08/2022
+	05/08/2022. Tested ok.
 
 10. Sort out virtual/foreign key in models and do not show in 
 	datagridviews.
@@ -57,59 +58,83 @@ Observations and ammendments are recorded here.
 	05/08/2022 (F)
 	Took out ienum and fk from models as not needed since app taking from
 	db.
-	05/08/2022.
+	05/08/2022. Tested ok.
 
 11. Error message titles in models validation. 
 	Received error only 100 char can be used but dont know what 
 	for. Think its weblink in this case.
-11.1. Added field name to error messages in models classes where 
-	applicable.
-	05/08/2022
+11.1. Added field name to error messages in models classes where applicable.
+	05/08/2022. Tested ok.
 
 12. Extend max char for weblink and set multiple lines in 
 	weblink textbox. Copied big one but only half shown.
 12.1. Increased weblink in model and database to 200.
 	Multiple lines already set so vertical schrollbar added.
-	05/08/2022
+	05/08/2022. Tested ok.
 
+#####
 13. Change db idnum to more relavent composite keys.
 13.1. 
+#####
 
 14. Reference needs multiple lines and schroll bar
 14.1. Added scroll bar vertical, already set multiple lines
-	05/08/2022
+	05/08/2022. Tested ok.
 
 15. Saving new resource when assignment not selected produces system 
 	unhandled exception, continue/quit. Need to handle event properly.
 	if assignment not selected...
 15.1. Added if/else and warning message to resourceview class 'add new','delete'
 	'search',and 'edit' click events prior to invoking event handler.
-	06/08/2022
+	06/08/2022. Tested ok.
 
 16. Date not changing to current.
 16.1. Changed in design view for resource and assignment to datetime.now.
-	06/08/2022
+	06/08/2022. Tested ok.
 
 17. Categories not updating when adding a new resource.
-17.1. 
+17.1. Both category list boxes have binding source to categorylist but only 
+	updates when the assignment is selected and instigates a clickevent.
+	The data displayed depends upon a click event raised with an idnum of 
+	the assignment. Added 'LoadAssignResources' method to the 'saveresource'
+	method in the resourcePresenter class and tested ok.
+	24/08/2022. Tested ok.
 
+######
 18. Create db script for internal db
-18.1. 
+18.1. Waiting for live test completion as db column max char has changed few times.
+	Underestimated length of references, weblinks.
+######
 
 19. Couldn't save, doi number error exceeded max length in db
 19.1. Increased size of doi(50), reference(300), 
 	resource type(50) in db and model 
-	15/08/2022.
+	15/08/2022. Tested ok.
 
 20. When 'Add new' clicked, displays a clicked resource rather than empty
 	and previously displayed link label.
-20.1. check add method for click event.??
+20.1. See no.22.1 for resolution. 24/08/2022. Tested ok.
 
 21. Previously displayed resource link will display on new 'add new' event.
-21.1. 
+21.1. check add method for click event. Added ' view.ActiveWebLink.Text = "www.new";'
+	to 'addnewresource' method to reset value. 
+	24/08/2022. Tested ok.
 
+22. Edit data displays on click of 3rd cell 'weblink'. Who's gonna know that.
+	Displays correctly if edit clicked first on 2nd cell. If addnew or edit then
+	requires 3rd cell click to display data else empty. 
+	Skips : DataGridViewResource_CellContentClick(object sender, DataGridViewCellEventArgs e)
+	in resourceview class. 
+22.1. Changed cellcontentclick events to cellclick for assign and resources datagridview
+	in resourcesview class.
+	24/08/2022. Tested ok.
 
+#####
+23. Reprint sql query file for app.data on live test completion.
+23.1. 
+#####
 
-
+24. 
+24.1. 
 
 

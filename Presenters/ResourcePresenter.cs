@@ -140,6 +140,7 @@ namespace LitRevResourceMVP.Presenters
         private void AddNewResource(object sender, EventArgs e)
         {
             view.IsEdit = false;
+            view.ActiveWebLink.Text = "www.new";
         }
 
         /// <summary>
@@ -181,6 +182,7 @@ namespace LitRevResourceMVP.Presenters
                 }
                 view.IsSuccessful = true;
                 repository.UpdateDBFromDataTable(assignResDataSet); //adapter update and fill
+                LoadAssignResources(sender, e); //testing
                 ClearAllTextFields();
             }
             catch (Exception ex)
