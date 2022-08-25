@@ -38,8 +38,9 @@ Observations and ammendments are recorded here.
 	docked properly.
 7.1. Played with docking in all views. Works for expand but cannot 
 	work correctly with manual minimise as too much on screen. 
-	It has been designed at minimal screen size.
+	It has been designed at minimal screen size. 
 	30/07/2022. Tested ok.
+	## Changed formborderstyle to Fixed3D so cannot manually adjust.(24/08/22)
 
 8. Datagridview titles need rearranging in models in order of relevence
 	on initial, limited first viewing.
@@ -72,69 +73,78 @@ Observations and ammendments are recorded here.
 	Multiple lines already set so vertical schrollbar added.
 	05/08/2022. Tested ok.
 
-#####
-13. Change db idnum to more relavent composite keys.
-13.1. 
-#####
 
-14. Reference needs multiple lines and schroll bar
-14.1. Added scroll bar vertical, already set multiple lines
+
+13. Reference needs multiple lines and schroll bar
+13.1. Added scroll bar vertical, already set multiple lines
 	05/08/2022. Tested ok.
 
-15. Saving new resource when assignment not selected produces system 
+14. Saving new resource when assignment not selected produces system 
 	unhandled exception, continue/quit. Need to handle event properly.
 	if assignment not selected...
-15.1. Added if/else and warning message to resourceview class 'add new','delete'
+14.1. Added if/else and warning message to resourceview class 'add new','delete'
 	'search',and 'edit' click events prior to invoking event handler.
 	06/08/2022. Tested ok.
 
-16. Date not changing to current.
-16.1. Changed in design view for resource and assignment to datetime.now.
+15. Date not changing to current.
+15.1. Changed in design view for resource and assignment to datetime.now.
 	06/08/2022. Tested ok.
 
-17. Categories not updating when adding a new resource.
-17.1. Both category list boxes have binding source to categorylist but only 
+16. Categories not updating when adding a new resource.
+16.1. Both category list boxes have binding source to categorylist but only 
 	updates when the assignment is selected and instigates a clickevent.
 	The data displayed depends upon a click event raised with an idnum of 
 	the assignment. Added 'LoadAssignResources' method to the 'saveresource'
 	method in the resourcePresenter class and tested ok.
 	24/08/2022. Tested ok.
 
+17. Couldn't save, doi number error exceeded max length in db
+17.1. Increased size of doi(50), reference(300), 
+	resource type(50) in db and model 
+	15/08/2022. Tested ok.
+
+18. When 'Add new' clicked, displays a clicked resource rather than empty
+	and previously displayed link label.
+18.1. See no.22.1 for resolution. 24/08/2022. Tested ok.
+
+19. Previously displayed resource link will display on new 'add new' event.
+19.1. check add method for click event. Added ' view.ActiveWebLink.Text = "www.new";'
+	to 'addnewresource' method to reset value. 
+	24/08/2022. Tested ok.
+
+20. Edit data displays on click of 3rd cell 'weblink'. Who's gonna know that.
+	Displays correctly if edit clicked first on 2nd cell. If addnew or edit then
+	requires 3rd cell click to display data else empty. 
+	Skips : DataGridViewResource_CellContentClick(object sender, DataGridViewCellEventArgs e)
+	in resourceview class. 
+20.1. Changed cellcontentclick events to cellclick for assign and resources datagridview
+	in resourcesview class.
+	24/08/2022. Tested ok.
+
+
+
+
+######
+23. Reprint sql query file for app.data on live test completion.
+23.1. 
+######
 ######
 18. Create db script for internal db
 18.1. Waiting for live test completion as db column max char has changed few times.
 	Underestimated length of references, weblinks.
 ######
-
-19. Couldn't save, doi number error exceeded max length in db
-19.1. Increased size of doi(50), reference(300), 
-	resource type(50) in db and model 
-	15/08/2022. Tested ok.
-
-20. When 'Add new' clicked, displays a clicked resource rather than empty
-	and previously displayed link label.
-20.1. See no.22.1 for resolution. 24/08/2022. Tested ok.
-
-21. Previously displayed resource link will display on new 'add new' event.
-21.1. check add method for click event. Added ' view.ActiveWebLink.Text = "www.new";'
-	to 'addnewresource' method to reset value. 
-	24/08/2022. Tested ok.
-
-22. Edit data displays on click of 3rd cell 'weblink'. Who's gonna know that.
-	Displays correctly if edit clicked first on 2nd cell. If addnew or edit then
-	requires 3rd cell click to display data else empty. 
-	Skips : DataGridViewResource_CellContentClick(object sender, DataGridViewCellEventArgs e)
-	in resourceview class. 
-22.1. Changed cellcontentclick events to cellclick for assign and resources datagridview
-	in resourcesview class.
-	24/08/2022. Tested ok.
-
-#####
-23. Reprint sql query file for app.data on live test completion.
-23.1. 
-#####
-
-24. 
-24.1. 
+######
+13. Change db idnum to more relavent composite keys.
+13.1. 
+######
+######
+deal with password and username in db connection. Not including in connectionString
+so maybe store in file or ask each time or store in global variable. File option 
+maybe better so don't have to get it when updating db etc as connection not open
+continuously.
+Currently conn string set with integrated security=true so gets credentials from 
+windows.
+######
+ 
 
 

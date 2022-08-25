@@ -140,6 +140,7 @@ namespace LitRevResourceMVP.Views
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1058, 701);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.IsMdiContainer = true;
             this.Name = "MainView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
