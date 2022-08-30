@@ -11,10 +11,10 @@ namespace LitRevResourceMVP.Presenters
     /// </summary>
     public class AssignmentPresenter
     {
-        private IAssignmentView view;
-        private IAssignmentRepository repository;
-        private BindingSource assignmentBindingSource;
-        private BindingSource moduleBindingSource;
+        private readonly IAssignmentView view;
+        private readonly IAssignmentRepository repository;
+        private readonly BindingSource assignmentBindingSource;
+        private readonly BindingSource moduleBindingSource;
         
         private IEnumerable<AssignmentModel> assignmentList;
         private IEnumerable<string> moduleNameList;
@@ -98,7 +98,7 @@ namespace LitRevResourceMVP.Presenters
             {
                 view.AssignIdNum = res.Assign_IdNum.ToString();
                 view.AssignName = res.Assign_Name;
-                view.DueDate = res.Due_Date;
+                view.DueDate = res.Due_Date.Date;
                 view.Trimester = Convert.ToDecimal(res.Assign_Trimester);
                 view.ModIdNum = res.Mod_IdNum.ToString();
                 view.IsEdit = true;
@@ -121,6 +121,7 @@ namespace LitRevResourceMVP.Presenters
                     repository.Delete(res.Assign_IdNum);
                     view.IsSuccessful = true;
                     view.Message = "Assignment and resources deleted successfully";
+                    ClearAllTextFields();
                     LoadAllAssignList();
                 }
                 else
@@ -149,7 +150,7 @@ namespace LitRevResourceMVP.Presenters
                     model.Assign_IdNum = int.Parse(view.AssignIdNum); 
                 }
                 model.Assign_Name = view.AssignName;
-                model.Due_Date = view.DueDate;
+                model.Due_Date =(DateTime)view.DueDate;
                 model.Assign_Trimester = (int)view.Trimester;
                 int modId = int.Parse(view.ModIdNum);
                 model.Mod_IdNum = modId;
@@ -162,8 +163,9 @@ namespace LitRevResourceMVP.Presenters
                 if (view.IsEdit)
                 {
                     repository.Edit(model);
-                    view.Message = "Assignment edited successfully";
                     view.IsEdit = false;
+                    view.Message = "Assignment edited successfully";
+                    
                 }
                 else
                 {

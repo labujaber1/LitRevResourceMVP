@@ -113,6 +113,7 @@ namespace LitRevResourceMVP.Views
                     Tbcl_ResourceList.TabPages.Remove(tabPage1);
                     Tbcl_ResourceList.TabPages.Add(tabPage2);
                 }
+                
             };
 
             Btn_Delete.Click += delegate
@@ -128,9 +129,10 @@ namespace LitRevResourceMVP.Views
                     if (result == DialogResult.Yes)
                     {
                         DeleteEvent?.Invoke(this, EventArgs.Empty);
-                        MessageBox.Show(Message);
+                        
                     }
                 }
+                MessageBox.Show(Message);
             };
 
             Btn_Edit.Click += delegate
@@ -231,7 +233,7 @@ namespace LitRevResourceMVP.Views
         public DateTime ResDateAccessed
         {
             get { return dateTimePicker1.Value.Date; }
-            set { dateTimePicker1.Value = value; }
+            set { dateTimePicker1.Value = value.Date; }
         }
         /// <summary>
         /// Resource category: Tbx_NewCategory.Text

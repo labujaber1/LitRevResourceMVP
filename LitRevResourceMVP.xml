@@ -729,11 +729,6 @@
               resource lookups using this strongly typed resource class.
             </summary>
         </member>
-        <member name="P:LitRevResourceMVP.Properties.Resources.HomeScreen">
-            <summary>
-              Looks up a localized resource of type System.Drawing.Bitmap.
-            </summary>
-        </member>
         <member name="T:LitRevResourceMVP.Repositories.AssignmentRepository">
             <summary>
             SQL queries called by presenter for CRUD functionality.
@@ -1151,7 +1146,7 @@
             Connection integrated security: Convert.ToBoolean(Tbx_IntegSec.Text)
             </summary>
         </member>
-        <member name="P:LitRevResourceMVP.Views.DBConnSetupView.UserName">
+        <member name="P:LitRevResourceMVP.Views.DBConnSetupView.UserId">
             <summary>
             Connection security user name: Tbx_UserName.Text
             </summary>
@@ -1347,7 +1342,7 @@
             Connection integrated security: Convert.ToBoolean(Tbx_IntegSec.Text)
             </summary>
         </member>
-        <member name="P:LitRevResourceMVP.Views.IDBConnSetupView.UserName">
+        <member name="P:LitRevResourceMVP.Views.IDBConnSetupView.UserId">
             <summary>
             Connection security user name: Tbx_UserName.Text
             </summary>

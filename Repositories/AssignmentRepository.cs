@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Data;
 using LitRevResourceMVP.Models;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace LitRevResourceMVP.Repositories
 {
@@ -28,17 +29,23 @@ namespace LitRevResourceMVP.Repositories
         /// <param name="assignmentModel"></param>
         public void Add(AssignmentModel assignmentModel)
         {
-            using (var connection = new SqlConnection(connectionString))
-            using (var command = new SqlCommand())
+            //using (var connection = new SqlConnection(connectionString))
+            //using (var command = new SqlCommand())
+            //{
+            //    connection.Open();
+            //    command.Connection = connection;
+            //    command.CommandText = "INSERT INTO Assignment_table (Assign_Name,Assign_DueDate,Assign_Trimester,Mod_IdNum) VALUES (@assignname,@duedate,@trimester,@modIdNum)";
+            //    command.Parameters.AddWithValue("@assignname", SqlDbType.VarChar).Value = assignmentModel.Assign_Name;
+            //    command.Parameters.AddWithValue("@duedate", SqlDbType.VarChar).Value = assignmentModel.Due_Date;
+            //    command.Parameters.AddWithValue("@trimester", SqlDbType.Int).Value = assignmentModel.Assign_Trimester;
+            //    command.Parameters.AddWithValue("@modIdNum", SqlDbType.Int).Value = assignmentModel.Mod_IdNum;
+            //    command.ExecuteNonQuery();
+            //}
+            using (IDbConnection conn = new SqlConnection(connectionString))
             {
-                connection.Open();
-                command.Connection = connection;
-                command.CommandText = "INSERT INTO Assignment_table (Assign_Name,Assign_DueDate,Assign_Trimester,Mod_IdNum) VALUES (@assignname,@duedate,@trimester,@modIdNum)";
-                command.Parameters.AddWithValue("@assignname", SqlDbType.VarChar).Value = assignmentModel.Assign_Name;
-                command.Parameters.AddWithValue("@duedate", SqlDbType.VarChar).Value = assignmentModel.Due_Date;
-                command.Parameters.AddWithValue("@trimester", SqlDbType.Int).Value = assignmentModel.Assign_Trimester;
-                command.Parameters.AddWithValue("@modIdNum", SqlDbType.Int).Value = assignmentModel.Mod_IdNum;
-                command.ExecuteNonQuery();
+                string queryAdd = "INSERT INTO Assignment_table (Assign_Name,Assign_DueDate,Assign_Trimester,Mod_IdNum) VALUES (@Assign_Name,@Due_Date,@Assign_Trimester,@Mod_IdNum)";
+                assignmentModel = new AssignmentModel { Assign_Name = assignmentModel.Assign_Name, Due_Date = assignmentModel.Due_Date, Assign_Trimester = assignmentModel.Assign_Trimester, Mod_IdNum = assignmentModel.Mod_IdNum };
+                conn.Execute(queryAdd, assignmentModel);
             }
         }
 
@@ -49,14 +56,21 @@ namespace LitRevResourceMVP.Repositories
         public void Delete(int assignIdNum)
         {
             //will auto close connection when using 'using'.
-            using (var connection = new SqlConnection(connectionString))
-            using (var command = new SqlCommand())
+            //using (var connection = new SqlConnection(connectionString))
+            //using (var command = new SqlCommand())
+            //{
+            //    connection.Open();
+            //    command.Connection = connection;
+            //    command.CommandText = "DELETE FROM Assignment_table WHERE Assign_IdNum=@assignidnum";
+            //    command.Parameters.AddWithValue("@assignidnum", SqlDbType.Int).Value = assignIdNum;
+            //    command.ExecuteNonQuery();
+            //}
+
+            using (IDbConnection conn = new SqlConnection(connectionString))
             {
-                connection.Open();
-                command.Connection = connection;
-                command.CommandText = "DELETE FROM Assignment_table WHERE Assign_IdNum=@assignidnum";
-                command.Parameters.AddWithValue("@assignidnum", SqlDbType.Int).Value = assignIdNum;
-                command.ExecuteNonQuery();
+                string queryDelete = "DELETE FROM Assignment_table WHERE Assign_IdNum = @assignidnum";
+                //Debug.WriteLine("id number = "+ assignIdNum);
+                conn.Execute(queryDelete, new { assignidnum = assignIdNum });
             }
         }
 
@@ -66,48 +80,34 @@ namespace LitRevResourceMVP.Repositories
         /// <param name="assignmentModel"></param>
         public void Edit(AssignmentModel assignmentModel)
         {
-            using (var connection = new SqlConnection(connectionString))
-            using (var command = new SqlCommand())
-            {
-                connection.Open();
-                command.Connection = connection;
-                command.CommandText = "UPDATE Assignment_table SET" +
-                    " Assign_Name=@assignname, Assign_DueDate=@duedate, Assign_Trimester=@trimester WHERE Assign_IdNum=@assignidnum";
+            //using (var connection = new SqlConnection(connectionString))
+            //using (var command = new SqlCommand())
+            //{
+            //    connection.Open();
+            //    command.Connection = connection;
+            //    command.CommandText = "UPDATE Assignment_table SET" +
+            //        " Assign_Name=@assignname, Assign_DueDate=@duedate, Assign_Trimester=@trimester WHERE Assign_IdNum=@assignidnum";
 
-                command.Parameters.AddWithValue("@assignidnum", SqlDbType.Int).Value = assignmentModel.Assign_IdNum;
-                command.Parameters.AddWithValue("@assignname", SqlDbType.VarChar).Value = assignmentModel.Assign_Name;
-                command.Parameters.AddWithValue("@duedate", SqlDbType.VarChar).Value = assignmentModel.Due_Date;
-                command.Parameters.AddWithValue("@trimester", SqlDbType.Int).Value = assignmentModel.Assign_Trimester;
-                command.Parameters.AddWithValue("@modidnum", SqlDbType.Int).Value = assignmentModel.Mod_IdNum;
-                command.ExecuteNonQuery();
+            //    command.Parameters.AddWithValue("@assignidnum", SqlDbType.Int).Value = assignmentModel.Assign_IdNum;
+            //    command.Parameters.AddWithValue("@assignname", SqlDbType.VarChar).Value = assignmentModel.Assign_Name;
+            //    command.Parameters.AddWithValue("@duedate", SqlDbType.Date).Value = assignmentModel.Due_Date;
+            //    command.Parameters.AddWithValue("@trimester", SqlDbType.Int).Value = assignmentModel.Assign_Trimester;
+            //    command.Parameters.AddWithValue("@modidnum", SqlDbType.Int).Value = assignmentModel.Mod_IdNum;
+            //    command.ExecuteNonQuery();
+            //}
+            using (IDbConnection conn = new SqlConnection(connectionString))
+            {
+                string queryEdit = "UPDATE Assignment_table SET Assign_Name=@assignname, Assign_DueDate=@duedate, Assign_Trimester=@trimester " +
+                    "WHERE Assign_IdNum=@assignidnum";
+                conn.Execute(queryEdit, param:new { 
+                    assignname = assignmentModel.Assign_Name, 
+                    duedate = assignmentModel.Due_Date, 
+                    trimester = assignmentModel.Assign_Trimester, 
+                    assignidnum = assignmentModel.Assign_IdNum }); 
+               
             }
         }
 
-        //public DataSet GetModAssignData()
-        //{
-        //    SqlConnection connection = new SqlConnection(connectionString);
-        //    DataSet data = new DataSet();
-        //    try
-        //    {
-        //        //getting data for dataset
-        //        data.Locale = System.Globalization.CultureInfo.InvariantCulture;
-        //        SqlDataAdapter moduleAdaptor = new SqlDataAdapter("SELECT * from Module_table", connection);
-        //        moduleAdaptor.Fill(data, "Module_table");
-        //        SqlDataAdapter assignAdaptor = new SqlDataAdapter("SELECT * from Assignment_table", connection);
-        //        moduleAdaptor.Fill(data, "Assignment_table");
-        //        //relationship between tables in dataset
-        //        DataRelation relation = new DataRelation("ModuleAssignments",
-        //            data.Tables["Module_table"].Columns["Mod_IdNum"],
-        //            data.Tables["Assignment_table"].Columns["Mod_IdNum"]);
-        //        data.Relations.Add(relation);
-
-        //    }
-        //    catch (SqlException ex)
-        //    {
-        //        MessageBox.Show("Sql connection error" + ex.Message,"SQL connection");
-        //    }
-        //    return data;
-        //}
 
         /// <summary>
         /// SQL query SELECT: retrieves assignment data from the database and return in an assignment list.
@@ -117,43 +117,46 @@ namespace LitRevResourceMVP.Repositories
         /// <returns>Assignment list</returns>
         public IEnumerable<AssignmentModel> GetAllAssignments(int IdNum)
         {
-            using (IDbConnection conn = new SqlConnection(connectionString))
-            {
-                var output = conn.Query<AssignmentModel>("dbo.GetModAssignments_idNum @idNum", new { idNum = IdNum }).AsList();
-                return output;
-            }
-            //var assignmentList = new List<AssignmentModel>();
-            //using (var connection = new SqlConnection(connectionString))
-            //using (var command = new SqlCommand())
+            //not pulling back date replaces with 01/01/0001 which throws exception but displays as blank in datagridview!!!
+            //hover cursor and shows 01/01/0001
+            //something to do with data type dapper mapping..cannot find solution so use sql
+            //using (IDbConnection conn = new SqlConnection(connectionString))
             //{
-            //    connection.Open();
-            //    command.Connection = connection;
-            //    command.CommandText = "SELECT * from Assignment_table WHERE Mod_IdNum=@idNum "; 
-            //    command.Parameters.AddWithValue("@idnum", SqlDbType.Int).Value = IdNum;
-            //    using (var reader = command.ExecuteReader())
-            //    {
-            //        try
-            //        {
-            //            while (reader.Read())
-            //            {
-            //                var assignmentModel = new AssignmentModel();
-            //                assignmentModel.Assign_IdNum = (int)reader[0];
-            //                assignmentModel.Assign_Name = reader[1].ToString();
-            //                assignmentModel.Due_Date = (DateTime)reader[2];
-            //                assignmentModel.Assign_Trimester = (int)reader[3];
-            //                assignmentModel.Mod_IdNum = (int)reader[4];
-            //                assignmentList.Add(assignmentModel);
-            //            }
-            //        }
-            //        catch (Exception ex)
-            //        {
-            //            string title = "Reading data from Assignment table";
-            //            MessageBox.Show("Error = " + ex.Message, title);
-            //        }
-            //    }
-
+            //    var output = conn.Query<AssignmentModel>("exec dbo.GetModAssignments_idNum @idNum", new { idNum = IdNum }).AsList();
+            //    return output;
             //}
-            //return assignmentList;
+            var assignmentList = new List<AssignmentModel>();
+            using (var connection = new SqlConnection(connectionString))
+            using (var command = new SqlCommand())
+            {
+                connection.Open();
+                command.Connection = connection;
+                command.CommandText = "SELECT * from Assignment_table WHERE Mod_IdNum=@idNum ";
+                command.Parameters.AddWithValue("@idnum", SqlDbType.Int).Value = IdNum;
+                using (var reader = command.ExecuteReader())
+                {
+                    try
+                    {
+                        while (reader.Read())
+                        {
+                            var assignmentModel = new AssignmentModel();
+                            assignmentModel.Assign_IdNum = (int)reader[0];
+                            assignmentModel.Assign_Name = reader[1].ToString();
+                            assignmentModel.Due_Date = (DateTime)reader[2];
+                            assignmentModel.Assign_Trimester = (int)reader[3];
+                            assignmentModel.Mod_IdNum = (int)reader[4];
+                            assignmentList.Add(assignmentModel);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        string title = "Reading data from Assignment table";
+                        MessageBox.Show("Error = " + ex.Message, title);
+                    }
+                }
+
+            }
+            return assignmentList;
         }
 
         /// <summary>
@@ -165,7 +168,7 @@ namespace LitRevResourceMVP.Repositories
         {
             using (IDbConnection conn = new SqlConnection(connectionString))
             {
-                var output = conn.Query<string>("dbo.GetModuleNames").AsList();
+                var output = conn.Query<string>("exec dbo.GetModuleNames").AsList();
                 return output;
             }
 

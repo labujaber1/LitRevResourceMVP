@@ -145,7 +145,7 @@ namespace LitRevResourceMVP.Views
         /// <summary>
         /// Connection security user name: Tbx_UserName.Text
         /// </summary>
-        public string UserName
+        public string UserId
         {
             get { return Tbx_UserName.Text; }
             set { Tbx_UserName.Text = value; }

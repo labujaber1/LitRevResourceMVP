@@ -152,7 +152,7 @@ namespace LitRevResourceMVP.Presenters
         private void TestConn(object sender, EventArgs e)
         {
             string title = "Connection test";
-            if (view.ConnectionString != null)
+            if (view.ConnectionString.Length > 30)
             {
                bool res = repository.TestConnString(view.ConnectionString);
                 
@@ -174,7 +174,7 @@ namespace LitRevResourceMVP.Presenters
             view.ConnectionString = "";
             view.DataSource = "";
             view.InitCat = "";
-            view.UserName = "";
+            view.UserId = "";
             view.Password = "";
         }
     }

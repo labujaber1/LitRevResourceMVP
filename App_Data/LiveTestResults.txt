@@ -121,9 +121,17 @@ Observations and ammendments are recorded here.
 	in resourcesview class.
 	24/08/2022. Tested ok.
 
+21. view.Message not working all ther time.
+21.1 Added Message.show(Message) after save and delete click events in presenter classes.
+	29/08/2022. Tested ok.
+
+22. Test connection on name and provider returns exception string format.
+22.1. Change if statement to .length rather than != null in testconn method dbconnsetuppresenter.
+	29/08/2022. Tested ok.
 
 
 
+ 
 ######
 23. Reprint sql query file for app.data on live test completion.
 23.1. 

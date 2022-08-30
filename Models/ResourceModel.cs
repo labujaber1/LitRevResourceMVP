@@ -45,7 +45,7 @@ namespace LitRevResourceMVP.Models
 
         [DisplayName("Date accessed")]
         [Required(ErrorMessage = "A date is useful please select one")]
-        public DateTime Date_Accessed { get { return dateAccessed; } set { dateAccessed = value; } }
+        public DateTime Date_Accessed { get { return dateAccessed; } set { dateAccessed = value.Date; } }
 
         [DisplayName("Resource reference")]
         [StringLength(300, ErrorMessage = "Resource reference - Only 300 characters can be used")]

@@ -113,6 +113,7 @@ namespace LitRevResourceMVP.Views
             this.Tbx_Password.PlaceholderText = "Leave blank if not required";
             this.Tbx_Password.Size = new System.Drawing.Size(272, 31);
             this.Tbx_Password.TabIndex = 3;
+            this.Tbx_Password.Visible = false;
             // 
             // Lbl_UserName
             // 
@@ -122,6 +123,7 @@ namespace LitRevResourceMVP.Views
             this.Lbl_UserName.Size = new System.Drawing.Size(96, 25);
             this.Lbl_UserName.TabIndex = 0;
             this.Lbl_UserName.Text = "User name";
+            this.Lbl_UserName.Visible = false;
             // 
             // Tbx_UserName
             // 
@@ -131,6 +133,7 @@ namespace LitRevResourceMVP.Views
             this.Tbx_UserName.PlaceholderText = "Leave blank if not required";
             this.Tbx_UserName.Size = new System.Drawing.Size(258, 31);
             this.Tbx_UserName.TabIndex = 2;
+            this.Tbx_UserName.Visible = false;
             // 
             // Lbl_Password
             // 
@@ -140,6 +143,7 @@ namespace LitRevResourceMVP.Views
             this.Lbl_Password.Size = new System.Drawing.Size(87, 25);
             this.Lbl_Password.TabIndex = 1;
             this.Lbl_Password.Text = "Password";
+            this.Lbl_Password.Visible = false;
             // 
             // Btn_DeleteList
             // 

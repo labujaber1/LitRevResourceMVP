@@ -30,7 +30,7 @@ namespace LitRevResourceMVP.Models
 
         [DisplayName("Due date")]
         [DataType(DataType.Date)]
-        public DateTime Due_Date { get => dueDate; set => dueDate = value.Date; }
+        public DateTime Due_Date { get => dueDate; set => dueDate = value; }
 
         [DisplayName("Trimester")]
         public int Assign_Trimester { get => trimester; set => trimester = value; }

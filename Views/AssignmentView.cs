@@ -49,25 +49,25 @@ namespace LitRevResourceMVP.Views
             Btn_AddAssign.Click += delegate
             {
                 SaveAssignEvent?.Invoke(this, EventArgs.Empty);
+                MessageBox.Show(Message);
             };
 
             Btn_DeleteAssign.Click += delegate
             {
-                if (AssignIdNum != string.Empty)
+                var result = MessageBox.Show("Are you sure you want to delete the assignment? This will also delete the associated resources.", "Warning",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (result == DialogResult.Yes)
                 {
-                    var result = MessageBox.Show("Are you sure you want to delete the assignment? This will also delete the associated resources.", "Warning",
-                        MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                    if (result == DialogResult.Yes)
-                    {
-                        DeleteAssignEvent?.Invoke(this, EventArgs.Empty);
-                        MessageBox.Show(Message);
-                    }
+                    DeleteAssignEvent?.Invoke(this, EventArgs.Empty);
+                    
                 }
+                MessageBox.Show(Message);
             };
 
             Btn_EditAssign.Click += delegate
             {
                 EditAssignEvent?.Invoke(this, EventArgs.Empty);
+                
             };
 
            

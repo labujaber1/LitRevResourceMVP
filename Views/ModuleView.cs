@@ -43,6 +43,7 @@ namespace LitRevResourceMVP.Views
             Btn_AddModule.Click += delegate
             {
                 AddModEvent?.Invoke(this, EventArgs.Empty);
+                MessageBox.Show(Message);
             };
 
             Btn_DeleteMod.Click += delegate
@@ -52,13 +53,15 @@ namespace LitRevResourceMVP.Views
                 if (result == DialogResult.Yes)
                 {
                     DeleteModEvent?.Invoke(this, EventArgs.Empty);
-                    MessageBox.Show(Message);
+                    
                 }
+                MessageBox.Show(Message);
             };
 
             Btn_EditMod.Click += delegate
             {
                 EditModEvent?.Invoke(this, EventArgs.Empty);
+                
             };
 
         }

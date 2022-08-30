@@ -44,7 +44,7 @@ namespace LitRevResourceMVP.Views
         /// <summary>
         /// Connection security user name: Tbx_UserName.Text
         /// </summary>
-        string UserName { get; set; }
+        string UserId { get; set; }
         /// <summary>
         /// Connection security password: Tbx_Password.Text
         /// </summary>

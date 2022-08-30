@@ -7,6 +7,10 @@
     <StartupObject>LitRevResourceMVP.Program</StartupObject>
     <ApplicationIcon />
     <Win32Resource />
+    <Description>Tool to record and organise resources for assignments prior to writing. User assigns a category to each resource as a sorting reference. Notes are taken for the assignment writing. Saves to sql database which the user has a query file to create db and full control of connection string input via db setup form.</Description>
+    <Copyright>Labujaber1@github.com</Copyright>
+    <RepositoryType>Github</RepositoryType>
+    <PackageReleaseNotes>Version 1 with further notes for developement in the readme file.</PackageReleaseNotes>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -20,6 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove=".editorconfig" />
     <None Remove="App_Data\Assignment_table_alter1.sql" />
     <None Remove="App_Data\Assign_table.sql" />
     <None Remove="App_Data\DB design table.xlsx" />
@@ -71,6 +76,10 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EditorConfigFiles Remove="C:\Users\labuj\Documents\GitHub\LitRevResourceMVP\.editorconfig" />
   </ItemGroup>
 
 </Project>

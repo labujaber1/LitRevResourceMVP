@@ -279,7 +279,7 @@ namespace LitRevResourceMVP.Views
             this.DateTimePicker2.Name = "DateTimePicker2";
             this.DateTimePicker2.Size = new System.Drawing.Size(245, 31);
             this.DateTimePicker2.TabIndex = 8;
-            this.DateTimePicker2.Value = System.DateTime.Now;
+            this.DateTimePicker2.Value = new System.DateTime(2022, 8, 29, 0, 0, 0, 0);
             // 
             // Lbl_AssignName
             // 
