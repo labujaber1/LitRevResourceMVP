@@ -1,6 +1,7 @@
 ﻿During the reading for the final project proposal the app was live tested.
 Observations and ammendments are recorded here.
 
+System corrections 
 1. Extra successful message after new and edited resource saved
 1.1. Changed to debug.writeline "updated database successfully" from messagebox. 
 	Still two messages to confirm save/edit successful and database updated. 
@@ -39,8 +40,9 @@ Observations and ammendments are recorded here.
 7.1. Played with docking in all views. Works for expand but cannot 
 	work correctly with manual minimise as too much on screen. 
 	It has been designed at minimal screen size. 
-	30/07/2022. Tested ok.
-	## Changed formborderstyle to Fixed3D so cannot manually adjust.(24/08/22)
+	30/07/2022. Tested fail. Not acceptable results on minimise.
+	Changed formborderstyle to Fixed3D so cannot manually adjust.
+	24/08/22. Tested ok.
 
 8. Datagridview titles need rearranging in models in order of relevence
 	on initial, limited first viewing.
@@ -72,8 +74,6 @@ Observations and ammendments are recorded here.
 12.1. Increased weblink in model and database to 200.
 	Multiple lines already set so vertical schrollbar added.
 	05/08/2022. Tested ok.
-
-
 
 13. Reference needs multiple lines and schroll bar
 13.1. Added scroll bar vertical, already set multiple lines
@@ -121,38 +121,114 @@ Observations and ammendments are recorded here.
 	in resourcesview class.
 	24/08/2022. Tested ok.
 
-21. view.Message not working all ther time.
-21.1 Added Message.show(Message) after save and delete click events in presenter classes.
+21. view.Message not working all the time.
+21.1. Added Message.show(Message) after save and delete click events in presenter classes. Checked other
+	presenter classes and ammended where nesseccary.
 	29/08/2022. Tested ok.
 
 22. Test connection on name and provider returns exception string format.
 22.1. Change if statement to .length rather than != null in testconn method dbconnsetuppresenter.
 	29/08/2022. Tested ok.
 
+23. Changing connectionstring doesn't load database as it's already registered in program class
+	at startup. Requires application restart to recognise new connection string.
+23.1. Added method 'ServerConnString()' in mainpresenter to replace connection string creation 
+	in program and removed param. Call method prior to opening each form but still pass connection
+	string as param for forms.
+	31/08/2022. Tested ok.
+
+24. Flickering in datagridview when scrolling horizontally either way.
+24.1.  Added to design code 
+	'this.dataGridViewResource.GetType().GetProperty("DoubleBuffered", BindingFlags.Instance | 
+	BindingFlags.NonPublic).SetValue(dataGridViewResource, true, null);'
+	From https://stackoverflow.com/questions/41893708/
+	how-to-prevent-datagridview-from-flickering-when-scrolling-horizontally 
+	by user Khalil 31/03/2020. Many thanks. 
+	Double buffering only available in properties for forms and some controls but not datagridview.
+	31/08/2022. Tested ok.
+	01/09/2022. Also added to resource view class in datagridviewAssign_cellclick until live testing
+			complete. Dissappeared from resourceview design code while testing.
+ 
+25. No indication a resource has been included in a file as a resource. Would be helpful.
+25.1. Added colomn to code and db 'ref in file'. Accept 3 chars yes/no in textbox, tried combobox
+	but couldn't set default 'no' to appear.
+	30/08/2022. Tested ok.
+           
 
 
+
+
+To Do List
  
 ######
-23. Reprint sql query file for app.data on live test completion.
-23.1. 
+1. Reprint sql query file for app.data on live test completion.
+1.1. Printed 22/08/2022, 29/08/2022, 01/09/2022.
 ######
 ######
-18. Create db script for internal db
-18.1. Waiting for live test completion as db column max char has changed few times.
-	Underestimated length of references, weblinks.
+2. Create db script for internal db
+2.1. Waiting for live test completion as db column max char has changed few times.
+	Underestimated length of references, weblinks, etc.
 ######
 ######
-13. Change db idnum to more relavent composite keys.
-13.1. 
+3. Change db idnum to more relavent composite keys.
+3.1. 
 ######
 ######
-deal with password and username in db connection. Not including in connectionString
-so maybe store in file or ask each time or store in global variable. File option 
-maybe better so don't have to get it when updating db etc as connection not open
-continuously.
-Currently conn string set with integrated security=true so gets credentials from 
-windows.
+4. deal with password and username in db connection. Not including in connectionString
+	so maybe store in file or ask each time or store in global variable. File option 
+	maybe better so don't have to get it when updating db etc as connection not open
+	continuously.
+	Currently conn string set with integrated security=true so gets credentials from 
+	windows.
+4.1. 
 ######
- 
+5. Currently cannot see if resource has been added as reference to file. 
+5.1. Added colomn to code and db 'ref in file'. Accept 3 chars yes/no in textbox, tried combobox
+	but couldn't set default 'no' to appear. 30/08/2022. see fixes no.25.
+######
+######
+6. Delete 'this.dataGridViewResource.GetType().GetProperty("DoubleBuffered", BindingFlags.Instance | 
+	BindingFlags.NonPublic).SetValue(dataGridViewResource, true, null);' after live testing from 
+	resource view datagridviewAssign_cellclick. Check if still remains in resourceview design code
+	if not don't delete.
+######
+######
+7. Make batch file to find sql server and get path. Call script in app.data folder to create db in sql.
+	source: http://dotnet-concept.com/Tutorials/2014/11/21/Create-SQL-database-using-batch-file
+	
+	batch file name: runSqlDBCreationScript.bat
+	computer name: %ComputerName%
+	sql script name: set scriptName = LitRevResourceSQLScript.sql
+	get sql path: set sqlScriptPath = %CD%\App_Data\%scriptName%
+			or set sqlScriptPath = %CD%\App_Data\LitRevResourceSQLScript.sql
+	##put the batch file in main project path not in any folders?	
 
+	batch file script:
+	@ECHO =========================Create SQL db: LitRevResourceDB batch file execution====================
+	@ECHO This will create a database in Sql Server. It will simply execute the sql script created in 
+	@ECHO applications' App_Data directory once the local server path is found.
+	@ECHO Running sql script.......
 
+	sqlcmd -E -S %ComputerName% -i %CD%\App_Data\LitRevResourceSQLScript.sql
+	
+	pause
+
+	//sqlcmd -S <ComputerName>\<InstanceName> -i <ScriptPath>
+	//-E use trusted connection
+	//-S Server detail
+	//-i Input file
+PRINT 'Creating Database...'
+CREATE DATABASE [MyTestDatabase]
+GO
+PRINT 'Database created successfully...'
+GO
+PRINT 'Selecting database instance...'
+GO
+USE [MyTestDatabase]
+GO
+PRINT 'Creating database tables...'
+CREATE TABLE [TESTTABLE] (ID INT, NAME VARCHAR(50), VALUE VARCHAR(50))
+GO
+PRINT 'Tables created successfully...'
+GO
+PRINT 'Task successful'

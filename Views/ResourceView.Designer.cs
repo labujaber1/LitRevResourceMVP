@@ -1,4 +1,8 @@
 ﻿
+using System;
+using System.Reflection;
+using System.Windows.Forms;
+
 namespace LitRevResourceMVP.Views
 {
     partial class ResourceView
@@ -20,7 +24,7 @@ namespace LitRevResourceMVP.Views
             }
             base.Dispose(disposing);
         }
-
+        
         #region Windows Form Designer generated code
 
         /// <summary>
@@ -56,6 +60,8 @@ namespace LitRevResourceMVP.Views
             this.Btn_Delete = new System.Windows.Forms.Button();
             this.Btn_AddNew = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.Tbx_RefInFile = new System.Windows.Forms.TextBox();
+            this.Lbl_RefInFile = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.Btn_NoteCharLength = new System.Windows.Forms.Button();
             this.Btn_MainCharLength = new System.Windows.Forms.Button();
@@ -161,7 +167,7 @@ namespace LitRevResourceMVP.Views
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Rtbx_MainPoint.Location = new System.Drawing.Point(7, 270);
             this.Rtbx_MainPoint.Name = "Rtbx_MainPoint";
-            this.Rtbx_MainPoint.Size = new System.Drawing.Size(659, 147);
+            this.Rtbx_MainPoint.Size = new System.Drawing.Size(659, 162);
             this.Rtbx_MainPoint.TabIndex = 8;
             this.Rtbx_MainPoint.Text = "Main point - \n";
             // 
@@ -173,13 +179,13 @@ namespace LitRevResourceMVP.Views
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(366, 31);
             this.dateTimePicker1.TabIndex = 5;
-            this.dateTimePicker1.Value = System.DateTime.Today;
+            this.dateTimePicker1.Value = new System.DateTime(2022, 8, 31, 0, 0, 0, 0);
             // 
             // Btn_CreateAddRef
             // 
             this.Btn_CreateAddRef.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.Btn_CreateAddRef.BackColor = System.Drawing.Color.Bisque;
-            this.Btn_CreateAddRef.Location = new System.Drawing.Point(672, 230);
+            this.Btn_CreateAddRef.Location = new System.Drawing.Point(672, 240);
             this.Btn_CreateAddRef.Name = "Btn_CreateAddRef";
             this.Btn_CreateAddRef.Size = new System.Drawing.Size(123, 60);
             this.Btn_CreateAddRef.TabIndex = 15;
@@ -201,7 +207,7 @@ namespace LitRevResourceMVP.Views
             // 
             this.Btn_Cancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.Btn_Cancel.BackColor = System.Drawing.Color.Silver;
-            this.Btn_Cancel.Location = new System.Drawing.Point(684, 467);
+            this.Btn_Cancel.Location = new System.Drawing.Point(684, 487);
             this.Btn_Cancel.Name = "Btn_Cancel";
             this.Btn_Cancel.Size = new System.Drawing.Size(111, 71);
             this.Btn_Cancel.TabIndex = 13;
@@ -212,7 +218,7 @@ namespace LitRevResourceMVP.Views
             // 
             this.Btn_Save.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.Btn_Save.BackColor = System.Drawing.Color.Bisque;
-            this.Btn_Save.Location = new System.Drawing.Point(684, 376);
+            this.Btn_Save.Location = new System.Drawing.Point(684, 396);
             this.Btn_Save.Name = "Btn_Save";
             this.Btn_Save.Size = new System.Drawing.Size(111, 73);
             this.Btn_Save.TabIndex = 12;
@@ -230,7 +236,7 @@ namespace LitRevResourceMVP.Views
             this.Tbcl_ResourceList.Location = new System.Drawing.Point(12, 12);
             this.Tbcl_ResourceList.Name = "Tbcl_ResourceList";
             this.Tbcl_ResourceList.SelectedIndex = 0;
-            this.Tbcl_ResourceList.Size = new System.Drawing.Size(825, 664);
+            this.Tbcl_ResourceList.Size = new System.Drawing.Size(825, 684);
             this.Tbcl_ResourceList.TabIndex = 20;
             // 
             // tabPage1
@@ -253,7 +259,7 @@ namespace LitRevResourceMVP.Views
             this.tabPage1.Location = new System.Drawing.Point(4, 34);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(817, 626);
+            this.tabPage1.Size = new System.Drawing.Size(817, 636);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Resource list";
             // 
@@ -276,6 +282,7 @@ namespace LitRevResourceMVP.Views
             this.Lbx_ViewResCategories.FormattingEnabled = true;
             this.Lbx_ViewResCategories.ItemHeight = 25;
             this.Lbx_ViewResCategories.Location = new System.Drawing.Point(428, 256);
+            this.Lbx_ViewResCategories.MultiColumn = true;
             this.Lbx_ViewResCategories.Name = "Lbx_ViewResCategories";
             this.Lbx_ViewResCategories.SelectionMode = System.Windows.Forms.SelectionMode.None;
             this.Lbx_ViewResCategories.Size = new System.Drawing.Size(367, 54);
@@ -310,14 +317,14 @@ namespace LitRevResourceMVP.Views
             this.dataGridViewAssign.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewAssign.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewAssign.Location = new System.Drawing.Point(19, 34);
+            this.dataGridViewAssign.Location = new System.Drawing.Point(6, 34);
             this.dataGridViewAssign.MultiSelect = false;
             this.dataGridViewAssign.Name = "dataGridViewAssign";
             this.dataGridViewAssign.ReadOnly = true;
             this.dataGridViewAssign.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
             this.dataGridViewAssign.RowTemplate.Height = 33;
             this.dataGridViewAssign.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dataGridViewAssign.Size = new System.Drawing.Size(776, 191);
+            this.dataGridViewAssign.Size = new System.Drawing.Size(805, 191);
             this.dataGridViewAssign.TabIndex = 9;
             this.dataGridViewAssign.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewAssign_CellClick);
             // 
@@ -385,14 +392,14 @@ namespace LitRevResourceMVP.Views
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewResource.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewResource.Location = new System.Drawing.Point(19, 316);
+            this.dataGridViewResource.Location = new System.Drawing.Point(6, 316);
             this.dataGridViewResource.MultiSelect = false;
             this.dataGridViewResource.Name = "dataGridViewResource";
             this.dataGridViewResource.ReadOnly = true;
             this.dataGridViewResource.RowHeadersWidth = 62;
             this.dataGridViewResource.RowTemplate.Height = 33;
             this.dataGridViewResource.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dataGridViewResource.Size = new System.Drawing.Size(776, 240);
+            this.dataGridViewResource.Size = new System.Drawing.Size(805, 240);
             this.dataGridViewResource.TabIndex = 2;
             this.dataGridViewResource.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewResource_CellClick);
             // 
@@ -421,6 +428,8 @@ namespace LitRevResourceMVP.Views
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.LightCoral;
+            this.tabPage2.Controls.Add(this.Tbx_RefInFile);
+            this.tabPage2.Controls.Add(this.Lbl_RefInFile);
             this.tabPage2.Controls.Add(this.label2);
             this.tabPage2.Controls.Add(this.Btn_NoteCharLength);
             this.tabPage2.Controls.Add(this.Btn_MainCharLength);
@@ -442,9 +451,27 @@ namespace LitRevResourceMVP.Views
             this.tabPage2.Location = new System.Drawing.Point(4, 34);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(817, 626);
+            this.tabPage2.Size = new System.Drawing.Size(817, 646);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Resource edit";
+            // 
+            // Tbx_RefInFile
+            // 
+            this.Tbx_RefInFile.Location = new System.Drawing.Point(578, 233);
+            this.Tbx_RefInFile.Name = "Tbx_RefInFile";
+            this.Tbx_RefInFile.Size = new System.Drawing.Size(73, 31);
+            this.Tbx_RefInFile.TabIndex = 26;
+            this.Tbx_RefInFile.Text = "No";
+            // 
+            // Lbl_RefInFile
+            // 
+            this.Lbl_RefInFile.AutoSize = true;
+            this.Lbl_RefInFile.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.Lbl_RefInFile.Location = new System.Drawing.Point(471, 236);
+            this.Lbl_RefInFile.Name = "Lbl_RefInFile";
+            this.Lbl_RefInFile.Size = new System.Drawing.Size(92, 25);
+            this.Lbl_RefInFile.TabIndex = 25;
+            this.Lbl_RefInFile.Text = "Ref in file?";
             // 
             // label2
             // 
@@ -463,7 +490,7 @@ namespace LitRevResourceMVP.Views
             this.Btn_NoteCharLength.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.Btn_NoteCharLength.BackColor = System.Drawing.Color.Gainsboro;
             this.Btn_NoteCharLength.Font = new System.Drawing.Font("Segoe UI", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Btn_NoteCharLength.Location = new System.Drawing.Point(672, 566);
+            this.Btn_NoteCharLength.Location = new System.Drawing.Point(672, 586);
             this.Btn_NoteCharLength.Name = "Btn_NoteCharLength";
             this.Btn_NoteCharLength.Size = new System.Drawing.Size(112, 34);
             this.Btn_NoteCharLength.TabIndex = 11;
@@ -475,7 +502,7 @@ namespace LitRevResourceMVP.Views
             this.Btn_MainCharLength.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.Btn_MainCharLength.BackColor = System.Drawing.Color.Gainsboro;
             this.Btn_MainCharLength.Font = new System.Drawing.Font("Segoe UI", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Btn_MainCharLength.Location = new System.Drawing.Point(672, 314);
+            this.Btn_MainCharLength.Location = new System.Drawing.Point(672, 324);
             this.Btn_MainCharLength.Name = "Btn_MainCharLength";
             this.Btn_MainCharLength.Size = new System.Drawing.Size(112, 34);
             this.Btn_MainCharLength.TabIndex = 10;
@@ -487,9 +514,9 @@ namespace LitRevResourceMVP.Views
             this.Rtbx_Notes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.Rtbx_Notes.Location = new System.Drawing.Point(7, 433);
+            this.Rtbx_Notes.Location = new System.Drawing.Point(7, 449);
             this.Rtbx_Notes.Name = "Rtbx_Notes";
-            this.Rtbx_Notes.Size = new System.Drawing.Size(659, 187);
+            this.Rtbx_Notes.Size = new System.Drawing.Size(659, 182);
             this.Rtbx_Notes.TabIndex = 9;
             this.Rtbx_Notes.Text = "Notes - \n";
             // 
@@ -524,7 +551,6 @@ namespace LitRevResourceMVP.Views
             this.Lbx_ListOfCategories.FormattingEnabled = true;
             this.Lbx_ListOfCategories.ItemHeight = 25;
             this.Lbx_ListOfCategories.Location = new System.Drawing.Point(603, 81);
-            this.Lbx_ListOfCategories.MultiColumn = true;
             this.Lbx_ListOfCategories.Name = "Lbx_ListOfCategories";
             this.Lbx_ListOfCategories.Size = new System.Drawing.Size(192, 104);
             this.Lbx_ListOfCategories.TabIndex = 18;
@@ -545,7 +571,7 @@ namespace LitRevResourceMVP.Views
             this.tabPage3.Location = new System.Drawing.Point(4, 34);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(817, 626);
+            this.tabPage3.Size = new System.Drawing.Size(817, 636);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Add reference";
             // 
@@ -812,7 +838,7 @@ namespace LitRevResourceMVP.Views
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(849, 681);
+            this.ClientSize = new System.Drawing.Size(849, 701);
             this.Controls.Add(this.Tbcl_ResourceList);
             this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ImeMode = System.Windows.Forms.ImeMode.Off;
@@ -899,5 +925,7 @@ namespace LitRevResourceMVP.Views
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private Label Lbl_RefInFile;
+        private TextBox Tbx_RefInFile;
     }
 }

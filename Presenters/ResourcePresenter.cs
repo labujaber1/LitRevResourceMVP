@@ -159,6 +159,7 @@ namespace LitRevResourceMVP.Presenters
             model.Web_Link = view.ResWebLink;
             model.Resource_Type = view.ResType;
             model.Date_Accessed = view.ResDateAccessed;
+            model.Ref_In_File = view.ResRefInFile;
             model.Reference = view.ResReference;
             model.DOI_Num = view.ResDoiNum;
             model.Main_Point = view.ResMainPoint;
@@ -246,7 +247,7 @@ namespace LitRevResourceMVP.Presenters
                 if ((view.ResWebLink.StartsWith("https") || (view.ResWebLink.StartsWith("www"))) == true)
                 {
                     view.ActiveWebLink.Text = view.ResWebLink;
-                    LinkLabel.Link wblk = new LinkLabel.Link();
+                    LinkLabel.Link wblk = new();
                     wblk.LinkData = view.ResWebLink;
                     view.ActiveWebLink.Links.Add(wblk);
                 }
@@ -264,7 +265,7 @@ namespace LitRevResourceMVP.Presenters
         /// </summary>
         /// <param name="url"></param>
         /// <returns></returns>
-        private bool OpenBrowser(string url)
+        private static bool OpenBrowser(string url)
         {
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
             {
@@ -287,8 +288,7 @@ namespace LitRevResourceMVP.Presenters
         private void LinkLabelClick(object sender, LinkLabelLinkClickedEventArgs e)
         {
             string openLink = "Opening web link";
-            string target = e.Link.LinkData as string;
-            if (target != null)
+            if (e.Link.LinkData is string target)
             {
                 try
                 {
@@ -342,6 +342,7 @@ namespace LitRevResourceMVP.Presenters
             view.ResWebLink = "";
             view.ResType = "";
             view.ResDoiNum = "";
+            view.ResRefInFile = "";
             view.ResCategory = "";
             view.ResReference = "";
             view.ResMainPoint = "";

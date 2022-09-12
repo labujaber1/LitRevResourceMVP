@@ -60,7 +60,6 @@ namespace LitRevResourceMVP.Presenters
             try
             {
                 int num = view.IndexRow;
-                Debug.WriteLine("Row index = "+num);
                 repository.DeleteConnString(num);   //app.config
                 view.DeleteDataGridRow();         //datagridview
                 view.IsSuccessful = true;
@@ -93,21 +92,21 @@ namespace LitRevResourceMVP.Presenters
                         string connectionString = item.Connection_string;
                         string providerName = item.Provider_Name;
                         repository.EditConnString(name, connectionString, providerName);
-                        Debug.WriteLine("Foreach loop ==> \nName = " + name + "\nConn String = " + connectionString + "\nProvider = " + providerName);
+                        //Debug.WriteLine("Foreach loop ==> \nName = " + name + "\nConn String = " + connectionString + "\nProvider = " + providerName);
                     }
                     repository.SaveRefreshConfig();
                     view.IsSuccessful = true;
                     view.Message = "Edit save was success";
-                    MessageBox.Show("Save successfull");
+                    
                 }
-                else { MessageBox.Show("Something went wrong as theres no data so failed to update app.config"); }
+                else { view.Message = "Something went wrong as theres no data so failed to update app.config"; }
             }
             catch (Exception ex)
             {
                 view.IsSuccessful = false;
                 view.Message = "Sorry, could not perform the edit save request due to an error. " + ex.Message;
-                Debug.WriteLine("Error = "+ex.Message);
             }
+            
         }
 
         
@@ -140,7 +139,6 @@ namespace LitRevResourceMVP.Presenters
             {
                 view.IsSuccessful = false;
                 view.Message = "Sorry, could not perform the save request due to an error. " + ex.Message;
-                Debug.WriteLine("Sorry, could not perform the save request due to an error. " + ex.Message);
             }
         }
 

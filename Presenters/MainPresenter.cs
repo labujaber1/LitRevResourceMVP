@@ -2,7 +2,7 @@
 using LitRevResourceMVP.Views;
 using LitRevResourceMVP.Models;
 using LitRevResourceMVP.Repositories;
-
+using System.Configuration;
 
 namespace LitRevResourceMVP.Presenters
 {
@@ -13,16 +13,16 @@ namespace LitRevResourceMVP.Presenters
     {
         
         private readonly IMainView imainView;
-        private readonly string sqlConnectionString;
+        private string sqlConnectionString;
         /// <summary>
         /// Setup events args to event handlers and module bindings source.
         /// </summary>
         /// <param name="mainView"></param>
-        /// <param name="sqlConnectionString"></param>
-        public MainPresenter(IMainView mainView, string sqlConnectionString)
+        // <param name="sqlConnectionString"></param>
+        public MainPresenter(IMainView mainView)
         {
             imainView = mainView;
-            this.sqlConnectionString = sqlConnectionString;
+            this.sqlConnectionString = ServerConnString();
             imainView.ShowResourceView += ShowResourcesView;
             imainView.ShowAssignmentView += ShowAssignmentView;
             imainView.ShowModuleView += ShowModuleView;
@@ -30,6 +30,11 @@ namespace LitRevResourceMVP.Presenters
             imainView.ShowConnWizard += ShowConnWizard;
         }
 
+        public string ServerConnString()
+        {
+            sqlConnectionString = ConfigurationManager.ConnectionStrings["SqlConnection"].ConnectionString;
+            return sqlConnectionString;
+        }
         /// <summary>
         /// 
         /// </summary>
@@ -49,6 +54,7 @@ namespace LitRevResourceMVP.Presenters
         /// <param name="e"></param>
         private void ShowDBConnSetupView(object sender, EventArgs e)
         {
+            ServerConnString();
             IDBConnSetupView view = DBConnSetupView.GetInstance((MainView)imainView);
             IDBConnSetupRepository repository = new DBConnSetupRepository(sqlConnectionString);
             _ = new DBConnSetupPresenter(view, repository);
@@ -61,6 +67,7 @@ namespace LitRevResourceMVP.Presenters
         /// <param name="e"></param>
         private void ShowResourcesView(object sender, EventArgs e)
         {
+            ServerConnString();
             IResourceView view = ResourceView.GetInstance((MainView)imainView);
             IResourceRepository repository = new ResourceRepository(sqlConnectionString);
             _ = new ResourcePresenter(view, repository);
@@ -73,6 +80,7 @@ namespace LitRevResourceMVP.Presenters
         /// <param name="e"></param>
         private void ShowAssignmentView(object sender, EventArgs e)
         {
+            ServerConnString();
             IAssignmentView view = AssignmentView.GetInstance((MainView)imainView);
             IAssignmentRepository repository = new AssignmentRepository(sqlConnectionString);
             _ = new AssignmentPresenter(view, repository);
@@ -85,6 +93,7 @@ namespace LitRevResourceMVP.Presenters
         /// <param name="e"></param>
         private void ShowModuleView(object sender, EventArgs e)
         {
+            ServerConnString();
             IModuleView view = ModuleView.GetInstance((MainView)imainView);
             IModuleRepository repository = new ModuleRepository(sqlConnectionString);
             _ = new ModulePresenter(view, repository);

@@ -16,6 +16,7 @@ namespace LitRevResourceMVP.Models
         private string webLink;
         private string resType;
         private DateTime dateAccessed;
+        private string refInFile;
         private string reference;
         private string doiNum;
         private string mainPoint;
@@ -46,6 +47,10 @@ namespace LitRevResourceMVP.Models
         [DisplayName("Date accessed")]
         [Required(ErrorMessage = "A date is useful please select one")]
         public DateTime Date_Accessed { get { return dateAccessed; } set { dateAccessed = value.Date; } }
+
+        [DisplayName("Ref in file")]
+        [StringLength(3,ErrorMessage = "Ref in file - Please do not exceed 3 chars, either yes or no is required")]
+        public string Ref_In_File { get { return refInFile; } set { refInFile = value; } }
 
         [DisplayName("Resource reference")]
         [StringLength(300, ErrorMessage = "Resource reference - Only 300 characters can be used")]

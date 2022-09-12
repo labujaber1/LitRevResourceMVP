@@ -61,7 +61,7 @@
         </member>
         <member name="T:LitRevResourceMVP.Models.DBConnSetupModel">
             <summary>
-            DB connection setup model conataining fields inline with database table
+            DB connection setup model containing fields inline with database table
             </summary>
         </member>
         <member name="T:LitRevResourceMVP.Models.IAssignmentRepository">
@@ -504,12 +504,11 @@
             Module presenter to invoke view events of each form identified by buttons in the side bar.
             </summary>
         </member>
-        <member name="M:LitRevResourceMVP.Presenters.MainPresenter.#ctor(LitRevResourceMVP.Views.IMainView,System.String)">
+        <member name="M:LitRevResourceMVP.Presenters.MainPresenter.#ctor(LitRevResourceMVP.Views.IMainView)">
             <summary>
             Setup events args to event handlers and module bindings source.
             </summary>
             <param name="mainView"></param>
-            <param name="sqlConnectionString"></param>
         </member>
         <member name="M:LitRevResourceMVP.Presenters.MainPresenter.ShowConnWizard(System.Object,System.EventArgs)">
             <summary>
@@ -817,7 +816,6 @@
         <member name="M:LitRevResourceMVP.Repositories.DBConnSetupRepository.AddConnString(System.String,System.String,System.String)">
             <summary>
             Saves constructed connection string and name to the app.config file at runtime.
-            Code courtesy of h ttps://makolyte.com/how-to-modify-app-config-at-runtime/
             Used in presenter saveconn event to add new connstring
             </summary>
             <param name="name"></param>
@@ -827,7 +825,6 @@
         <member name="M:LitRevResourceMVP.Repositories.DBConnSetupRepository.EditConnString(System.String,System.String,System.String)">
             <summary>
             Edits constructed connection string and providername to the app.config file at runtime.
-            Code courtesy of h ttps://makolyte.com/how-to-modify-app-config-at-runtime/.
             </summary>
             <param name="name"></param>
             <param name="connectionString"></param>
@@ -1526,6 +1523,11 @@
             Resource accessed date: dateTimePicker1.Value.Date
             </summary>
         </member>
+        <member name="P:LitRevResourceMVP.Views.IResourceView.ResRefInFile">
+            <summary>
+            Resource referenced in file: Tbx_RefInFile.Text
+            </summary>
+        </member>
         <member name="P:LitRevResourceMVP.Views.IResourceView.ResCategory">
             <summary>
             Resource category: Tbx_NewCategory.Text
@@ -1911,6 +1913,11 @@
         <member name="P:LitRevResourceMVP.Views.ResourceView.ResCategory">
             <summary>
             Resource category: Tbx_NewCategory.Text
+            </summary>
+        </member>
+        <member name="P:LitRevResourceMVP.Views.ResourceView.ResRefInFile">
+            <summary>
+            Resource referenced in file: Tbx_RefInFile.Text
             </summary>
         </member>
         <member name="P:LitRevResourceMVP.Views.ResourceView.ResReference">

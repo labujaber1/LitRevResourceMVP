@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace LitRevResourceMVP.Views
@@ -36,6 +32,10 @@ namespace LitRevResourceMVP.Views
         /// Resource accessed date: dateTimePicker1.Value.Date
         /// </summary>
         DateTime ResDateAccessed { get; set; }
+        /// <summary>
+        /// Resource referenced in file: Tbx_RefInFile.Text
+        /// </summary>
+        string ResRefInFile { get; set; }
         /// <summary>
         /// Resource category: Tbx_NewCategory.Text
         /// </summary>

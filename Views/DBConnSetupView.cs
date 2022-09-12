@@ -52,6 +52,7 @@ namespace LitRevResourceMVP.Views
                 if (result == DialogResult.Yes)
                 {
                     SaveEvent?.Invoke(this, EventArgs.Empty);
+                    MessageBox.Show(Message);
                 }
             };
 
@@ -69,6 +70,7 @@ namespace LitRevResourceMVP.Views
             Btn_EditList.Click += delegate
             {
                 EditEvent?.Invoke(this, EventArgs.Empty);
+                MessageBox.Show(Message);
             };
 
             Btn_ConnTest.Click += delegate

@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Data;
-using System.Diagnostics;
+using System.Reflection;
 using System.Windows.Forms;
 
 
@@ -244,6 +244,14 @@ namespace LitRevResourceMVP.Views
             set { Tbx_NewCategory.Text = value; }
         }
         /// <summary>
+        /// Resource referenced in file: Tbx_RefInFile.Text
+        /// </summary>
+        public string ResRefInFile
+        {
+            get { return Tbx_RefInFile.Text; }
+            set { Tbx_RefInFile.Text = value; }
+        }
+        /// <summary>
         /// Resource pasted/self written reference: Tbx_Reference.Text
         /// </summary>
         public string ResReference
@@ -329,6 +337,10 @@ namespace LitRevResourceMVP.Views
         /// <param name="e"></param>
         private void DataGridViewAssign_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            //stops datagridviewresource from flickering when horizontal scrolling,
+            //disappeared from design class on rebuild. Put here as well just in case.
+            //Will remove after live test complete. See live test results.txt no.25
+            dataGridViewResource.GetType().GetProperty("DoubleBuffered", BindingFlags.Instance | BindingFlags.NonPublic).SetValue(dataGridViewResource, true, null);
             if (this.dataGridViewAssign.CurrentRow.DataBoundItem is DataRowView drv)
             {
                 AssignIdNum = drv[0].ToString();
@@ -343,7 +355,7 @@ namespace LitRevResourceMVP.Views
         /// <param name="e"></param>
         private void DataGridViewResource_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            DataGridView dgv = dataGridViewResource;
+             DataGridView dgv = dataGridViewResource;
             if (dgv != null)
             {
                 ResIdNum = dgv.CurrentRow.Cells[0].Value.ToString();
@@ -351,10 +363,11 @@ namespace LitRevResourceMVP.Views
                 ResWebLink = dgv.CurrentRow.Cells[2].Value.ToString();
                 ResType = dgv.CurrentRow.Cells[3].Value.ToString();
                 ResDateAccessed = (DateTime)dgv.CurrentRow.Cells[4].Value;
-                ResReference = dgv.CurrentRow.Cells[5].Value.ToString();
-                ResDoiNum = dgv.CurrentRow.Cells[6].Value.ToString();
-                ResMainPoint = dgv.CurrentRow.Cells[7].Value.ToString();
-                ResNotes = dgv.CurrentRow.Cells[8].Value.ToString();
+                ResRefInFile = dgv.CurrentRow.Cells[5].Value.ToString();
+                ResReference = dgv.CurrentRow.Cells[6].Value.ToString();
+                ResDoiNum = dgv.CurrentRow.Cells[7].Value.ToString();
+                ResMainPoint = dgv.CurrentRow.Cells[8].Value.ToString();
+                ResNotes = dgv.CurrentRow.Cells[9].Value.ToString();
             }
         }
 

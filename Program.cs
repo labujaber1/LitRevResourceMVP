@@ -18,9 +18,9 @@ namespace LitRevResourceMVP
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            string sqlConnectionString = ConfigurationManager.ConnectionStrings["SqlConnection"].ConnectionString;
+            //string sqlConnectionString = ConfigurationManager.ConnectionStrings["SqlConnection"].ConnectionString;
             IMainView view = new MainView();
-            new MainPresenter(view, sqlConnectionString);
+            new MainPresenter(view);
             Application.Run((Form)view);
         }
     }

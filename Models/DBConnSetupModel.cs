@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel;
 
 namespace LitRevResourceMVP.Models
 {
     /// <summary>
-    /// DB connection setup model conataining fields inline with database table
+    /// DB connection setup model containing fields inline with database table
     /// </summary>
     public class DBConnSetupModel
     {

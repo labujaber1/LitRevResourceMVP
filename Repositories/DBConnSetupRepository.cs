@@ -77,9 +77,9 @@ namespace LitRevResourceMVP.Repositories
             return connString;
         }
 
+        // Code courtesy of h ttps://makolyte.com/how-to-modify-app-config-at-runtime/
         /// <summary>
         /// Saves constructed connection string and name to the app.config file at runtime.
-        /// Code courtesy of h ttps://makolyte.com/how-to-modify-app-config-at-runtime/
         /// Used in presenter saveconn event to add new connstring
         /// </summary>
         /// <param name="name"></param>
@@ -94,9 +94,9 @@ namespace LitRevResourceMVP.Repositories
             ConfigurationManager.RefreshSection("connectionStrings");
         }
 
+        // Code courtesy of h ttps://makolyte.com/how-to-modify-app-config-at-runtime/.
         /// <summary>
         /// Edits constructed connection string and providername to the app.config file at runtime.
-        /// Code courtesy of h ttps://makolyte.com/how-to-modify-app-config-at-runtime/.
         /// </summary>
         /// <param name="name"></param>
         /// <param name="connectionString"></param>
