@@ -15,6 +15,7 @@ namespace LitRevResourceMVP.Models
         private string category;
         private string webLink;
         private string resType;
+        private string searchTerm;
         private DateTime dateAccessed;
         private string refInFile;
         private string reference;
@@ -43,6 +44,11 @@ namespace LitRevResourceMVP.Models
         [StringLength(50, ErrorMessage = "Resource type - Only 50 characters can be used")]
         [Required(ErrorMessage = "Resource name is useful so please enter one ")]
         public string Resource_Type { get { return resType; } set { resType = value; } }
+
+        [DisplayName("Resource type")]
+        [StringLength(100, ErrorMessage = "Search term - Only 100 characters can be used")]
+        [Required(ErrorMessage = "Search term is useful so please enter one ")]
+        public string Search_Term { get { return searchTerm; } set { searchTerm = value; } }
 
         [DisplayName("Date accessed")]
         [Required(ErrorMessage = "A date is useful please select one")]

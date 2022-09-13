@@ -60,6 +60,7 @@ namespace LitRevResourceMVP.Views
             this.Btn_Delete = new System.Windows.Forms.Button();
             this.Btn_AddNew = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.Tbx_SearchTerm = new System.Windows.Forms.TextBox();
             this.Tbx_RefInFile = new System.Windows.Forms.TextBox();
             this.Lbl_RefInFile = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -125,7 +126,7 @@ namespace LitRevResourceMVP.Views
             this.Tbx_WebLink.Name = "Tbx_WebLink";
             this.Tbx_WebLink.PlaceholderText = "Paste web link";
             this.Tbx_WebLink.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.Tbx_WebLink.Size = new System.Drawing.Size(788, 31);
+            this.Tbx_WebLink.Size = new System.Drawing.Size(804, 31);
             this.Tbx_WebLink.TabIndex = 2;
             // 
             // Tbx_Type
@@ -142,7 +143,7 @@ namespace LitRevResourceMVP.Views
             // 
             this.Tbx_DoiNum.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.Tbx_DoiNum.Location = new System.Drawing.Point(7, 233);
+            this.Tbx_DoiNum.Location = new System.Drawing.Point(7, 239);
             this.Tbx_DoiNum.Name = "Tbx_DoiNum";
             this.Tbx_DoiNum.PlaceholderText = "Enter DOI number";
             this.Tbx_DoiNum.Size = new System.Drawing.Size(366, 31);
@@ -152,12 +153,12 @@ namespace LitRevResourceMVP.Views
             // 
             this.Tbx_Reference.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.Tbx_Reference.Location = new System.Drawing.Point(7, 191);
+            this.Tbx_Reference.Location = new System.Drawing.Point(7, 194);
             this.Tbx_Reference.Multiline = true;
             this.Tbx_Reference.Name = "Tbx_Reference";
             this.Tbx_Reference.PlaceholderText = "Paste or add reference";
             this.Tbx_Reference.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.Tbx_Reference.Size = new System.Drawing.Size(788, 36);
+            this.Tbx_Reference.Size = new System.Drawing.Size(804, 36);
             this.Tbx_Reference.TabIndex = 7;
             // 
             // Rtbx_MainPoint
@@ -165,9 +166,9 @@ namespace LitRevResourceMVP.Views
             this.Rtbx_MainPoint.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.Rtbx_MainPoint.Location = new System.Drawing.Point(7, 270);
+            this.Rtbx_MainPoint.Location = new System.Drawing.Point(7, 276);
             this.Rtbx_MainPoint.Name = "Rtbx_MainPoint";
-            this.Rtbx_MainPoint.Size = new System.Drawing.Size(659, 162);
+            this.Rtbx_MainPoint.Size = new System.Drawing.Size(659, 176);
             this.Rtbx_MainPoint.TabIndex = 8;
             this.Rtbx_MainPoint.Text = "Main point - \n";
             // 
@@ -185,7 +186,7 @@ namespace LitRevResourceMVP.Views
             // 
             this.Btn_CreateAddRef.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.Btn_CreateAddRef.BackColor = System.Drawing.Color.Bisque;
-            this.Btn_CreateAddRef.Location = new System.Drawing.Point(672, 240);
+            this.Btn_CreateAddRef.Location = new System.Drawing.Point(672, 233);
             this.Btn_CreateAddRef.Name = "Btn_CreateAddRef";
             this.Btn_CreateAddRef.Size = new System.Drawing.Size(123, 60);
             this.Btn_CreateAddRef.TabIndex = 15;
@@ -259,7 +260,7 @@ namespace LitRevResourceMVP.Views
             this.tabPage1.Location = new System.Drawing.Point(4, 34);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(817, 636);
+            this.tabPage1.Size = new System.Drawing.Size(817, 646);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Resource list";
             // 
@@ -428,6 +429,7 @@ namespace LitRevResourceMVP.Views
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.LightCoral;
+            this.tabPage2.Controls.Add(this.Tbx_SearchTerm);
             this.tabPage2.Controls.Add(this.Tbx_RefInFile);
             this.tabPage2.Controls.Add(this.Lbl_RefInFile);
             this.tabPage2.Controls.Add(this.label2);
@@ -455,9 +457,18 @@ namespace LitRevResourceMVP.Views
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Resource edit";
             // 
+            // Tbx_SearchTerm
+            // 
+            this.Tbx_SearchTerm.Location = new System.Drawing.Point(498, 142);
+            this.Tbx_SearchTerm.Multiline = true;
+            this.Tbx_SearchTerm.Name = "Tbx_SearchTerm";
+            this.Tbx_SearchTerm.PlaceholderText = "Text used for search";
+            this.Tbx_SearchTerm.Size = new System.Drawing.Size(297, 46);
+            this.Tbx_SearchTerm.TabIndex = 27;
+            // 
             // Tbx_RefInFile
             // 
-            this.Tbx_RefInFile.Location = new System.Drawing.Point(578, 233);
+            this.Tbx_RefInFile.Location = new System.Drawing.Point(580, 239);
             this.Tbx_RefInFile.Name = "Tbx_RefInFile";
             this.Tbx_RefInFile.Size = new System.Drawing.Size(73, 31);
             this.Tbx_RefInFile.TabIndex = 26;
@@ -467,7 +478,7 @@ namespace LitRevResourceMVP.Views
             // 
             this.Lbl_RefInFile.AutoSize = true;
             this.Lbl_RefInFile.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.Lbl_RefInFile.Location = new System.Drawing.Point(471, 236);
+            this.Lbl_RefInFile.Location = new System.Drawing.Point(482, 242);
             this.Lbl_RefInFile.Name = "Lbl_RefInFile";
             this.Lbl_RefInFile.Size = new System.Drawing.Size(92, 25);
             this.Lbl_RefInFile.TabIndex = 25;
@@ -502,7 +513,7 @@ namespace LitRevResourceMVP.Views
             this.Btn_MainCharLength.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.Btn_MainCharLength.BackColor = System.Drawing.Color.Gainsboro;
             this.Btn_MainCharLength.Font = new System.Drawing.Font("Segoe UI", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Btn_MainCharLength.Location = new System.Drawing.Point(672, 324);
+            this.Btn_MainCharLength.Location = new System.Drawing.Point(672, 329);
             this.Btn_MainCharLength.Name = "Btn_MainCharLength";
             this.Btn_MainCharLength.Size = new System.Drawing.Size(112, 34);
             this.Btn_MainCharLength.TabIndex = 10;
@@ -514,9 +525,9 @@ namespace LitRevResourceMVP.Views
             this.Rtbx_Notes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.Rtbx_Notes.Location = new System.Drawing.Point(7, 449);
+            this.Rtbx_Notes.Location = new System.Drawing.Point(7, 458);
             this.Rtbx_Notes.Name = "Rtbx_Notes";
-            this.Rtbx_Notes.Size = new System.Drawing.Size(659, 182);
+            this.Rtbx_Notes.Size = new System.Drawing.Size(659, 173);
             this.Rtbx_Notes.TabIndex = 9;
             this.Rtbx_Notes.Text = "Notes - \n";
             // 
@@ -527,11 +538,11 @@ namespace LitRevResourceMVP.Views
             this.Lbl_ViewCategories.BackColor = System.Drawing.Color.Transparent;
             this.Lbl_ViewCategories.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
             this.Lbl_ViewCategories.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.Lbl_ViewCategories.Location = new System.Drawing.Point(500, 83);
+            this.Lbl_ViewCategories.Location = new System.Drawing.Point(391, 80);
             this.Lbl_ViewCategories.Name = "Lbl_ViewCategories";
-            this.Lbl_ViewCategories.Size = new System.Drawing.Size(97, 100);
+            this.Lbl_ViewCategories.Size = new System.Drawing.Size(97, 50);
             this.Lbl_ViewCategories.TabIndex = 20;
-            this.Lbl_ViewCategories.Text = "List of \r\ncategories \r\nused \r\n(readonly)";
+            this.Lbl_ViewCategories.Text = "categories \r\nused ";
             // 
             // Lklbl_WebLink
             // 
@@ -550,9 +561,10 @@ namespace LitRevResourceMVP.Views
             this.Lbx_ListOfCategories.BackColor = System.Drawing.SystemColors.Control;
             this.Lbx_ListOfCategories.FormattingEnabled = true;
             this.Lbx_ListOfCategories.ItemHeight = 25;
-            this.Lbx_ListOfCategories.Location = new System.Drawing.Point(603, 81);
+            this.Lbx_ListOfCategories.Location = new System.Drawing.Point(498, 80);
+            this.Lbx_ListOfCategories.MultiColumn = true;
             this.Lbx_ListOfCategories.Name = "Lbx_ListOfCategories";
-            this.Lbx_ListOfCategories.Size = new System.Drawing.Size(192, 104);
+            this.Lbx_ListOfCategories.Size = new System.Drawing.Size(313, 54);
             this.Lbx_ListOfCategories.TabIndex = 18;
             // 
             // tabPage3
@@ -571,7 +583,7 @@ namespace LitRevResourceMVP.Views
             this.tabPage3.Location = new System.Drawing.Point(4, 34);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(817, 636);
+            this.tabPage3.Size = new System.Drawing.Size(817, 646);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Add reference";
             // 
@@ -927,5 +939,6 @@ namespace LitRevResourceMVP.Views
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private Label Lbl_RefInFile;
         private TextBox Tbx_RefInFile;
+        private TextBox Tbx_SearchTerm;
     }
 }

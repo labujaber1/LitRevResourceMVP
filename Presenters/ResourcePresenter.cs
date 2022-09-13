@@ -158,6 +158,7 @@ namespace LitRevResourceMVP.Presenters
             model.Category = view.ResCategory;
             model.Web_Link = view.ResWebLink;
             model.Resource_Type = view.ResType;
+            model.Search_Term = view.ResSearchTerm;
             model.Date_Accessed = view.ResDateAccessed;
             model.Ref_In_File = view.ResRefInFile;
             model.Reference = view.ResReference;
@@ -341,8 +342,9 @@ namespace LitRevResourceMVP.Presenters
             view.ResIdNum = "0";
             view.ResWebLink = "";
             view.ResType = "";
+            view.ResSearchTerm = "";
             view.ResDoiNum = "";
-            view.ResRefInFile = "";
+            view.ResRefInFile = "No";
             view.ResCategory = "";
             view.ResReference = "";
             view.ResMainPoint = "";

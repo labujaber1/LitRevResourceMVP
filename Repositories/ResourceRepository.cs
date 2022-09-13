@@ -60,6 +60,7 @@ namespace LitRevResourceMVP.Repositories
                 dr["Res_Category"] = resourceModel.Category;
                 dr["Res_Weblink"] = resourceModel.Web_Link;
                 dr["Res_Type"] = resourceModel.Resource_Type;
+                dr["Res_SearchTerm"] = resourceModel.Search_Term;
                 dr["Res_DateAccessed"] = resourceModel.Date_Accessed;
                 dr["Res_RefInFile"] = resourceModel.Ref_In_File;
                 dr["Res_Reference"] = resourceModel.Reference;
@@ -101,6 +102,7 @@ namespace LitRevResourceMVP.Repositories
                 dr["Res_Category"] = resourceModel.Category;
                 dr["Res_Weblink"] = resourceModel.Web_Link;
                 dr["Res_Type"] = resourceModel.Resource_Type;
+                dr["Res_SearchTerm"] = resourceModel.Search_Term;
                 dr["Res_DateAccessed"] = resourceModel.Date_Accessed;
                 dr["Res_RefInFile"] = resourceModel.Ref_In_File;
                 dr["Res_Reference"] = resourceModel.Reference;
@@ -165,13 +167,14 @@ namespace LitRevResourceMVP.Repositories
                             resourceModel.Category = reader[1].ToString();
                             resourceModel.Web_Link = reader[2].ToString();
                             resourceModel.Resource_Type = reader[3].ToString();
-                            resourceModel.Date_Accessed = (DateTime)reader[4];
-                            resourceModel.Ref_In_File = reader[5].ToString();
-                            resourceModel.Reference = reader[6].ToString();
-                            resourceModel.DOI_Num = reader[7].ToString();
-                            resourceModel.Main_Point = reader[8].ToString();
-                            resourceModel.Main_Notes = reader[9].ToString();
-                            resourceModel.Assign_IdNum = (int)reader[10];
+                            resourceModel.Search_Term = reader[4].ToString();
+                            resourceModel.Date_Accessed = (DateTime)reader[5];
+                            resourceModel.Ref_In_File = reader[6].ToString();
+                            resourceModel.Reference = reader[7].ToString();
+                            resourceModel.DOI_Num = reader[8].ToString();
+                            resourceModel.Main_Point = reader[9].ToString();
+                            resourceModel.Main_Notes = reader[10].ToString();
+                            resourceModel.Assign_IdNum = (int)reader[11];
                             resourceList.Add(resourceModel);
                         }
                     }

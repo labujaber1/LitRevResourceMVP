@@ -220,6 +220,14 @@ namespace LitRevResourceMVP.Views
             set { Tbx_Type.Text = value; }
         }
         /// <summary>
+        /// Resource search term: Tbx_SearchTerm.Text
+        /// </summary>
+        public string ResSearchTerm
+        {
+            get { return Tbx_SearchTerm.Text; }
+            set { Tbx_SearchTerm.Text = value; }
+        }
+        /// <summary>
         /// Resource DOI number: Tbx_DoiNum.Text
         /// </summary>
         public string ResDoiNum
@@ -362,12 +370,13 @@ namespace LitRevResourceMVP.Views
                 ResCategory = dgv.CurrentRow.Cells[1].Value.ToString();
                 ResWebLink = dgv.CurrentRow.Cells[2].Value.ToString();
                 ResType = dgv.CurrentRow.Cells[3].Value.ToString();
-                ResDateAccessed = (DateTime)dgv.CurrentRow.Cells[4].Value;
-                ResRefInFile = dgv.CurrentRow.Cells[5].Value.ToString();
-                ResReference = dgv.CurrentRow.Cells[6].Value.ToString();
-                ResDoiNum = dgv.CurrentRow.Cells[7].Value.ToString();
-                ResMainPoint = dgv.CurrentRow.Cells[8].Value.ToString();
-                ResNotes = dgv.CurrentRow.Cells[9].Value.ToString();
+                ResSearchTerm = dgv.CurrentRow.Cells[4].Value.ToString();
+                ResDateAccessed = (DateTime)dgv.CurrentRow.Cells[5].Value;
+                ResRefInFile = dgv.CurrentRow.Cells[6].Value.ToString();
+                ResReference = dgv.CurrentRow.Cells[7].Value.ToString();
+                ResDoiNum = dgv.CurrentRow.Cells[8].Value.ToString();
+                ResMainPoint = dgv.CurrentRow.Cells[9].Value.ToString();
+                ResNotes = dgv.CurrentRow.Cells[10].Value.ToString();
             }
         }
 

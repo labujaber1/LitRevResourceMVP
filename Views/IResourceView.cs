@@ -25,6 +25,10 @@ namespace LitRevResourceMVP.Views
         /// </summary>
         string ResType { get; set; }
         /// <summary>
+        /// Resource search term: Tbx_SearchTerm.Text
+        /// </summary>
+        string ResSearchTerm { get; set; }
+        /// <summary>
         /// Resource DOI number: Tbx_DoiNum.Text
         /// </summary>
         string ResDoiNum { get; set; }

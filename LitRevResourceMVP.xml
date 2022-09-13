@@ -1513,6 +1513,11 @@
             Resource type:Tbx_Type.Text
             </summary>
         </member>
+        <member name="P:LitRevResourceMVP.Views.IResourceView.ResSearchTerm">
+            <summary>
+            Resource search term: Tbx_SearchTerm.Text
+            </summary>
+        </member>
         <member name="P:LitRevResourceMVP.Views.IResourceView.ResDoiNum">
             <summary>
             Resource DOI number: Tbx_DoiNum.Text
@@ -1898,6 +1903,11 @@
         <member name="P:LitRevResourceMVP.Views.ResourceView.ResType">
             <summary>
             Resource type:Tbx_Type.Text
+            </summary>
+        </member>
+        <member name="P:LitRevResourceMVP.Views.ResourceView.ResSearchTerm">
+            <summary>
+            Resource search term: Tbx_SearchTerm.Text
             </summary>
         </member>
         <member name="P:LitRevResourceMVP.Views.ResourceView.ResDoiNum">
