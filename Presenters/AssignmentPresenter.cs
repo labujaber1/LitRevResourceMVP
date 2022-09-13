@@ -42,7 +42,7 @@ namespace LitRevResourceMVP.Presenters
             this.view.SetModuleNameListBindingSource(moduleBindingSource);
             
             LoadAllModulesList();
-            
+            this.view.DueDate = DateTime.Today;
             // ###### 
             this.view.Show();
         }

@@ -52,7 +52,7 @@ namespace LitRevResourceMVP.Models
 
         [DisplayName("Date accessed")]
         [Required(ErrorMessage = "A date is useful please select one")]
-        public DateTime Date_Accessed { get { return dateAccessed; } set { dateAccessed = value.Date; } }
+        public DateTime Date_Accessed { get { return dateAccessed; } set { dateAccessed = value; } }
 
         [DisplayName("Ref in file")]
         [StringLength(3,ErrorMessage = "Ref in file - Please do not exceed 3 chars, either yes or no is required")]

@@ -54,6 +54,7 @@ namespace LitRevResourceMVP.Presenters
             this.view.SetAssignmentListBindingSource(assignBindingSource);
             this.view.SetResourceListBindingSource(resourceBindingSource);
             this.view.SetCategoryListBindingSource(categoryBindingSource);
+            this.view.ResDateAccessed = DateTime.Today;
             LoadAllAssignmentList();
             this.view.Show();
         }
