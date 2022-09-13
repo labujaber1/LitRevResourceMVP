@@ -28,10 +28,13 @@
     <None Remove="App_Data\Assignment_table_alter1.sql" />
     <None Remove="App_Data\Assign_table.sql" />
     <None Remove="App_Data\DB design table.xlsx" />
+    <None Remove="App_Data\litrevresourcedb.mwb" />
+    <None Remove="App_Data\litrevresourcedb.mwb.bak" />
     <None Remove="App_Data\litrevresourceTables.mwb" />
     <None Remove="App_Data\litrevresourceTables.mwb.bak" />
     <None Remove="App_Data\Module_table.sql" />
     <None Remove="App_Data\Module_table_alter1.sql" />
+    <None Remove="App_Data\mysqlScript.sql" />
     <None Remove="App_Data\Resource_table.sql" />
     <None Remove="App_Data\Resource_table_alter1.sql" />
     <None Remove="App_Data\SQLQueryResTable.sql" />

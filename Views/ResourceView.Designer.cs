@@ -153,7 +153,7 @@ namespace LitRevResourceMVP.Views
             // 
             this.Tbx_Reference.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.Tbx_Reference.Location = new System.Drawing.Point(7, 194);
+            this.Tbx_Reference.Location = new System.Drawing.Point(7, 197);
             this.Tbx_Reference.Multiline = true;
             this.Tbx_Reference.Name = "Tbx_Reference";
             this.Tbx_Reference.PlaceholderText = "Paste or add reference";
@@ -176,7 +176,7 @@ namespace LitRevResourceMVP.Views
             // 
             this.dateTimePicker1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(6, 154);
+            this.dateTimePicker1.Location = new System.Drawing.Point(7, 154);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(366, 31);
             this.dateTimePicker1.TabIndex = 5;
@@ -186,7 +186,7 @@ namespace LitRevResourceMVP.Views
             // 
             this.Btn_CreateAddRef.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.Btn_CreateAddRef.BackColor = System.Drawing.Color.Bisque;
-            this.Btn_CreateAddRef.Location = new System.Drawing.Point(672, 233);
+            this.Btn_CreateAddRef.Location = new System.Drawing.Point(672, 239);
             this.Btn_CreateAddRef.Name = "Btn_CreateAddRef";
             this.Btn_CreateAddRef.Size = new System.Drawing.Size(123, 60);
             this.Btn_CreateAddRef.TabIndex = 15;
@@ -459,11 +459,13 @@ namespace LitRevResourceMVP.Views
             // 
             // Tbx_SearchTerm
             // 
-            this.Tbx_SearchTerm.Location = new System.Drawing.Point(498, 142);
+            this.Tbx_SearchTerm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Tbx_SearchTerm.Location = new System.Drawing.Point(498, 136);
             this.Tbx_SearchTerm.Multiline = true;
             this.Tbx_SearchTerm.Name = "Tbx_SearchTerm";
             this.Tbx_SearchTerm.PlaceholderText = "Text used for search";
-            this.Tbx_SearchTerm.Size = new System.Drawing.Size(297, 46);
+            this.Tbx_SearchTerm.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.Tbx_SearchTerm.Size = new System.Drawing.Size(313, 55);
             this.Tbx_SearchTerm.TabIndex = 27;
             // 
             // Tbx_RefInFile
