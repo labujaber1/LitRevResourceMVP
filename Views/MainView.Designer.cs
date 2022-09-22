@@ -44,7 +44,7 @@ namespace LitRevResourceMVP.Views
             // 
             this.Btn_MainModule.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Btn_MainModule.BackColor = System.Drawing.SystemColors.Menu;
-            this.Btn_MainModule.Location = new System.Drawing.Point(19, 297);
+            this.Btn_MainModule.Location = new System.Drawing.Point(19, 326);
             this.Btn_MainModule.Name = "Btn_MainModule";
             this.Btn_MainModule.Size = new System.Drawing.Size(182, 63);
             this.Btn_MainModule.TabIndex = 2;
@@ -55,7 +55,7 @@ namespace LitRevResourceMVP.Views
             // 
             this.Btn_MainAssignments.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Btn_MainAssignments.BackColor = System.Drawing.SystemColors.Menu;
-            this.Btn_MainAssignments.Location = new System.Drawing.Point(19, 209);
+            this.Btn_MainAssignments.Location = new System.Drawing.Point(19, 238);
             this.Btn_MainAssignments.Name = "Btn_MainAssignments";
             this.Btn_MainAssignments.Size = new System.Drawing.Size(182, 63);
             this.Btn_MainAssignments.TabIndex = 1;
@@ -66,7 +66,7 @@ namespace LitRevResourceMVP.Views
             // 
             this.Btn_MainResource.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Btn_MainResource.BackColor = System.Drawing.SystemColors.Menu;
-            this.Btn_MainResource.Location = new System.Drawing.Point(19, 127);
+            this.Btn_MainResource.Location = new System.Drawing.Point(19, 156);
             this.Btn_MainResource.Name = "Btn_MainResource";
             this.Btn_MainResource.Size = new System.Drawing.Size(182, 63);
             this.Btn_MainResource.TabIndex = 0;
@@ -87,7 +87,7 @@ namespace LitRevResourceMVP.Views
             // 
             this.Btn_ExitSystem.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Btn_ExitSystem.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.Btn_ExitSystem.Location = new System.Drawing.Point(36, 566);
+            this.Btn_ExitSystem.Location = new System.Drawing.Point(36, 636);
             this.Btn_ExitSystem.Name = "Btn_ExitSystem";
             this.Btn_ExitSystem.Size = new System.Drawing.Size(148, 63);
             this.Btn_ExitSystem.TabIndex = 2;
@@ -108,14 +108,14 @@ namespace LitRevResourceMVP.Views
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(217, 701);
+            this.panel1.Size = new System.Drawing.Size(217, 759);
             this.panel1.TabIndex = 3;
             // 
             // Btn_ConnWizard
             // 
             this.Btn_ConnWizard.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Btn_ConnWizard.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.Btn_ConnWizard.Location = new System.Drawing.Point(18, 385);
+            this.Btn_ConnWizard.Location = new System.Drawing.Point(18, 455);
             this.Btn_ConnWizard.Name = "Btn_ConnWizard";
             this.Btn_ConnWizard.Size = new System.Drawing.Size(183, 55);
             this.Btn_ConnWizard.TabIndex = 4;
@@ -126,7 +126,7 @@ namespace LitRevResourceMVP.Views
             // 
             this.Btn_DBConnSetup.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Btn_DBConnSetup.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.Btn_DBConnSetup.Location = new System.Drawing.Point(19, 446);
+            this.Btn_DBConnSetup.Location = new System.Drawing.Point(19, 516);
             this.Btn_DBConnSetup.Name = "Btn_DBConnSetup";
             this.Btn_DBConnSetup.Size = new System.Drawing.Size(182, 66);
             this.Btn_DBConnSetup.TabIndex = 3;
@@ -138,9 +138,8 @@ namespace LitRevResourceMVP.Views
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1121, 701);
+            this.ClientSize = new System.Drawing.Size(1121, 759);
             this.Controls.Add(this.panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.IsMdiContainer = true;
             this.Name = "MainView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

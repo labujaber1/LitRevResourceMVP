@@ -163,8 +163,7 @@ namespace LitRevResourceMVP.Views
             // 
             // Rtbx_MainPoint
             // 
-            this.Rtbx_MainPoint.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.Rtbx_MainPoint.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Rtbx_MainPoint.Location = new System.Drawing.Point(7, 276);
             this.Rtbx_MainPoint.Name = "Rtbx_MainPoint";
@@ -270,7 +269,7 @@ namespace LitRevResourceMVP.Views
             this.Lbl_CatList.AutoSize = true;
             this.Lbl_CatList.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
             this.Lbl_CatList.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.Lbl_CatList.Location = new System.Drawing.Point(440, 228);
+            this.Lbl_CatList.Location = new System.Drawing.Point(440, 216);
             this.Lbl_CatList.Name = "Lbl_CatList";
             this.Lbl_CatList.Size = new System.Drawing.Size(329, 25);
             this.Lbl_CatList.TabIndex = 13;
@@ -282,7 +281,7 @@ namespace LitRevResourceMVP.Views
             this.Lbx_ViewResCategories.BackColor = System.Drawing.SystemColors.Control;
             this.Lbx_ViewResCategories.FormattingEnabled = true;
             this.Lbx_ViewResCategories.ItemHeight = 25;
-            this.Lbx_ViewResCategories.Location = new System.Drawing.Point(428, 256);
+            this.Lbx_ViewResCategories.Location = new System.Drawing.Point(428, 244);
             this.Lbx_ViewResCategories.MultiColumn = true;
             this.Lbx_ViewResCategories.Name = "Lbx_ViewResCategories";
             this.Lbx_ViewResCategories.SelectionMode = System.Windows.Forms.SelectionMode.None;
@@ -294,7 +293,7 @@ namespace LitRevResourceMVP.Views
             this.Lbl_SelectResource.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.Lbl_SelectResource.AutoSize = true;
-            this.Lbl_SelectResource.Location = new System.Drawing.Point(19, 288);
+            this.Lbl_SelectResource.Location = new System.Drawing.Point(19, 276);
             this.Lbl_SelectResource.Name = "Lbl_SelectResource";
             this.Lbl_SelectResource.Size = new System.Drawing.Size(322, 25);
             this.Lbl_SelectResource.TabIndex = 11;
@@ -325,7 +324,7 @@ namespace LitRevResourceMVP.Views
             this.dataGridViewAssign.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
             this.dataGridViewAssign.RowTemplate.Height = 33;
             this.dataGridViewAssign.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dataGridViewAssign.Size = new System.Drawing.Size(805, 191);
+            this.dataGridViewAssign.Size = new System.Drawing.Size(805, 178);
             this.dataGridViewAssign.TabIndex = 9;
             this.dataGridViewAssign.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewAssign_CellClick);
             // 
@@ -344,7 +343,7 @@ namespace LitRevResourceMVP.Views
             this.Btn_Close.BackColor = System.Drawing.Color.LightSteelBlue;
             this.Btn_Close.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Btn_Close.ForeColor = System.Drawing.Color.Black;
-            this.Btn_Close.Location = new System.Drawing.Point(632, 561);
+            this.Btn_Close.Location = new System.Drawing.Point(641, 584);
             this.Btn_Close.Name = "Btn_Close";
             this.Btn_Close.Size = new System.Drawing.Size(116, 46);
             this.Btn_Close.TabIndex = 7;
@@ -356,7 +355,7 @@ namespace LitRevResourceMVP.Views
             // 
             this.Btn_Edit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.Btn_Edit.BackColor = System.Drawing.Color.Lavender;
-            this.Btn_Edit.Location = new System.Drawing.Point(357, 562);
+            this.Btn_Edit.Location = new System.Drawing.Point(366, 585);
             this.Btn_Edit.Name = "Btn_Edit";
             this.Btn_Edit.Size = new System.Drawing.Size(142, 46);
             this.Btn_Edit.TabIndex = 4;
@@ -367,7 +366,7 @@ namespace LitRevResourceMVP.Views
             // 
             this.Tbx_Search.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.Tbx_Search.Location = new System.Drawing.Point(19, 238);
+            this.Tbx_Search.Location = new System.Drawing.Point(19, 226);
             this.Tbx_Search.Name = "Tbx_Search";
             this.Tbx_Search.PlaceholderText = "Enter resource Id or category";
             this.Tbx_Search.Size = new System.Drawing.Size(256, 31);
@@ -377,7 +376,7 @@ namespace LitRevResourceMVP.Views
             // 
             this.Btn_Search.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Btn_Search.BackColor = System.Drawing.Color.Lavender;
-            this.Btn_Search.Location = new System.Drawing.Point(281, 238);
+            this.Btn_Search.Location = new System.Drawing.Point(281, 226);
             this.Btn_Search.Name = "Btn_Search";
             this.Btn_Search.Size = new System.Drawing.Size(141, 31);
             this.Btn_Search.TabIndex = 1;
@@ -393,14 +392,14 @@ namespace LitRevResourceMVP.Views
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewResource.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewResource.Location = new System.Drawing.Point(6, 316);
+            this.dataGridViewResource.Location = new System.Drawing.Point(6, 304);
             this.dataGridViewResource.MultiSelect = false;
             this.dataGridViewResource.Name = "dataGridViewResource";
             this.dataGridViewResource.ReadOnly = true;
             this.dataGridViewResource.RowHeadersWidth = 62;
             this.dataGridViewResource.RowTemplate.Height = 33;
             this.dataGridViewResource.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dataGridViewResource.Size = new System.Drawing.Size(805, 240);
+            this.dataGridViewResource.Size = new System.Drawing.Size(805, 274);
             this.dataGridViewResource.TabIndex = 2;
             this.dataGridViewResource.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewResource_CellClick);
             // 
@@ -408,7 +407,7 @@ namespace LitRevResourceMVP.Views
             // 
             this.Btn_Delete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.Btn_Delete.BackColor = System.Drawing.Color.Lavender;
-            this.Btn_Delete.Location = new System.Drawing.Point(194, 561);
+            this.Btn_Delete.Location = new System.Drawing.Point(203, 584);
             this.Btn_Delete.Name = "Btn_Delete";
             this.Btn_Delete.Size = new System.Drawing.Size(142, 47);
             this.Btn_Delete.TabIndex = 5;
@@ -419,7 +418,7 @@ namespace LitRevResourceMVP.Views
             // 
             this.Btn_AddNew.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.Btn_AddNew.BackColor = System.Drawing.Color.Lavender;
-            this.Btn_AddNew.Location = new System.Drawing.Point(37, 561);
+            this.Btn_AddNew.Location = new System.Drawing.Point(46, 584);
             this.Btn_AddNew.Name = "Btn_AddNew";
             this.Btn_AddNew.Size = new System.Drawing.Size(142, 47);
             this.Btn_AddNew.TabIndex = 3;
