@@ -151,11 +151,26 @@ System corrections
  
 25. No indication a resource has been included in a file as a resource. Would be helpful.
 25.1. Added colomn to code and db 'ref in file'. Accept 3 chars yes/no in textbox, tried combobox
-	but couldn't set default 'no' to appear.
+	but couldn't set default 'no' to appear so stayed with textbox.
 	30/08/2022. Tested ok.
            
+26. Reference in file status not anchored, assignment edit needs 'save' added to add button.
+26.1. Actioned above.
+	26/09/2022
 
+27. Saving new or edited resource repeats so tries to do it for blank resource. 
+	Validation error appears listing all fields needs input. Resource does get saved.
+	Wasn't doing it before! Possibly sql connection failure so need to look at relevant
+	error message or...
+27.1 
 
+28. Pasting content results in larger font size. Cannot adjust. 
+	See ProfIssues assign project brief for example.
+28.1. Save resource and reopen, will display font in correct size set in project design.
+	No further action required.
+	06/10/2022
+
+29.  
 
 
 To Do List

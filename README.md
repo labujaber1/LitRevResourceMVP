@@ -41,22 +41,12 @@ the old deleted. If the string requires any additional settings such as timeout 
 its creation. The table is created directly from the app.config file so nothing is stored elsewhere. The user takes 
 responsibilty for the correct connection string entered as it is assumed they have some knowledge in this area. 
 
-An example connection string is included and will naturally not work so the database will need to be created and connection 
-string added before use. 
+An example connection string is included and will naturally not work until the database is created using a SQL script provided. 
 
 
-Further developemnt:
-Add ability to enter username and password on connection but not stored in connection string. Maybe write to file, use, and
-delete from file on close.
+Further developement:
 Add unit tests.
-Add graphs/tables when testing complete and used in real world. Not sure what would be useful.
-Adjust code in view that should be in presenter to keep to MPV design.###no need
 Add ability to use different databases such as ode, mysql, etc.
 Add ability to choose between embedded or external database.
-Add copy of current database as embedded.
-
 Either complete or delete connection wizard that searches for servers and databases. 
 Include a class to create embedded script?
-
-Completed:
-Change comments from code file to interface.

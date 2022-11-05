@@ -261,7 +261,7 @@ namespace LitRevResourceMVP.Views
             this.Btn_AddAssign.Name = "Btn_AddAssign";
             this.Btn_AddAssign.Size = new System.Drawing.Size(144, 73);
             this.Btn_AddAssign.TabIndex = 9;
-            this.Btn_AddAssign.Text = "Add";
+            this.Btn_AddAssign.Text = "Add/Save";
             this.Btn_AddAssign.UseVisualStyleBackColor = false;
             // 
             // Lbl_AssignDueDate

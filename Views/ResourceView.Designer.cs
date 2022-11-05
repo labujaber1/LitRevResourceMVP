@@ -469,6 +469,7 @@ namespace LitRevResourceMVP.Views
             // 
             // Tbx_RefInFile
             // 
+            this.Tbx_RefInFile.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.Tbx_RefInFile.Location = new System.Drawing.Point(580, 239);
             this.Tbx_RefInFile.Name = "Tbx_RefInFile";
             this.Tbx_RefInFile.Size = new System.Drawing.Size(73, 31);
