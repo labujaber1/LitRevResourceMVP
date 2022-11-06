@@ -14,9 +14,7 @@ The application has three forms to record a module, assignment, and resources. I
 therefore currently does not include any output to a file. A relational database, SQL express, was used in the 
 developement and so contains a dataset diagram for reference. 
 
-<div style="width:60px ; height:60px">
-![image 5](/LitRevResourceMVP/blob/master/LitRevResource5.jpg?raw=true "Module page")
-</div>
+![image 5](LitRevResource5.jpg "Module page")
 
 The user can create a module in the module form where existing modules will be displayed in a list. On completion
 it is then closed by the user and the assignment form opened. The module(s) will be displayed in a list which when
@@ -25,27 +23,21 @@ highlighted and the user closes the form when finished. The resources form is th
 in a table which the user clicks and a table opens below containing resources already created or blank. CRUD events
 are available for each form.
 
-<div style="width:60px ; height:60px">
-![image 3](/LitRevResourceMVP/blob/master/LitRevResource3.jpg?raw=true "Assignment page")
-</div>
+![image 3](LitRevResource3.jpg "Assignment page")
 
 Resources are created for an assignment which is linked to a module as shown in the model classes and dataset diagram.
 For each resource, which it is assumed will be gathered from the internet, an active web link will be displayed, if one
 is pasted in on creation. There are two rich text boxes to add notes about the resource and is intended to be used
 in the write up of the review. Naturally ctl-c can be used to copy/paste as no right click function is included.
 
-<div style="width:60px ; height:60px">
-![image 1](/LitRevResourceMVP/blob/master/LitRevResource1.jpg?raw=true "Resource page")
-</div>
+![image 1](LitRevResource1.jpg "Resource page")
 
 The resources include a category which is to be used to group resources that are linked to a specific area of the 
 review. The categories are displayed in a list for referal when adding/editing, which is taken from the database using
 a distinct sql query. They will therefore always be different for each assignment and can be changed by editing 
 resources.
 
-<div style="width:60px ; height:60px">
-![image 4](/LitRevResourceMVP/blob/master/LitRevResource4.jpg?raw=true "Add new resource")
-</div>
+![image 4](LitRevResource4.jpg "Add new resource")
 
 In the assignment main page a search function is included to search for a specific id number or group selection of resources
 by category. By category is to help write a literature review for example when comparing different points of view on the
@@ -62,9 +54,7 @@ the old deleted. If the string requires any additional settings such as timeout 
 its creation. The table is created directly from the app.config file so nothing is stored elsewhere. The user takes 
 responsibilty for the correct connection string entered as it is assumed they have some knowledge in this area. 
 
-<div style="width:60px ; height:60px">
-![image 2](/LitRevResourceMVP/blob/master/LitRevResource2.jpg?raw=true "Create connection string")
-</div>
+![image 2](LitRevResource2.jpg "Create connection string")
 
 An example connection string is included and will naturally not work until the database is created using a SQL script provided. 
 
