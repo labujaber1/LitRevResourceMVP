@@ -2,7 +2,7 @@
 # LitRevResourceMVP
 Record resources for assignments using MVP design C# winform .Netv5
 
-## Inspiration?
+## Inspiration
 The inspiration for this desktop application was found when, as a computer science student, a literature review was
 required as part of the final project. Completing a practice review soon realised the importance of organising 
 resources and identifing their relevence regardless of whether they were used or not. Argueing a point or comparing 
