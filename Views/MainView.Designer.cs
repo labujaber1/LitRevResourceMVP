@@ -48,7 +48,7 @@ namespace LitRevResourceMVP.Views
             this.Btn_MainModule.Name = "Btn_MainModule";
             this.Btn_MainModule.Size = new System.Drawing.Size(182, 63);
             this.Btn_MainModule.TabIndex = 2;
-            this.Btn_MainModule.Text = "CRUD Module";
+            this.Btn_MainModule.Text = "Module";
             this.Btn_MainModule.UseVisualStyleBackColor = false;
             // 
             // Btn_MainAssignments
@@ -59,7 +59,7 @@ namespace LitRevResourceMVP.Views
             this.Btn_MainAssignments.Name = "Btn_MainAssignments";
             this.Btn_MainAssignments.Size = new System.Drawing.Size(182, 63);
             this.Btn_MainAssignments.TabIndex = 1;
-            this.Btn_MainAssignments.Text = "CRUD Assignment";
+            this.Btn_MainAssignments.Text = "Assignment";
             this.Btn_MainAssignments.UseVisualStyleBackColor = false;
             // 
             // Btn_MainResource
@@ -70,7 +70,7 @@ namespace LitRevResourceMVP.Views
             this.Btn_MainResource.Name = "Btn_MainResource";
             this.Btn_MainResource.Size = new System.Drawing.Size(182, 63);
             this.Btn_MainResource.TabIndex = 0;
-            this.Btn_MainResource.Text = "CRUD Resources";
+            this.Btn_MainResource.Text = "Resources";
             this.Btn_MainResource.UseVisualStyleBackColor = false;
             // 
             // Lbl_MainMenu

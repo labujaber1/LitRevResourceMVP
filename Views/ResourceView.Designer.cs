@@ -478,6 +478,7 @@ namespace LitRevResourceMVP.Views
             // 
             // Lbl_RefInFile
             // 
+            this.Lbl_RefInFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Lbl_RefInFile.AutoSize = true;
             this.Lbl_RefInFile.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.Lbl_RefInFile.Location = new System.Drawing.Point(482, 242);
