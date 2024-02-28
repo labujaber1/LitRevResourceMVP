@@ -29,338 +29,359 @@ namespace LitRevResourceMVP.Views
         /// </summary>
         private void InitializeComponent()
         {
-            this.Btn_CloseDBConnSetup = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.Lbl_DBConnSetupTitle = new System.Windows.Forms.Label();
-            this.Btn_AddToList = new System.Windows.Forms.Button();
-            this.Tbx_Password = new System.Windows.Forms.TextBox();
-            this.Lbl_UserName = new System.Windows.Forms.Label();
-            this.Tbx_UserName = new System.Windows.Forms.TextBox();
-            this.Lbl_Password = new System.Windows.Forms.Label();
-            this.Btn_DeleteList = new System.Windows.Forms.Button();
-            this.Btn_EditList = new System.Windows.Forms.Button();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.Btn_ConnTest = new System.Windows.Forms.Button();
-            this.Tbx_SqlName = new System.Windows.Forms.TextBox();
-            this.Lbl_SqlName = new System.Windows.Forms.Label();
-            this.Lbl_ConnectionString = new System.Windows.Forms.Label();
-            this.Lbl_Provider = new System.Windows.Forms.Label();
-            this.Tbx_Provider = new System.Windows.Forms.TextBox();
-            this.Tbx_DataSource = new System.Windows.Forms.TextBox();
-            this.Tbx_InitCat = new System.Windows.Forms.TextBox();
-            this.Tbx_IntegSec = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.panel1.SuspendLayout();
-            this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.SuspendLayout();
+            Btn_CloseDBConnSetup = new System.Windows.Forms.Button();
+            panel1 = new System.Windows.Forms.Panel();
+            Lbl_DBConnSetupTitle = new System.Windows.Forms.Label();
+            Btn_AddToList = new System.Windows.Forms.Button();
+            Tbx_Password = new System.Windows.Forms.TextBox();
+            Lbl_UserName = new System.Windows.Forms.Label();
+            Tbx_UserName = new System.Windows.Forms.TextBox();
+            Lbl_Password = new System.Windows.Forms.Label();
+            Btn_DeleteList = new System.Windows.Forms.Button();
+            Btn_EditList = new System.Windows.Forms.Button();
+            panel4 = new System.Windows.Forms.Panel();
+            Btn_ConnTest = new System.Windows.Forms.Button();
+            Tbx_SqlName = new System.Windows.Forms.TextBox();
+            Lbl_SqlName = new System.Windows.Forms.Label();
+            Lbl_ConnectionString = new System.Windows.Forms.Label();
+            Lbl_Provider = new System.Windows.Forms.Label();
+            Tbx_Provider = new System.Windows.Forms.TextBox();
+            Tbx_DataSource = new System.Windows.Forms.TextBox();
+            Tbx_InitCat = new System.Windows.Forms.TextBox();
+            Tbx_IntegSec = new System.Windows.Forms.TextBox();
+            label1 = new System.Windows.Forms.Label();
+            dataGridView1 = new System.Windows.Forms.DataGridView();
+            groupBox1 = new System.Windows.Forms.GroupBox();
+            groupBox2 = new System.Windows.Forms.GroupBox();
+            label2 = new System.Windows.Forms.Label();
+            panel1.SuspendLayout();
+            panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            groupBox1.SuspendLayout();
+            groupBox2.SuspendLayout();
+            SuspendLayout();
             // 
             // Btn_CloseDBConnSetup
             // 
-            this.Btn_CloseDBConnSetup.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.Btn_CloseDBConnSetup.BackColor = System.Drawing.Color.OrangeRed;
-            this.Btn_CloseDBConnSetup.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Btn_CloseDBConnSetup.Location = new System.Drawing.Point(600, 24);
-            this.Btn_CloseDBConnSetup.Name = "Btn_CloseDBConnSetup";
-            this.Btn_CloseDBConnSetup.Size = new System.Drawing.Size(168, 51);
-            this.Btn_CloseDBConnSetup.TabIndex = 0;
-            this.Btn_CloseDBConnSetup.Text = "Close";
-            this.Btn_CloseDBConnSetup.UseVisualStyleBackColor = false;
-            this.Btn_CloseDBConnSetup.Click += new System.EventHandler(this.Btn_CloseDBConnSetup_Click);
+            Btn_CloseDBConnSetup.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+            Btn_CloseDBConnSetup.BackColor = System.Drawing.Color.OrangeRed;
+            Btn_CloseDBConnSetup.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            Btn_CloseDBConnSetup.Location = new System.Drawing.Point(480, 10);
+            Btn_CloseDBConnSetup.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            Btn_CloseDBConnSetup.Name = "Btn_CloseDBConnSetup";
+            Btn_CloseDBConnSetup.Size = new System.Drawing.Size(134, 58);
+            Btn_CloseDBConnSetup.TabIndex = 0;
+            Btn_CloseDBConnSetup.Text = "Close";
+            Btn_CloseDBConnSetup.UseVisualStyleBackColor = false;
+            Btn_CloseDBConnSetup.Click += Btn_CloseDBConnSetup_Click;
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.BlueViolet;
-            this.panel1.Controls.Add(this.Lbl_DBConnSetupTitle);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(804, 68);
-            this.panel1.TabIndex = 1;
+            panel1.BackColor = System.Drawing.Color.MediumPurple;
+            panel1.Controls.Add(Lbl_DBConnSetupTitle);
+            panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            panel1.Location = new System.Drawing.Point(0, 0);
+            panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            panel1.Name = "panel1";
+            panel1.Size = new System.Drawing.Size(643, 54);
+            panel1.TabIndex = 1;
             // 
             // Lbl_DBConnSetupTitle
             // 
-            this.Lbl_DBConnSetupTitle.AutoSize = true;
-            this.Lbl_DBConnSetupTitle.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Lbl_DBConnSetupTitle.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.Lbl_DBConnSetupTitle.Location = new System.Drawing.Point(187, 9);
-            this.Lbl_DBConnSetupTitle.Name = "Lbl_DBConnSetupTitle";
-            this.Lbl_DBConnSetupTitle.Size = new System.Drawing.Size(491, 45);
-            this.Lbl_DBConnSetupTitle.TabIndex = 0;
-            this.Lbl_DBConnSetupTitle.Text = "Database Connection setup page";
+            Lbl_DBConnSetupTitle.AutoSize = true;
+            Lbl_DBConnSetupTitle.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            Lbl_DBConnSetupTitle.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            Lbl_DBConnSetupTitle.Location = new System.Drawing.Point(150, 7);
+            Lbl_DBConnSetupTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            Lbl_DBConnSetupTitle.Name = "Lbl_DBConnSetupTitle";
+            Lbl_DBConnSetupTitle.Size = new System.Drawing.Size(410, 37);
+            Lbl_DBConnSetupTitle.TabIndex = 0;
+            Lbl_DBConnSetupTitle.Text = "Database Connection setup page";
             // 
             // Btn_AddToList
             // 
-            this.Btn_AddToList.BackColor = System.Drawing.Color.Chartreuse;
-            this.Btn_AddToList.Location = new System.Drawing.Point(578, 132);
-            this.Btn_AddToList.Name = "Btn_AddToList";
-            this.Btn_AddToList.Size = new System.Drawing.Size(185, 51);
-            this.Btn_AddToList.TabIndex = 2;
-            this.Btn_AddToList.Text = "Add (to app config)";
-            this.Btn_AddToList.UseVisualStyleBackColor = false;
+            Btn_AddToList.BackColor = System.Drawing.Color.PaleGreen;
+            Btn_AddToList.Location = new System.Drawing.Point(462, 103);
+            Btn_AddToList.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            Btn_AddToList.Name = "Btn_AddToList";
+            Btn_AddToList.Size = new System.Drawing.Size(148, 53);
+            Btn_AddToList.TabIndex = 2;
+            Btn_AddToList.Text = "Add (to app config)";
+            Btn_AddToList.UseVisualStyleBackColor = false;
             // 
             // Tbx_Password
             // 
-            this.Tbx_Password.BackColor = System.Drawing.SystemColors.MenuBar;
-            this.Tbx_Password.Location = new System.Drawing.Point(291, 152);
-            this.Tbx_Password.Name = "Tbx_Password";
-            this.Tbx_Password.PlaceholderText = "Leave blank if not required";
-            this.Tbx_Password.Size = new System.Drawing.Size(272, 31);
-            this.Tbx_Password.TabIndex = 3;
-            this.Tbx_Password.Visible = false;
+            Tbx_Password.BackColor = System.Drawing.SystemColors.MenuBar;
+            Tbx_Password.Location = new System.Drawing.Point(233, 122);
+            Tbx_Password.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            Tbx_Password.Name = "Tbx_Password";
+            Tbx_Password.PlaceholderText = "Leave blank if not required";
+            Tbx_Password.Size = new System.Drawing.Size(218, 27);
+            Tbx_Password.TabIndex = 3;
+            Tbx_Password.Visible = false;
             // 
             // Lbl_UserName
             // 
-            this.Lbl_UserName.AutoSize = true;
-            this.Lbl_UserName.Location = new System.Drawing.Point(18, 124);
-            this.Lbl_UserName.Name = "Lbl_UserName";
-            this.Lbl_UserName.Size = new System.Drawing.Size(96, 25);
-            this.Lbl_UserName.TabIndex = 0;
-            this.Lbl_UserName.Text = "User name";
-            this.Lbl_UserName.Visible = false;
+            Lbl_UserName.AutoSize = true;
+            Lbl_UserName.Location = new System.Drawing.Point(14, 99);
+            Lbl_UserName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            Lbl_UserName.Name = "Lbl_UserName";
+            Lbl_UserName.Size = new System.Drawing.Size(79, 20);
+            Lbl_UserName.TabIndex = 0;
+            Lbl_UserName.Text = "User name";
+            Lbl_UserName.Visible = false;
             // 
             // Tbx_UserName
             // 
-            this.Tbx_UserName.BackColor = System.Drawing.SystemColors.MenuBar;
-            this.Tbx_UserName.Location = new System.Drawing.Point(18, 152);
-            this.Tbx_UserName.Name = "Tbx_UserName";
-            this.Tbx_UserName.PlaceholderText = "Leave blank if not required";
-            this.Tbx_UserName.Size = new System.Drawing.Size(258, 31);
-            this.Tbx_UserName.TabIndex = 2;
-            this.Tbx_UserName.Visible = false;
+            Tbx_UserName.BackColor = System.Drawing.SystemColors.MenuBar;
+            Tbx_UserName.Location = new System.Drawing.Point(14, 122);
+            Tbx_UserName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            Tbx_UserName.Name = "Tbx_UserName";
+            Tbx_UserName.PlaceholderText = "Leave blank if not required";
+            Tbx_UserName.Size = new System.Drawing.Size(207, 27);
+            Tbx_UserName.TabIndex = 2;
+            Tbx_UserName.Visible = false;
             // 
             // Lbl_Password
             // 
-            this.Lbl_Password.AutoSize = true;
-            this.Lbl_Password.Location = new System.Drawing.Point(291, 124);
-            this.Lbl_Password.Name = "Lbl_Password";
-            this.Lbl_Password.Size = new System.Drawing.Size(87, 25);
-            this.Lbl_Password.TabIndex = 1;
-            this.Lbl_Password.Text = "Password";
-            this.Lbl_Password.Visible = false;
+            Lbl_Password.AutoSize = true;
+            Lbl_Password.Location = new System.Drawing.Point(233, 99);
+            Lbl_Password.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            Lbl_Password.Name = "Lbl_Password";
+            Lbl_Password.Size = new System.Drawing.Size(70, 20);
+            Lbl_Password.TabIndex = 1;
+            Lbl_Password.Text = "Password";
+            Lbl_Password.Visible = false;
             // 
             // Btn_DeleteList
             // 
-            this.Btn_DeleteList.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.Btn_DeleteList.BackColor = System.Drawing.Color.Red;
-            this.Btn_DeleteList.Location = new System.Drawing.Point(30, 24);
-            this.Btn_DeleteList.Name = "Btn_DeleteList";
-            this.Btn_DeleteList.Size = new System.Drawing.Size(112, 51);
-            this.Btn_DeleteList.TabIndex = 4;
-            this.Btn_DeleteList.Text = "Delete row";
-            this.Btn_DeleteList.UseVisualStyleBackColor = false;
+            Btn_DeleteList.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            Btn_DeleteList.BackColor = System.Drawing.Color.OrangeRed;
+            Btn_DeleteList.Location = new System.Drawing.Point(24, 10);
+            Btn_DeleteList.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            Btn_DeleteList.Name = "Btn_DeleteList";
+            Btn_DeleteList.Size = new System.Drawing.Size(90, 58);
+            Btn_DeleteList.TabIndex = 4;
+            Btn_DeleteList.Text = "Delete row";
+            Btn_DeleteList.UseVisualStyleBackColor = false;
             // 
             // Btn_EditList
             // 
-            this.Btn_EditList.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.Btn_EditList.BackColor = System.Drawing.Color.Chartreuse;
-            this.Btn_EditList.Location = new System.Drawing.Point(332, 24);
-            this.Btn_EditList.Name = "Btn_EditList";
-            this.Btn_EditList.Size = new System.Drawing.Size(231, 51);
-            this.Btn_EditList.TabIndex = 3;
-            this.Btn_EditList.Text = "Save table (to app.config)";
-            this.Btn_EditList.UseVisualStyleBackColor = false;
+            Btn_EditList.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            Btn_EditList.BackColor = System.Drawing.Color.PaleGreen;
+            Btn_EditList.Location = new System.Drawing.Point(266, 10);
+            Btn_EditList.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            Btn_EditList.Name = "Btn_EditList";
+            Btn_EditList.Size = new System.Drawing.Size(185, 58);
+            Btn_EditList.TabIndex = 3;
+            Btn_EditList.Text = "Save table (to app.config)";
+            Btn_EditList.UseVisualStyleBackColor = false;
             // 
             // panel4
             // 
-            this.panel4.BackColor = System.Drawing.Color.BlueViolet;
-            this.panel4.Controls.Add(this.Btn_CloseDBConnSetup);
-            this.panel4.Controls.Add(this.Btn_ConnTest);
-            this.panel4.Controls.Add(this.Btn_EditList);
-            this.panel4.Controls.Add(this.Btn_DeleteList);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel4.Location = new System.Drawing.Point(0, 581);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(804, 100);
-            this.panel4.TabIndex = 4;
+            panel4.BackColor = System.Drawing.Color.MediumPurple;
+            panel4.Controls.Add(Btn_CloseDBConnSetup);
+            panel4.Controls.Add(Btn_ConnTest);
+            panel4.Controls.Add(Btn_EditList);
+            panel4.Controls.Add(Btn_DeleteList);
+            panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
+            panel4.Location = new System.Drawing.Point(0, 465);
+            panel4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            panel4.Name = "panel4";
+            panel4.Size = new System.Drawing.Size(643, 80);
+            panel4.TabIndex = 4;
             // 
             // Btn_ConnTest
             // 
-            this.Btn_ConnTest.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.Btn_ConnTest.BackColor = System.Drawing.Color.Orange;
-            this.Btn_ConnTest.Location = new System.Drawing.Point(148, 24);
-            this.Btn_ConnTest.Name = "Btn_ConnTest";
-            this.Btn_ConnTest.Size = new System.Drawing.Size(178, 51);
-            this.Btn_ConnTest.TabIndex = 1;
-            this.Btn_ConnTest.Text = "Test connection";
-            this.Btn_ConnTest.UseVisualStyleBackColor = false;
+            Btn_ConnTest.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            Btn_ConnTest.BackColor = System.Drawing.Color.SandyBrown;
+            Btn_ConnTest.Location = new System.Drawing.Point(118, 10);
+            Btn_ConnTest.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            Btn_ConnTest.Name = "Btn_ConnTest";
+            Btn_ConnTest.Size = new System.Drawing.Size(142, 58);
+            Btn_ConnTest.TabIndex = 1;
+            Btn_ConnTest.Text = "Test connection";
+            Btn_ConnTest.UseVisualStyleBackColor = false;
             // 
             // Tbx_SqlName
             // 
-            this.Tbx_SqlName.Location = new System.Drawing.Point(17, 53);
-            this.Tbx_SqlName.Name = "Tbx_SqlName";
-            this.Tbx_SqlName.Size = new System.Drawing.Size(349, 31);
-            this.Tbx_SqlName.TabIndex = 0;
+            Tbx_SqlName.Location = new System.Drawing.Point(14, 42);
+            Tbx_SqlName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            Tbx_SqlName.Name = "Tbx_SqlName";
+            Tbx_SqlName.Size = new System.Drawing.Size(280, 27);
+            Tbx_SqlName.TabIndex = 0;
             // 
             // Lbl_SqlName
             // 
-            this.Lbl_SqlName.AutoSize = true;
-            this.Lbl_SqlName.Location = new System.Drawing.Point(17, 22);
-            this.Lbl_SqlName.Name = "Lbl_SqlName";
-            this.Lbl_SqlName.Size = new System.Drawing.Size(59, 25);
-            this.Lbl_SqlName.TabIndex = 4;
-            this.Lbl_SqlName.Text = "Name";
+            Lbl_SqlName.AutoSize = true;
+            Lbl_SqlName.Location = new System.Drawing.Point(14, 18);
+            Lbl_SqlName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            Lbl_SqlName.Name = "Lbl_SqlName";
+            Lbl_SqlName.Size = new System.Drawing.Size(49, 20);
+            Lbl_SqlName.TabIndex = 4;
+            Lbl_SqlName.Text = "Name";
             // 
             // Lbl_ConnectionString
             // 
-            this.Lbl_ConnectionString.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Lbl_ConnectionString.AutoSize = true;
-            this.Lbl_ConnectionString.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
-            this.Lbl_ConnectionString.Location = new System.Drawing.Point(18, 33);
-            this.Lbl_ConnectionString.Name = "Lbl_ConnectionString";
-            this.Lbl_ConnectionString.Size = new System.Drawing.Size(631, 25);
-            this.Lbl_ConnectionString.TabIndex = 5;
-            this.Lbl_ConnectionString.Text = "Edit table directly and then save. SqlConnection coded in program.cs as name. ";
+            Lbl_ConnectionString.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            Lbl_ConnectionString.AutoSize = true;
+            Lbl_ConnectionString.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
+            Lbl_ConnectionString.Location = new System.Drawing.Point(14, 26);
+            Lbl_ConnectionString.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            Lbl_ConnectionString.Name = "Lbl_ConnectionString";
+            Lbl_ConnectionString.Size = new System.Drawing.Size(509, 20);
+            Lbl_ConnectionString.TabIndex = 5;
+            Lbl_ConnectionString.Text = "Edit table directly and then save. SqlConnection coded in program.cs as name. ";
             // 
             // Lbl_Provider
             // 
-            this.Lbl_Provider.AutoSize = true;
-            this.Lbl_Provider.Location = new System.Drawing.Point(405, 22);
-            this.Lbl_Provider.Name = "Lbl_Provider";
-            this.Lbl_Provider.Size = new System.Drawing.Size(125, 25);
-            this.Lbl_Provider.TabIndex = 8;
-            this.Lbl_Provider.Text = "ProviderName";
+            Lbl_Provider.AutoSize = true;
+            Lbl_Provider.Location = new System.Drawing.Point(324, 18);
+            Lbl_Provider.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            Lbl_Provider.Name = "Lbl_Provider";
+            Lbl_Provider.Size = new System.Drawing.Size(104, 20);
+            Lbl_Provider.TabIndex = 8;
+            Lbl_Provider.Text = "ProviderName";
             // 
             // Tbx_Provider
             // 
-            this.Tbx_Provider.Location = new System.Drawing.Point(405, 53);
-            this.Tbx_Provider.Name = "Tbx_Provider";
-            this.Tbx_Provider.Size = new System.Drawing.Size(358, 31);
-            this.Tbx_Provider.TabIndex = 9;
+            Tbx_Provider.Location = new System.Drawing.Point(324, 42);
+            Tbx_Provider.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            Tbx_Provider.Name = "Tbx_Provider";
+            Tbx_Provider.Size = new System.Drawing.Size(287, 27);
+            Tbx_Provider.TabIndex = 9;
             // 
             // Tbx_DataSource
             // 
-            this.Tbx_DataSource.Location = new System.Drawing.Point(76, 90);
-            this.Tbx_DataSource.Name = "Tbx_DataSource";
-            this.Tbx_DataSource.PlaceholderText = "Enter data source";
-            this.Tbx_DataSource.Size = new System.Drawing.Size(237, 31);
-            this.Tbx_DataSource.TabIndex = 10;
+            Tbx_DataSource.Location = new System.Drawing.Point(61, 72);
+            Tbx_DataSource.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            Tbx_DataSource.Name = "Tbx_DataSource";
+            Tbx_DataSource.PlaceholderText = "Enter data source";
+            Tbx_DataSource.Size = new System.Drawing.Size(190, 27);
+            Tbx_DataSource.TabIndex = 10;
             // 
             // Tbx_InitCat
             // 
-            this.Tbx_InitCat.Location = new System.Drawing.Point(320, 90);
-            this.Tbx_InitCat.Name = "Tbx_InitCat";
-            this.Tbx_InitCat.PlaceholderText = "Enter initial catalog";
-            this.Tbx_InitCat.Size = new System.Drawing.Size(264, 31);
-            this.Tbx_InitCat.TabIndex = 11;
+            Tbx_InitCat.Location = new System.Drawing.Point(256, 72);
+            Tbx_InitCat.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            Tbx_InitCat.Name = "Tbx_InitCat";
+            Tbx_InitCat.PlaceholderText = "Enter initial catalog";
+            Tbx_InitCat.Size = new System.Drawing.Size(212, 27);
+            Tbx_InitCat.TabIndex = 11;
             // 
             // Tbx_IntegSec
             // 
-            this.Tbx_IntegSec.Location = new System.Drawing.Point(590, 91);
-            this.Tbx_IntegSec.Name = "Tbx_IntegSec";
-            this.Tbx_IntegSec.PlaceholderText = "Integrated security";
-            this.Tbx_IntegSec.Size = new System.Drawing.Size(173, 31);
-            this.Tbx_IntegSec.TabIndex = 12;
-            this.Tbx_IntegSec.Text = "True";
+            Tbx_IntegSec.Location = new System.Drawing.Point(472, 73);
+            Tbx_IntegSec.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            Tbx_IntegSec.Name = "Tbx_IntegSec";
+            Tbx_IntegSec.PlaceholderText = "Integrated security";
+            Tbx_IntegSec.Size = new System.Drawing.Size(139, 27);
+            Tbx_IntegSec.TabIndex = 12;
+            Tbx_IntegSec.Text = "True";
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(17, 91);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(37, 25);
-            this.label1.TabIndex = 13;
-            this.label1.Text = "OR";
+            label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(14, 73);
+            label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(29, 20);
+            label1.TabIndex = 13;
+            label1.Text = "OR";
             // 
             // dataGridView1
             // 
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ControlLight;
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(17, 61);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 62;
-            this.dataGridView1.RowTemplate.Height = 33;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(751, 187);
-            this.dataGridView1.TabIndex = 16;
+            dataGridView1.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            dataGridView1.BackgroundColor = System.Drawing.SystemColors.ControlLight;
+            dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
+            dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new System.Drawing.Point(14, 49);
+            dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersWidth = 62;
+            dataGridView1.RowTemplate.Height = 33;
+            dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            dataGridView1.Size = new System.Drawing.Size(601, 150);
+            dataGridView1.TabIndex = 16;
             // 
             // groupBox1
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.groupBox1.Controls.Add(this.Tbx_Provider);
-            this.groupBox1.Controls.Add(this.Tbx_SqlName);
-            this.groupBox1.Controls.Add(this.Btn_AddToList);
-            this.groupBox1.Controls.Add(this.Lbl_SqlName);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.Tbx_UserName);
-            this.groupBox1.Controls.Add(this.Tbx_Password);
-            this.groupBox1.Controls.Add(this.Lbl_UserName);
-            this.groupBox1.Controls.Add(this.Lbl_Password);
-            this.groupBox1.Controls.Add(this.Lbl_Provider);
-            this.groupBox1.Controls.Add(this.Tbx_IntegSec);
-            this.groupBox1.Controls.Add(this.Tbx_DataSource);
-            this.groupBox1.Controls.Add(this.Tbx_InitCat);
-            this.groupBox1.Location = new System.Drawing.Point(12, 74);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(779, 200);
-            this.groupBox1.TabIndex = 17;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Add a new connection";
+            groupBox1.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            groupBox1.BackColor = System.Drawing.Color.LightSteelBlue;
+            groupBox1.Controls.Add(Tbx_Provider);
+            groupBox1.Controls.Add(Tbx_SqlName);
+            groupBox1.Controls.Add(Btn_AddToList);
+            groupBox1.Controls.Add(Lbl_SqlName);
+            groupBox1.Controls.Add(label1);
+            groupBox1.Controls.Add(Tbx_UserName);
+            groupBox1.Controls.Add(Tbx_Password);
+            groupBox1.Controls.Add(Lbl_UserName);
+            groupBox1.Controls.Add(Lbl_Password);
+            groupBox1.Controls.Add(Lbl_Provider);
+            groupBox1.Controls.Add(Tbx_IntegSec);
+            groupBox1.Controls.Add(Tbx_DataSource);
+            groupBox1.Controls.Add(Tbx_InitCat);
+            groupBox1.Location = new System.Drawing.Point(10, 59);
+            groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            groupBox1.Size = new System.Drawing.Size(623, 171);
+            groupBox1.TabIndex = 17;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "Add a new connection";
             // 
             // groupBox2
             // 
-            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox2.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Controls.Add(this.dataGridView1);
-            this.groupBox2.Controls.Add(this.Lbl_ConnectionString);
-            this.groupBox2.Location = new System.Drawing.Point(12, 292);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(780, 283);
-            this.groupBox2.TabIndex = 14;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Connection string(s) in debug/app.config or .dll.config when live ";
+            groupBox2.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            groupBox2.BackColor = System.Drawing.Color.LightSteelBlue;
+            groupBox2.Controls.Add(label2);
+            groupBox2.Controls.Add(dataGridView1);
+            groupBox2.Controls.Add(Lbl_ConnectionString);
+            groupBox2.Location = new System.Drawing.Point(10, 234);
+            groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            groupBox2.Name = "groupBox2";
+            groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            groupBox2.Size = new System.Drawing.Size(624, 226);
+            groupBox2.TabIndex = 14;
+            groupBox2.TabStop = false;
+            groupBox2.Text = "Connection string(s) in debug/app.config or .dll.config when live ";
             // 
             // label2
             // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 7F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(17, 255);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(616, 19);
-            this.label2.TabIndex = 17;
-            this.label2.Text = "* Connection name is readonly, to edit a new connection must be added and the old" +
-    " one deleted.";
+            label2.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            label2.AutoSize = true;
+            label2.Font = new System.Drawing.Font("Segoe UI", 7F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
+            label2.Location = new System.Drawing.Point(14, 204);
+            label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(512, 15);
+            label2.TabIndex = 17;
+            label2.Text = "* Connection name is readonly, to edit a new connection must be added and the old one deleted.";
             // 
             // DBConnSetupView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.LightCoral;
-            this.ClientSize = new System.Drawing.Size(804, 681);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.panel4);
-            this.Controls.Add(this.panel1);
-            this.Name = "DBConnSetupView";
-            this.Text = "DBConnSetupView";
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.ResumeLayout(false);
-
+            AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            BackColor = System.Drawing.Color.LightGray;
+            ClientSize = new System.Drawing.Size(643, 545);
+            Controls.Add(groupBox2);
+            Controls.Add(groupBox1);
+            Controls.Add(panel4);
+            Controls.Add(panel1);
+            Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            Name = "DBConnSetupView";
+            Text = "DBConnSetupView";
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            panel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
+            groupBox2.ResumeLayout(false);
+            groupBox2.PerformLayout();
+            ResumeLayout(false);
         }
 
         #endregion

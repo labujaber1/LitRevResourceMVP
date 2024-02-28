@@ -15,7 +15,7 @@ namespace LitRevResourceMVP.Views
         {
             InitializeComponent();
             AssociateAndRaiseViewEvents();
-            
+
         }
 
         //fields
@@ -39,7 +39,7 @@ namespace LitRevResourceMVP.Views
         /// Test connection string event handler
         /// </summary>
         public event EventHandler TestConnEvent;
-        
+
         /// <summary>
         /// Invokes events on DBConn setup.
         /// </summary>
@@ -175,9 +175,9 @@ namespace LitRevResourceMVP.Views
         /// Returns index of selected item: 
         /// dataGridView1.CurrentCell.RowIndex
         /// </summary>
-        public int IndexRow 
+        public int IndexRow
         {
-            get { return dataGridView1.CurrentCell.RowIndex;  }
+            get { return dataGridView1.CurrentCell.RowIndex; }
             set { _ = dataGridView1.CurrentCell.RowIndex; }
         }
 
@@ -206,7 +206,7 @@ namespace LitRevResourceMVP.Views
         {
             //dataGridView1.Rows.Remove(dataGridView1.CurrentCell.OwningRow);
             int index = IndexRow;
-            dataGridView1.Rows.RemoveAt(index) ;
+            dataGridView1.Rows.RemoveAt(index);
         }
 
 
@@ -238,6 +238,6 @@ namespace LitRevResourceMVP.Views
             return instance;
         }
 
-        
+
     }
 }
